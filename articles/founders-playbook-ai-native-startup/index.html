@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Founder’s Playbook：Building an AI-Native Startup | sherlockagent</title>
+<meta name="description" content="Anthropic 36 页 The Founder’s Playbook 的中文长版讲解，按原手册章节结构保留 Idea、MVP、Launch、Scale、Resources。">
+<style>
+  :root {
+    --paper: #f7f6f1;
+    --page: #fffefa;
+    --ink: #141414;
+    --muted: #64645f;
+    --line: #d9d6ca;
+    --heavy: #23231f;
+    --blue: #245c73;
+    --red: #b6362f;
+    --yellow: #e8c766;
+    --green: #4d765f;
+    --soft-blue: #e7f0f2;
+    --soft-yellow: #fff5cf;
+    --soft-green: #e8f2e8;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+  .page {
+    width: min(1120px, calc(100% - 40px));
+    margin: 32px auto;
+    background: var(--page);
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .08);
+  }
+
+  .cover {
+    min-height: 86vh;
+    padding: clamp(36px, 6vw, 76px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border-bottom: 1px solid var(--heavy);
+  }
+
+  .eyebrow,
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  .eyebrow { color: var(--red); }
+
+  h1 {
+    align-self: center;
+    margin: 46px 0;
+    font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+    font-size: clamp(42px, 9vw, 116px);
+    line-height: .92;
+    letter-spacing: 0;
+    max-width: 920px;
+    width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .cover-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 28px;
+    align-items: end;
+  }
+
+  .dek {
+    margin: 0;
+    max-width: 710px;
+    color: var(--muted);
+    font-size: clamp(17px, 2vw, 24px);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .stamp {
+    border: 1.5px solid var(--heavy);
+    padding: 14px;
+    font-size: 13px;
+    background: var(--soft-blue);
+  }
+
+  .toc {
+    padding: 42px clamp(24px, 5vw, 64px);
+    border-bottom: 1px solid var(--heavy);
+  }
+
+  .toc h2,
+  .chapter-title {
+    margin: 0;
+    font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+    font-size: clamp(34px, 5.2vw, 66px);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .toc-grid {
+    margin-top: 28px;
+    display: grid;
+    border-top: 1px solid var(--line);
+  }
+
+  .toc-row {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr) 72px;
+    gap: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .toc-row span:first-child,
+  .toc-row span:last-child {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .chapter {
+    padding: 58px clamp(24px, 5vw, 64px);
+    border-bottom: 1px solid var(--heavy);
+  }
+
+  .chapter-head {
+    display: grid;
+    grid-template-columns: 118px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 34px;
+  }
+
+  .chapter-no {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--red);
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .lead {
+    margin: 0 0 24px;
+    font-size: 21px;
+    line-height: 1.65;
+    color: var(--heavy);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .58fr);
+    gap: 34px;
+  }
+
+  .prose p {
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  .prose h3,
+  .side h3 {
+    margin: 30px 0 12px;
+    font-size: 23px;
+    line-height: 1.25;
+  }
+
+  .prose h4 {
+    margin: 24px 0 8px;
+    font-size: 17px;
+    color: var(--blue);
+  }
+
+  .note,
+  .exercise,
+  .side-card {
+    border: 1.5px solid var(--heavy);
+    background: var(--page);
+    padding: 18px;
+    margin: 18px 0;
+  }
+
+  .exercise { background: var(--soft-yellow); }
+  .note { background: var(--soft-blue); }
+  .side-card { background: var(--soft-green); }
+
+  .box-title {
+    margin-bottom: 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  ul,
+  ol {
+    padding-left: 22px;
+    margin: 10px 0 18px;
+    color: var(--muted);
+  }
+
+  li { margin: 7px 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14px;
+    table-layout: fixed;
+  }
+
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 8px;
+  }
+
+  th {
+    color: var(--heavy);
+    background: rgba(0,0,0,.035);
+    font-size: 12px;
+  }
+
+  td { color: var(--muted); }
+
+  .stage-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--heavy);
+    border: 1px solid var(--heavy);
+    margin: 24px 0;
+  }
+
+  .stage-card {
+    background: var(--page);
+    padding: 18px;
+    min-height: 185px;
+  }
+
+  .stage-card:nth-child(1) { background: var(--soft-green); }
+  .stage-card:nth-child(3) { background: var(--soft-yellow); }
+
+  .stage-card b {
+    display: block;
+    margin-bottom: 10px;
+    font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  .stage-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .quote {
+    margin: 28px 0;
+    padding: 26px 28px;
+    background: var(--heavy);
+    color: var(--page);
+    font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.12;
+  }
+
+  .resources {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .resource-card {
+    border: 1px solid var(--line);
+    padding: 16px;
+    background: rgba(255,255,255,.52);
+  }
+
+  .resource-card b {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .resource-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 32px clamp(24px, 5vw, 64px) 48px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  @media (max-width: 860px) {
+    .page { overflow: hidden; }
+
+    .page {
+      width: min(100% - 18px, 1120px);
+      margin: 9px auto;
+    }
+
+    .cover { min-height: auto; }
+
+    .cover-bottom,
+    .chapter-head,
+    .content-grid,
+    .resources {
+      grid-template-columns: 1fr;
+    }
+
+    .stage-strip {
+      grid-template-columns: 1fr;
+    }
+
+    .toc-row {
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .toc-row span:last-child { display: none; }
+
+    .toc-row span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .toc-row span:nth-child(2) {
+      white-space: normal;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    h1 {
+      font-size: 35px;
+      line-height: .96;
+      max-width: 310px;
+    }
+
+    .cover { padding-left: 26px; padding-right: 26px; }
+
+    .eyebrow {
+      max-width: 295px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .dek {
+      max-width: 300px;
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="cover">
+    <div class="eyebrow">Anthropic / Claude · 36-page playbook · Chinese reading edition</div>
+    <h1>The Founder’s Playbook:<br>Building an AI-Native Startup</h1>
+    <div class="cover-bottom">
+      <p class="dek">一份按原手册结构重写的中文长版讲解：保留 Idea、MVP、Launch、Scale 四阶段的目标、退出条件、挑战、Claude 用法、练习和资源，但用中文转述为适合阅读与复盘的创业手册。</p>
+      <div class="stamp">
+        <div class="mono">Source</div>
+        Anthropic / Claude<br>
+        Published: 2026-05-14<br>
+        PDF: 36 pages
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="目录">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <a class="toc-row" href="#chapter-1"><span>Ch.01</span><span>The startup lifecycle, rebooted for 2026</span><span>03</span></a>
+      <a class="toc-row" href="#chapter-2"><span>Ch.02</span><span>What it means to be a founder is changing</span><span>05</span></a>
+      <a class="toc-row" href="#chapter-3"><span>Ch.03</span><span>Idea Stage</span><span>08</span></a>
+      <a class="toc-row" href="#chapter-4"><span>Ch.04</span><span>MVP Stage</span><span>15</span></a>
+      <a class="toc-row" href="#chapter-5"><span>Ch.05</span><span>Launch Stage</span><span>21</span></a>
+      <a class="toc-row" href="#chapter-6"><span>Ch.06</span><span>Scale Stage</span><span>25</span></a>
+      <a class="toc-row" href="#chapter-7"><span>Ch.07</span><span>Same job, new rules</span><span>31</span></a>
+      <a class="toc-row" href="#resources"><span>Res.</span><span>Resources</span><span>33</span></a>
+    </div>
+  </nav>
+
+  <section class="chapter" id="chapter-1">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 1</div>
+      <h2 class="chapter-title">The startup lifecycle, rebooted for 2026</h2>
+    </div>
+    <p class="lead">AI 没有让创业变成另一件事；它改变的是创业路径的成本结构。过去需要团队、融资和长周期的任务，现在可以由创始人直接编排 AI 系统完成。</p>
+    <div class="stage-strip">
+      <div class="stage-card"><b>Idea</b><p>先验证问题是否值得做。AI 是研究伙伴和反方辩手。</p></div>
+      <div class="stage-card"><b>MVP</b><p>把问题转成最小产品。AI 是工程团队，但必须被上下文约束。</p></div>
+      <div class="stage-card"><b>Launch</b><p>把 traction 变成业务系统。AI 帮你跑运营、合规和产品流程。</p></div>
+      <div class="stage-card"><b>Scale</b><p>让组织成熟并形成护城河。AI 沉淀数据、工作流和领域上下文。</p></div>
+    </div>
+    <div class="content-grid">
+      <div class="prose">
+        <p>AI 可以写生产代码、做市场研究、合成竞争格局、起草投资人材料、自动化运营流程。它真正压缩的是从想法到产品、从产品到业务、从业务到组织的距离。</p>
+        <p>传统路径默认创业会经历验证、融资、招人、构建、再融资、增长、继续招人。手册给出的新路径，是把每个阶段重新定义成“证据门槛”。进入下一阶段的依据不是团队人数，而是你是否拿到了足够证据。</p>
+        <div class="quote">新的瓶颈不再是“能不能做出来”，而是“该不该做、先做什么、何时停止”。</div>
+      </div>
+      <aside class="side">
+        <div class="side-card">
+          <div class="box-title">Core shift</div>
+          <p>AI 原生创业不是传统公司加 AI 功能，而是从第一天把 AI 当作研发、研究、运营和组织基础设施。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="chapter-2">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 2</div>
+      <h2 class="chapter-title">What it means to be a founder is changing</h2>
+    </div>
+    <div class="content-grid">
+      <div class="prose">
+        <p>过去创始人的分工常常被技能边界决定：技术创始人写代码，非技术创始人负责销售、运营和融资。AI 让这个边界变薄。非技术创始人可以交付生产软件，技术创始人也可以借助 AI 补齐 GTM、财务模型和投资人材料。</p>
+        <p>创始人的角色从 individual contributor 变成 agent orchestrator。你的注意力不再主要消耗在亲手执行，而是用来生成想法、设定约束、组织 AI agent 和小团队完成工作。</p>
+        <h3>AI tool capabilities for lean startups</h3>
+        <table>
+          <thead><tr><th>Capability</th><th>Think</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>Conversational intelligence</td><td>on-call expert</td><td>研究、分析、战略推演、文档</td></tr>
+            <tr><td>Agentic coding</td><td>always-available engineer</td><td>生成、测试、调试、重构产品代码</td></tr>
+            <tr><td>Workflow automation</td><td>automated ops team</td><td>CRM、周报、日程、文档、跨系统同步</td></tr>
+          </tbody>
+        </table>
+        <p>早期 AI 原生公司可以极度精简，但不是因为“人不重要”，而是因为 AI 承担了过去大量需要职能团队才能完成的工作。创始人要做的是掌握时机和编排。</p>
+      </div>
+      <aside class="side">
+        <div class="note">
+          <div class="box-title">Founder leverage</div>
+          <p>AI 让创始人池扩大：有行业经验和真实痛点的人，即使没有工程背景，也能开始构建可运行产品。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="chapter-3">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 3</div>
+      <h2 class="chapter-title">Idea Stage</h2>
+    </div>
+    <p class="lead">Idea 阶段不是开始写代码，而是证明问题值得做。AI 越能降低构建成本，创始人越需要先验证。</p>
+    <div class="content-grid">
+      <div class="prose">
+        <h3>Goal</h3>
+        <p>这个阶段的目标是 research-oriented validation：收集证据，证明真实问题存在，并且你的方案确实解决了验证后暴露出来的问题。</p>
+        <ul>
+          <li>问题是否真实、具体、足够频繁？</li>
+          <li>到底是谁有这个问题？这是否构成市场？</li>
+          <li>谁已经在解决？解决得好不好？</li>
+          <li>方案真正需要做什么？你的想法是否满足？</li>
+        </ul>
+        <h3>Exit criteria</h3>
+        <p>退出条件是 problem-solution fit。你能明确说出谁遇到问题、痛感多强、现在怎么处理、你的方案为什么解决真实问题，并且有足够定性证据进入 MVP。</p>
+        <h3>Challenges</h3>
+        <h4>Mistaking building for validating</h4>
+        <p>AI 让原型很容易出现，但原型不是市场证据。它只是用户访谈中的道具。</p>
+        <h4>Premature scaling</h4>
+        <p>AI 会围绕错误前提同样积极地构建系统。创始人的 sense-making 必须领先于 building。</p>
+        <h4>Loss of objectivity</h4>
+        <p>让 AI 支持你的观点，它会找到材料。更好的用法是让它寻找反证和失败案例。</p>
+        <h3>How Claude helps</h3>
+        <p>用 Chat 做快速思考，用 Claude Cowork 做研究和文档，用 Claude Code 在阶段末尾构建轻量 prototype。</p>
+        <div class="exercise">
+          <div class="box-title">Exercises</div>
+          <ul>
+            <li>把模糊问题改成可测试假设。</li>
+            <li>让 Claude 写出最强反方论证。</li>
+            <li>按直接、间接、相邻、潜在进入者绘制竞品地图。</li>
+            <li>每五次访谈后，分别列支持证据和反对证据。</li>
+            <li>只构建一个核心交互，拿给 5 个目标用户试。</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="side-card">
+          <div class="box-title">Prime directive</div>
+          <p>先验证假设，再构建原型；原型服务于对话，不替代对话。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="chapter-4">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 4</div>
+      <h2 class="chapter-title">MVP Stage</h2>
+    </div>
+    <p class="lead">MVP 仍然是证据收集阶段，只是证据对象从问题转为解决方案。你要证明用户会回来、付费或推荐。</p>
+    <div class="content-grid">
+      <div class="prose">
+        <h3>Goals</h3>
+        <p>把已验证问题转成真实用户可用的最小产品；快速推进，但不积累会在真实用户到来时爆炸的技术债；从第一天建立持久上下文。</p>
+        <h3>Exit criteria</h3>
+        <p>退出条件是真实 PMF 证据：可识别的一群用户从产品中获得足够价值，表现为 retention、revenue 或 referral。</p>
+        <h3>Challenges</h3>
+        <h4>Agentic technical debt</h4>
+        <p>AI 技术债会复利。没有规格和架构约束，每次会话都会重新推断基础决策。</p>
+        <h4>False product-market fit</h4>
+        <p>朋友试用、一次传播和早期热闹不等于 PMF。要看第 6 周和第 12 周后用户是否还回来。</p>
+        <h4>Zero-friction scope creep</h4>
+        <p>功能越容易加，越需要书面范围定义。新增功能必须由真实用户证据触发。</p>
+        <h4>Insecure by inexperience</h4>
+        <p>能跑不等于安全。上线给真实用户前，至少要做认证、权限、API 暴露、输入校验和依赖审查。</p>
+        <h3>How Claude helps</h3>
+        <table>
+          <thead><tr><th>动作</th><th>产物</th></tr></thead>
+          <tbody>
+            <tr><td>Define architecture</td><td>架构原则、依赖限制、tradeoff、CLAUDE.md</td></tr>
+            <tr><td>Define scope</td><td>MVP 做什么、不做什么、新功能证据门槛</td></tr>
+            <tr><td>Build with Claude Code</td><td>围绕明确任务生成、测试、调试和迭代</td></tr>
+            <tr><td>Security review</td><td>认证、数据暴露、输入、依赖审查</td></tr>
+            <tr><td>Measurement framework</td><td>activation、Day 7、Day 30、false positive</td></tr>
+          </tbody>
+        </table>
+        <div class="exercise">
+          <div class="box-title">Exercises</div>
+          <ul>
+            <li>写下未来 6 个月的架构约束并保存为 CLAUDE.md。</li>
+            <li>上线前定义留存、激活和假阳性指标。</li>
+            <li>三轮迭代无 PMF 进展时，让 Claude 判断是细分用户、定位还是产品问题。</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="note">
+          <div class="box-title">Session loop</div>
+          <p>每次 Claude Code 会话前加载上下文和范围；会话后更新决策日志。五分钟文档化，换来长期系统一致性。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="chapter-5">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 5</div>
+      <h2 class="chapter-title">Launch Stage</h2>
+    </div>
+    <p class="lead">MVP 证明产品值得存在；Launch 要证明业务值得增长。创始人必须从亲自抓每条线，转向设计能运行的系统。</p>
+    <div class="content-grid">
+      <div class="prose">
+        <h3>Goals and exit criteria</h3>
+        <table>
+          <thead><tr><th>Exit</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>Repeatable growth</td><td>渠道可解释，CAC、LTV、payback 可 defend</td></tr>
+            <tr><td>Production workloads</td><td>基础设施、安全、合规、可靠性经得起真实流量</td></tr>
+            <tr><td>Operations without bottlenecks</td><td>支持、分流、冲刺、报告不靠创始人亲手处理</td></tr>
+          </tbody>
+        </table>
+        <h3>Challenges</h3>
+        <p>技术债开始到期；创始人从资产变成瓶颈；安全合规不可再推迟；过早进入新市场会稀释原有 PMF 并让数据不可解释。</p>
+        <h3>How Claude helps</h3>
+        <ul>
+          <li>Claude Code 做架构审计，找脆弱点、重构候选和测试缺口。</li>
+          <li>Claude 排序修复工作，区分必须立即处理、可并行、可暂留。</li>
+          <li>Claude Cowork 审计创始人运营负载，设计自动化和委派流程。</li>
+          <li>Claude Code + Claude 共同处理安全、合规、审计日志、访问管理和文档。</li>
+          <li>Claude 设计轻量产品管理系统，Claude Cowork 跑周期性元素。</li>
+        </ul>
+        <div class="exercise">
+          <div class="box-title">Exercises</div>
+          <ul>
+            <li>列出所有只有创始人知道答案的支持和运营流程。</li>
+            <li>做一次技术债审计并排三个 sprint 的修复顺序。</li>
+            <li>设计 sprint cadence、spec template、bug triage tree 和 weekly metrics brief。</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="side-card">
+          <div class="box-title">Launch mindset</div>
+          <p>找到 PMF 很难；保住 PMF 同样难。Launch 阶段的失败，常常不是产品没人要，而是组织跟不上。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="chapter-6">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 6</div>
+      <h2 class="chapter-title">Scale Stage</h2>
+    </div>
+    <p class="lead">Scale 阶段，创始人从 builder 转为 public-facing executive。产品仍是中心，但公司本身开始接受更严肃的外部审视。</p>
+    <div class="content-grid">
+      <div class="prose">
+        <h3>Goals</h3>
+        <p>从几千用户到数百万用户，从一个市场到多个市场。目标是建立系统性增长、成熟组织运营，以及能经受投资人、监管、企业采购和并购方审查的公司。</p>
+        <h3>Exit criteria</h3>
+        <p>Scale 的退出是阈值事件：公司不再依赖创始人亲自跑日常，增长可审计，治理和合规成熟，并且面对资源充足的 incumbent 复制时仍有留住用户的理由。</p>
+        <h3>Challenges</h3>
+        <ul>
+          <li>把运营层交出去，并让系统真的可靠。</li>
+          <li>把技术运营升级成企业级基础设施。</li>
+          <li>补齐财务、合规、合同、客户支持等组织函数。</li>
+          <li>建立真正 GTM，而不是继续依赖 founder hustle。</li>
+        </ul>
+        <h3>How Claude helps</h3>
+        <p>Claude 帮你定义创始人必须保留的工作；Claude Cowork 承接日常运营；Claude Code 构建支持基础设施、集成、API、webhook、demo environment 和 observability。</p>
+        <h3>Moats</h3>
+        <table>
+          <thead><tr><th>Moat</th><th>How it compounds</th></tr></thead>
+          <tbody>
+            <tr><td>Domain context</td><td>行业术语、边界案例、监管细节和工作方法沉淀进上下文</td></tr>
+            <tr><td>User data</td><td>接受、拒绝、修改输出的行为信号形成时间锁定数据</td></tr>
+            <tr><td>Workflow lock-in</td><td>自动化、集成、团队习惯和标准输出让切换变成组织迁移</td></tr>
+          </tbody>
+        </table>
+        <div class="exercise">
+          <div class="box-title">Exercises</div>
+          <ul>
+            <li>做 bottleneck map：创始人消失一周，哪些流程会停？</li>
+            <li>选三个最挑剔的企业客户，列出他们签多年合同前会要求的文档、SLA 和支持系统。</li>
+            <li>审计前十个客户的集成深度和切换成本。</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="note">
+          <div class="box-title">Defensibility</div>
+          <p>功能领先会被追上。领域上下文、行为数据和工作流嵌入，才是更难复制的 AI 原生护城河。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="chapter" id="chapter-7">
+    <div class="chapter-head">
+      <div class="chapter-no">Chapter 7</div>
+      <h2 class="chapter-title">Same job, new rules</h2>
+    </div>
+    <div class="prose">
+      <p class="lead">创始人的工作没有变：找到真实问题，构建解决方案，扩张成有意义的公司。变的是路径。</p>
+      <p>验证周期从月压到天，prototype 不再要求合适技术联合创始人，launch readiness 从上线前冲刺变成持续工作流，scale 阶段的运营重量也可以被 AI 承担一部分。</p>
+      <div class="quote">The bottlenecks are no longer what you can build, but what you choose to build.</div>
+    </div>
+  </section>
+
+  <section class="chapter" id="resources">
+    <div class="chapter-head">
+      <div class="chapter-no">Resources</div>
+      <h2 class="chapter-title">Building with Claude</h2>
+    </div>
+    <div class="resources">
+      <div class="resource-card"><b>Claude Code docs</b><p>从安装到高级 agentic workflow 的代码构建指南。</p></div>
+      <div class="resource-card"><b>Claude Code best practices</b><p>上下文管理、权限、计划、验证流程。</p></div>
+      <div class="resource-card"><b>Using CLAUDE.md files</b><p>为项目配置持久上下文，适合 MVP 阶段第一天使用。</p></div>
+      <div class="resource-card"><b>Claude Cowork</b><p>设置 skills、plugins、连接器和团队运营流程。</p></div>
+      <div class="resource-card"><b>Founder stories</b><p>YC startup、GC AI、Carta Healthcare、Anything、Cogent、Airtree、Duvo、Zingage、Kindora、Wordsmith。</p></div>
+      <div class="resource-card"><b>Startup support</b><p>Anthropic Startups Program、Claude community、live learning resources。</p></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    资料来源：Anthropic / Claude 官方博客 <a href="https://claude.com/blog/the-founders-playbook">The founder's playbook: Building an AI-native startup</a>。本文为中文转述与结构化讲解，保留原手册框架与关键观点。
+  </footer>
+</main>
+</body>
+</html>

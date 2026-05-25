@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DRAM/HBM 之后，NAND 跟上了吗？——长江上市前能挖出点什么</title>
+  <style>
+  :root{--red:#E30613;--ink:#111111;--muted:#77736B;--line:#DDD5C9;--paper:#FFFEFB;--soft:#F7F2EA}
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5F1EA;color:var(--ink);font-family:"Noto Serif SC","Songti SC","STSong",serif}
+  main{width:min(680px,100%);margin:0 auto;background:var(--paper);padding:36px 24px 56px}
+  .eyebrow{font:800 12px/1.35 Menlo,Consolas,monospace;color:var(--red);letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
+  h1{font-size:30px;line-height:1.34;margin:0 0 18px;letter-spacing:0}
+  blockquote{margin:0 0 22px;padding:12px 14px;border-left:4px solid var(--red);background:var(--soft)}
+  blockquote p{margin:0;font-size:15px;line-height:1.7;text-align:left;color:#28251F}
+  p{font-size:16px;line-height:1.85;margin:0 0 15px;text-align:left}
+  .lead{font-size:17px;font-weight:800}
+  .section-title{display:flex;align-items:baseline;gap:10px;margin:34px 0 14px;border-bottom:1px solid var(--line);padding-bottom:7px}
+  .num{font-family:Georgia,serif;font-size:38px;font-weight:900;color:var(--red);line-height:1}
+  h2{font-size:21px;line-height:1.35;margin:0}
+  img{display:block;width:100%;height:auto;margin:14px auto 13px;border:0;border-radius:0}
+  strong{font-weight:900}
+  code{font-family:Menlo,Consolas,monospace;font-size:.92em;background:#F2EDE4;padding:1px 4px}
+  ul{margin:0 0 16px 1.2em;padding:0;font-size:16px;line-height:1.8}
+  li{margin:0 0 3px}
+  table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:14px;line-height:1.5}
+  th,td{border-bottom:1px solid var(--line);padding:9px 6px;text-align:right;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{background:#F3EFE6;font-weight:900}
+  .gold{font-size:18px;line-height:1.72;font-weight:900;background:#111;color:#fff;padding:16px 16px;margin:18px 0}
+  .aha{background:#111;color:white;padding:18px 16px;margin:24px 0;font-size:18px;line-height:1.65;font-weight:900}
+  .foot{border-top:1px solid var(--line);padding-top:15px;margin-top:36px}
+  .foot p,.foot li{font-size:12.5px;color:var(--muted);line-height:1.75;text-align:left}
+  .foot ul{margin-left:1.1em}
+  .wechat-note{margin:18px 0 26px;padding:14px 14px;background:#111;color:#fff;font-size:16px;line-height:1.75;font-weight:800}
+  @media (max-width:640px){
+    main{padding:30px 18px 48px}
+    h1{font-size:27px}
+    p,ul{font-size:16px}
+    .num{font-size:36px}
+    h2{font-size:20px}
+    th,td{font-size:13px;padding:8px 4px}
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">MONEYRECIPE · KOREA CUSTOMS · NAND TEMPERATURE</div>
+  <h1>DRAM/HBM 之后，NAND 跟上了吗？——长江上市前能挖出点什么</h1>
+  <blockquote><p>这是「<strong>小散的 AI 仪表盘</strong>」栏目 · 存储节点第 2 期，接 DRAM/HBM 那一篇。</p></blockquote>
+  <p class="wechat-note">一张温度计看三件事：NAND 跟涨但不领涨；中国方向仍在买且更贵；长江存储还没披露，先用外部数据盯趋势。</p>
+  <p class="lead">上一篇我用韩国海关数据做了 DRAM/HBM 的温度计。这一期 NAND 那一格本来一直没开工。</p>
+  <p>直到 5 月 19 日，长江存储递了 IPO 辅导备案。</p>
+  <p>A 股投资人都知道一件事：长江上市之前，没有公开的 NAND 价格、收入、产能数据可看。你能看到的，都是已经反映在股价里的。真正能提前一步的人，都是在用外部数据猜里面是什么样。</p>
+  <p>韩国海关数据就是这种外部代理。我于是把 NAND 那一格补上了，挖出三件事。</p>
+
+  <section>
+  <div class="section-title"><span class="num">01</span><h2>NAND 已经升温，但不是领涨</h2></div>
+  
+    <img src="attachments/06-nand-market-share-ranking.png" alt="Counterpoint NAND 玩家排名">
+    <p>Counterpoint 2025Q4 NAND 收入口径：Samsung + SK Hynix 合计约 49%——韩国海关 ≈ 全球供给端一半的代理。</p>
+    <p>（图里还能看到 YMTC 11%，05 节再回来讲。）</p>
+    <img src="attachments/09-hs10-asp-curve-202501-202604.png" alt="NAND ASP 曲线">
+    <p>2026.04：NAND ASP <strong>45,934 USD/kg，同比 +252.4%</strong>；但比 DRAM 低 30.9%、比 MCP/HBM 低 36.8%。</p>
+    <p class="gold"><strong>这一波涨价的发动机是 DRAM 和 HBM，NAND 是跟涨的那个</strong>。</p>
+    <img src="attachments/21-memory-heat-index-gauges.png" alt="存储价格热度仪表盘">
+  
+</section>
+
+  <section>
+  <div class="section-title"><span class="num">02</span><h2>为什么不用中国数据</h2></div>
+  
+    <img src="attachments/00-data-source-decision-flow.svg" alt="数据源选择路径">
+    <p>国内能拿到的全是混合口径或付费墙：HS6 混了 DRAM/NAND/MCP，HS8 月度年费 5-30 万。Samsung + SK Hynix 占全球 49%——<strong>穿透中国 NAND，反而要绕道韩国</strong>。</p>
+  
+</section>
+
+  <section>
+  <div class="section-title"><span class="num">03</span><h2>价格怎么来的</h2></div>
+  
+    <img src="attachments/13-price-calculation-flow.png" alt="价格计算流程">
+    <p>ASP = 出口金额 / 净重。HS10 <code>8542321030</code> 是纯 NAND；HS6 <code>854232</code> 是 Memory 合计，混的，本文只在国别拆分时用。</p>
+    <p>常用代码速查：HS6 <code>854232</code> = Memory 合计；HS10 <code>8542321030</code> = NAND；<code>8542321010</code> = DRAM；<code>8542323000</code> = MCP/HBM proxy。</p>
+    <p>01 节的三个 ASP 都来自 HS10——能独立看价格；下面 05 节看国别，要用 HS6 合计。</p>
+  
+</section>
+
+  <section>
+  <div class="section-title"><span class="num">04</span><h2>4 月更像供给略紧</h2></div>
+  
+    <img src="attachments/17-nand-price-weight-clean.png" alt="NAND 价格与净重">
+    <p>ASP 环比 <strong>+0.2%</strong>（走平），净重环比 <strong>-34.3%</strong>（大幅下降）。</p>
+    <p>读法：如果是需求爆发，应该量也放大；现在是净重降、ASP 没跌，所以更像供给端控量/挑单。</p>
+    <p class="gold"><strong>价没被打下来——这不是需求爆发，更像供给收紧/挑单</strong>。</p>
+  
+</section>
+
+  <section>
+  <div class="section-title"><span class="num">05</span><h2>中国仍是最大去向：既多又贵，但溢价收窄</h2></div>
+  
+    <img src="attachments/07-nand-share-quarterly-ymtc-source.png" alt="YMTC 季度份额">
+    <p>Counterpoint 同口径里，YMTC（长江存储）2025Q4 收入份额约 <strong>11%</strong>。它不会被韩国海关直接反映，但会改变中国从韩国买什么。</p>
+    <p>这里有个时间差：厂商份额用 Counterpoint 最新公开完整季度 2025Q4；中国方向占比用韩国海关 25Q1 vs 26Q1。前者回答“长江有没有上桌”，后者回答“中国还在不在买韩国存储”。目前能看到的是：YMTC 到 2025Q4 已升到 11%；韩国海关里，中国方向 26Q1 金额占比、净重占比也都高于 25Q1。换句话说，预期不是“中国不买了”，而是仍在买，并且买得更多、更贵，只是结构在变。</p>
+    <p>YMTC 上来后，中国低端 NAND 不必都从韩国买，但高端还是要——这就是接下来对韩国出口到中国的数据的影响逻辑。</p>
+    <img src="attachments/15-china-less-but-pricier.png" alt="中国既多又贵">
+    <table><thead><tr><th>期间</th><th>中国金额占比</th><th>中国净重占比</th><th>中国 ASP</th><th>中国/韩国均价</th></tr></thead><tbody><tr><td>25Q1</td><td>33.1%</td><td>28.1%</td><td>23,334</td><td>117.7%</td></tr><tr><td>26Q1</td><td>36.6%</td><td>35.2%</td><td>52,316</td><td>103.8%</td></tr><tr><td>变化</td><td>+3.5pct</td><td>+7.1pct</td><td>+124.2%</td><td>-13.9pct</td></tr></tbody></table>
+    <p class="gold"><strong>既多又贵：依赖回升，单价更高</strong>。但溢价收窄，说明韩国整体出口均价也在追上来。</p>
+    <p>本文全部份额和中国方向数据统一为 25Q1 vs 26Q1 季度口径，与 07 节海力士回测（25Q1-26Q1）对齐。</p>
+  
+</section>
+
+  <section>
+  <div class="section-title"><span class="num">06</span><h2>这和长江有什么关系</h2></div>
+  
+    <p>YMTC 232L 已追上三星 V8、海力士 200 层早期世代，消费级足够用，企业级还差一截。</p>
+    <img src="attachments/16-ymtc-substitution-map.png" alt="YMTC 替代路径">
+    <p>图里两栏分别是替代路径和抢份额顺序。</p>
+    <p class="gold">所以韩国出口到中国的金额未必立刻坍塌——<strong>更可能先看到的是结构变化</strong>：低端被替代，高端剩下。</p>
+  
+</section>
+
+  <section>
+  <div class="section-title"><span class="num">07</span><h2>这支温度计以后怎么用</h2></div>
+  
+    <img src="attachments/14-price-factor-backtest.png" alt="价格因子回测">
+    <p>NAND ASP 拟合海力士 2025Q1-2026Q1：相关系数 <strong>0.98</strong>，但样本只有 5 个季度，NAND 收入季度最大偏离 39pct。这个回测只能说明价格方向有参考价值，不能当盈利预测模型。</p>
+    <p>另外要说一句口径对齐：海力士最新季报到 2026Q1（3 月），Q2 财报通常 7 月底才公布；而海关数据 2026.04 现在就有。<strong>这 2-3 个月的时差，正是这套温度计能提前看到的窗口</strong>——海力士 Q2 实际表现，先看海关。</p>
+    <p>结论要降一档：ASP 可以当利润率和周期方向的外部温度计；但收入还要看出货量、产品结构和公司口径，<strong>拟合只能参考</strong>。</p>
+    <div class="aha">长江还没披露，韩国海关数据只能先当外部温度计，不能直接写成长江业绩已经兑现。</div>
+    <p>下一期看：</p>
+    <ul>
+      <li>5 月 NAND 是不是补涨</li>
+      <li>中国方向是否继续&quot;既多又贵&quot;</li>
+      <li>海力士/三星 Q2 财报和海关数据是否对齐</li>
+      <li>AI 需求有没有从 DRAM/HBM 外溢到企业 SSD</li>
+    </ul>
+  
+</section>
+
+  <section class="foot">
+    <p><strong>数据来源与边界</strong></p>
+    <ul>
+      <li>韩国 TRASS HS6 <code>854232</code> Memory 合计 + MoneyRecipe HS10 二级 JSON（NAND/DRAM/MCP）</li>
+      <li>Counterpoint NAND revenue share：2025Q4 用于 Samsung + SK Hynix 49% 与 YMTC 11%</li>
+      <li>本文份额引用 Counterpoint 2025Q4，中国方向占比统一为 25Q1 vs 26Q1（基于 TRASS HS6 854232 月度合计）</li>
+      <li>SK hynix NAND 收入由官方 Revenue by Product 占比估算</li>
+      <li>data.go.kr 原始 HS10 接口需 serviceKey，作为下一步主口径替换</li>
+    </ul>
+    <p><strong>本文不构成投资建议。</strong></p>
+  </section>
+</main>
+</body>
+</html>

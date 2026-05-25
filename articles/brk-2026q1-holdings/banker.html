@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRK 2026Q1 13F 调仓投行版</title>
+  <meta name="description" content="投行 memo 风格解读 Berkshire Hathaway 2026Q1 13F 调仓。">
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --paper: #ffffff;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9dee7;
+      --soft: #eef2f7;
+      --navy: #0b1f3a;
+      --blue: #1f5d99;
+      --red: #c0392b;
+      --green: #16794c;
+      --amber: #a56b00;
+      --shadow: rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Avenir Next", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 20px auto 52px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 22px 70px var(--shadow);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .topbar a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 30px;
+      padding: 34px 34px 28px;
+      border-bottom: 4px solid var(--navy);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .label::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5.5vw, 66px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 760px;
+      color: #344054;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    .decision-box {
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: #fff;
+      padding: 22px;
+      align-self: end;
+    }
+
+    .decision-box b {
+      display: block;
+      color: #9cc4f0;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .decision-box strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.18;
+      margin-bottom: 12px;
+    }
+
+    .decision-box p {
+      margin: 0;
+      color: #cdd7e5;
+      font-size: 14px;
+    }
+
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .kpi {
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      min-height: 104px;
+    }
+
+    .kpi:last-child { border-right: 0; }
+
+    .kpi span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .kpi b {
+      display: block;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1;
+      color: var(--navy);
+    }
+
+    .kpi em {
+      display: block;
+      margin-top: 7px;
+      font-style: normal;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    main { padding: 30px 34px 42px; }
+
+    section { margin-top: 34px; }
+    section:first-child { margin-top: 0; }
+
+    .section-title {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    section:first-child .section-title {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .section-code {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .note {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .memo {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 20px;
+    }
+
+    .memo h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .bullets {
+      margin: 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 15px;
+    }
+
+    .bullets li { margin: 8px 0; }
+
+    .takeaways {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .takeaway {
+      background: #fff;
+      padding: 15px;
+      min-height: 92px;
+    }
+
+    .takeaway b {
+      display: block;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .takeaway span {
+      color: #344054;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th {
+      background: var(--navy);
+      color: #fff;
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+      color: #253044;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) td { background: #f8fafc; }
+
+    .num {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pos { color: var(--green); font-weight: 800; }
+    .neg { color: var(--red); font-weight: 800; }
+    .neutral { color: var(--muted); font-weight: 800; }
+
+    .bridge {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bridge-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 64px;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bridge-label {
+      color: #253044;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bridge-track {
+      height: 24px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bridge-fill {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: var(--w);
+      background: var(--c);
+      opacity: 0.9;
+    }
+
+    .bridge-fill.negbar {
+      left: auto;
+      right: 50%;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .trade-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 18px;
+    }
+
+    .trade-card h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      color: var(--navy);
+    }
+
+    .trade-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .trade-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 9px;
+      color: #344054;
+      font-size: 14px;
+    }
+
+    .trade-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .readthrough {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .logic {
+      border-left: 5px solid var(--blue);
+      background: #f7fbff;
+      padding: 18px;
+    }
+
+    .logic.redline {
+      border-left-color: var(--red);
+      background: #fff8f7;
+    }
+
+    .logic h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .logic p {
+      margin: 0;
+      color: #344054;
+      font-size: 15px;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-note a {
+      color: var(--blue);
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .page { width: calc(100% - 12px); margin-top: 6px; }
+      header, .summary, .readthrough { grid-template-columns: 1fr; }
+      .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+      .kpi { border-bottom: 1px solid var(--line); }
+      .section-title { grid-template-columns: 1fr; gap: 8px; }
+      .cards-3 { grid-template-columns: 1fr; }
+      .takeaways { grid-template-columns: 1fr; }
+      main, header { padding-left: 18px; padding-right: 18px; }
+    }
+
+    @media (max-width: 560px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .kpi-strip { grid-template-columns: 1fr; }
+      .bridge-row { grid-template-columns: 92px 1fr 54px; }
+      .bridge-label { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <div class="topbar">
+      <div>Investment Memo · Berkshire Hathaway 13F · Q1 2026</div>
+      <div><a href="./">报告版</a> · <a href="./notes.html">手绘版</a> · <a href="./blackboard.html">板书版</a></div>
+    </div>
+
+    <header>
+      <div>
+        <div class="label">Executive Summary</div>
+        <h1>BRK 调仓：防守底色不变，Alphabet 是结构性进攻。</h1>
+        <p class="subtitle">本季 13F 的核心不是“买了航空”或“卖了支付”，而是组合进一步集中：净卖出、减少小仓位、保留现金选择权，同时把 Alphabet 提升为前十大持仓。</p>
+      </div>
+      <aside class="decision-box">
+        <b>House View</b>
+        <strong>Do not copy the ticker list. Copy the capital allocation logic.</strong>
+        <p>可借鉴的是“净卖出环境下，把资本集中到更高确定性的资产”。机械照抄 Delta 或清仓 Visa/MA 都容易误读。</p>
+      </aside>
+    </header>
+
+    <div class="kpi-strip">
+      <div class="kpi"><span>13F Value</span><b>$263.1bn</b><em>Q1 2026 13F 市值</em></div>
+      <div class="kpi"><span>Holdings</span><b>29</b><em>Q4 为 42 个</em></div>
+      <div class="kpi"><span>Top 10 Weight</span><b>91.1%</b><em>Q4 同口径 88.3%</em></div>
+      <div class="kpi"><span>Purchases</span><b>$15.9bn</b><em>Q1 股票买入</em></div>
+      <div class="kpi"><span>Sales</span><b>$24.1bn</b><em>Q1 股票卖出</em></div>
+    </div>
+
+    <main>
+      <section>
+        <div class="section-title">
+          <div class="section-code">01 / Key Takeaways</div>
+          <div>
+            <h2>10 条 keynote：这是净卖出中的组合重构。</h2>
+            <p class="note">结论先行：BRK 没有从防守切到全面进攻，而是在防守仓位中换出更高确定性的进攻点。</p>
+          </div>
+        </div>
+
+        <div class="summary">
+          <div class="memo">
+            <h3>Investment Read</h3>
+            <ul class="bullets">
+              <li>Q1 股票买入约 159 亿美元、卖出约 241 亿美元，仍是净卖出。</li>
+              <li>持仓数从 42 个降到 29 个，组合集中度继续上升。</li>
+              <li>Alphabet 权重从约 2.0% 升到 6.3%，是最清晰的主动加仓信号。</li>
+              <li>Delta 是约 1% 的机会仓，不是全行业航空 beta 交易。</li>
+              <li>Visa/Mastercard 清仓更像机会成本和组合精简，不是支付网络 thesis break。</li>
+            </ul>
+          </div>
+
+          <div class="takeaways">
+            <div class="takeaway"><b>01</b><span>不是全面加仓：净卖出约 82 亿美元。</span></div>
+            <div class="takeaway"><b>02</b><span>组合更集中：29 个持仓，前十 91.1%。</span></div>
+            <div class="takeaway"><b>03</b><span>Alphabet 是主信号：进入前十大。</span></div>
+            <div class="takeaway"><b>04</b><span>Apple 仍是底座：权重约 22%。</span></div>
+            <div class="takeaway"><b>05</b><span>能源未撤退：CVX 减，OXY 仍大。</span></div>
+            <div class="takeaway"><b>06</b><span>航空别乱抄：买强者，不买板块。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <div class="section-code">02 / Weight Bridge</div>
+          <div>
+            <h2>前十权重桥：增量几乎都指向 Alphabet 与 OXY。</h2>
+            <p class="note">单位为权重百分点，按 Q1 前十持仓口径比较 Q4 与 Q1；Alphabet A/C 合并。</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Holding</th>
+                <th class="num">Q4 Weight</th>
+                <th class="num">Q1 Weight</th>
+                <th class="num">Change</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Alphabet A + C</td><td class="num">2.04%</td><td class="num">6.32%</td><td class="num pos">+4.28pct</td><td>本季最强主动增配，进入前十大。</td></tr>
+              <tr><td>Occidental</td><td class="num">3.97%</td><td class="num">6.55%</td><td class="num pos">+2.57pct</td><td>能源敞口仍在，未退出油气链条。</td></tr>
+              <tr><td>Coca-Cola</td><td class="num">10.20%</td><td class="num">11.56%</td><td class="num pos">+1.36pct</td><td>股数稳定，防守型现金流权重上升。</td></tr>
+              <tr><td>Chubb</td><td class="num">3.90%</td><td class="num">4.24%</td><td class="num pos">+0.34pct</td><td>保险配置保持稳定。</td></tr>
+              <tr><td>Kraft Heinz</td><td class="num">2.88%</td><td class="num">2.78%</td><td class="num neg">-0.10pct</td><td>基本稳定，非核心变化。</td></tr>
+              <tr><td>Moody's</td><td class="num">4.60%</td><td class="num">4.09%</td><td class="num neg">-0.51pct</td><td>权重回落，但仍是高质量长期仓。</td></tr>
+              <tr><td>Chevron</td><td class="num">7.24%</td><td class="num">6.64%</td><td class="num neg">-0.60pct</td><td>实质减仓，但仍为前五大。</td></tr>
+              <tr><td>Apple</td><td class="num">22.60%</td><td class="num">21.99%</td><td class="num neg">-0.61pct</td><td>仍是第一大仓，底座未变。</td></tr>
+              <tr><td>Bank of America</td><td class="num">10.38%</td><td class="num">9.52%</td><td class="num neg">-0.86pct</td><td>小幅减持，金融核心仓仍在。</td></tr>
+              <tr><td>American Express</td><td class="num">20.46%</td><td class="num">17.43%</td><td class="num neg">-3.03pct</td><td>股数未变，权重变化主要来自市值。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <div class="section-code">03 / Adds, Trims, Exits</div>
+          <div>
+            <h2>交易拆解：新增不等于重仓，清仓不等于看空。</h2>
+            <p class="note">投行 memo 的读法：先看仓位大小，再看是否改变组合风险画像。</p>
+          </div>
+        </div>
+
+        <div class="cards-3">
+          <article class="trade-card">
+            <h3 class="pos">Adds / Increases</h3>
+            <div class="trade-list">
+              <div class="trade-item"><span>Alphabet A</span><b class="pos">+204%</b></div>
+              <div class="trade-item"><span>Alphabet C</span><b class="pos">NEW</b></div>
+              <div class="trade-item"><span>New York Times</span><b class="pos">+199%</b></div>
+              <div class="trade-item"><span>Lennar A</span><b class="pos">+43%</b></div>
+            </div>
+          </article>
+
+          <article class="trade-card">
+            <h3 class="neutral">New Positions</h3>
+            <div class="trade-list">
+              <div class="trade-item"><span>Delta Air Lines</span><b>$2.65bn</b></div>
+              <div class="trade-item"><span>Macy's</span><b>$55mn</b></div>
+              <div class="trade-item"><span>GOOG</span><b>$1.03bn</b></div>
+              <div class="trade-item"><span>Jefferies</span><b>small</b></div>
+            </div>
+          </article>
+
+          <article class="trade-card">
+            <h3 class="neg">Exits / Reductions</h3>
+            <div class="trade-list">
+              <div class="trade-item"><span>Visa / Mastercard</span><b class="neg">Exit</b></div>
+              <div class="trade-item"><span>UnitedHealth</span><b class="neg">Exit</b></div>
+              <div class="trade-item"><span>Amazon</span><b class="neg">Exit</b></div>
+              <div class="trade-item"><span>Chevron</span><b class="neg">-35%</b></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <div class="section-code">04 / Read-through</div>
+          <div>
+            <h2>两个最容易误读的点：航空股和支付股。</h2>
+            <p class="note">这部分决定“能不能抄作业”。答案是：可以抄框架，不能抄名单。</p>
+          </div>
+        </div>
+
+        <div class="readthrough">
+          <article class="logic">
+            <h3>Delta read-through：buy quality, not sector beta</h3>
+            <p>BRK 买 Delta 更像在油价冲击、航空估值承压时买行业强者。可借鉴的是“逆周期买强者”：油价转嫁力、客群质量、资产负债表、运力纪律。不能推导为航空股都值得买。</p>
+          </article>
+
+          <article class="logic redline">
+            <h3>Visa/MA exit：opportunity cost, not thesis break</h3>
+            <p>Visa/Mastercard 仍是优质支付网络。BRK 清仓更可能是相对估值、组合简化、资本转向 Alphabet 等更高确定性机会；这不是“支付商业模式失效”的证据。</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <div class="section-code">05 / Actionable View</div>
+          <div>
+            <h2>投资动作：优先研究 Alphabet，谨慎外推 Delta，别机械复刻清仓。</h2>
+            <p class="note">如果把 BRK 13F 当筛选器，本季最有价值的是方向排序，而不是交易清单。</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Investor Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>最强信号是什么？</td><td>Alphabet 大幅增配。</td><td>优先做估值、AI capex、搜索/云现金流压力测试。</td></tr>
+              <tr><td>航空股能抄吗？</td><td>只能抄框架。</td><td>筛出具备成本转嫁和强资产负债表的航司。</td></tr>
+              <tr><td>Visa/MA 要跟卖吗？</td><td>不应机械跟卖。</td><td>重新比较估值、增长、回购收益率和替代机会。</td></tr>
+              <tr><td>这次是看多市场吗？</td><td>不是。</td><td>净卖出说明 BRK 仍在保留现金选择权。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="footer-note">
+        数据来源：
+        <a href="https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/0001193125-26-226661-index.htm">SEC 13F 2026Q1</a>；
+        <a href="https://www.berkshirehathaway.com/qtrly/1stqtr26.pdf">Berkshire Hathaway 2026Q1 10-Q</a>。
+        13F 报告期为 2026-03-31，提交日为 2026-05-15；13F 不覆盖现金、短债、全资企业及部分非美/衍生敞口。
+      </div>
+    </main>
+  </article>
+</body>
+</html>

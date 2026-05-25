@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>长鑫 IPO 横版摘要图</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1600px;
+      height: 900px;
+      background: #FAF8F5;
+      color: #171611;
+      font-family: Georgia, "Songti SC", "Noto Serif SC", serif;
+    }
+    .canvas {
+      width: 1600px;
+      height: 900px;
+      padding: 56px 82px 44px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(227,6,19,0.08) 0, rgba(227,6,19,0) 34%),
+        #FAF8F5;
+    }
+    .topline {
+      height: 8px;
+      width: 100%;
+      background: #E30613;
+      margin-bottom: 30px;
+    }
+    .eyebrow {
+      color: #E30613;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 66px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 900;
+      max-width: 1350px;
+    }
+    .subtitle {
+      margin-top: 20px;
+      font-size: 30px;
+      line-height: 1.42;
+      color: #3D3830;
+      max-width: 1320px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 32px;
+      margin-top: 36px;
+      align-items: stretch;
+    }
+    .panel {
+      border: 1px solid #E2DACE;
+      background: rgba(255,255,255,0.62);
+      padding: 24px 32px;
+      min-height: 214px;
+      overflow: hidden;
+    }
+    .label {
+      color: #7A7368;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .chart {
+      display: grid;
+      gap: 11px;
+      margin-bottom: 18px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 104px 1fr 76px;
+      gap: 14px;
+      align-items: center;
+      font-size: 18px;
+      color: #171611;
+    }
+    .track {
+      height: 18px;
+      background: #F0EAE0;
+      border-left: 4px solid #171611;
+    }
+    .bar {
+      height: 18px;
+      background: #7F7567;
+    }
+    .bar.red {
+      background: #E30613;
+      min-width: 18px;
+    }
+    .value {
+      text-align: right;
+      font-size: 17px;
+      font-weight: 800;
+      color: #3D3830;
+      white-space: nowrap;
+    }
+    .bullets {
+      display: grid;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .bullet {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      font-size: 25px;
+      line-height: 1.38;
+      color: #171611;
+    }
+    .dot {
+      color: #E30613;
+      font-weight: 900;
+    }
+    .bottom {
+      position: absolute;
+      left: 82px;
+      right: 82px;
+      bottom: 38px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 2px solid #171611;
+      padding-top: 20px;
+      color: #6E675F;
+      font-size: 19px;
+      line-height: 1.4;
+    }
+    .brand {
+      color: #171611;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="topline"></div>
+    <div class="eyebrow">小散的 AI 仪表盘 · 深度研究 · 存储节点</div>
+    <h1>长鑫终于来了：<br>不是中国版 SK，更像早期美光</h1>
+    <div class="subtitle">DRAM 玩家全员到齐。真正要看的不是“全球第四”的光环，而是长鑫和美光之间还差几步。</div>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="label">图 · 2026Q1 营收对比</div>
+        <div class="chart">
+          <div class="bar-row">
+            <div>三星 DS</div>
+            <div class="track"><div class="bar" style="width:100%;"></div></div>
+            <div class="value">3995亿</div>
+          </div>
+          <div class="bar-row">
+            <div>SK 海力士</div>
+            <div class="track"><div class="bar" style="width:64.4%;"></div></div>
+            <div class="value">2571亿</div>
+          </div>
+          <div class="bar-row">
+            <div>美光</div>
+            <div class="track"><div class="bar" style="width:41.4%;"></div></div>
+            <div class="value">1653亿</div>
+          </div>
+          <div class="bar-row">
+            <div>长鑫</div>
+            <div class="track"><div class="bar red" style="width:12.7%;"></div></div>
+            <div class="value">508亿</div>
+          </div>
+        </div>
+        <div class="label">图 · 2026Q1 利润对比</div>
+        <div class="chart" style="margin-bottom:0;">
+          <div class="bar-row">
+            <div>SK 海力士</div>
+            <div class="track"><div class="bar" style="width:100%;"></div></div>
+            <div class="value">1973亿</div>
+          </div>
+          <div class="bar-row">
+            <div>美光</div>
+            <div class="track"><div class="bar" style="width:49.3%;"></div></div>
+            <div class="value">972亿</div>
+          </div>
+          <div class="bar-row">
+            <div>长鑫</div>
+            <div class="track"><div class="bar red" style="width:12.5%;"></div></div>
+            <div class="value">247亿</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="label">一句话读懂</div>
+        <div class="bullets">
+          <div class="bullet"><div class="dot">01</div><div>长鑫坐稳 DRAM 全球第四，但营收仍约为美光 31%。</div></div>
+          <div class="bullet"><div class="dot">02</div><div>HBM 可能在 pipeline，但还没有公开收入和客户验证。</div></div>
+          <div class="bullet"><div class="dot">03</div><div>上市后不是科创板前列，而是科创板第一档核心资产候选。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bottom">
+      <div><span class="brand">谷德禄氪</span><br>独立研究笔记 · 2026-05-18</div>
+      <div>本文不预测市场价格，只做相对称量。</div>
+    </div>
+  </main>
+</body>
+</html>

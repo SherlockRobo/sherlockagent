@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  body{margin:0;background:#F8F5ED;color:#151515;font-family:"Noto Serif SC","Songti SC","STSong",serif}
+  .canvas{width:1200px;height:860px;background:#F8F5ED;box-sizing:border-box;padding:42px 48px}
+  .layout{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;height:100%}
+  .intro{border:2px solid #D9D0C2;border-radius:0;padding:36px 34px;background:#FFFDF8;display:flex;flex-direction:column;justify-content:space-between}
+  .kicker{font:800 15px/1.3 Menlo,Consolas,monospace;letter-spacing:.22em;text-transform:uppercase;color:#E60012}
+  h1{font-size:58px;line-height:1.05;margin:72px 0 20px;letter-spacing:0;color:#151515}
+  .rule{width:170px;border-top:5px solid #E60012;margin:0 0 22px}
+  .intro p{font-size:24px;line-height:1.55;color:#777167;margin:0}
+  .chips{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .chip{border:2px solid currentColor;border-radius:999px;padding:10px 18px;font-size:16px;font-weight:900}
+  .chip.hot{background:#E60012;border-color:#E60012;color:white}
+  .grid{display:grid;grid-template-columns:1fr;gap:13px}
+  .card{border:2px solid #D9D0C2;border-radius:0;background:#FFFDF8;padding:15px 18px;min-height:0}
+  .head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+  .label{font:800 13px/1 Menlo,Consolas,monospace;color:var(--accent);letter-spacing:.16em}
+  h2{font-size:24px;line-height:1.15;margin:8px 0 0;color:#151515}
+  .status{font:900 12px/1 Menlo,Consolas,monospace;color:white;background:var(--status);border-radius:999px;padding:8px 13px}
+  svg{float:left;margin:0 14px 0 -8px}
+  .metrics{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}
+  .mini{background:#F3EEE4;border:1px solid #DED5C6;padding:7px 9px}
+  .mini-top{display:flex;justify-content:space-between;font:800 11px/1 Menlo,Consolas,monospace;color:#777167}
+  .mini-top b{color:var(--accent)}
+  .bar{height:5px;background:#E3D9C9;margin:7px 0 5px}
+  .bar i{display:block;height:100%;background:var(--accent)}
+  .mini-value{font-size:11px;color:#777167;line-height:1.2}
+  .card p{clear:both;font-size:20px;line-height:1.25;color:#151515;font-weight:900;margin:8px 0 0}
+  .formula{font-size:15px;line-height:1.65;color:#777167;border-top:1px solid #D8D1C4;padding-top:18px}
+</style>
+</head>
+<body>
+<main class="canvas">
+  <section class="layout">
+    <section class="intro">
+      <div>
+        <div class="kicker">MEMORY HEAT INDEX</div>
+        <h1>存储价格<br>热度仪表盘</h1>
+        <div class="rule"></div>
+        <p>四个信号压成一个热度分：谁过热，谁升温，谁只是绝对价格高。</p>
+        <div class="chips">
+          <span class="chip hot">OVERHEAT</span>
+          <span class="chip" style="color:#151515">DRAM/HBM/NAND</span>
+          <span class="chip" style="color:#2E6F9E">COLD → HOT</span>
+        </div>
+      </div>
+      <div class="formula">Heat Index = 价格 + 净重 + 同比 + 环比。净重只作数量代理，不等于 bit 出货。</div>
+    </section>
+    <section class="grid">
+      
+    <section class="card" style="--accent:#A90F16;--status:#A90F16">
+      <div class="head">
+        <div>
+          <div class="label">DRAM</div>
+          <h2>AI 主发动机</h2>
+        </div>
+        <div class="status">OVERHEAT</div>
+      </div>
+      <svg width="230" height="145" viewBox="0 0 300 188" aria-label="DRAM heat index gauge">
+        <path d="M 268.0 150.0 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#E6DED1" stroke-width="25" stroke-linecap="round"/>
+        <path d="M 66.6 66.6 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#2E6F9E" stroke-width="25" stroke-linecap="round" opacity=".18"/>
+        <path d="M 190.4 39.1 A 118 118 0 0 0 66.6 66.6" fill="none" stroke="#B8872E" stroke-width="25" stroke-linecap="round" opacity=".16"/>
+        <path d="M 268.0 150.0 A 118 118 0 0 0 190.4 39.1" fill="none" stroke="#A90F16" stroke-width="25" stroke-linecap="round" opacity=".14"/>
+        <path d="M 263.3 117.1 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#A90F16" stroke-width="25" stroke-linecap="round"/>
+        <text x="150" y="116" text-anchor="middle" font-size="58" fill="#151515" font-weight="900">91</text>
+        <text x="150" y="144" text-anchor="middle" font-size="13" fill="#777167" font-weight="800">HEAT INDEX / 100</text>
+      </svg>
+      <div class="metrics">
+        
+    <div class="mini">
+      <div class="mini-top"><span>价格</span><b>91</b></div>
+      <div class="bar"><i style="width:91.42118436614682%"></i></div>
+      <div class="mini-value">66,476 USD/kg</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>净重</span><b>60</b></div>
+      <div class="bar"><i style="width:59.5%"></i></div>
+      <div class="mini-value">YoY +3.8%</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>同比</span><b>100</b></div>
+      <div class="bar"><i style="width:100%"></i></div>
+      <div class="mini-value">ASP +323.5%</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>环比</span><b>100</b></div>
+      <div class="bar"><i style="width:100%"></i></div>
+      <div class="mini-value">ASP +20.6%</div>
+    </div>
+  
+      </div>
+      <p>价格 / 环比双热。</p>
+    </section>
+  
+      
+    <section class="card" style="--accent:#D66A1F;--status:#D66A1F">
+      <div class="head">
+        <div>
+          <div class="label">MCP/HBM</div>
+          <h2>绝对高价</h2>
+        </div>
+        <div class="status">HOT</div>
+      </div>
+      <svg width="230" height="145" viewBox="0 0 300 188" aria-label="MCP/HBM heat index gauge">
+        <path d="M 268.0 150.0 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#E6DED1" stroke-width="25" stroke-linecap="round"/>
+        <path d="M 66.6 66.6 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#2E6F9E" stroke-width="25" stroke-linecap="round" opacity=".18"/>
+        <path d="M 190.4 39.1 A 118 118 0 0 0 66.6 66.6" fill="none" stroke="#B8872E" stroke-width="25" stroke-linecap="round" opacity=".16"/>
+        <path d="M 268.0 150.0 A 118 118 0 0 0 190.4 39.1" fill="none" stroke="#A90F16" stroke-width="25" stroke-linecap="round" opacity=".14"/>
+        <path d="M 247.6 83.7 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#D66A1F" stroke-width="25" stroke-linecap="round"/>
+        <text x="150" y="116" text-anchor="middle" font-size="58" fill="#151515" font-weight="900">81</text>
+        <text x="150" y="144" text-anchor="middle" font-size="13" fill="#777167" font-weight="800">HEAT INDEX / 100</text>
+      </svg>
+      <div class="metrics">
+        
+    <div class="mini">
+      <div class="mini-top"><span>价格</span><b>100</b></div>
+      <div class="bar"><i style="width:100%"></i></div>
+      <div class="mini-value">72,714 USD/kg</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>净重</span><b>100</b></div>
+      <div class="bar"><i style="width:100%"></i></div>
+      <div class="mini-value">YoY +20.3%</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>同比</span><b>46</b></div>
+      <div class="bar"><i style="width:46.06666666666666%"></i></div>
+      <div class="mini-value">ASP +138.2%</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>环比</span><b>76</b></div>
+      <div class="bar"><i style="width:76.33060340770024%"></i></div>
+      <div class="mini-value">ASP +14.1%</div>
+    </div>
+  
+      </div>
+      <p>绝对价格最高。</p>
+    </section>
+  
+      
+    <section class="card" style="--accent:#B8872E;--status:#B8872E">
+      <div class="head">
+        <div>
+          <div class="label">NAND</div>
+          <h2>升温观察</h2>
+        </div>
+        <div class="status">WARMING</div>
+      </div>
+      <svg width="230" height="145" viewBox="0 0 300 188" aria-label="NAND heat index gauge">
+        <path d="M 268.0 150.0 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#E6DED1" stroke-width="25" stroke-linecap="round"/>
+        <path d="M 66.6 66.6 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#2E6F9E" stroke-width="25" stroke-linecap="round" opacity=".18"/>
+        <path d="M 190.4 39.1 A 118 118 0 0 0 66.6 66.6" fill="none" stroke="#B8872E" stroke-width="25" stroke-linecap="round" opacity=".16"/>
+        <path d="M 268.0 150.0 A 118 118 0 0 0 190.4 39.1" fill="none" stroke="#A90F16" stroke-width="25" stroke-linecap="round" opacity=".14"/>
+        <path d="M 186.5 37.8 A 118 118 0 0 0 32.0 150.0" fill="none" stroke="#B8872E" stroke-width="25" stroke-linecap="round"/>
+        <text x="150" y="116" text-anchor="middle" font-size="58" fill="#151515" font-weight="900">60</text>
+        <text x="150" y="144" text-anchor="middle" font-size="13" fill="#777167" font-weight="800">HEAT INDEX / 100</text>
+      </svg>
+      <div class="metrics">
+        
+    <div class="mini">
+      <div class="mini-top"><span>价格</span><b>63</b></div>
+      <div class="bar"><i style="width:63.170778667106745%"></i></div>
+      <div class="mini-value">45,934 USD/kg</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>净重</span><b>76</b></div>
+      <div class="bar"><i style="width:76%"></i></div>
+      <div class="mini-value">YoY +10.4%</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>同比</span><b>84</b></div>
+      <div class="bar"><i style="width:84.13333333333334%"></i></div>
+      <div class="mini-value">ASP +252.4%</div>
+    </div>
+  
+        
+    <div class="mini">
+      <div class="mini-top"><span>环比</span><b>21</b></div>
+      <div class="bar"><i style="width:20.60176605254547%"></i></div>
+      <div class="mini-value">ASP +0.2%</div>
+    </div>
+  
+      </div>
+      <p>同比热，环比停。</p>
+    </section>
+  
+    </section>
+  </section>
+</main>
+</body>
+</html>

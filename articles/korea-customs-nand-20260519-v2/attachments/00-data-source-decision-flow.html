@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>如何观测中国 NAND：数据源决策路径</title>
+<style>
+  body {
+    margin: 0;
+    padding: 48px 20px 64px;
+    background: #F4F1EA;
+    color: #0F3B4C;
+    font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    line-height: 1.75;
+  }
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: #1F6E4A;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #0F3B4C;
+    margin: 0 0 8px;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: #555;
+    margin: 0 0 28px;
+    font-style: italic;
+  }
+  .figure {
+    background: #FFFFFF;
+    border: 1px solid #D8D1C4;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(15, 59, 76, 0.06);
+  }
+  .figure svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .caption {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+    margin: 18px 0 0;
+  }
+  .caption strong {
+    color: #0F3B4C;
+  }
+  .footer {
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid #C9C2B3;
+    font-size: 12px;
+    color: #7A736B;
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .footer a {
+    color: #1F6E4A;
+    text-decoration: none;
+  }
+  @media (max-width: 640px) {
+    body { padding: 28px 14px 40px; }
+    h1 { font-size: 20px; }
+    .figure { padding: 10px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">小散的 AI 仪表盘 · 方法论资产</div>
+  <h1>如何观测中国 NAND：一个散户能跑通的数据源决策路径</h1>
+  <p class="subtitle">起点是问题（怎么月度、可持续、散户可得地观测中国 NAND？），答案是外部代理。</p>
+
+  <div class="figure">
+    <object type="image/svg+xml" data="00-data-source-decision-flow.svg" style="width:100%;display:block;">
+      <img src="00-data-source-decision-flow.svg" alt="数据源决策路径：从国内残缺到绕道韩国" style="width:100%;display:block;">
+    </object>
+  </div>
+
+  <p class="caption">
+    <strong>路径 A：找国内数据。</strong>中国海关 HS6 公开但混合口径；HS8 月度年费 5-30 万；工信部 / 统计局只到大类；长江/YMTC 未上市；A 股相关公司季报不拆 ASP；CFM / TrendForce 中文摘要滞后；终端零售 SSD 价 ≠ NAND 颗粒价。结论：散户能跑通月度的只有混合口径 HS6 ——和韩国 HS6 一样残缺。
+  </p>
+  <p class="caption">
+    <strong>路径 B：绕到韩国。</strong>Samsung + SK Hynix 合计 49% 全球供给端；TRASS 英文站免 key 可拉；月度滞后 0.5 个月；HS10 间接源（MoneyRecipe）可补；DRAM / MCP 子目可拆，支持减法挖 NAND；目的地拆分中国方向价差可看；2023.01 至今连续。
+  </p>
+  <p class="caption">
+    <strong>最终结论：</strong>穿透中国 NAND，反而要绕道韩国。
+  </p>
+
+  <p class="footer">
+    图 0 · 数据源选择路径 · 作者整理 · 2026-05-20<br>
+    本图属于「<strong>小散的 AI 仪表盘</strong>」栏目方法论资产。下次穿透别的国产硬科技（长鑫 DRAM、华为海思、设备国产化进度）时，这套决策框架可以套用：先穷举国内数据源，再找外部代理。<br>
+    本图不构成投资建议。
+  </p>
+</main>
+</body>
+</html>
+</content>

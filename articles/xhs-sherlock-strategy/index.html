@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>夏洛克 XHS 运营策略</title>
+  <meta name="description" content="夏洛克小红书账号运营策略：基于 164 条历史笔记、话题池、Opus 4.7 评估和栏目矩阵，确定大号与小号的内容方向。">
+  <style>
+    :root {
+      --ink:#111827; --muted:#64748b; --line:#dbe7f3; --bg:#f7fbff; --panel:#ffffff;
+      --blue:#2563eb; --cyan:#06b6d4; --green:#10b981; --amber:#d97706; --rose:#e11d48;
+      --navy:#102033; --purple:#7c3aed; --shadow:0 20px 50px rgba(31,61,98,.13); --r:28px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 82% 0,#dff4ff 0,transparent 30%),linear-gradient(180deg,#f8fbff,#eef6ff 58%,#f9fbff);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;}
+    body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(#e6eef8 1px,transparent 1px),linear-gradient(90deg,#e6eef8 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(180deg,#000,.25 55%,transparent);pointer-events:none}
+    a{color:#1769c2;text-decoration:none}
+    .page{position:relative;max-width:1280px;margin:0 auto;padding:56px 32px 80px}
+    .badge{display:inline-flex;gap:10px;align-items:center;padding:10px 16px;border:1px solid #b6daf6;border-radius:999px;background:#ebf7ff;color:#1769c2;font:700 14px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+    .hero{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;margin-top:30px;align-items:stretch}
+    h1{font-size:68px;line-height:1.03;margin:0 0 18px;letter-spacing:0}
+    .lead{font-size:24px;line-height:1.55;color:#43536a;max-width:900px;margin:0}
+    .hero-card,.panel{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+    .hero-card{padding:28px}
+    .handle{font-size:24px;font-weight:950}
+    .bio{margin-top:16px;color:#516173;line-height:1.65}
+    .score{margin-top:24px;padding:18px;border-radius:22px;background:#102033;color:white}
+    .score b{font-size:52px}.score span{color:#8be9d6;font-weight:800}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .pill{display:inline-flex;align-items:center;border-radius:999px;padding:8px 12px;border:1px solid #bcd9f5;background:#eff7ff;color:#1769c2;font-weight:800;white-space:nowrap}
+    .pill.green{background:#e9fff5;border-color:#a7f3d0;color:#067647}.pill.amber{background:#fff7e8;border-color:#fed7aa;color:#a15c06}.pill.rose{background:#fff1f2;border-color:#fecdd3;color:#be123c}.pill.purple{background:#f4efff;border-color:#ddd6fe;color:#6d28d9}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0}
+    .kpi{padding:22px;background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 30px rgba(31,61,98,.08)}
+    .kpi .label{color:var(--muted);font-weight:700}.kpi .value{font-size:34px;font-weight:950;margin-top:8px}.kpi .note{font-size:13px;color:var(--muted);margin-top:6px}
+    .section{margin-top:34px}.section h2{font-size:34px;margin:0 0 18px;display:flex;align-items:center;gap:12px}.section h2:before{content:"";width:10px;height:34px;border-radius:99px;background:linear-gradient(180deg,var(--cyan),var(--green))}
+    .panel{padding:28px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .callout{padding:20px;border-radius:22px;background:#f7fbff;border:1px solid #d9e8f7;line-height:1.65}.callout strong{display:block;font-size:20px;margin-bottom:8px}
+    .muted{color:var(--muted)}.small{font-size:13px}.big-number{font-size:46px;font-weight:950;color:#0f172a}
+    .formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#102033;color:#bfffe9;border-radius:18px;padding:16px;line-height:1.55}
+    .bar{height:10px;background:#edf4fb;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#2563eb,#06b6d4)}
+    .top-list{display:grid;gap:12px}.top-row{display:grid;grid-template-columns:38px 1fr 92px;gap:14px;align-items:center;padding:12px;border-radius:18px;background:#f8fbff;border:1px solid #dbe7f3}
+    .top-id{height:32px;width:32px;border-radius:10px;background:#102033;color:white;display:grid;place-items:center;font-weight:900}.top-title{font-weight:800;margin-bottom:8px;color:#243044}.top-metric{font-weight:950;text-align:right;color:#0f172a}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:24px;background:white}table{width:100%;border-collapse:separate;border-spacing:0;min-width:1040px}th{position:sticky;top:0;background:#102033;color:#eaf7ff;text-align:left;font-size:13px;letter-spacing:.02em;padding:14px}td{padding:14px;border-bottom:1px solid #edf2f8;vertical-align:top;line-height:1.5}tr:hover td{background:#f8fbff}.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:850}.rank{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#64748b}
+    .strategy{display:grid;grid-template-columns:1fr 1fr;gap:18px}.do{border-left:5px solid var(--green)}.dont{border-left:5px solid var(--rose)}ul{margin:0;padding-left:20px;line-height:1.75}.footer{margin-top:40px;color:#64748b;font-size:13px}.source-list{line-height:1.8;color:#475569}
+    @media(max-width:900px){.page{padding:32px 18px}.hero,.grid-2,.grid-3,.grid-4,.strategy{grid-template-columns:1fr}h1{font-size:42px}.lead{font-size:18px}.kpis{grid-template-columns:repeat(2,1fr)}table{min-width:900px}}
+  </style>
+</head>
+<body>
+<main class="page">
+  <span class="badge">XHS ACCOUNT STRATEGY · SHERLOCK · 2026-05-26</span>
+  <section class="hero">
+    <div>
+      <h1>夏洛克 XHS 运营策略</h1>
+      <p class="lead">结论先行：大号不做“AI 导师”，也不做泛工具搬运。最稳的方向是“不会写代码的真实打工人，把 AI 用成可复制流程”。其中 DRAM/海力士类内容要升级为 AI 数据追踪与热门数据链；骑行搬运继续作为 X / Ins 热点视频流量池。</p>
+      <div class="chips">
+        <span class="pill">主定位：零代码 AI 实战</span>
+        <span class="pill green">核心栏目：AI 讲解公司</span>
+        <span class="pill amber">数据链：DRAM / AI / 宏观</span>
+        <span class="pill purple">流量池：X / Ins 骑行搬运</span>
+        <span class="pill rose">口吻：老登不焦虑</span>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="handle">夏洛克 · XHS 大号</div>
+      <div class="bio">当前简介已具备基础方向：AI 怎么学、自己做的小工具、独立研究笔记。新的策略不是推倒重来，而是把“工具实践、数据追踪、搬运热点、个人能力”组织成稳定栏目。</div>
+      <div class="score"><span>Strategy Score</span><br><b>82</b><span>/100</span><div class="muted small" style="color:#bdd2e7">方向成立，关键在栏目化供给</div></div>
+    </aside>
+  </section>
+
+  <section class="kpis">
+    <div class="kpi"><div class="label">历史笔记</div><div class="value">164</div><div class="note">xhs_cli 全量抓取</div></div>
+    <div class="kpi"><div class="label">总浏览</div><div class="value">37.5万</div><div class="note">公开后台字段</div></div>
+    <div class="kpi"><div class="label">总互动</div><div class="value">1.14万</div><div class="note">赞藏评转合计</div></div>
+    <div class="kpi"><div class="label">AI讲解收藏率</div><div class="value">3.03%</div><div class="note">Circle 样本最高</div></div>
+  </section>
+
+  <section class="section">
+    <h2>核心决策</h2>
+    <div class="grid-3">
+      <div class="panel"><div class="big-number">01</div><h3>大号主线</h3><p class="muted">零代码 AI 实战 + 数据追踪。用户关注理由不是“我懂 AI”，而是“我能把工具跑成普通人能复用的流程”。</p></div>
+      <div class="panel"><div class="big-number">02</div><h3>保留流量池</h3><p class="muted">骑行搬运视频曾贡献 8 万级曝光，未来继续从 X / Ins 搬运热点，但作为流量栏目，不抢主定位。</p></div>
+      <div class="panel"><div class="big-number">03</div><h3>新增实操线</h3><p class="muted">最新 skills / AI 功能实操是天然栏目：发现能力、跑一遍、做成模板、沉淀到工作流。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>历史数据复盘</h2>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>内容原型表现</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>内容原型</th><th>条数</th><th>总浏览</th><th>均浏览</th><th>收藏率</th><th>策略</th></tr></thead>
+            <tbody>
+              <tr><td>未成型随手发</td><td class="num">95</td><td class="num">298,820</td><td class="num">3,145</td><td class="num">0.24%</td><td>不复制“散”，复制其中的热点机制。</td></tr>
+              <tr><td>生活兴趣人设</td><td class="num">57</td><td class="num">44,783</td><td class="num">786</td><td class="num">0.47%</td><td>骑行保留为 X/Ins 热点视频与路线清单。</td></tr>
+              <tr><td>科技商业拆解</td><td class="num">4</td><td class="num">18,565</td><td class="num">4,641</td><td class="num">0.25%</td><td>升级为 AI 数据追踪与热门数据链。</td></tr>
+              <tr><td>手作/IP/模型</td><td class="num">3</td><td class="num">9,687</td><td class="num">3,229</td><td class="num">1.04%</td><td>复制“自己做出来”的结构。</td></tr>
+              <tr><td>AI讲解公司/概念</td><td class="num">1</td><td class="num">1,817</td><td class="num">1,817</td><td class="num">3.03%</td><td>做成 P0 栏目。</td></tr>
+              <tr><td>AI工具/模型实测</td><td class="num">2</td><td class="num">957</td><td class="num">479</td><td class="num">0.42%</td><td>供给不足，必须系列化。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>高表现样本</h3>
+        <div class="top-list">
+          <div class="top-row"><div class="top-id">1</div><div><div class="top-title">环西 Kuss 怪兽级爬坡超车</div><div class="muted small">X/Ins 骑行搬运视频原型</div></div><div class="top-metric">8.1万</div></div>
+          <div class="top-row"><div class="top-id">2</div><div><div class="top-title">环法冠军温格高弱点大揭秘</div><div class="muted small">热点视频 + 观点解释</div></div><div class="top-metric">6.3万</div></div>
+          <div class="top-row"><div class="top-id">3</div><div><div class="top-title">手搓乐高 labubu 三丽鸥联名</div><div class="muted small">自己做出来 + 视觉破圈</div></div><div class="top-metric">8740</div></div>
+          <div class="top-row"><div class="top-id">4</div><div><div class="top-title">海力士涨 15%，为什么 DRAM 只涨一点？</div><div class="muted small">AI 数据链 / 热门数据追踪原型</div></div><div class="top-metric">8564</div></div>
+          <div class="top-row"><div class="top-id">5</div><div><div class="top-title">一直看不懂 Circle？让 AI 做互动讲</div><div class="muted small">AI 讲解公司系列原型</div></div><div class="top-metric">3.03%</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>栏目矩阵</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>优先级</th><th>固定栏目</th><th>来自哪个有效样本</th><th>栏目定义</th><th>发文标准</th><th>频率</th></tr></thead>
+        <tbody>
+          <tr><td>P0</td><td><b>AI 讲解公司系列</b></td><td>Circle 互动讲解</td><td>用 AI 把一家公司、商业模式、行业概念讲成人话。</td><td>必须有一张图、一个类比、一个你的判断。</td><td>每周 1 条</td></tr>
+          <tr><td>P0</td><td><b>AI 数据链雷达</b></td><td>DRAM / 海力士</td><td>用 AI 做数据追踪，建立热门数据链：DRAM、HBM、AI 存储、海关、财报、价格。</td><td>必须有数据源、链路图、变化判断，不做空泛点评。</td><td>每周 1-2 条</td></tr>
+          <tr><td>P0</td><td><b>Skills / AI 功能实操</b></td><td>Claude/Futu、Gemini、Circle</td><td>看到新的 AI 能力、skills、agent、工作流，自己先跑一遍。</td><td>必须展示输入、过程、输出、卡点、可复用模板。</td><td>每周 2 条</td></tr>
+          <tr><td>P1</td><td><b>老登零代码实验</b></td><td>乐高手搓 + 小工具实践</td><td>不会写代码也能做一个真实东西：网页、看板、自动化、图文包。</td><td>必须有成品截图和普通人复现步骤。</td><td>每周 1 条</td></tr>
+          <tr><td>P1</td><td><b>X / Ins 骑行热点搬运</b></td><td>环西、环法爆款视频</td><td>继续搬运骑行、F1、运动热点视频，作为流量和人设入口。</td><td>要加中文解释和你的观点，避免纯搬运。</td><td>每周 2-3 条</td></tr>
+          <tr><td>P2</td><td><b>可复制流程卡</b></td><td>骑行路线/清单收藏逻辑</td><td>把工具、数据链、AI 工作流沉淀成 prompt、清单、模板。</td><td>每篇最后给 checklist 或模板。</td><td>每周 1 条</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI 数据链雷达：DRAM / 海力士的正确复制方式</h2>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>不是“科技商业拆解”</h3>
+        <p class="muted">这类内容的价值不是你写一篇观点，而是你建立一条可以持续更新的数据链。DRAM、HBM、AI 存储、韩国海关、价格指数、公司利润、股价反应，都可以串成固定追踪系统。</p>
+        <div class="formula">数据源 → 异动检测 → 公司映射 → 利润/估值影响 → XHS 图文解释</div>
+      </div>
+      <div class="panel">
+        <h3>可持续选题</h3>
+        <ul>
+          <li>DRAM 涨了，为什么海力士 / 美光 / 三星反应不同？</li>
+          <li>韩国海关数据里，哪个口径先反映 AI 存储需求？</li>
+          <li>HBM 订单、NAND 价格、服务器需求如何互相验证？</li>
+          <li>AI 硬件热点雷达：今天哪条数据值得看？</li>
+          <li>数据链日报：内存、存储、算力、光模块各看一个指标。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>大小号分工</h2>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>大号：判断和作品</h3>
+        <ul>
+          <li>AI 讲解公司系列：做深，做成代表作。</li>
+          <li>AI 数据链雷达：建立可持续追踪系统。</li>
+          <li>Skills / AI 功能实操：输出真实跑通的流程。</li>
+          <li>X / Ins 骑行热点：少量保留，负责曝光和人设。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>小号：试跑和互动</h3>
+        <ul>
+          <li>每日 AI 试跑：新工具、新功能、新 skills 先跑。</li>
+          <li>评论区需求实测：用户想要什么就做什么。</li>
+          <li>失败也发：记录卡点、绕路和不值得付费的工具。</li>
+          <li>模板沉淀：把大号内容拆成 prompt / checklist。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>30 天执行节奏</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>周</th><th>主目标</th><th>大号内容</th><th>小号内容</th><th>验证指标</th></tr></thead>
+        <tbody>
+          <tr><td>第 1 周</td><td>让账号标签切向 AI 实操</td><td>Circle 模式复刻 1 篇；Skills 实操 1 篇；骑行热点 2 条。</td><td>每日 AI 试跑，收集评论需求。</td><td>AI 内容收藏率是否超过 1.5%。</td></tr>
+          <tr><td>第 2 周</td><td>启动 AI 数据链雷达</td><td>DRAM/HBM 数据链 2 篇；AI 讲解公司 1 篇。</td><td>同步发数据源、图表卡、工具过程。</td><td>数据链内容是否产生收藏和追问。</td></tr>
+          <tr><td>第 3 周</td><td>形成“我能做你也能”心智</td><td>零代码实验 1 篇；Skills 实操 2 篇；可复制流程卡 1 篇。</td><td>把大号流程拆成小模板。</td><td>评论区是否开始提出需求。</td></tr>
+          <tr><td>第 4 周</td><td>复盘栏目留存</td><td>复盘 4 个栏目表现，保留最高收藏/评论栏目。</td><td>做投票和需求征集。</td><td>决定下月 P0 栏目和停发内容。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>执行边界</h2>
+    <div class="strategy">
+      <div class="panel do">
+        <h3>继续做</h3>
+        <ul>
+          <li>AI 数据追踪和热门数据链。</li>
+          <li>Circle 式“讲懂公司/概念”。</li>
+          <li>最新 skills / AI 功能实操。</li>
+          <li>X / Ins 骑行热点搬运，加中文观点。</li>
+          <li>零代码成品、流程卡、模板。</li>
+        </ul>
+      </div>
+      <div class="panel dont">
+        <h3>控制做</h3>
+        <ul>
+          <li>纯情绪“AI 不焦虑”，没有动作不发。</li>
+          <li>纯工具新闻，不实测不发。</li>
+          <li>纯投资观点，不接入数据链不发。</li>
+          <li>生活随手发，不强化人设就转小号。</li>
+          <li>导师、课程、财富密码口吻都避开。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>参考与来源</h2>
+    <div class="panel source-list">
+      <div>本报告参考站内账号审计文章结构：<a href="../serenity-account-audit/">Serenity 账号体检报告</a>、<a href="../xiaoman-yoga-audit/">小蛮瑜伽线上课账号体检报告</a>。</div>
+      <div>数据来源：本地 xhs_cli 抓取夏洛克大号 164 条历史笔记公开字段；Opus 4.7 独立评估；用户补充的栏目判断。</div>
+      <div>生成日期：2026-05-26。页面路径：/articles/xhs-sherlock-strategy/。</div>
+    </div>
+  </section>
+
+  <div class="footer">sherlockagent / articles / xhs-sherlock-strategy</div>
+</main>
+</body>
+</html>

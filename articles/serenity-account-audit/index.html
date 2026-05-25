@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang='zh-CN'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Serenity 账号体检报告｜X AI/Semi Signal Audit</title>
+<style>
+:root {
+  --ink:#111827; --muted:#64748b; --line:#dbe7f3; --bg:#f7fbff; --panel:#ffffff;
+  --blue:#2563eb; --cyan:#06b6d4; --green:#10b981; --amber:#d97706; --rose:#e11d48;
+  --navy:#102033; --shadow:0 20px 50px rgba(31,61,98,.13); --r:28px;
+}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% 0,#dff4ff 0,transparent 32%),linear-gradient(180deg,#f8fbff,#eef6ff 58%,#f9fbff);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Arial,sans-serif;}
+body:before{content:'';position:fixed;inset:0;background-image:linear-gradient(#e6eef8 1px,transparent 1px),linear-gradient(90deg,#e6eef8 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(180deg,#000,.25 55%,transparent);pointer-events:none}
+a{color:#1769c2;text-decoration:none} .page{position:relative;max-width:1280px;margin:0 auto;padding:56px 32px 80px} .badge{display:inline-flex;gap:10px;align-items:center;padding:10px 16px;border:1px solid #b6daf6;border-radius:999px;background:#ebf7ff;color:#1769c2;font:700 14px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;margin-top:30px;align-items:stretch} h1{font-size:68px;line-height:1.03;margin:0 0 18px;letter-spacing:0} .lead{font-size:24px;line-height:1.55;color:#43536a;max-width:860px;margin:0} .hero-card,.panel{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);backdrop-filter:blur(12px)} .hero-card{padding:28px} .avatar{display:flex;gap:18px;align-items:center} .avatar img{width:86px;height:86px;border-radius:24px;border:4px solid white;box-shadow:0 14px 28px rgba(31,61,98,.18)} .handle{font-size:22px;font-weight:900} .bio{margin-top:18px;color:#516173;line-height:1.55} .score{margin-top:24px;padding:18px;border-radius:22px;background:#102033;color:white} .score b{font-size:52px} .score span{color:#8be9d6;font-weight:800} .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px} .pill{display:inline-flex;align-items:center;border-radius:999px;padding:8px 12px;border:1px solid #bcd9f5;background:#eff7ff;color:#1769c2;font-weight:800;white-space:nowrap} .pill.green{background:#e9fff5;border-color:#a7f3d0;color:#067647} .pill.amber{background:#fff7e8;border-color:#fed7aa;color:#a15c06} .pill.rose{background:#fff1f2;border-color:#fecdd3;color:#be123c} .tiny{font-size:12px;padding:5px 8px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0} .kpi{padding:22px;background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 30px rgba(31,61,98,.08)} .kpi .label{color:var(--muted);font-weight:700} .kpi .value{font-size:34px;font-weight:950;margin-top:8px} .kpi .note{font-size:13px;color:var(--muted);margin-top:6px}
+.section{margin-top:34px} .section h2{font-size:34px;margin:0 0 18px;display:flex;align-items:center;gap:12px} .section h2:before{content:'';width:10px;height:34px;border-radius:99px;background:linear-gradient(180deg,var(--cyan),var(--green))} .panel{padding:28px} .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px} .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} .callout{padding:20px;border-radius:22px;background:#f7fbff;border:1px solid #d9e8f7;line-height:1.65} .callout strong{display:block;font-size:20px;margin-bottom:8px} .muted{color:var(--muted)} .small{font-size:13px} .big-number{font-size:46px;font-weight:950;color:#0f172a} .formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#102033;color:#bfffe9;border-radius:18px;padding:16px;line-height:1.55}
+.pillar-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:14px} .pillar-card{padding:16px;border:1px solid #dbe7f3;border-radius:20px;background:#fff} .pillar-head{display:flex;justify-content:space-between;gap:14px;margin-bottom:12px} .pillar-head span{color:var(--muted);font-weight:800} .bar,.meter{height:10px;background:#edf4fb;border-radius:99px;overflow:hidden} .bar i,.meter i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#2563eb,#06b6d4)}
+.top-list{display:grid;gap:12px} .top-row{display:grid;grid-template-columns:38px 1fr 84px;gap:14px;align-items:center;padding:12px;border-radius:18px;background:#f8fbff;border:1px solid #dbe7f3} .top-id{height:32px;width:32px;border-radius:10px;background:#102033;color:white;display:grid;place-items:center;font-weight:900} .top-title{font-weight:800;margin-bottom:8px;color:#243044} .top-metric{font-weight:950;text-align:right;color:#0f172a}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:24px;background:white} table{width:100%;border-collapse:separate;border-spacing:0;min-width:1120px} th{position:sticky;top:0;background:#102033;color:#eaf7ff;text-align:left;font-size:13px;letter-spacing:.02em;padding:14px} td{padding:14px;border-bottom:1px solid #edf2f8;vertical-align:top} tr:hover td{background:#f8fbff} .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:850} .rank{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#64748b} .post-text{margin-top:8px;line-height:1.5;color:#334155;max-width:460px}
+.strategy{display:grid;grid-template-columns:1fr 1fr;gap:18px} .do{border-left:5px solid var(--green)} .dont{border-left:5px solid var(--rose)} ul{margin:0;padding-left:20px;line-height:1.75} .source-list{line-height:1.8;color:#475569} .footer{margin-top:40px;color:#64748b;font-size:13px}
+@media(max-width:900px){.page{padding:32px 18px}.hero,.grid-2,.grid-3,.strategy{grid-template-columns:1fr}h1{font-size:42px}.lead{font-size:18px}.kpis{grid-template-columns:repeat(2,1fr)}.pillar-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class='page'>
+  <span class='badge'>X ACCOUNT AUDIT · AI/SEMI SIGNAL</span>
+  <section class='hero'>
+    <div>
+      <h1>Serenity 账号体检报告</h1>
+      <p class='lead'>第一层结论：Serenity 不是泛 AI 资讯号，而是“AI 半导体交易信号源”。我们应该学习它的信息密度、产业链映射和订阅转化，不应该照搬它的喊单语气。</p>
+      <div class='chips'>
+        <span class='pill'>定位：AI/Semi + 交易</span><span class='pill green'>核心资产：信号源</span><span class='pill amber'>迁移方式：中文解释 + 图表</span><span class='pill rose'>风险：不跟单</span>
+      </div>
+    </div>
+    <aside class='hero-card'>
+      <div class='avatar'><img src='https://pbs.twimg.com/profile_images/1996176688414367744/LXfA_lIx_normal.jpg'><div><div class='handle'>Serenity</div><a href='https://x.com/aleabitoreddit' target='_blank'>@aleabitoreddit</a></div></div>
+      <div class='bio'>That famous @Reddit WSB Trader now on X. <br><br>AI/Semi Supply Chain Analyst<br><br>ex. RISC-V FDN, AI research scientist; now trading unknown bottlenecks.</div>
+      <div class='score'><span>Health Score</span><br><b>86</b><span>/100</span><div class='muted small' style='color:#bdd2e7'>强信号源，弱学习模板</div></div>
+    </aside>
+  </section>
+  <section class='kpis'>
+    <div class='kpi'><div class='label'>Followers</div><div class='value'>335k</div><div class='note'>认证账号，增长基础强</div></div>
+    <div class='kpi'><div class='label'>30 Posts Views</div><div class='value'>12.1M</div><div class='note'>样本期总浏览</div></div>
+    <div class='kpi'><div class='label'>Avg Views</div><div class='value'>405k</div><div class='note'>约 1.2x 粉丝数</div></div>
+    <div class='kpi'><div class='label'>Bookmarks</div><div class='value'>10k</div><div class='note'>收藏/点赞比 21%</div></div>
+  </section>
+
+  <section class='section'><h2>定位与运营策略</h2><div class='grid-3'>
+    <div class='panel'><div class='big-number'>01</div><h3>账号方向</h3><p class='muted'>AI/Semi supply chain analyst + trading unknown bottlenecks。重点不是新闻速度，而是把 AI 需求映射到半导体、光通信、存储、ETF 和期权定价。</p></div>
+    <div class='panel'><div class='big-number'>02</div><h3>运营策略</h3><p class='muted'>用强观点制造关注，用具体标的承接讨论，用历史战绩建立权威，再把高信任用户导向付费订阅。</p></div>
+    <div class='panel'><div class='big-number'>03</div><h3>我们怎么学</h3><p class='muted'>不学喊单，学“信号拆解”：产业瓶颈 -> 关键公司 -> 数据/事件 -> 可视化图表 -> 中文解释。</p></div>
+  </div></section>
+
+  <section class='section'><h2>数据分析</h2><div class='grid-2'>
+    <div class='panel'>
+      <h3>公开互动概览</h3>
+      <div class='grid-2'>
+        <div class='callout'><strong>49k</strong><span class='muted'>近 30 条点赞</span></div>
+        <div class='callout'><strong>2.2k</strong><span class='muted'>近 30 条转发</span></div>
+        <div class='callout'><strong>4.7k</strong><span class='muted'>近 30 条评论</span></div>
+        <div class='callout'><strong>10k</strong><span class='muted'>近 30 条收藏</span></div>
+      </div>
+      <p class='muted'>估算互动率：0.54%；收藏率：0.08%。收藏率不算夸张，但绝对收藏量高，说明内容具备复查和交易备忘价值。</p>
+    </div>
+    <div class='panel'>
+      <h3>内容赛道分布</h3>
+      <div class='pillar-wrap'>
+    <div class='pillar-card'>
+      <div class='pillar-head'><strong>AI 光通信/小票标的</strong><span>15 posts</span></div>
+      <div class='bar'><i style='width:51.9%; background:#2563eb'></i></div>
+      <div class='muted'>6.3M views</div>
+    </div>
+    <div class='pillar-card'>
+      <div class='pillar-head'><strong>交易观点/杂项</strong><span>4 posts</span></div>
+      <div class='bar'><i style='width:25.5%; background:#059669'></i></div>
+      <div class='muted'>3.1M views</div>
+    </div>
+    <div class='pillar-card'>
+      <div class='pillar-head'><strong>期权/IV 定价</strong><span>3 posts</span></div>
+      <div class='bar'><i style='width:8.0%; background:#d97706'></i></div>
+      <div class='muted'>826k views</div>
+    </div>
+    <div class='pillar-card'>
+      <div class='pillar-head'><strong>宏观/地缘风险</strong><span>2 posts</span></div>
+      <div class='bar'><i style='width:8.0%; background:#7c3aed'></i></div>
+      <div class='muted'>709k views</div>
+    </div>
+    <div class='pillar-card'>
+      <div class='pillar-head'><strong>个人战绩/订阅转化</strong><span>4 posts</span></div>
+      <div class='bar'><i style='width:8.0%; background:#db2777'></i></div>
+      <div class='muted'>603k views</div>
+    </div>
+    <div class='pillar-card'>
+      <div class='pillar-head'><strong>存储/韩国半导体</strong><span>2 posts</span></div>
+      <div class='bar'><i style='width:8.0%; background:#475569'></i></div>
+      <div class='muted'>601k views</div>
+    </div></div>
+    </div>
+  </div></section>
+
+
+  <section class='section'><h2>标的推荐与收益验证</h2><div class='grid-2'>
+    <div class='panel'>
+      <h3>反复推荐的股票</h3>
+      <div class='grid-2'>
+      <div class='callout stock-call'>
+        <strong>$SIVE <em>+47.3%</em></strong>
+        <span class='muted'>CPO/激光瓶颈 · 近 30 条提及 11 次</span>
+      </div>
+      <div class='callout stock-call'>
+        <strong>$AXTI <em>+1073.6%</em></strong>
+        <span class='muted'>InP substrate 瓶颈 · 近 30 条提及 5 次</span>
+      </div>
+      <div class='callout stock-call'>
+        <strong>$LITE <em>+160.9%</em></strong>
+        <span class='muted'>CPO 激光/TAM 扩张 · 近 30 条提及 4 次</span>
+      </div>
+      <div class='callout stock-call'>
+        <strong>$AAOI <em>+505.0%</em></strong>
+        <span class='muted'>光通信高 beta · 近 30 条提及 3 次</span>
+      </div>
+      <div class='callout stock-call'>
+        <strong>$SOI <em>+312.4%</em></strong>
+        <span class='muted'>硅光/欧洲上游 · 近 30 条提及 4 次</span>
+      </div>
+      <div class='callout stock-call'>
+        <strong>$TSEM <em>+150.8%</em></strong>
+        <span class='muted'>Foundry/光通信产能 · 近 30 条提及 3 次</span>
+      </div></div>
+      <p class='muted'>投资博主最重要的不是发帖频率，而是“反复推荐什么、推荐后是否兑现”。Serenity 的核心股票池高度集中在 CPO、光通信、InP substrate、AI 云和半导体上游。</p>
+    </div>
+    <div class='panel'>
+      <h3>口径说明</h3>
+      <ul>
+        <li>“近 30 条提及”来自本次抓取样本，不代表全历史频次。</li>
+        <li>收益分两类：SIVE 用搜索样本首个明确 long 后行情；其他多为她原帖自称入场价 + 最新收盘价。</li>
+        <li>最新价来自 Yahoo Finance / yfinance，最新可得收盘日为 2026-05-22。</li>
+        <li>这张表用于评价博主命中率和叙事能力，不构成买卖建议。</li>
+      </ul>
+    </div>
+  </div><div class='table-wrap stock-table'><table><thead><tr><th>标的</th><th>主线</th><th>提及</th><th>推荐/证据</th><th>起算价</th><th>最新价</th><th>收益</th><th>证据说明</th></tr></thead><tbody>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2053741502808133638' target='_blank'>$SIVE</a><div class='muted small'>Sivers Semiconductors</div></td>
+      <td>CPO/激光瓶颈</td>
+      <td class='num'>11</td>
+      <td>2026-05-11<div class='muted small'>搜索样本首个明确 long 后收盘</div></td>
+      <td class='num'>49.50</td>
+      <td class='num'>72.90<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+47.3%</td>
+      <td>最明确表述：most compelling CPO long；后续多次称 kingmaker / once-a-generation long。<div class='muted small'>行情验证</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051571231590379708' target='_blank'>$AXTI</a><div class='muted small'>AXT Inc.</div></td>
+      <td>InP substrate 瓶颈</td>
+      <td class='num'>5</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>$12.00</td>
+      <td class='num'>$140.83<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+1073.6%</td>
+      <td>自称 call：$AXTI $12 -> $105；另称 5 个月前给 $150 PT。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051571231590379708' target='_blank'>$LITE</a><div class='muted small'>Lumentum</div></td>
+      <td>CPO 激光/TAM 扩张</td>
+      <td class='num'>4</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>$363.00</td>
+      <td class='num'>$946.90<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+160.9%</td>
+      <td>自称 call：$LITE $363 -> $1000；多次引用 CEO/TAM 扩张。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051571231590379708' target='_blank'>$AAOI</a><div class='muted small'>Applied Optoelectronics</div></td>
+      <td>光通信高 beta</td>
+      <td class='num'>3</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>$30.00</td>
+      <td class='num'>$181.49<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+505.0%</td>
+      <td>自称 call：$AAOI $30 -> $180；用作光通信爆发样本。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051571231590379708' target='_blank'>$SOI</a><div class='muted small'>Soitec</div></td>
+      <td>硅光/欧洲上游</td>
+      <td class='num'>4</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>43.00</td>
+      <td class='num'>177.35<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+312.4%</td>
+      <td>自称 call：$SOI $43 -> $145；另称 thesis 走出 3x。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2045175383210000444' target='_blank'>$TSEM</a><div class='muted small'>Tower Semiconductor</div></td>
+      <td>Foundry/光通信产能</td>
+      <td class='num'>3</td>
+      <td>2026-04-18<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>$113.00</td>
+      <td class='num'>$283.43<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+150.8%</td>
+      <td>自称 $TSEM $113 -> $226，40 天翻倍；5/5 又称 $110 -> $218。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051571231590379708' target='_blank'>$IQE</a><div class='muted small'>IQE plc</div></td>
+      <td>化合物半导体/上游</td>
+      <td class='num'>2</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>13.00</td>
+      <td class='num'>45.75<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+251.9%</td>
+      <td>自称 call：$IQE $13 -> $46。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051571231590379708' target='_blank'>$AEHR</a><div class='muted small'>Aehr Test Systems</div></td>
+      <td>测试设备/SiPh segment</td>
+      <td class='num'>2</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>$30.00</td>
+      <td class='num'>$95.02<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+216.7%</td>
+      <td>自称 call：$AEHR $30 -> $85。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2051348607966875919' target='_blank'>$NBIS</a><div class='muted small'>Nebius</div></td>
+      <td>Neocloud/AI 云</td>
+      <td class='num'>3</td>
+      <td>2026-05-05<div class='muted small'>原帖自称入场价</div></td>
+      <td class='num'>$87.00</td>
+      <td class='num'>$214.77<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+146.9%</td>
+      <td>自称 original thesis back at ~$87，后续 100%+；5/22 称接近去年三倍。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr>
+    <tr>
+      <td><a href='https://x.com/aleabitoreddit/status/2057510441778315730' target='_blank'>$ARM</a><div class='muted small'>Arm Holdings</div></td>
+      <td>CPU/IP</td>
+      <td class='num'>2</td>
+      <td>2026-05-22<div class='muted small'>原帖自称起算价</div></td>
+      <td class='num'>$135.00</td>
+      <td class='num'>$306.51<div class='muted small'>2026-05-22</div></td>
+      <td class='num strong-return'>+127.0%</td>
+      <td>称 $ARM 从 $135 后短期 triple digit returns。<div class='muted small'>原帖声明 + 最新价</div></td>
+    </tr></tbody></table></div></section>
+
+  <section class='section'><h2>爆款样本</h2><div class='panel top-list'>
+      <div class='top-row'>
+        <div class='top-id'>1</div>
+        <div class='top-main'>
+          <div class='top-title'>2 Year Return: 22,561.99% Pretty decent, right anon? https://t.co/snVfKQ5nqm</div>
+          <div class='meter'><i style='width:100.0%'></i></div>
+        </div>
+        <div class='top-metric'>2.1M</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>2</div>
+        <div class='top-main'>
+          <div class='top-title'>I don&#x27;t post dollar amounts because they don&#x27;t matter. What matters is return %. Speaking…</div>
+          <div class='meter'><i style='width:44.2%'></i></div>
+        </div>
+        <div class='top-metric'>915k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>3</div>
+        <div class='top-main'>
+          <div class='top-title'>Am I that popular? I did get a lot of dm requests to manage their capital recently. But o…</div>
+          <div class='meter'><i style='width:37.9%'></i></div>
+        </div>
+        <div class='top-metric'>783k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>4</div>
+        <div class='top-main'>
+          <div class='top-title'>People are really out there saying, don’t doubt me off 10% returns. I present to you: $AX…</div>
+          <div class='meter'><i style='width:35.6%'></i></div>
+        </div>
+        <div class='top-metric'>735k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>5</div>
+        <div class='top-main'>
+          <div class='top-title'>For $SIVE to become the next $80B+ $LITE. Sivers is the current laser kingmaker of the op…</div>
+          <div class='meter'><i style='width:28.6%'></i></div>
+        </div>
+        <div class='top-metric'>591k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>6</div>
+        <div class='top-main'>
+          <div class='top-title'>Wow, NASDAQ just added $SIVE to its Stockholm index. This is est. to be around ~$15-20M w…</div>
+          <div class='meter'><i style='width:25.0%'></i></div>
+        </div>
+        <div class='top-metric'>517k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>7</div>
+        <div class='top-main'>
+          <div class='top-title'>5 months ago. I gave a PT of $150 with $AXTI. Over 10x that current values from a $500M M…</div>
+          <div class='meter'><i style='width:24.5%'></i></div>
+        </div>
+        <div class='top-metric'>507k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>8</div>
+        <div class='top-main'>
+          <div class='top-title'>I’m pretty international! I’m in Japan right now so learning Japanese. Lived in China for…</div>
+          <div class='meter'><i style='width:21.5%'></i></div>
+        </div>
+        <div class='top-metric'>445k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>9</div>
+        <div class='top-main'>
+          <div class='top-title'>Out of any market I’ve interacted with: The Korean market is the most degen</div>
+          <div class='meter'><i style='width:21.3%'></i></div>
+        </div>
+        <div class='top-metric'>440k</div>
+      </div>
+      <div class='top-row'>
+        <div class='top-id'>10</div>
+        <div class='top-main'>
+          <div class='top-title'>People keep asking: Hey why do have new longs with Taiwan/EU stocks recently like $LPK or…</div>
+          <div class='meter'><i style='width:20.7%'></i></div>
+        </div>
+        <div class='top-metric'>428k</div>
+      </div></div></section>
+
+  <section class='section'><h2>预估收入</h2><div class='grid-2'>
+    <div class='panel'>
+      <h3>X 官方路径</h3>
+      <ul>
+        <li>Creator Revenue Sharing：官方要求 active Premium，并且近 3 个月至少 5M organic impressions；最低付款门槛 $30。</li>
+        <li>Subscriptions：创作者设置月费；官方说明在达到生命周期收益阈值前，可获得 X 从订阅获得收入的最高 97%，但需扣除应用商店/支付等费用。</li>
+        <li>Serenity 的 30 条样本已有 12.1M 浏览，流量规模已足够研究变现，但具体广告分成无法从公开页面反推。</li>
+      </ul>
+    </div>
+    <div class='panel'>
+      <h3>订阅情景估算</h3>
+      <p class='muted'>Serenity 曾发帖称达到 30,000 paid subscribers。该口径未独立验证，只做情景测算：</p>
+      <div class='formula'>
+        $3/月: 30,000 × $3 = $90k gross / month<br>
+        $5/月: 30,000 × $5 = $150k gross / month<br>
+        $10/月: 30,000 × $10 = $300k gross / month
+      </div>
+      <p class='muted small'>真正到手取决于订阅价格、地区、网页/移动端购买比例、退款、税务和 X/支付方结算规则。</p>
+    </div>
+  </div></section>
+
+  <section class='section'><h2>可迁移策略</h2><div class='strategy'>
+    <div class='panel do'><h3>我们要学</h3><ul><li>把复杂信号压成一句可复用标题。</li><li>每条内容给出“为什么值得收藏”。</li><li>用图表解释产业链，而不是转述原文。</li><li>跟踪高权重信号源，做中文 Radar。</li></ul></div>
+    <div class='panel dont'><h3>不要照搬</h3><ul><li>不要直接跟单或暗示收益确定性。</li><li>不要复制强势喊单语气。</li><li>不要只发英文交易截图。</li><li>不要在冷启动阶段主打订阅付费。</li></ul></div>
+  </div></section>
+
+  <section class='section'><h2>逐帖数据表</h2><div class='table-wrap'><table><thead><tr><th>#</th><th>链接</th><th>主要内容</th><th>浏览</th><th>赞</th><th>转</th><th>评</th><th>藏</th><th>诊断</th></tr></thead><tbody>
+    <tr>
+      <td><span class=rank>01</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058078143559372866' target='_blank'>#372866</a><div class='muted small'>2026-05-23 14:50</div></td>
+      <td><span class='pill tiny'>交易观点/杂项</span><div class='post-text'>2 Year Return: 22,561.99% Pretty decent, right anon? https://t.co/snVfKQ5nqm</div></td>
+      <td class='num'>2.1M</td>
+      <td class='num'>3.9k</td>
+      <td class='num'>59</td>
+      <td class='num'>344</td>
+      <td class='num'>460</td>
+      <td>观点型内容，适合观察表达方式。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>02</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058230354063102028' target='_blank'>#102028</a><div class='muted small'>2026-05-24 00:55</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>I don&#x27;t post dollar amounts because they don&#x27;t matter. What matters is return %. Speaking of that... YTD: 3840.39%. I&#x27;m probably the only one in the world. Who called …</div></td>
+      <td class='num'>915k</td>
+      <td class='num'>4.0k</td>
+      <td class='num'>215</td>
+      <td class='num'>362</td>
+      <td class='num'>1.5k</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>03</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057712025107939686' target='_blank'>#939686</a><div class='muted small'>2026-05-22 14:35</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>Am I that popular? I did get a lot of dm requests to manage their capital recently. But only here to help out regular retail investors succeed on their own with ideas …</div></td>
+      <td class='num'>783k</td>
+      <td class='num'>2.2k</td>
+      <td class='num'>54</td>
+      <td class='num'>126</td>
+      <td class='num'>334</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>04</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057518759968190581' target='_blank'>#190581</a><div class='muted small'>2026-05-22 01:47</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>People are really out there saying, don’t doubt me off 10% returns. I present to you: $AXTI https://t.co/1i5iXfWhz2</div></td>
+      <td class='num'>735k</td>
+      <td class='num'>1.6k</td>
+      <td class='num'>68</td>
+      <td class='num'>127</td>
+      <td class='num'>351</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>05</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058060753933131949' target='_blank'>#131949</a><div class='muted small'>2026-05-23 13:41</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>For $SIVE to become the next $80B+ $LITE. Sivers is the current laser kingmaker of the optical transition to CPO and 1.6T. They basically supply lasers to the leading …</div></td>
+      <td class='num'>591k</td>
+      <td class='num'>1.6k</td>
+      <td class='num'>112</td>
+      <td class='num'>72</td>
+      <td class='num'>624</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>06</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058145137214329150' target='_blank'>#329150</a><div class='muted small'>2026-05-23 19:16</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>Wow, NASDAQ just added $SIVE to its Stockholm index. This is est. to be around ~$15-20M worth of passive inflow, with strict ETF-only being around ~$.5M. We’re able to…</div></td>
+      <td class='num'>517k</td>
+      <td class='num'>1.9k</td>
+      <td class='num'>135</td>
+      <td class='num'>111</td>
+      <td class='num'>373</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>07</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058002991886844357' target='_blank'>#844357</a><div class='muted small'>2026-05-23 09:52</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>5 months ago. I gave a PT of $150 with $AXTI. Over 10x that current values from a $500M MC. It’s now a $9.2B MC and $140. $10 away. New $SIVE longs are starting to rea…</div></td>
+      <td class='num'>507k</td>
+      <td class='num'>1.8k</td>
+      <td class='num'>71</td>
+      <td class='num'>158</td>
+      <td class='num'>424</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>08</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058185306399179176' target='_blank'>#179176</a><div class='muted small'>2026-05-23 21:56</div></td>
+      <td><span class='pill tiny'>期权/IV 定价</span><div class='post-text'>I’m pretty international! I’m in Japan right now so learning Japanese. Lived in China for a tiny bit and I travel to Taiwan pretty often. So know some Chinese. Used to…</div></td>
+      <td class='num'>445k</td>
+      <td class='num'>2.4k</td>
+      <td class='num'>48</td>
+      <td class='num'>312</td>
+      <td class='num'>251</td>
+      <td>用 IV/定价错配制造专业壁垒，适合做解释型二创。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>09</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057616460491665789' target='_blank'>#665789</a><div class='muted small'>2026-05-22 08:16</div></td>
+      <td><span class='pill tiny'>存储/韩国半导体</span><div class='post-text'>Out of any market I’ve interacted with: The Korean market is the most degen</div></td>
+      <td class='num'>440k</td>
+      <td class='num'>1.8k</td>
+      <td class='num'>62</td>
+      <td class='num'>148</td>
+      <td class='num'>102</td>
+      <td>把 AI 需求映射到 ETF/上游链，适合 Radar 选题。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>10</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057826212257685733' target='_blank'>#685733</a><div class='muted small'>2026-05-22 22:09</div></td>
+      <td><span class='pill tiny'>宏观/地缘风险</span><div class='post-text'>People keep asking: Hey why do have new longs with Taiwan/EU stocks recently like $LPK or Foci? And not much with new US ones? It&#x27;s partly because the list of US stock…</div></td>
+      <td class='num'>428k</td>
+      <td class='num'>1.1k</td>
+      <td class='num'>66</td>
+      <td class='num'>134</td>
+      <td class='num'>529</td>
+      <td>收藏率高，说明可复查价值强。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>11</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057524112944468149' target='_blank'>#468149</a><div class='muted small'>2026-05-22 02:09</div></td>
+      <td><span class='pill tiny'>交易观点/杂项</span><div class='post-text'>Did you listen anon? https://t.co/ycoc4oSDDG</div></td>
+      <td class='num'>407k</td>
+      <td class='num'>2.2k</td>
+      <td class='num'>88</td>
+      <td class='num'>292</td>
+      <td class='num'>274</td>
+      <td>观点型内容，适合观察表达方式。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>12</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057374458659389842' target='_blank'>#389842</a><div class='muted small'>2026-05-21 16:14</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>A guide by Serenity on becoming a true Swedish local: 1. See crown jewel photonics company in $SIVE? 2. Get angry about 2024 revenue numbers, ignoring forward growth. …</div></td>
+      <td class='num'>357k</td>
+      <td class='num'>1.5k</td>
+      <td class='num'>98</td>
+      <td class='num'>336</td>
+      <td class='num'>368</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>13</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057720796613873805' target='_blank'>#873805</a><div class='muted small'>2026-05-22 15:10</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>$SIVE is literally the kingmaker for CPO: From ~ Lightmatter, Celestial, Ayar, Lightelligence early on. Now the leaders with massive $5-10B+ valuations. To the ASIC ec…</div></td>
+      <td class='num'>344k</td>
+      <td class='num'>1.6k</td>
+      <td class='num'>145</td>
+      <td class='num'>97</td>
+      <td class='num'>433</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>14</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058163202190680520' target='_blank'>#680520</a><div class='muted small'>2026-05-23 20:28</div></td>
+      <td><span class='pill tiny'>交易观点/杂项</span><div class='post-text'>华人社区最近的赞誉让我感到受宠若惊！ 我认为任何空头被打爆，都只是我单纯喜欢像 $AAOI 这样的股票而产生的无意间的副作用。 希望也能与更多的华人社区朋友互动（最近我在 X 上跟日本和韩国的网友互动得比较多）。</div></td>
+      <td class='num'>341k</td>
+      <td class='num'>1.8k</td>
+      <td class='num'>48</td>
+      <td class='num'>282</td>
+      <td class='num'>204</td>
+      <td>观点型内容，适合观察表达方式。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>15</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057689020390580234' target='_blank'>#580234</a><div class='muted small'>2026-05-22 13:04</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>??? $RDDT is literally lower IQ than $IREN investors? I didn&#x27;t do all this research on $AXTI ... Just for you all to make 380% on it, call it a $MU memory competitor a…</div></td>
+      <td class='num'>316k</td>
+      <td class='num'>856</td>
+      <td class='num'>19</td>
+      <td class='num'>69</td>
+      <td class='num'>139</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>16</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057804691321577607' target='_blank'>#577607</a><div class='muted small'>2026-05-22 20:44</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>Wait until you realize that this is actually NASDAQ liquidity required for the US listing/float. And proceeds are expected go to $SIVE M&amp;A (they hired 2 acquisition re…</div></td>
+      <td class='num'>294k</td>
+      <td class='num'>1.3k</td>
+      <td class='num'>64</td>
+      <td class='num'>111</td>
+      <td class='num'>240</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>17</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058374522353672558' target='_blank'>#672558</a><div class='muted small'>2026-05-24 10:28</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>Photonics is nuanced and using ChatGPT/Gemini makes you miss all of it: 1. $SIVE is actually a chokepoint and partially a bottleneck. The reason it&#x27;s a chokepoint is l…</div></td>
+      <td class='num'>292k</td>
+      <td class='num'>2.0k</td>
+      <td class='num'>151</td>
+      <td class='num'>136</td>
+      <td class='num'>1.2k</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>18</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057503508967096598' target='_blank'>#096598</a><div class='muted small'>2026-05-22 00:47</div></td>
+      <td><span class='pill tiny'>交易观点/杂项</span><div class='post-text'>And now… $NBIS is $224, around triple prices from last year. Did you listen anon? https://t.co/WVFKh8d3vy</div></td>
+      <td class='num'>284k</td>
+      <td class='num'>1.5k</td>
+      <td class='num'>64</td>
+      <td class='num'>182</td>
+      <td class='num'>91</td>
+      <td>观点型内容，适合观察表达方式。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>19</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057388984310132855' target='_blank'>#132855</a><div class='muted small'>2026-05-21 17:12</div></td>
+      <td><span class='pill tiny'>宏观/地缘风险</span><div class='post-text'>Just as I say this: $AMD invests $10B+ into Taiwan ecosystem (for securing capacity/scaling infra) AMD is collaborating with $ASX and SPIL. As well as ODM partners lik…</div></td>
+      <td class='num'>280k</td>
+      <td class='num'>793</td>
+      <td class='num'>50</td>
+      <td class='num'>120</td>
+      <td class='num'>352</td>
+      <td>收藏率高，说明可复查价值强。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>20</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058410430649774504' target='_blank'>#774504</a><div class='muted small'>2026-05-24 12:51</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>I’m not selling a single share of $SIVE. I personally think it’s a once-a-generation long given how many hyperscaler suppliers they’re already in. Coupled with GS extr…</div></td>
+      <td class='num'>240k</td>
+      <td class='num'>1.4k</td>
+      <td class='num'>95</td>
+      <td class='num'>129</td>
+      <td class='num'>479</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>21</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057510441778315730' target='_blank'>#315730</a><div class='muted small'>2026-05-22 01:14</div></td>
+      <td><span class='pill tiny'>个人战绩/订阅转化</span><div class='post-text'>And now $ARM, a $300B+ company, hit triple digit returns in a short timeframe since $135… Cool name CPUs go brrrr? https://t.co/67Zz6EWfnL</div></td>
+      <td class='num'>205k</td>
+      <td class='num'>794</td>
+      <td class='num'>32</td>
+      <td class='num'>155</td>
+      <td class='num'>85</td>
+      <td>用战绩建立权威，强转化但不适合冷启动直接模仿。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>22</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057780545292308506' target='_blank'>#308506</a><div class='muted small'>2026-05-22 19:08</div></td>
+      <td><span class='pill tiny'>期权/IV 定价</span><div class='post-text'>Feels like $FUTU and $TIGR are kinda screwed? The Chinese Gov is going after their historical revenues. There&#x27;s basically no fair law in China (esp. with IP), so if Go…</div></td>
+      <td class='num'>203k</td>
+      <td class='num'>933</td>
+      <td class='num'>86</td>
+      <td class='num'>104</td>
+      <td class='num'>151</td>
+      <td>用 IV/定价错配制造专业壁垒，适合做解释型二创。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>23</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057516027479814380' target='_blank'>#814380</a><div class='muted small'>2026-05-22 01:37</div></td>
+      <td><span class='pill tiny'>个人战绩/订阅转化</span><div class='post-text'>Not everyone on X can do a did you listen anon. With triple digit returns on everything like $TSEM they went long on. https://t.co/7jGCpZWRcd</div></td>
+      <td class='num'>180k</td>
+      <td class='num'>765</td>
+      <td class='num'>26</td>
+      <td class='num'>58</td>
+      <td class='num'>82</td>
+      <td>用战绩建立权威，强转化但不适合冷启动直接模仿。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>24</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057620897796878725' target='_blank'>#878725</a><div class='muted small'>2026-05-22 08:33</div></td>
+      <td><span class='pill tiny'>期权/IV 定价</span><div class='post-text'>$RKLB $90M US Space Force contract. Not much revenue, but implication/narratives go brrr with the US space buildup. Fun to see before the SpaceX IPO as well. https://t…</div></td>
+      <td class='num'>179k</td>
+      <td class='num'>1.2k</td>
+      <td class='num'>57</td>
+      <td class='num'>199</td>
+      <td class='num'>156</td>
+      <td>用 IV/定价错配制造专业壁垒，适合做解释型二创。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>25</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058356865566900439' target='_blank'>#900439</a><div class='muted small'>2026-05-24 09:18</div></td>
+      <td><span class='pill tiny'>存储/韩国半导体</span><div class='post-text'>Well, looks like Iran War is about to end. Markets/Indexes are probably going like this Monday. Probably even better for Europe/Taiwan/Korean equities that were dragge…</div></td>
+      <td class='num'>161k</td>
+      <td class='num'>1.2k</td>
+      <td class='num'>59</td>
+      <td class='num'>90</td>
+      <td class='num'>133</td>
+      <td>把 AI 需求映射到 ETF/上游链，适合 Radar 选题。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>26</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058257993280712850' target='_blank'>#712850</a><div class='muted small'>2026-05-24 02:45</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>I love how pointing out that ideas and market percentage validation. Matter more than net worth. Triggered all the “trust me I’m rich” grifters selling expensive paywa…</div></td>
+      <td class='num'>142k</td>
+      <td class='num'>1.7k</td>
+      <td class='num'>27</td>
+      <td class='num'>111</td>
+      <td class='num'>74</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>27</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057761720710631573' target='_blank'>#631573</a><div class='muted small'>2026-05-22 17:53</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>European quantum/optical/glass chokepoints go BRRR? $ALRIB +8.35% $LPK +3.21% $IQE +5.68% $SOI +4.98% As a side thought, it’s a nice vote of confidence to retail that …</div></td>
+      <td class='num'>138k</td>
+      <td class='num'>1.1k</td>
+      <td class='num'>72</td>
+      <td class='num'>80</td>
+      <td class='num'>415</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>28</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058131516346315226' target='_blank'>#315226</a><div class='muted small'>2026-05-23 18:22</div></td>
+      <td><span class='pill tiny'>AI 光通信/小票标的</span><div class='post-text'>People in Sweden always like: “How does $SIVE have so little employees and can do all of this” vs. $LITE? Turns out… You can build the most valuable IP in the world if…</div></td>
+      <td class='num'>132k</td>
+      <td class='num'>1.3k</td>
+      <td class='num'>40</td>
+      <td class='num'>79</td>
+      <td class='num'>142</td>
+      <td>产业链瓶颈 + 具体标的，信息密度高，适合拆成中文图表。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>29</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2057602598795100532' target='_blank'>#100532</a><div class='muted small'>2026-05-22 07:21</div></td>
+      <td><span class='pill tiny'>个人战绩/订阅转化</span><div class='post-text'>Why are there so many influencers just rewriting my old posts with AI? Prompt: &quot;Copy Serenity&#x27;s old posts... output it re-written&quot; Or even the same thing... just in a …</div></td>
+      <td class='num'>110k</td>
+      <td class='num'>848</td>
+      <td class='num'>21</td>
+      <td class='num'>73</td>
+      <td class='num'>26</td>
+      <td>用战绩建立权威，强转化但不适合冷启动直接模仿。</td>
+    </tr>
+    <tr>
+      <td><span class=rank>30</span></td>
+      <td><a href='https://x.com/aleabitoreddit/status/2058343691996282903' target='_blank'>#282903</a><div class='muted small'>2026-05-24 08:25</div></td>
+      <td><span class='pill tiny'>个人战绩/订阅转化</span><div class='post-text'>Wow, I&#x27;ve reached 30,000 paid subscribers. Thank you everyone! Catching up to Elon Musk. Only 17,000 more to go... Then I reach my goal of becoming #1 on the entire X …</div></td>
+      <td class='num'>108k</td>
+      <td class='num'>1.6k</td>
+      <td class='num'>19</td>
+      <td class='num'>145</td>
+      <td class='num'>53</td>
+      <td>用战绩建立权威，强转化但不适合冷启动直接模仿。</td>
+    </tr></tbody></table></div></section>
+
+  <section class='section'><h2>来源与口径</h2><div class='panel source-list'>
+    <p>数据来源：本地 X CLI 于 2026-05-24 抓取的 Serenity 公开账号、近 30 条帖子样本和 ticker 搜索样本；行情来自 Yahoo Finance / yfinance。</p>
+    <p>官方规则参考：<a href='https://help.x.com/en/using-x/creator-revenue-sharing' target='_blank'>X Creator Revenue Sharing</a>；<a href='https://help.x.com/using-x/subscriptions-creator' target='_blank'>X Subscriptions Creator</a>；<a href='https://help.x.com/en/rules-and-policies/content-monetization-standards' target='_blank'>X Creator Monetization Standards</a>。</p>
+    <p>注意：收入估算是商业情景推演，不代表 Serenity 实际收入；逐帖表只展示公开可抓取指标。</p>
+  </div></section>
+  <div class='footer'>Generated for x-agent-lab · 2026-05-24 · local HTML report</div>
+</main>
+</body></html>

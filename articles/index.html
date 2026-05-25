@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章归档</title>
+  <meta name="description" content="sherlockagent 文章归档。">
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --ink: #171611;
+      --muted: #6a6256;
+      --line: #d8cfbf;
+      --panel: #fffaf0;
+      --accent: #9b3d2e;
+      --green: #176847;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23, 22, 17, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(23, 22, 17, 0.035) 1px, transparent 1px),
+        var(--bg);
+      background-size: 34px 34px;
+    }
+
+    .shell {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 28px;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 84px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .list {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr) 120px;
+      gap: 24px;
+      align-items: center;
+      padding: 24px;
+      background: rgba(255, 250, 240, 0.82);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .item:hover {
+      background: var(--panel);
+    }
+
+    .date, .type {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .desc {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .type {
+      justify-self: end;
+      color: var(--green);
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 24px, 1040px); padding: 42px 0; }
+      .item { grid-template-columns: 1fr; gap: 10px; }
+      .type { justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="kicker">sherlockagent archive</div>
+      <h1>文章归档</h1>
+    </header>
+
+    <section class="list" aria-label="文章列表">
+      <a class="item" href="./xhs-sherlock-strategy/">
+        <div class="date">2026-05-26</div>
+        <div>
+          <div class="title">夏洛克 XHS 运营策略</div>
+          <div class="desc">基于 164 条历史笔记、Opus 4.7 评估和栏目反推，确定零代码 AI 实战、AI 数据链雷达、Skills 实操与 X/Ins 骑行热点流量池。</div>
+        </div>
+        <div class="type">XHS Strategy</div>
+      </a>
+
+      <a class="item" href="./serenity-account-audit/">
+        <div class="date">2026-05-24</div>
+        <div>
+          <div class="title">Serenity 账号体检报告：AI 半导体交易信号源拆解</div>
+          <div class="desc">拆解 @aleabitoreddit 近 30 条公开样本：定位、运营策略、账号方向、互动数据、预估收入和逐帖转评赞藏。</div>
+        </div>
+        <div class="type">X Audit</div>
+      </a>
+
+      <a class="item" href="./xiaoman-yoga-audit/">
+        <div class="date">2026-05-24</div>
+        <div>
+          <div class="title">小蛮瑜伽线上课：小红书账号体检报告</div>
+          <div class="desc">基于主页 SSR 与 xiaohongshu-cli 公开字段，拆解 43 篇样本、16 篇详情和“身体堵点可视化 + 疏通方案”增长线。</div>
+        </div>
+        <div class="type">XHS Audit</div>
+      </a>
+
+      <a class="item" href="./ai-chip-storage-radar-2026-05-23/">
+        <div class="date">2026-05-23</div>
+        <div>
+          <div class="title">AI 硬件热点雷达：GPU 之后，内存墙和 AI 存储正在上桌</div>
+          <div class="desc">基于 X 热点样本与高权重人物源，跟踪 HBM、AI 存储、CPU 回归、Rubin 整柜系统和人物信号。</div>
+        </div>
+        <div class="type">AI Radar</div>
+      </a>
+
+      <a class="item" href="./futu-csrc-profit-impact-20260522/">
+        <div class="date">2026-05-22</div>
+        <div>
+          <div class="title">富途监管事件：潜在利润影响测算</div>
+          <div class="desc">从三份监管原文出发，测算 2026 年罚没、EPS/PE 敏感性、账户过渡，并补充 IB 与耀才猜想。</div>
+        </div>
+        <div class="type">FUTU</div>
+      </a>
+
+      <a class="item" href="./cathay-april-2026-operating-dashboard/">
+        <div class="date">2026-05-21</div>
+        <div>
+          <div class="title">国泰 4 月经营数据：三架飞机看需求、油价和货运</div>
+          <div class="desc">把国泰客运、HK Express、国泰货运拆成三条业务线，用真实机身图、机舱/货舱可视化和油价压力来读 4 月经营数据。</div>
+        </div>
+        <div class="type">Cathay</div>
+      </a>
+
+      <a class="item" href="./korea-customs-nand-20260519-v2/">
+        <div class="date">2026-05-20</div>
+        <div>
+          <div class="title">NAND 那一格终于开工：用韩国海关给长江存储搭一支温度计</div>
+          <div class="desc">用韩国海关数据看 NAND 价格、AI 需求外溢、消费电子复苏和中国替代路径。</div>
+        </div>
+        <div class="type">NAND</div>
+      </a>
+
+      <a class="item" href="./cxmt-ipo-20260518/">
+        <div class="date">2026-05-19</div>
+        <div>
+          <div class="title">长鑫终于来了：不是中国版 SK，更像早期美光</div>
+          <div class="desc">DRAM 玩家全员到齐：收入、利润、市占、HBM 短板与对照美光的相对称量。</div>
+        </div>
+        <div class="type">DRAM</div>
+      </a>
+
+      <a class="item" href="./strava-heatmap/">
+        <div class="date">2026-05-19</div>
+        <div>
+          <div class="title">我的全量骑行热力图：Strava × 高德 × Codex</div>
+          <div class="desc">只显示真实骑过的路线，支持北京、香港、云南、武汉区域切换、动态 Top3 赛段和年度骑行总结。</div>
+        </div>
+        <div class="type">Ride Map</div>
+      </a>
+
+      <a class="item" href="./founders-playbook-ai-native-startup/">
+        <div class="date">2026-05-18</div>
+        <div>
+          <div class="title">Anthropic 创始人手册：AI 原生创业中文长版</div>
+          <div class="desc">按 36 页 Founder’s Playbook 原手册结构重写，保留章节、练习和 Resources。</div>
+        </div>
+        <div class="type">AI Startup</div>
+      </a>
+
+      <a class="item" href="./circle-stablecoin/">
+        <div class="date">2026-05-16</div>
+        <div>
+          <div class="title">一直看不懂 Circle，让 Claude 给我做了份互动讲解</div>
+          <div class="desc">用奇葩银行、Coinbase 房东和利率敏感性讲清 USDC 生意。</div>
+        </div>
+        <div class="type">Stablecoin</div>
+      </a>
+
+      <a class="item" href="./brk-2026q1-holdings/">
+        <div class="date">2026-05-16</div>
+        <div>
+          <div class="title">BRK 2026Q1 13F 调仓说明</div>
+          <div class="desc">伯克希尔最新持仓、主要加减仓与策略解读。</div>
+        </div>
+        <div class="type">13F</div>
+      </a>
+
+      <a class="item" href="./brk-2026q1-holdings/blackboard.html">
+        <div class="date">2026-05-16</div>
+        <div>
+          <div class="title">BRK 2026Q1 调仓板书版</div>
+          <div class="desc">用黑板画图方式讲清持仓压缩、权重变化和策略含义。</div>
+        </div>
+        <div class="type">Board</div>
+      </a>
+
+      <a class="item" href="./brk-2026q1-holdings/notes.html">
+        <div class="date">2026-05-16</div>
+        <div>
+          <div class="title">BRK 2026Q1 调仓手绘笔记</div>
+          <div class="desc">白纸笔记、荧光笔、圈注和检查清单风格。</div>
+        </div>
+        <div class="type">Notes</div>
+      </a>
+
+      <a class="item" href="./brk-2026q1-holdings/banker.html">
+        <div class="date">2026-05-16</div>
+        <div>
+          <div class="title">BRK 2026Q1 13F 调仓投行版</div>
+          <div class="desc">Executive Summary、权重桥、交易拆解和 read-through。</div>
+        </div>
+        <div class="type">Memo</div>
+      </a>
+
+      <a class="item" href="./cpu-gpu-ratio/">
+        <div class="date">2026-05-11</div>
+        <div>
+          <div class="title">AI 算力投资结构：CPU / GPU / TPU / HBM 全景对比</div>
+          <div class="desc">算力链条不同环节的投资结构和周期位置。</div>
+        </div>
+        <div class="type">AI</div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

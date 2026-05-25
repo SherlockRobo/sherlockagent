@@ -1,0 +1,1771 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>国泰集团 2026 年 4 月经营可视化</title>
+  <style>
+    :root {
+      --cx: #006b45;
+      --cx-dark: #004832;
+      --hke: #5f2d91;
+      --hke-pink: #d7197d;
+      --cargo: #0b5f43;
+      --paper: #f2f0e7;
+      --paper-2: #fbf8ef;
+      --ink: #1c1b19;
+      --muted: #706b61;
+      --line: #d8d0c1;
+      --gold: #b58a3b;
+      --red: #b52b22;
+      --green: #087a4f;
+      --soft-green: #e7f2eb;
+      --soft-gold: #f3e7c8;
+      --white: #fffdf8;
+      --shadow: 0 24px 70px rgba(32, 28, 20, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(0,107,69,.10), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(181,138,59,.14), transparent 26%),
+        linear-gradient(135deg, rgba(0,107,69,.045) 0 1px, transparent 1px 18px),
+        var(--paper);
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .20;
+      background-image:
+        radial-gradient(rgba(28,27,25,.18) .55px, transparent .55px),
+        radial-gradient(rgba(255,255,255,.75) .6px, transparent .6px);
+      background-size: 5px 5px, 8px 8px;
+      mix-blend-mode: multiply;
+    }
+
+    a { color: var(--cx-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .app {
+      width: min(1500px, calc(100vw - 48px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+      position: relative;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--cx-dark);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand:before {
+      content: "";
+      width: 30px;
+      height: 12px;
+      background: var(--cx);
+      clip-path: polygon(0 0, 100% 0, 76% 100%, 0 100%);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.32fr) minmax(330px, .68fr);
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .ticket {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      min-height: 0;
+      padding: 20px 30px;
+      border: 1.5px solid var(--cx);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, transparent calc(100% - 118px), rgba(0,107,69,.08) calc(100% - 118px)),
+        var(--paper-2);
+      box-shadow: var(--shadow);
+    }
+
+    .ticket:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 118px;
+      border-left: 1.5px dashed rgba(0,72,50,.34);
+    }
+
+    .hole {
+      position: absolute;
+      top: 26px;
+      right: 150px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: inset 0 1px 5px rgba(0,0,0,.10);
+      z-index: 2;
+    }
+
+    .stub {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 118px;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      writing-mode: vertical-rl;
+      color: var(--cx-dark);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .stamp-row, .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border: 1.3px solid currentColor;
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--cx);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 4px 4px 0 rgba(0,107,69,.11);
+      transform: rotate(-1deg);
+    }
+
+    .stamp.gold {
+      color: #8a5d00;
+      box-shadow: 4px 4px 0 rgba(181,138,59,.18);
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 18px 0 10px;
+      color: var(--cx-dark);
+      font-size: clamp(32px, 3.9vw, 58px);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: #343028;
+      font-size: clamp(14px, 1.1vw, 17px);
+      line-height: 1.62;
+    }
+
+    .underline {
+      display: inline;
+      padding: 0 3px;
+      background: linear-gradient(transparent 62%, rgba(181,138,59,.42) 62%);
+    }
+
+    .core-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 860px;
+      margin-top: 16px;
+    }
+
+    .core-card {
+      min-height: 98px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fffdf8;
+      box-shadow: 5px 5px 0 rgba(0,107,69,.08);
+    }
+
+    .core-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .core-value {
+      margin-top: 6px;
+      color: var(--cx-dark);
+      font-size: 21px;
+      line-height: 1;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .signal-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .signal {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+      background: var(--soft-green);
+      color: var(--green);
+    }
+
+    .signal.bad { background: #f6ded8; color: var(--red); }
+    .signal.warn { background: var(--soft-gold); color: #8a5d00; }
+
+    .pictobar {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pictobar-line {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr) 76px;
+      gap: 6px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pictobar-track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e4ded1;
+    }
+
+    .pictobar-fill {
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--tone, var(--cx));
+    }
+
+    .boarding-pass {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1.5px solid var(--cx);
+      background: var(--cx);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .boarding-pass:before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .pass-label {
+      color: rgba(255,255,255,.75);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .pass-big {
+      margin: 14px 0 8px;
+      font-size: 42px;
+      line-height: .98;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .pass-copy {
+      margin: 0;
+      color: rgba(255,255,255,.84);
+      line-height: 1.75;
+    }
+
+    .barcode {
+      height: 52px;
+      margin-top: 24px;
+      background:
+        linear-gradient(90deg,
+          #fff 0 4px, transparent 4px 8px,
+          #fff 8px 11px, transparent 11px 18px,
+          #fff 18px 24px, transparent 24px 31px,
+          #fff 31px 33px, transparent 33px 39px,
+          #fff 39px 45px, transparent 45px 52px,
+          #fff 52px 56px, transparent 56px 63px,
+          #fff 63px 70px, transparent 70px 78px);
+      opacity: .84;
+      border-radius: 2px;
+    }
+
+    .panel {
+      min-width: 0;
+      border: 1.4px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,253,248,.93);
+      box-shadow: 0 18px 52px rgba(32,28,20,.09);
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      padding: 22px 22px 0;
+      margin-bottom: 16px;
+    }
+
+    .panel h2 {
+      margin: 0;
+      color: var(--cx-dark);
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .panel-note {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .tabbar {
+      display: none;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 0 22px 16px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--cx);
+      border-color: var(--cx);
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 0 22px 22px;
+    }
+
+    .biz-card {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      min-height: 0;
+      padding: 18px;
+      border: 1.3px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .biz-card.active { display: block; }
+
+    .biz-card.cx { --tone: var(--cx); --tone2: var(--cx-dark); }
+    .biz-card.hke { --tone: var(--hke); --tone2: #34135d; }
+    .biz-card.cargo { --tone: var(--cargo); --tone2: #063a2b; }
+
+    .biz-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 8px;
+    }
+
+    .biz-kicker {
+      color: var(--tone);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .biz-card h3 {
+      margin: 5px 0 0;
+      color: var(--tone2);
+      font-size: 27px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .model-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border: 1px solid currentColor;
+      border-radius: 5px;
+      color: var(--tone);
+      background: #fffdf8;
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.05);
+    }
+
+    .plane-stage {
+      height: 150px;
+      margin: 12px 0 14px;
+      border: 1px solid rgba(0,72,50,.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(0,107,69,.06), transparent 55%),
+        rgba(242,240,231,.45);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .plane-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: saturate(.96) contrast(1.03);
+    }
+
+    .plane-photo.contain {
+      width: calc(100% - 18px);
+      height: calc(100% - 18px);
+      object-fit: contain;
+    }
+
+    .business-page {
+      display: block;
+    }
+
+    .phone-cabin {
+      position: relative;
+      overflow: hidden;
+      min-height: 318px;
+      border-radius: 30px;
+      border: 1px solid rgba(0,72,50,.16);
+      background:
+        linear-gradient(180deg, rgba(111,180,232,.78), rgba(221,237,248,.72) 32%, rgba(255,253,248,.96) 64%),
+        #dcecf8;
+      box-shadow: inset 0 0 0 8px rgba(255,255,255,.24), 0 22px 58px rgba(28,27,25,.12);
+    }
+
+    .phone-cabin:before {
+      content: none;
+    }
+
+    .cockpit-window {
+      display: none;
+    }
+
+    .cabin-ui {
+      position: relative;
+      z-index: 3;
+      padding: 18px 14px 16px;
+      min-height: 318px;
+    }
+
+    .flight-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(0,72,50,.70);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .mini-aircraft {
+      display: none;
+      position: absolute;
+      right: 18px;
+      top: 70px;
+      width: 90px;
+      height: 48px;
+      padding: 5px;
+      border: 1px solid rgba(0,72,50,.18);
+      border-radius: 12px;
+      background: rgba(255,253,248,.82);
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      object-fit: contain;
+      z-index: 4;
+    }
+
+    .mini-aircraft.contain { object-fit: contain; }
+
+    .cabin-title {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--tone2);
+    }
+
+    .cabin-title b {
+      display: block;
+      font-size: 20px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .cabin-title span {
+      display: none;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .cabin-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.74);
+      color: var(--tone2);
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: inset 0 0 0 1px rgba(0,72,50,.12);
+    }
+
+    .aircraft-plan {
+      position: relative;
+      width: min(170px, 100%);
+      height: 230px;
+      margin: 12px auto 0;
+      padding: 8px;
+      border: 1px solid rgba(0,72,50,.12);
+      border-radius: 18px;
+      background: rgba(255,253,248,.68);
+      box-shadow: 0 18px 38px rgba(0,72,50,.08);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .aircraft-plan svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .business-read {
+      display: none;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .line-metrics {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .line-metric {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fffdf8;
+    }
+
+    .line-metric strong {
+      color: var(--tone2);
+      font-size: 13px;
+    }
+
+    .metric-slot {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric-slot b {
+      color: var(--tone2);
+      font-size: 15px;
+      line-height: 1;
+      margin-right: 2px;
+    }
+
+    .line-judge {
+      margin-top: 12px;
+      padding: 11px 12px;
+      border: 1px solid color-mix(in srgb, var(--tone) 28%, var(--line) 72%);
+      border-radius: 7px;
+      background: color-mix(in srgb, var(--tone) 7%, #fffdf8 93%);
+      color: #343028;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .signal-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 6px;
+      border-radius: 50%;
+      vertical-align: -1px;
+      background: #d9a300;
+    }
+
+    .signal-dot.red { background: var(--red); }
+
+    .read-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 4px 2px 0;
+    }
+
+    .read-head h3 {
+      margin: 0;
+      color: var(--tone2);
+      font-size: clamp(30px, 4vw, 56px);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .read-head p {
+      margin: 10px 0 0;
+      max-width: 620px;
+      color: #343028;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .formula-card {
+      min-height: 106px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,253,248,.92);
+    }
+
+    .formula-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .formula-card b {
+      display: block;
+      margin-top: 5px;
+      color: var(--tone2);
+      font-size: 22px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .formula-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .change-list {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border: 1px solid color-mix(in srgb, var(--tone) 28%, var(--line) 72%);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--tone) 7%, #fffdf8 93%);
+    }
+
+    .change-line {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      color: #2f2a22;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .change-line strong {
+      color: var(--tone2);
+      font-size: 15px;
+    }
+
+    .visual-block {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(242,240,231,.36);
+      margin-bottom: 12px;
+    }
+
+    .visual-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .visual-head b {
+      color: var(--tone2);
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric-stack {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 52px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fffdf8;
+    }
+
+    .metric-row .ico {
+      font-size: 24px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .metric-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .metric-row b {
+      display: block;
+      margin-top: 2px;
+      color: var(--tone2);
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .delta {
+      font-size: 12px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .up { color: var(--green); }
+    .down { color: var(--red); }
+    .warn { color: #936000; }
+
+    .route-visual {
+      position: relative;
+      height: 84px;
+      display: grid;
+      align-items: center;
+      margin-top: 8px;
+      border: 1px dashed rgba(0,72,50,.25);
+      border-radius: 8px;
+      background: rgba(0,107,69,.04);
+      overflow: hidden;
+    }
+
+    .route-visual:before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      top: 50%;
+      height: 3px;
+      background: repeating-linear-gradient(90deg, var(--tone) 0 13px, transparent 13px 22px);
+      transform: translateY(-50%);
+    }
+
+    .route-visual .mini-plane {
+      position: absolute;
+      left: var(--pos);
+      top: 50%;
+      width: 50px;
+      height: 24px;
+      color: var(--tone);
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(3px 4px 0 rgba(0,0,0,.08));
+    }
+
+    .gauge {
+      position: relative;
+      height: 12px;
+      margin-top: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8e0d3;
+    }
+
+    .gauge-fill {
+      height: 100%;
+      width: var(--w);
+      border-radius: inherit;
+      background: var(--tone);
+    }
+
+    .pressure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .pressure-card {
+      position: relative;
+      min-height: 180px;
+      padding: 18px;
+      border: 1.3px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 14px 38px rgba(32,28,20,.08);
+      overflow: hidden;
+    }
+
+    .pressure-card .emoji {
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    .pressure-card h3 {
+      margin: 12px 0 6px;
+      color: var(--cx-dark);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .pressure-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .source-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .source-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #fffdf8;
+      color: var(--cx-dark);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1050px) {
+      .app { width: min(100vw - 28px, 920px); }
+      .hero, .pressure-grid { grid-template-columns: 1fr; }
+      .core-strip, .business-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+      * { min-width: 0; }
+      .app { width: min(390px, calc(100vw - 14px)); max-width: 390px; margin: 0 auto; overflow: visible; }
+      .hero { display: block; }
+      .topline, .panel-head, .source-panel { align-items: flex-start; flex-direction: column; }
+      .topline { overflow-wrap: anywhere; font-size: 11px; letter-spacing: .11em; }
+      .ticket, .boarding-pass, .panel, .biz-card { width: 100%; max-width: 100%; }
+      .ticket { min-height: auto; padding: 22px 20px; margin-bottom: 14px; background: var(--paper-2); }
+      .ticket:after, .stub, .hole { display: none; }
+      h1 { max-width: 100%; font-size: 31px; line-height: 1.12; overflow-wrap: anywhere; word-break: break-all; }
+      .subtitle { max-width: 100%; overflow-wrap: anywhere; }
+      .pass-copy { overflow-wrap: anywhere; word-break: break-all; }
+      .pass-big { font-size: 33px; overflow-wrap: anywhere; word-break: break-all; }
+      .stamp-row { display: grid; grid-template-columns: 1fr; align-items: stretch; }
+      .stamp { justify-content: center; text-align: center; font-size: 10.5px; max-width: 100%; white-space: normal; }
+      .boarding-pass { padding: 22px; }
+      .core-strip { grid-template-columns: 1fr; }
+      .business-grid { padding: 0 14px 18px; }
+      .biz-card { min-height: auto; padding: 12px; }
+      .panel-head { padding: 18px 14px 0; }
+      .phone-cabin { min-height: 330px; border-radius: 24px; }
+      .phone-cabin:before { top: 104px; width: 68%; height: 420px; }
+      .cabin-ui { min-height: 330px; padding: 18px 14px; }
+      .cockpit-window { top: 46px; width: 98px; height: 50px; }
+      .mini-aircraft { width: 74px; height: 42px; right: 12px; top: 66px; }
+      .cabin-title { margin-top: 18px; }
+      .cabin-title b { font-size: 21px; }
+      .aircraft-plan { width: min(178px, 100%); height: 238px; }
+      .read-head { display: block; }
+      .read-head h3 { font-size: 30px; line-height: 1.05; }
+      .read-head p { font-size: 14px; }
+      .formula-grid { grid-template-columns: 1fr; }
+      .change-line { grid-template-columns: 26px minmax(0, 1fr); }
+      .change-line strong { grid-column: 2; }
+      .metric-row { grid-template-columns: 30px minmax(0, 1fr); }
+      .metric-row .delta { grid-column: 2; }
+      .source-links a { flex: 1; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="topline">
+      <div class="brand">国泰集团经营看板 · 0293.HK</div>
+      <div>2026 年 4 月 · 客运 · 低成本 · 货运</div>
+    </div>
+
+    <section class="hero">
+      <div class="ticket">
+        <div class="hole"></div>
+        <div class="stamp-row">
+          <span class="stamp">2026 年 4 月</span>
+          <span class="stamp gold">三层看板</span>
+          <span class="stamp">油价与载运</span>
+        </div>
+        <h1>三架飞机，看国泰这个月</h1>
+        <p class="subtitle">
+          把国泰集团拆成三条业务线：<span class="underline">国泰客运、香港快运、国泰货运</span>。
+          顶部看集团核心指标，中段看三条业务线，底部保留资料线。
+        </p>
+        <div class="core-strip" aria-label="核心指标条">
+          <div class="core-card">
+            <small>集团客运客座率</small>
+            <div class="core-value">87.6%</div>
+            <div class="signal-row"><span class="signal">同比 +0.9pt</span><span class="signal bad">环比 −3.8pt</span></div>
+          </div>
+          <div class="core-card">
+            <small>集团收入客公里</small>
+            <div class="core-value">12.49bn</div>
+            <div class="signal-row"><span class="signal">同比 +15.8%</span><span class="signal warn">环比 −2.6%</span></div>
+          </div>
+          <div class="core-card">
+            <small>货运载运率</small>
+            <div class="core-value">58.2%</div>
+            <div class="signal-row"><span class="signal warn">同比 −0.1pt</span><span class="signal bad">环比 −4.7pt</span></div>
+          </div>
+          <div class="core-card" style="--tone:var(--gold)">
+            <small>航空燃油价格</small>
+            <div class="core-value">$3.928/gal</div>
+            <div class="signal-row"><span class="signal bad">同比 +98.8%</span><span class="signal bad">环比 +6.2%</span></div>
+            <div class="pictobar" aria-label="航空燃油价格环比">
+              <div class="pictobar-line"><span>🛢️</span><div class="pictobar-track"><div class="pictobar-fill" style="--w:100%"></div></div><b>4月 3.928</b></div>
+              <div class="pictobar-line"><span>🛢️</span><div class="pictobar-track"><div class="pictobar-fill" style="--w:94.1%"></div></div><b>3月 3.697</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="stub">国泰 · 快运 · 货运 · 三栏业务</div>
+      </div>
+
+      <aside class="boarding-pass">
+        <div class="pass-label">核心结论</div>
+        <div class="pass-big">环比退潮，油价续涨</div>
+        <p class="pass-copy">
+          4 月三条业务线客座率环比全线回落：国泰客运 −4.0pt、香港快运 −2.4pt、货运 −4.7pt。同比仍为正是去年低基数。本月真实信号是 3 月旺季高基数退潮叠加油价环比续涨 6%，不是需求转弱。
+        </p>
+        <div class="barcode" aria-hidden="true"></div>
+      </aside>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>三栏业务线</h2>
+          <div class="panel-note" style="text-align:left;margin-top:4px">三栏并排看国泰客运、香港快运、国泰货运：先看舱内配置图，再看指标框架和一句判断。</div>
+        </div>
+        <div class="panel-note">数据：2026 年 4 月经营数据</div>
+      </div>
+
+      <div class="business-grid">
+        <article class="biz-card cx active" data-card="cx">
+          <div class="business-page">
+            <div class="phone-cabin">
+              <div class="cockpit-window" aria-hidden="true"></div>
+              <img class="mini-aircraft" src="assets/cathay-a330-bhln.jpg" alt="Cathay Pacific A330-300 aircraft in livery">
+              <div class="cabin-ui">
+                <div class="flight-line"><span>国泰客运</span><span>A330-300</span></div>
+                <div class="cabin-title">
+                  <b>A330-300 客运机型</b>
+                  <span>客座率 = RPK / ASK</span>
+                  <div class="cabin-pill">舱内配置示意</div>
+                </div>
+                <div class="aircraft-plan">
+                  <svg class="cabin-config-svg" viewBox="0 0 420 820" xmlns="http://www.w3.org/2000/svg" role="img"
+                       aria-label="国泰 A330-300 舱内配置示意，88.2% 已售">
+                    <defs>
+                      <linearGradient id="hullsh" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#f4f6f5"/>
+                        <stop offset="0.5" stop-color="#ffffff"/>
+                        <stop offset="1" stop-color="#eef0ef"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M 156.0 392 L 5.0 506 L 30.0 522 L 156.0 448 Z M 264.0 392 L 415.0 506 L 390.0 522 L 264.0 448 Z" fill="#e4e8e6" stroke="#bcc4bf" stroke-width="1"/>
+                    <path d="M 178.0 716 L 106.0 778 L 122.0 788 L 178.0 744 Z M 242.0 716 L 314.0 778 L 298.0 788 L 242.0 744 Z" fill="#e4e8e6" stroke="#bcc4bf" stroke-width="1"/>
+                    <path d="M 210.0 26 C 256.0 70, 272.0 120, 272.0 150 L 272.0 660 C 272.0 714, 252.0 750, 210.0 794 C 168.0 750, 148.0 714, 148.0 660 L 148.0 150 C 148.0 120, 164.0 70, 210.0 26 Z" fill="url(#hullsh)" stroke="#bcc4bf" stroke-width="1.6"/>
+                    <path d="M 210.0 26 C 256.0 70, 272.0 120, 272.0 150
+                             L 272.0 174 L 148.0 174 L 148.0 150
+                             C 148.0 120, 164.0 70, 210.0 26 Z"
+                          fill="#006B45"/>
+                    <path d="M 195.0 68 Q 210.0 54 225.0 68
+                             L 220.0 88 L 200.0 88 Z"
+                          fill="#dfe6e2" opacity=".9"/>
+                    <path d="M 210.0 794 C 168.0 750, 148.0 714, 148.0 660
+                             L 148.0 620 C 172.0 620, 192.0 646, 210.0 620
+                             C 228.0 646, 248.0 620, 272.0 620
+                             L 272.0 660 C 272.0 714, 252.0 750, 210.0 794 Z"
+                          fill="#006B45"/>
+                    <text x="210.0" y="134" text-anchor="middle" fill="#ffffff"
+                          font-family="-apple-system,sans-serif" font-size="11.2" font-weight="700"
+                          letter-spacing="1.2">CATHAY PACIFIC · A330-300</text>
+                    <g>
+                        <rect x="139.2" y="180" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="174.0" y="180" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="193.0" y="180" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="212.0" y="180" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="231.0" y="180" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="265.8" y="180" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="139.2" y="201" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="174.0" y="201" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="193.0" y="201" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="212.0" y="201" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="231.0" y="201" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="265.8" y="201" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="139.2" y="222" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="174.0" y="222" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="193.0" y="222" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="212.0" y="222" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="231.0" y="222" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="265.8" y="222" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="139.2" y="243" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="174.0" y="243" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="193.0" y="243" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="212.0" y="243" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="231.0" y="243" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="265.8" y="243" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="139.2" y="264" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="174.0" y="264" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="193.0" y="264" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="212.0" y="264" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="231.0" y="264" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="265.8" y="264" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="139.2" y="285" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="174.0" y="285" width="15" height="13" rx="3" fill="#b58a3b"/>
+                        <rect x="193.0" y="285" width="15" height="13" rx="3" fill="#d8d6cc"/>
+                        <rect x="212.0" y="285" width="15" height="13" rx="3" fill="#d8d6cc"/>
+                        <rect x="231.0" y="285" width="15" height="13" rx="3" fill="#d8d6cc"/>
+                        <rect x="265.8" y="285" width="15" height="13" rx="3" fill="#d8d6cc"/>
+                        <rect x="160.6" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="346.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="355.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="365.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="374.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="384.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="394.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="403.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="413.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="422.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="432.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="442.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="451.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="461.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="470.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="480.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="490.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="499.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="509.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="518.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="528.4" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="538.0" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="547.6" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="557.2" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="160.6" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="171.0" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="190.2" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="200.6" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="211.0" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="221.4" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="240.6" y="566.8" width="8.4" height="7.0" rx="2" fill="#006B45"/>
+                        <rect x="251.0" y="566.8" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="160.6" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="171.0" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="190.2" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="200.6" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="211.0" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="221.4" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="240.6" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="251.0" y="576.4" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="160.6" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="171.0" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="190.2" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="200.6" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="211.0" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="221.4" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="240.6" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="251.0" y="586.0" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="160.6" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="171.0" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="190.2" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="200.6" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="211.0" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="221.4" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="240.6" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                        <rect x="251.0" y="595.6" width="8.4" height="7.0" rx="2" fill="#d8d6cc"/>
+                    </g>
+                    <line x1="152.0" y1="328" x2="268.0" y2="328"
+                          stroke="#0c3b2a" stroke-width="1" stroke-dasharray="3 3" opacity=".55"/>
+                    <text x="14" y="194" fill="#b58a3b"
+                          font-family="-apple-system,sans-serif" font-size="11" font-weight="700">商务舱</text>
+                    <text x="14" y="208" fill="#b58a3b"
+                          font-family="-apple-system,sans-serif" font-size="8.5">高级客舱</text>
+                    <text x="14" y="342" fill="#006B45"
+                          font-family="-apple-system,sans-serif" font-size="11" font-weight="700">经济舱</text>
+                    <text x="14" y="356" fill="#006B45"
+                          font-family="-apple-system,sans-serif" font-size="8.5">经济舱</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="line-metrics" aria-label="国泰客运指标框架">
+              <div class="line-metric"><strong>ASK</strong><span class="metric-slot"><b>12.67bn</b><span class="signal">同比 +15.4%</span><span class="signal">环比 +2.0%</span></span></div>
+              <div class="line-metric"><strong>RPK</strong><span class="metric-slot"><b>11.17bn</b><span class="signal">同比 +17.8%</span><span class="signal warn">环比 −2.4%</span></span></div>
+              <div class="line-metric"><strong>LF</strong><span class="metric-slot"><b>88.2%</b><span class="signal">同比 +1.8pt</span><span class="signal bad">环比 −4.0pt</span></span></div>
+              <div class="line-metric">
+                <strong>收费旅客</strong>
+                <div class="pictobar" aria-label="国泰客运收费旅客环比">
+                  <div class="pictobar-line"><span>🧍</span><div class="pictobar-track"><div class="pictobar-fill" style="--w:98.6%"></div></div><b>4月 2.76m</b></div>
+                  <div class="pictobar-line"><span>🧍</span><div class="pictobar-track"><div class="pictobar-fill" style="--w:100%"></div></div><b>3月 2.80m</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="line-judge"><span class="signal-dot"></span>同比最强但环比掉 4 点，旺季高位回落。</div>
+
+            
+          </div>
+        </article>
+
+        <article class="biz-card hke" data-card="hke">
+          <div class="business-page">
+            <div class="phone-cabin">
+              <div class="cockpit-window" aria-hidden="true"></div>
+              <img class="mini-aircraft contain" src="assets/hkexpress-a320neo-b-lcl.jpg" alt="香港快运 A320neo 飞机">
+              <div class="cabin-ui">
+                <div class="flight-line"><span>香港快运</span><span>A320neo</span></div>
+                <div class="cabin-title">
+                  <b>A320neo 低成本机型</b>
+                  <span>客座率 = RPK / ASK</span>
+                  <div class="cabin-pill">舱内配置示意</div>
+                </div>
+                <div class="aircraft-plan">
+                  <svg class="cabin-config-svg" viewBox="0 0 360 800" xmlns="http://www.w3.org/2000/svg" role="img"
+                       aria-label="香港快运 A320neo 舱内配置示意，82.0% 已售">
+                    <defs>
+                      <linearGradient id="hullsh320" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#f4f4f6"/>
+                        <stop offset="0.5" stop-color="#ffffff"/>
+                        <stop offset="1" stop-color="#eeedf1"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M 140.0 360 L 2.0 470 L 24.0 486 L 140.0 410 Z M 220.0 360 L 358.0 470 L 336.0 486 L 220.0 410 Z" fill="#e6e4ea" stroke="#bcc4bf" stroke-width="1"/>
+                    <path d="M 152.0 700 L 86.0 758 L 100.0 768 L 152.0 726 Z M 208.0 700 L 274.0 758 L 260.0 768 L 208.0 726 Z" fill="#e6e4ea" stroke="#bcc4bf" stroke-width="1"/>
+                    <path d="M 180.0 26 C 214.0 68, 226.0 122, 226.0 150 L 226.0 636 C 226.0 686, 210.0 732, 180.0 774 C 150.0 732, 134.0 686, 134.0 636 L 134.0 150 C 134.0 122, 146.0 68, 180.0 26 Z" fill="url(#hullsh320)" stroke="#bcc4bf" stroke-width="1.6"/>
+                    <path d="M 180.0 26 C 214.0 68, 226.0 122, 226.0 150
+                             L 226.0 174 L 134.0 174 L 134.0 150
+                             C 134.0 122, 146.0 68, 180.0 26 Z"
+                          fill="#5b2a86"/>
+                    <path d="M 167.0 68 Q 180.0 56 193.0 68
+                             L 189.0 86 L 171.0 86 Z"
+                          fill="#e4def0" opacity=".9"/>
+                    <path d="M 180.0 774 C 150.0 732, 134.0 686, 134.0 636
+                             L 134.0 600 C 152.0 600, 166.0 624, 180.0 600
+                             C 194.0 624, 208.0 600, 226.0 600
+                             L 226.0 636 C 226.0 686, 210.0 732, 180.0 774 Z"
+                          fill="#5b2a86"/>
+                    <text x="180.0" y="134" text-anchor="middle" fill="#ffffff"
+                          font-family="-apple-system,sans-serif" font-size="9.8" font-weight="700"
+                          letter-spacing="1">HK EXPRESS · A320neo</text>
+                    <g>
+                        <rect x="142.3" y="208.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="208.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="208.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="208.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="208.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="208.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="218.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="218.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="218.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="218.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="218.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="218.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="228.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="228.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="228.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="228.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="228.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="228.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="239.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="239.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="239.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="239.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="239.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="239.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="249.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="249.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="249.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="249.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="249.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="249.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="260.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="260.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="260.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="260.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="260.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="260.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="270.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="270.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="270.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="270.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="270.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="270.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="280.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="280.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="280.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="280.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="280.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="280.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="291.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="291.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="291.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="291.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="291.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="291.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="301.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="301.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="301.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="301.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="301.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="301.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="312.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="312.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="312.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="312.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="312.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="312.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="322.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="322.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="322.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="322.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="322.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="322.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="332.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="332.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="332.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="332.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="332.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="332.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="343.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="343.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="343.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="343.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="343.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="343.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="353.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="353.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="353.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="353.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="353.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="353.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="364.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="364.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="364.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="364.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="364.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="364.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="374.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="374.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="374.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="374.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="374.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="374.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="384.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="384.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="384.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="384.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="384.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="384.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="395.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="395.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="395.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="395.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="395.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="395.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="405.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="405.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="405.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="405.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="405.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="405.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="416.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="416.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="416.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="416.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="416.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="416.0" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="426.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="426.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="426.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="426.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="426.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="426.4" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="436.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="436.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="436.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="436.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="436.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="436.8" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="447.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="447.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="447.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="447.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="447.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="208.7" y="447.2" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="142.3" y="457.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="153.7" y="457.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="165.1" y="457.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="185.9" y="457.6" width="9.0" height="7.4" rx="2" fill="#5b2a86"/>
+                        <rect x="197.3" y="457.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="208.7" y="457.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="142.3" y="468.0" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="153.7" y="468.0" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="165.1" y="468.0" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="185.9" y="468.0" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="197.3" y="468.0" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="208.7" y="468.0" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="142.3" y="478.4" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="153.7" y="478.4" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="165.1" y="478.4" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="185.9" y="478.4" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="197.3" y="478.4" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="208.7" y="478.4" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="142.3" y="488.8" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="153.7" y="488.8" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="165.1" y="488.8" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="185.9" y="488.8" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="197.3" y="488.8" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="208.7" y="488.8" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="142.3" y="499.2" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="153.7" y="499.2" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="165.1" y="499.2" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="185.9" y="499.2" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="197.3" y="499.2" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="208.7" y="499.2" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="142.3" y="509.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="153.7" y="509.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="165.1" y="509.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="185.9" y="509.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="197.3" y="509.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                        <rect x="208.7" y="509.6" width="9.0" height="7.4" rx="2" fill="#d8d6cc"/>
+                    </g>
+                    <text x="12" y="202" fill="#5b2a86"
+                          font-family="-apple-system,sans-serif" font-size="11" font-weight="700">经济舱</text>
+                    <text x="12" y="216" fill="#5b2a86"
+                          font-family="-apple-system,sans-serif" font-size="8.5">经济舱</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="line-metrics" aria-label="香港快运指标框架">
+              <div class="line-metric"><strong>ASK</strong><span class="metric-slot"><b>1.61bn</b><span class="signal">同比 +7.0%</span><span class="signal warn">环比 −1.4%</span></span></div>
+              <div class="line-metric"><strong>RPK</strong><span class="metric-slot"><b>1.32bn</b><span class="signal">同比 +3.0%</span><span class="signal bad">环比 −4.3%</span></span></div>
+              <div class="line-metric"><strong>LF</strong><span class="metric-slot"><b>82.0%</b><span class="signal bad">同比 −3.2pt</span><span class="signal bad">环比 −2.4pt</span></span></div>
+              <div class="line-metric">
+                <strong>收费旅客</strong>
+                <div class="pictobar" aria-label="香港快运收费旅客环比">
+                  <div class="pictobar-line"><span>🧍</span><div class="pictobar-track"><div class="pictobar-fill" style="--w:97.3%"></div></div><b>4月 0.73m</b></div>
+                  <div class="pictobar-line"><span>🧍</span><div class="pictobar-track"><div class="pictobar-fill" style="--w:100%"></div></div><b>3月 0.75m</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="line-judge"><span class="signal-dot red"></span>唯一同比也下滑，运力跑赢需求，单位收益承压。</div>
+
+            
+          </div>
+        </article>
+
+        <article class="biz-card cargo" data-card="cargo">
+          <div class="business-page">
+            <div class="phone-cabin">
+              <div class="cockpit-window" aria-hidden="true"></div>
+              <img class="mini-aircraft" src="assets/cathay-cargo-747-8f-kustov.jpg" alt="国泰货运 747-8F 飞机">
+              <div class="cabin-ui">
+                <div class="flight-line"><span>国泰货运</span><span>747-8F</span></div>
+                <div class="cabin-title">
+                  <b>747-8F 货运机型</b>
+                  <span>货运载运率 = RFTK / AFTK</span>
+                  <div class="cabin-pill">舱内配置示意</div>
+                </div>
+                <div class="aircraft-plan">
+                  <svg class="cabin-config-svg" viewBox="0 0 400 820" xmlns="http://www.w3.org/2000/svg" role="img"
+                       aria-label="国泰货运 747-8F 主货舱载运示意，58.2% 已载">
+                    <defs>
+                      <linearGradient id="hullsh747" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#f4f6f5"/>
+                        <stop offset="0.5" stop-color="#ffffff"/>
+                        <stop offset="1" stop-color="#eef0ef"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M 146.0 372 L -5.0 486 L 20.0 502 L 146.0 428 Z M 254.0 372 L 405.0 486 L 380.0 502 L 254.0 428 Z" fill="#e4e8e6" stroke="#bcc4bf" stroke-width="1"/>
+                    <path d="M 168.0 716 L 96.0 778 L 112.0 788 L 168.0 744 Z M 232.0 716 L 304.0 778 L 288.0 788 L 232.0 744 Z" fill="#e4e8e6" stroke="#bcc4bf" stroke-width="1"/>
+                    <path d="M 200.0 26 C 248.0 64, 260.0 116, 260.0 150 L 260.0 660 C 260.0 714, 242.0 750, 200.0 794 C 158.0 750, 140.0 714, 140.0 660 L 140.0 150 C 140.0 116, 152.0 64, 200.0 26 Z" fill="url(#hullsh747)" stroke="#bcc4bf" stroke-width="1.6"/>
+                    <path d="M 200.0 26 C 248.0 64, 260.0 116, 260.0 150
+                             L 260.0 174 L 140.0 174 L 140.0 150
+                             C 140.0 116, 152.0 64, 200.0 26 Z"
+                          fill="#006B45"/>
+                    <path d="M 174.0 104 C 183.0 82, 217.0 82, 226.0 104 L 232.0 150 L 168.0 150 Z"
+                          fill="#f7faf8" opacity=".88" stroke="#d4ddd8" stroke-width="1"/>
+                    <path d="M 185.0 70 Q 200.0 58 215.0 70
+                             L 210.0 88 L 190.0 88 Z"
+                          fill="#dfe6e2" opacity=".9"/>
+                    <path d="M 200.0 794 C 158.0 750, 140.0 714, 140.0 660
+                             L 140.0 620 C 162.0 620, 182.0 646, 200.0 620
+                             C 218.0 646, 238.0 620, 260.0 620
+                             L 260.0 660 C 260.0 714, 242.0 750, 200.0 794 Z"
+                          fill="#006B45"/>
+                    <text x="200.0" y="134" text-anchor="middle" fill="#ffffff"
+                          font-family="-apple-system,sans-serif" font-size="10.8" font-weight="700"
+                          letter-spacing="1.2">CATHAY CARGO · 747-8F</text>
+                    <g>
+                        <rect x="151.0" y="208.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="208.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="242.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="242.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="276.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="276.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="310.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="310.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="344.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="344.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="378.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="378.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="412.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="412.0" width="42" height="24" rx="3.5" fill="#006B45" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="446.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="446.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="480.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="480.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="514.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="514.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="548.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="548.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="151.0" y="582.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                        <rect x="207.0" y="582.0" width="42" height="24" rx="3.5" fill="#d8d6cc" stroke="#ffffff" stroke-width="1.5"/>
+                    </g>
+                    <text x="12" y="202" fill="#006B45"
+                          font-family="-apple-system,sans-serif" font-size="11" font-weight="700">主货舱</text>
+                    <text x="12" y="216" fill="#006B45"
+                          font-family="-apple-system,sans-serif" font-size="8.5">主货舱</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="line-metrics" aria-label="国泰货运指标框架">
+              <div class="line-metric"><strong>AFTK</strong><span class="metric-slot"><b>1.29bn</b><span class="signal">同比 +7.4%</span><span class="signal bad">环比 −3.5%</span></span></div>
+              <div class="line-metric"><strong>RFTK</strong><span class="metric-slot"><b>0.75bn</b><span class="signal">同比 +7.2%</span><span class="signal bad">环比 −10.7%</span></span></div>
+              <div class="line-metric"><strong>LF</strong><span class="metric-slot"><b>58.2%</b><span class="signal warn">同比 −0.1pt</span><span class="signal bad">环比 −4.7pt</span></span></div>
+              <div class="line-metric"><strong>货运量</strong><span class="metric-slot"><b>144.3k吨</b><span class="signal">同比 +8.2%</span><span class="signal bad">环比 −12.6%</span></span></div>
+            </div>
+            <div class="line-judge"><span class="signal-dot red"></span>最弱一条，RFTK 环比 −10.7%、货量环比 −12.6%。</div>
+
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    
+
+    <section class="panel source-panel">
+      <div>
+        <h2>资料线</h2>
+        <div class="panel-note" style="text-align:left;margin-top:4px">官方月度经营数据 + 2025 年报 + FRED/EIA 月度均价；航空燃油使用美国墨西哥湾代理价格</div>
+      </div>
+      <div class="source-links">
+        <a href="2026-05-20-Cathay-traffic-figures-April-2026.pdf">2026 年 4 月 PDF</a>
+        <a href="2026-05-20-Cathay-traffic-figures-April-2026.md">2026 年 4 月 MD</a>
+        <a href="2026-04-17-Cathay-traffic-figures-March-2026.md">2026 年 3 月</a>
+        <a href="2025-05-23-Cathay-traffic-figures-April-2025.md">2025 年 4 月</a>
+        <a href="2026-04-10-国泰航空-2025年报.md">2025 年报摘要</a>
+        <a href="https://fred.stlouisfed.org/data/MCOILBRENTEU">布伦特油价</a>
+        <a href="https://fred.stlouisfed.org/data/MJFUELUSGULF">航空燃油</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Cathay_Pacific_Airbus_A330-343_B-HLN.JPG">A330 实机图</a>
+        <a href="https://commons.wikimedia.org/wiki/File:HK_Express_Airways_A320neo_B-LCL.jpg">香港快运实机图</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Cathay_Pacific_Cargo_Boeing_747-8F_Kustov-1.jpg">747-8F 实机图</a>
+        <a href="INDEX.md">月度索引</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;background:#F5F1EA;font-family:"Noto Serif SC","Songti SC","STSong",serif;color:#111}
+    .canvas{width:1600px;height:900px;background:#FFFEFB;border:1px solid #DDD5C9;box-sizing:border-box;padding:54px 58px;display:grid;grid-template-columns:1.02fr .98fr;gap:42px;overflow:hidden}
+    .eyebrow{font:900 22px/1.2 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.16em;text-transform:uppercase;margin-bottom:28px}
+    h1{font-size:62px;line-height:1.12;margin:0 0 22px;letter-spacing:0}
+    .lead{font-size:30px;line-height:1.45;color:#5F5A52;font-weight:800;margin-bottom:34px}
+    .chips{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 34px}
+    .chip{border:2px solid #234B39;color:#234B39;border-radius:999px;padding:11px 20px;font-size:22px;font-weight:900}
+    .chip.hot{background:#E30613;border-color:#E30613;color:#fff}
+    .points{display:grid;gap:18px;margin-top:28px}
+    .point{border:2px solid #DDD5C9;background:#fff;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+    .num{font:900 28px/1 Georgia,serif;color:#E30613}
+    .point h2{font-size:30px;line-height:1.25;margin:0 0 8px}
+    .point p{font-size:22px;line-height:1.45;margin:0;color:#5F5A52;font-weight:700}
+    .visual{display:flex;align-items:center;justify-content:center;position:relative}
+    .visual img{width:100%;border:2px solid #DDD5C9;display:block}
+    .caption{position:absolute;left:30px;right:30px;bottom:28px;background:#111;color:#fff;padding:20px 24px;font-size:26px;line-height:1.35;font-weight:900}
+    .foot{position:absolute;left:58px;bottom:34px;font:800 18px/1 Menlo,Consolas,monospace;color:#7A7770;letter-spacing:.1em}
+    .left{position:relative}
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <section class="left">
+      <div class="eyebrow">MONEYRECIPE · NAND TEMPERATURE</div>
+      <h1>DRAM/HBM 之后，NAND 跟上了吗？</h1>
+      <div class="lead">长江上市前，用韩国海关搭一支 NAND 外部温度计。</div>
+      <div class="chips">
+        <div class="chip hot">NAND ASP +252.4%</div>
+        <div class="chip">YMTC 11%</div>
+        <div class="chip">中国方向既多又贵</div>
+      </div>
+      <section class="points">
+        <div class="point"><div class="num">01</div><div><h2>NAND 升温，但不领涨</h2><p>发动机仍是 DRAM/HBM，NAND 是跟涨的那个。</p></div></div>
+        <div class="point"><div class="num">02</div><div><h2>中国持续在买高端 NAND</h2><p>25Q1→26Q1：金额占比、净重占比、ASP 都上升。</p></div></div>
+        <div class="point"><div class="num">03</div><div><h2>长江先看外部代理</h2><p>招股书前，不写业绩兑现，只盯份额、价格和结构。</p></div></div>
+      </section>
+      <div class="foot">TRASS HS6/HS10 · COUNTERPOINT · SK HYNIX</div>
+    </section>
+    <section class="visual">
+      <img src="21-memory-heat-index-gauges.png" alt="存储价格热力仪表盘">
+      <div class="caption">一眼读法：NAND 已热，但还没到 HBM/DRAM 的温度。</div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI算力投资结构：CPU / GPU / TPU / HBM 全景对比</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --gpu: #7c3aed;
+    --cpu: #0ea5e9;
+    --hbm: #f59e0b;
+    --tpu: #10b981;
+    --accent: #f43f5e;
+    --phase1: rgba(124, 58, 237, 0.12);
+    --phase2: rgba(14, 165, 233, 0.12);
+    --phase3: rgba(16, 185, 129, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Inter', 'PingFang SC', 'SF Pro Text', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 32px 48px 24px;
+    background: linear-gradient(180deg, #13161f 0%, var(--bg) 100%);
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .meta-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .legend-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 16px 48px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 1px;
+  }
+  .card {
+    background: var(--surface);
+    padding: 28px 32px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-full {
+    grid-column: 1 / -1;
+    min-height: 420px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+  .card-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .chart-wrap {
+    flex: 1;
+    position: relative;
+  }
+  .phase-labels {
+    display: flex;
+    gap: 0;
+    margin-bottom: 12px;
+  }
+  .phase-label {
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .pl1 { background: var(--phase1); color: #a78bfa; }
+  .pl2 { background: var(--phase2); color: #38bdf8; }
+  .pl3 { background: var(--phase3); color: #34d399; }
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .kpi {
+    background: var(--surface);
+    padding: 20px 28px;
+  }
+  .kpi-label { font-size: 11px; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .kpi-value { font-size: 26px; font-weight: 700; line-height: 1; }
+  .kpi-change { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .kpi-up { color: #34d399; }
+  .kpi-down { color: var(--accent); }
+  .note {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 12px;
+    line-height: 1.5;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .scenario-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .scenario-table th {
+    background: rgba(255,255,255,0.04);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .scenario-table td {
+    padding: 9px 12px;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .scenario-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .badge-gpu { background: rgba(124,58,237,0.2); color: #a78bfa; }
+  .badge-cpu { background: rgba(14,165,233,0.2); color: #38bdf8; }
+  .badge-hbm { background: rgba(245,158,11,0.2); color: #fbbf24; }
+  .badge-tpu { background: rgba(16,185,129,0.2); color: #34d399; }
+  .badge-new { background: rgba(244,63,94,0.15); color: #fb7185; }
+  .bar-visual {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bar-fill {
+    height: 6px;
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .arrow-up::before { content: "↑ "; }
+  .arrow-dn::before { content: "↓ "; }
+  footer {
+    padding: 24px 48px;
+    font-size: 10px;
+    color: #4a5568;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .card-full { grid-column: 1; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+    header, .legend-row, footer { padding: 20px 20px; }
+    .card { padding: 20px 20px; }
+    h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">AI Infrastructure Intelligence</div>
+  <h1>AI算力投资结构全景：CPU / GPU / TPU / HBM</h1>
+  <p class="subtitle">从最小计算单元出发，追踪 2022 Q1 — 2026 Q1 四类硬件的数量规模与投资金额，并换算 token 产能维度。核心视角：Agentic AI 驱动 CPU:GPU 配比从 1:8 向 1:1 演进。</p>
+  <div class="meta-row">
+    <div class="meta-tag"><div class="dot" style="background:var(--gpu)"></div> GPU · NVIDIA / AMD</div>
+    <div class="meta-tag"><div class="dot" style="background:var(--cpu)"></div> CPU · Intel / AMD EPYC</div>
+    <div class="meta-tag"><div class="dot" style="background:var(--hbm)"></div> HBM · SK Hynix / Samsung / Micron</div>
+    <div class="meta-tag"><div class="dot" style="background:var(--tpu)"></div> TPU · Google（估算）</div>
+    <div class="meta-tag" style="border-color:var(--accent); color:var(--accent);">⚡ 2026-05-11 更新</div>
+  </div>
+</header>
+
+<!-- KPI Row -->
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="kpi-label">GPU 季度营收峰值</div>
+    <div class="kpi-value" style="color:var(--gpu)">$62.3B</div>
+    <div class="kpi-change">NVIDIA DC 2026 Q1 &nbsp;<span class="kpi-up">↑ +75% YoY</span></div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">CPU:GPU 配比演进</div>
+    <div class="kpi-value" style="color:var(--cpu)">1:8 → 1:1</div>
+    <div class="kpi-change">训练→推理→Agentic AI &nbsp;<span class="kpi-up">CPU capex ↑ 6-8x</span></div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">HBM 年度市场规模</div>
+    <div class="kpi-value" style="color:var(--hbm)">$35B</div>
+    <div class="kpi-change">2025E，较 2023年 $4B &nbsp;<span class="kpi-up">↑ 775%</span></div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">全球 token 产能/天</div>
+    <div class="kpi-value" style="color:var(--tpu)">173T</div>
+    <div class="kpi-change">2025年末估算 &nbsp;<span class="kpi-up">vs 2022年 3.5T</span></div>
+  </div>
+</div>
+
+<div class="legend-row">
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--gpu)"></div> GPU 营收（NVIDIA + AMD）</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--cpu)"></div> CPU 营收（Intel DCAI + AMD EPYC）</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--hbm)"></div> HBM 市场（SK Hynix + Samsung + Micron）</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--tpu)"></div> TPU capex 估算（Google capex × 17%）</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:rgba(255,255,255,0.15);border:1px dashed rgba(255,255,255,0.3)"></div> 虚线 = 估算值</div>
+</div>
+
+<div class="grid">
+
+  <!-- Chart 1: Stacked Investment -->
+  <div class="card card-full">
+    <div class="card-title">① 季度算力投资额对比（$B）</div>
+    <div class="card-sub">CPU / GPU / HBM / TPU 四类硬件的市场规模变化——GPU 从与 CPU 并列到超出 10 倍以上</div>
+    <div class="phase-labels">
+      <div class="phase-label pl1" style="flex:2">训练主导期（2022）</div>
+      <div class="phase-label pl2" style="flex:4">推理爆发期（2023-2024）</div>
+      <div class="phase-label pl3" style="flex:5">Agentic AI 期（2025-2026）</div>
+    </div>
+    <div class="chart-wrap" style="height:320px">
+      <canvas id="stackedChart"></canvas>
+    </div>
+    <div class="note">数据来源：NVIDIA / AMD / Intel 季报；HBM 来自 TrendForce + 各厂商财报；TPU = Google 总 capex × 17%（±30%估算）。2025Q3-Q4 及2026Q1部分为最新公开数据。</div>
+  </div>
+
+  <!-- Chart 2: CPU:GPU Ratio -->
+  <div class="card">
+    <div class="card-title">② CPU:GPU 配比演进时间线</div>
+    <div class="card-sub">每个 GPU 所对应的 CPU 数量（比值越高 = CPU 占比越大）</div>
+    <div class="chart-wrap">
+      <canvas id="ratioChart"></canvas>
+    </div>
+    <div class="note">来源：Intel Q1 2026财报会（CFO David Zinsner）、AMD苏姿丰5月财报会、NVIDIA GTC 2026（1152:1152黄金配比）。实线为行业共识演进路径，点线为预测区间。</div>
+  </div>
+
+  <!-- Chart 3: Token Efficiency -->
+  <div class="card">
+    <div class="card-title">③ Token 效率：每 $1K GPU 投资对应算力</div>
+    <div class="card-sub">GPU 代际效率提升 vs 加入 CPU 成本后的系统级效率（tok/s per $1K）</div>
+    <div class="chart-wrap">
+      <canvas id="efficiencyChart"></canvas>
+    </div>
+    <div class="note">推理基准：Llama-3 8B，SXM 形态。B200 系统效率含 Grace Vera CPU（$12K）。来源：MLCommons Inference v4.0 + NVIDIA GTC 2026发布数据。</div>
+  </div>
+
+  <!-- Chart 4: Global Token Capacity -->
+  <div class="card">
+    <div class="card-title">④ 全球 AI token 产能估算（trillion/day）</div>
+    <div class="card-sub">按季度累计部署 GPU 存量 × 平均推理效率 × 40% 利用率</div>
+    <div class="chart-wrap">
+      <canvas id="tokenChart"></canvas>
+    </div>
+    <div class="note">假设：H100 基准 150K tok/s；B200 400K tok/s；平均利用率 40%；训练占用约 30%。实为下限估算，实际因多租户可能更高。</div>
+  </div>
+
+  <!-- Chart 5: HBM Deep Dive -->
+  <div class="card">
+    <div class="card-title">⑤ HBM 市场份额与季度营收</div>
+    <div class="card-sub">SK Hynix / Samsung / Micron 三家 HBM 季度营收估算（$B）</div>
+    <div class="chart-wrap">
+      <canvas id="hbmChart"></canvas>
+    </div>
+    <div class="note">2026 Q1 SK Hynix 总营收同比近3倍，HBM 占其营收约 40%。Samsung Q2 2025 份额跌至 17%（Micron 以 21% 超越）。来源：Counterpoint Research + 各厂商财报。</div>
+  </div>
+
+  <!-- Chart 6: Scenario Analysis -->
+  <div class="card">
+    <div class="card-title">⑥ 配比情景对 CPU capex 的影响（同等 GPU 规模）</div>
+    <div class="card-sub">若 GPU 投资额保持在 2025 年 ~$160B/year 不变，不同配比下 CPU 需增加多少投入</div>
+    <div class="chart-wrap">
+      <canvas id="scenarioChart"></canvas>
+    </div>
+    <div class="note">GPU 以 $25K H100 均价，CPU 以 $8K AMD EPYC + Intel Xeon 均价估算。1:1 场景下 CPU 额外需求相当于 Intel 全年数据中心营收的 3-4倍。</div>
+  </div>
+
+  <!-- Table: Minimum Unit Cost -->
+  <div class="card card-full">
+    <div class="card-title">最小计算单元成本拆解：三代对比</div>
+    <div class="card-sub">从单个服务器节点出发的标准化成本结构，以及每单位可提供的 token 产能</div>
+    <table class="scenario-table">
+      <tr>
+        <th>阶段 / 产品</th>
+        <th>CPU:GPU 配比</th>
+        <th>GPU 成本</th>
+        <th>CPU 成本</th>
+        <th>HBM 容量</th>
+        <th>节点总成本</th>
+        <th>CPU 占比</th>
+        <th>tok/s（节点）</th>
+        <th>$/M tok/s</th>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gpu">训练</span> &nbsp;HGX H100 节点</td>
+        <td>1:8</td>
+        <td>$200K（8×H100 @$25K）</td>
+        <td>$10K（2×EPYC @$5K）</td>
+        <td>640GB（8×80GB）</td>
+        <td>~$240K</td>
+        <td>
+          <div class="bar-visual">
+            4%
+            <div class="bar-fill" style="background:var(--cpu);width:4px;"></div>
+          </div>
+        </td>
+        <td>1.2M</td>
+        <td>$200</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-cpu">推理</span> &nbsp;HGX H200 节点</td>
+        <td>1:4</td>
+        <td>$140K（4×H200 @$35K）</td>
+        <td>$10K（1×EPYC @$10K）</td>
+        <td>564GB（4×141GB）</td>
+        <td>~$180K</td>
+        <td>
+          <div class="bar-visual">
+            6%
+            <div class="bar-fill" style="background:var(--cpu);width:9px;"></div>
+          </div>
+        </td>
+        <td>800K</td>
+        <td>$225</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-new">Agentic</span> &nbsp;B200 + Vera CPU</td>
+        <td>1:1</td>
+        <td>$35K（1×B200 @$35K）</td>
+        <td>$12K（Vera CPU @$12K）</td>
+        <td>192GB HBM3e</td>
+        <td>~$47K</td>
+        <td>
+          <div class="bar-visual">
+            26%
+            <div class="bar-fill" style="background:var(--cpu);width:40px;"></div>
+          </div>
+        </td>
+        <td>400K</td>
+        <td>$117</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-hbm">集成</span> &nbsp;AMD MI300A</td>
+        <td>0:1（APU）</td>
+        <td>—（CPU+GPU 合封）</td>
+        <td>—（内含）</td>
+        <td>128GB HBM3</td>
+        <td>~$20K</td>
+        <td>
+          <div class="bar-visual">
+            N/A
+          </div>
+        </td>
+        <td>~200K</td>
+        <td>$100</td>
+      </tr>
+    </table>
+    <div class="note" style="margin-top:16px">※ CPU 占比：HGX H100 节点中 CPU 仅占 4%，而 B200+Vera 1:1 部署下 CPU 占总成本约 26%，相当于同等 GPU 算力下 CPU capex 需求放大 ~6x。这是 Agentic AI 时代 Intel/AMD EPYC 受益的核心逻辑。</div>
+  </div>
+
+</div>
+
+<footer>
+  <span>数据截止：2026-05-11 &nbsp;·&nbsp; 估算值已标注</span>
+  <span>NVIDIA 财报（FY2022-FY2026）&nbsp;·&nbsp; AMD / Intel 季报 &nbsp;·&nbsp; TrendForce HBM 报告</span>
+  <span>Intel Q1 2026财报会 · AMD Q1 2026财报会 · NVIDIA GTC 2026</span>
+  <span>制作：Sherlock AI Dashboard &nbsp;·&nbsp; projects/sherlockagent</span>
+</footer>
+
+<script>
+Chart.defaults.color = '#8892a4';
+Chart.defaults.borderColor = '#2a2d3a';
+Chart.defaults.font.family = "-apple-system, 'Inter', 'PingFang SC', sans-serif";
+Chart.defaults.font.size = 11;
+
+const QUARTERS = [
+  '22Q1','22Q2','22Q3','22Q4',
+  '23Q1','23Q2','23Q3','23Q4',
+  '24Q1','24Q2','24Q3','24Q4',
+  '25Q1','25Q2','25Q3','25Q4',
+  '26Q1'
+];
+
+// ── Dataset definitions ─────────────────────────────────────────────────────
+const gpuData  = [3.6,3.75,3.8,3.83, 3.6,4.3,10.3,14.5, 18.4,22.6,26.3,30.8, 35.6,39.7,41.1,51.2, 62.3];
+const cpuData  = [6.0,5.0,4.2,4.3,   3.7,4.0,3.8,4.0,   3.0,3.0,3.3,4.0,    4.1,4.2,4.5,5.6,    6.5];
+const hbmData  = [0.4,0.5,0.5,0.6,   0.8,0.9,1.0,1.3,   3.0,4.0,4.5,5.5,    7.0,8.0,9.5,10.5,   12.0];
+const tpuData  = [1.4,1.4,1.4,1.4,   1.4,1.4,1.4,1.4,   2.2,2.2,2.2,2.2,    3.2,3.2,3.2,3.2,    3.2];
+
+// Dashed border for estimates (last 5 points for GPU)
+function dashes(n, total, d=6, g=4) {
+  return Array(total).fill(undefined).map((_,i) => i >= total-n ? [d,g] : []);
+}
+
+// ── Chart 1: Stacked Bars ───────────────────────────────────────────────────
+new Chart(document.getElementById('stackedChart'), {
+  type: 'bar',
+  data: {
+    labels: QUARTERS,
+    datasets: [
+      { label: 'GPU（NVIDIA+AMD）', data: gpuData, backgroundColor: 'rgba(124,58,237,0.85)', stack: 'a' },
+      { label: 'CPU（Intel+AMD）', data: cpuData, backgroundColor: 'rgba(14,165,233,0.85)', stack: 'a' },
+      { label: 'HBM 市场', data: hbmData, backgroundColor: 'rgba(245,158,11,0.85)', stack: 'a' },
+      { label: 'TPU 估算', data: tpuData, backgroundColor: 'rgba(16,185,129,0.7)', stack: 'a' },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index' },
+    plugins: {
+      legend: { position: 'top', align: 'start',
+        labels: { boxWidth: 10, boxHeight: 10, padding: 16, usePointStyle: true, pointStyle: 'rect' }
+      },
+      annotation: {
+        annotations: {
+          phase1: { type:'box', xMin:-0.5, xMax:3.5, backgroundColor:'rgba(124,58,237,0.04)', borderWidth:0 },
+          phase2: { type:'box', xMin:3.5, xMax:8.5, backgroundColor:'rgba(14,165,233,0.04)', borderWidth:0 },
+          phase3: { type:'box', xMin:8.5, xMax:16.5, backgroundColor:'rgba(16,185,129,0.04)', borderWidth:0 },
+        }
+      },
+      tooltip: {
+        callbacks: {
+          footer: ctx => {
+            const total = ctx.reduce((s,c)=>s+c.parsed.y,0);
+            return `合计: $${total.toFixed(1)}B`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: { grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { callback: v => '$'+v+'B' } }
+    }
+  }
+});
+
+// ── Chart 2: CPU:GPU Ratio ──────────────────────────────────────────────────
+const ratioActual = [0.125,0.125,0.125,0.125, 0.125,0.125,0.125,0.125, 0.2,0.22,0.25,0.28, 0.32,0.4,0.5,0.65, 0.85];
+const ratioForecast = [null,null,null,null, null,null,null,null, null,null,null,null, null,null,null,0.65, 1.0];
+
+new Chart(document.getElementById('ratioChart'), {
+  type: 'line',
+  data: {
+    labels: QUARTERS,
+    datasets: [
+      {
+        label: 'CPU:GPU 实际配比',
+        data: ratioActual,
+        borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,0.08)',
+        borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: '#0ea5e9',
+        fill: true, tension: 0.35
+      },
+      {
+        label: '预测路径（→1:1）',
+        data: ratioForecast,
+        borderColor: '#34d399', backgroundColor: 'rgba(16,185,129,0.06)',
+        borderWidth: 2, borderDash: [5,4], pointRadius: 3,
+        fill: false, tension: 0.3
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top', align: 'start', labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'circle' } },
+      annotation: {
+        annotations: {
+          line18: { type:'line', xMin: 3.5, xMax: 3.5, borderColor:'rgba(124,58,237,0.4)', borderWidth:1, borderDash:[3,3],
+            label: { display:true, content:'1:8 时代', position:'start', color:'#a78bfa', font:{size:10} } },
+          line14: { type:'line', xMin: 8.5, xMax: 8.5, borderColor:'rgba(14,165,233,0.4)', borderWidth:1, borderDash:[3,3],
+            label: { display:true, content:'推理转型', position:'start', color:'#38bdf8', font:{size:10} } },
+          line11: { type:'line', yMin: 1, yMax: 1, borderColor:'rgba(244,63,94,0.5)', borderWidth:1.5, borderDash:[6,3],
+            label: { display:true, content:'1:1 目标', position:'end', color:'#fb7185', font:{size:10,weight:'bold'} } },
+          gtc: { type:'point', xValue:'26Q1', yValue:0.85, radius:8, backgroundColor:'rgba(16,185,129,0.3)', borderColor:'#34d399', borderWidth:2,
+            label: { display:true, content:'GTC 2026\n黄金配比', position:'left', color:'#34d399', font:{size:9} } }
+        }
+      }
+    },
+    scales: {
+      x: { grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: {
+        grid: { color: 'rgba(255,255,255,0.06)' },
+        ticks: { callback: v => v.toFixed(2) },
+        min: 0, max: 1.1,
+        title: { display: true, text: 'CPU 数量 / GPU 数量', color: '#8892a4', font:{size:10} }
+      }
+    }
+  }
+});
+
+// ── Chart 3: Token Efficiency ───────────────────────────────────────────────
+const effLabels = ['A100\n(2022)', 'H100 1:8\n(2023)', 'H200 1:4\n(2024)', 'B200 GPU-only\n(2025)', 'B200+Vera 1:1\n(2026)'];
+const effGpuOnly  = [5.0, 6.0, 5.71, 11.4, null];
+const effSystem   = [4.9, 5.85, 5.44, null, 8.51];
+
+new Chart(document.getElementById('efficiencyChart'), {
+  type: 'bar',
+  data: {
+    labels: effLabels,
+    datasets: [
+      { label: 'GPU-only 效率（tok/s per $1K）', data: effGpuOnly, backgroundColor: 'rgba(124,58,237,0.8)', borderRadius: 4 },
+      { label: '系统级效率（含CPU，tok/s per $1K）', data: effSystem, backgroundColor: 'rgba(14,165,233,0.8)', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position:'top', align:'start', labels:{boxWidth:10, usePointStyle:true, pointStyle:'rect'} },
+      annotation: {
+        annotations: {
+          h100ref: { type:'line', yMin:6, yMax:6, borderColor:'rgba(124,58,237,0.4)', borderWidth:1, borderDash:[4,3],
+            label:{display:true, content:'H100 基准 = 6 tok/s/$1K', position:'end', color:'#a78bfa', font:{size:9}} }
+        }
+      }
+    },
+    scales: {
+      x: { grid: {display:false} },
+      y: {
+        grid: { color:'rgba(255,255,255,0.06)' },
+        ticks: { callback: v => v+' tok/s' },
+        title: { display:true, text:'tok/s per $1,000 投资', color:'#8892a4', font:{size:10} }
+      }
+    }
+  }
+});
+
+// ── Chart 4: Global Token Capacity ─────────────────────────────────────────
+const tokenCap = [0.5,0.6,0.7,0.9, 1.2,2.0,4.5,8.0, 12,22,35,52, 80,120,150,173, 220];
+
+new Chart(document.getElementById('tokenChart'), {
+  type: 'line',
+  data: {
+    labels: QUARTERS,
+    datasets: [{
+      label: '全球 AI token 产能（trillion/day）',
+      data: tokenCap,
+      borderColor: '#10b981',
+      backgroundColor: (ctx) => {
+        const g = ctx.chart.ctx.createLinearGradient(0,0,0,300);
+        g.addColorStop(0,'rgba(16,185,129,0.25)');
+        g.addColorStop(1,'rgba(16,185,129,0)');
+        return g;
+      },
+      borderWidth: 2.5, fill: true, tension: 0.4,
+      pointRadius: 2, pointBackgroundColor: '#10b981'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      annotation: {
+        annotations: {
+          gpt4: { type:'line', xMin:5, xMax:5, borderColor:'rgba(255,255,255,0.2)', borderWidth:1, borderDash:[3,3],
+            label:{display:true, content:'GPT-4\n2023-03', position:'start', color:'#94a3b8', font:{size:9}} },
+          agent: { type:'line', xMin:12, xMax:12, borderColor:'rgba(16,185,129,0.4)', borderWidth:1, borderDash:[3,3],
+            label:{display:true, content:'Agentic\n爆发', position:'start', color:'#34d399', font:{size:9}} }
+        }
+      },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(1)}T tok/day` } }
+    },
+    scales: {
+      x: { grid:{color:'rgba(255,255,255,0.04)'} },
+      y: {
+        type: 'logarithmic',
+        grid: {color:'rgba(255,255,255,0.06)'},
+        ticks: { callback: v => v >= 1 ? v+'T' : v*1000+'B' },
+        title: { display:true, text:'对数坐标 (trillion tokens/day)', color:'#8892a4', font:{size:10} }
+      }
+    }
+  }
+});
+
+// ── Chart 5: HBM Breakdown ──────────────────────────────────────────────────
+const hbmSkHynix = hbmData.map((v,i) => {
+  const shares = [0.45,0.45,0.5,0.5, 0.5,0.52,0.52,0.53, 0.54,0.54,0.55,0.56, 0.58,0.62,0.56,0.53, 0.52];
+  return +(v * shares[i]).toFixed(2);
+});
+const hbmSamsung = hbmData.map((v,i) => {
+  const shares = [0.42,0.42,0.39,0.39, 0.39,0.38,0.38,0.37, 0.39,0.39,0.38,0.37, 0.33,0.17,0.32,0.35, 0.36];
+  return +(v * shares[i]).toFixed(2);
+});
+const hbmMicron = hbmData.map((v,i) => +(v - hbmSkHynix[i] - hbmSamsung[i]).toFixed(2));
+
+new Chart(document.getElementById('hbmChart'), {
+  type: 'bar',
+  data: {
+    labels: QUARTERS,
+    datasets: [
+      { label: 'SK Hynix', data: hbmSkHynix, backgroundColor: 'rgba(245,158,11,0.9)', stack: 'hbm', borderRadius:{topLeft:2,topRight:2} },
+      { label: 'Samsung', data: hbmSamsung, backgroundColor: 'rgba(245,158,11,0.5)', stack: 'hbm' },
+      { label: 'Micron', data: hbmMicron, backgroundColor: 'rgba(245,158,11,0.25)', stack: 'hbm' }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode:'index' },
+    plugins: {
+      legend: { position:'top', align:'start', labels:{boxWidth:10, usePointStyle:true, pointStyle:'rect'} },
+      annotation: {
+        annotations: {
+          micronPast: { type:'line', xMin:11.5, xMax:11.5, borderColor:'rgba(245,158,11,0.3)', borderWidth:1, borderDash:[3,3],
+            label:{display:true, content:'Micron HBM 放量', position:'start', color:'#fbbf24', font:{size:9}} }
+        }
+      }
+    },
+    scales: {
+      x: { grid:{color:'rgba(255,255,255,0.04)'} },
+      y: { grid:{color:'rgba(255,255,255,0.06)'}, stacked:true, ticks:{ callback: v=>'$'+v+'B' } }
+    }
+  }
+});
+
+// ── Chart 6: Scenario Analysis ──────────────────────────────────────────────
+const scenLabels = ['1:8（训练时代）', '1:4（推理时代）', '1:2（过渡期）', '1:1（Agentic目标）', 'CPU > GPU'];
+const gpuCapex   = [160, 160, 160, 160, 160]; // fixed $160B/yr
+const cpuCapex18 = [10, null, null, null, null];
+const cpuCapex14 = [null, 20, null, null, null];
+const cpuCapex12 = [null, null, 40, null, null];
+const cpuCapex11 = [null, null, null, 80, null];
+const cpuCapexGT = [null, null, null, null, 120];
+
+new Chart(document.getElementById('scenarioChart'), {
+  type: 'bar',
+  data: {
+    labels: scenLabels,
+    datasets: [
+      { label: 'GPU 投资（固定基准 $160B/yr）', data: gpuCapex, backgroundColor: 'rgba(124,58,237,0.7)', borderRadius: 4 },
+      { label: 'CPU 需求（1:8）', data: cpuCapex18, backgroundColor: '#0ea5e9', borderRadius: 4 },
+      { label: 'CPU 需求（1:4）', data: cpuCapex14, backgroundColor: '#0ea5e9', borderRadius: 4 },
+      { label: 'CPU 需求（1:2）', data: cpuCapex12, backgroundColor: '#0ea5e9', borderRadius: 4 },
+      { label: 'CPU 需求（1:1）', data: cpuCapex11, backgroundColor: '#0ea5e9', borderRadius: 4 },
+      { label: 'CPU > GPU 场景', data: cpuCapexGT, backgroundColor: 'rgba(244,63,94,0.75)', borderRadius: 4 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top', align: 'start',
+        labels: { boxWidth: 10, usePointStyle: true, pointStyle: 'rect',
+          filter: item => item.text !== 'CPU 需求（1:4）' && item.text !== 'CPU 需求（1:2）' && item.text !== 'CPU 需求（1:8）'
+        }
+      }
+    },
+    scales: {
+      x: { grid: {display:false} },
+      y: {
+        grid: {color:'rgba(255,255,255,0.06)'},
+        ticks: { callback: v => '$'+v+'B' },
+        title: { display:true, text:'年度投资额（$B）', color:'#8892a4', font:{size:10} }
+      }
+    }
+  }
+});
+
+</script>
+</body>
+</html>

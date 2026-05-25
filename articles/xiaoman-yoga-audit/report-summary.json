@@ -1,0 +1,294 @@
+{
+  "profile": {
+    "nickname": "小蛮瑜伽线上课",
+    "red_id": "Blair0215",
+    "user_id": "5c32ddf4000000000702cb4e",
+    "desc": "身心一体 身心同修 大道至简 \n平心静气 舒经活络 气血归位 \n线上课每月初开🔄",
+    "interactions": [
+      {
+        "type": "follows",
+        "name": "关注",
+        "count": "5",
+        "i18nCount": "5"
+      },
+      {
+        "count": "1万+",
+        "i18nCount": "10K+",
+        "type": "fans",
+        "name": "粉丝"
+      },
+      {
+        "type": "interaction",
+        "name": "获赞与收藏",
+        "count": "1万+",
+        "i18nCount": "10K+"
+      }
+    ],
+    "noteQueries": [
+      {
+        "num": 30,
+        "cursor": "6981b6ad000000000b012a79",
+        "userId": "5c32ddf4000000000702cb4e",
+        "page": 1,
+        "hasMore": true
+      },
+      {
+        "num": 30,
+        "cursor": "",
+        "userId": "5c32ddf4000000000702cb4e",
+        "page": 1,
+        "hasMore": true
+      },
+      {
+        "num": 30,
+        "cursor": "",
+        "userId": "5c32ddf4000000000702cb4e",
+        "page": 1,
+        "hasMore": true
+      },
+      {
+        "num": 30,
+        "cursor": "",
+        "userId": "5c32ddf4000000000702cb4e",
+        "page": 1,
+        "hasMore": true
+      },
+      {
+        "num": 30,
+        "cursor": "",
+        "userId": "5c32ddf4000000000702cb4e",
+        "page": 1,
+        "hasMore": true
+      }
+    ]
+  },
+  "metrics": {
+    "sample_notes": 43,
+    "detail_notes": 16,
+    "likes": 81978,
+    "collects": 53855,
+    "comments": 424,
+    "shares": 3057,
+    "interactions": 139314,
+    "healthScore": 88
+  },
+  "categoryStats": [
+    {
+      "category": "体态循环/下肢线",
+      "count": 14,
+      "interactions": 118286,
+      "collects": 52932,
+      "shares": 2959
+    },
+    {
+      "category": "身心放松/情绪线",
+      "count": 7,
+      "interactions": 7422,
+      "collects": 0,
+      "shares": 0
+    },
+    {
+      "category": "气血疏通/中医感知线",
+      "count": 6,
+      "interactions": 7197,
+      "collects": 132,
+      "shares": 13
+    },
+    {
+      "category": "肩颈脊柱/上肢线",
+      "count": 10,
+      "interactions": 6112,
+      "collects": 785,
+      "shares": 82
+    },
+    {
+      "category": "基础练习/理念线",
+      "count": 6,
+      "interactions": 297,
+      "collects": 6,
+      "shares": 3
+    }
+  ],
+  "topNotes": [
+    {
+      "title": "疏通内在淤堵 外观慢慢变流畅",
+      "category": "体态循环/下肢线",
+      "likes": 34915,
+      "collects": 43653,
+      "comments": 212,
+      "shares": 2273,
+      "id": "6940246e000000001e009d9d"
+    },
+    {
+      "title": "梨形体态：上肢气血不足 下肢循环不通",
+      "category": "体态循环/下肢线",
+      "likes": 17000,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "打通髋部气血 增强下肢循环与代谢",
+      "category": "体态循环/下肢线",
+      "likes": 4302,
+      "collects": 4204,
+      "comments": 30,
+      "shares": 309,
+      "id": "68ff83c5000000000700b7bc"
+    },
+    {
+      "title": "下肢肥大改善思路：重新分布重力结构",
+      "category": "体态循环/下肢线",
+      "likes": 2290,
+      "collects": 1909,
+      "comments": 74,
+      "shares": 157,
+      "id": "66bf59c9000000001e019fdb"
+    },
+    {
+      "title": "改变一个日常习惯 呼吸瞬间轻易通畅",
+      "category": "身心放松/情绪线",
+      "likes": 6406,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "大道至简！改变胸曲僵直有属于它的邪修",
+      "category": "体态循环/下肢线",
+      "likes": 1688,
+      "collects": 2056,
+      "comments": 42,
+      "shares": 117,
+      "id": "6a0ed487000000003502ecea"
+    },
+    {
+      "title": "上热下🧊 气皿虚（重在疏通呼吸通道）",
+      "category": "气血疏通/中医感知线",
+      "likes": 4529,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "疏通中焦关键：打通横膈膜（膈肌）",
+      "category": "肩颈脊柱/上肢线",
+      "likes": 4077,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "把自己卷曲起来 恢复胸椎弹性",
+      "category": "体态循环/下肢线",
+      "likes": 858,
+      "collects": 903,
+      "comments": 7,
+      "shares": 67,
+      "id": "69017fb50000000007038b93"
+    },
+    {
+      "title": "气🩸虚 肝火旺（重在疏通 上通下达）",
+      "category": "气血疏通/中医感知线",
+      "likes": 2100,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "背阔圆厚的原因是脊椎僵硬",
+      "category": "肩颈脊柱/上肢线",
+      "likes": 537,
+      "collects": 620,
+      "comments": 5,
+      "shares": 66,
+      "id": "66763e79000000001f00495c"
+    },
+    {
+      "title": "身心同修才能真正的改善这个“人”",
+      "category": "身心放松/情绪线",
+      "likes": 734,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "针对：骨盆松散 歪斜 大转子突出 下肢沉重",
+      "category": "体态循环/下肢线",
+      "likes": 525,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "只要你好好的放松 脊柱曲度自然会得到修复",
+      "category": "肩颈脊柱/上肢线",
+      "likes": 148,
+      "collects": 158,
+      "comments": 4,
+      "shares": 14,
+      "id": "694ce7a6000000001e00cadb"
+    },
+    {
+      "title": "腰的长期疼痛都是堵出来的 需要疏通",
+      "category": "体态循环/下肢线",
+      "likes": 124,
+      "collects": 130,
+      "comments": 3,
+      "shares": 17,
+      "id": "694381f9000000001d03a40d"
+    },
+    {
+      "title": "30min 改善消化  促进肠蠕动 促排泄",
+      "category": "气血疏通/中医感知线",
+      "likes": 120,
+      "collects": 132,
+      "comments": 5,
+      "shares": 13,
+      "id": "696f2fb2000000000c03474f"
+    },
+    {
+      "title": "想象自己是面团 把肩颈淤堵给化开",
+      "category": "体态循环/下肢线",
+      "likes": 52,
+      "collects": 56,
+      "comments": 0,
+      "shares": 2,
+      "id": "6a0d625200000000350278d6"
+    },
+    {
+      "title": "胸椎僵直是这个时代的“问题”",
+      "category": "肩颈脊柱/上肢线",
+      "likes": 155,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "气足 则五脏六腑活跃",
+      "category": "体态循环/下肢线",
+      "likes": 147,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    },
+    {
+      "title": "呼吸可以变深长的意念",
+      "category": "身心放松/情绪线",
+      "likes": 125,
+      "collects": 0,
+      "comments": 0,
+      "shares": 0,
+      "id": ""
+    }
+  ]
+}

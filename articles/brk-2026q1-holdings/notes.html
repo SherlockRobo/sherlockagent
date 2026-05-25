@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRK 2026Q1 调仓手绘笔记</title>
+  <meta name="description" content="用手绘笔记方式讲解伯克希尔 2026Q1 13F 调仓。">
+  <style>
+    :root {
+      --paper: #fffaf0;
+      --ink: #23211d;
+      --muted: #6d675d;
+      --line: #d9cfbd;
+      --blue: #2f80b8;
+      --red: #d65745;
+      --green: #20895b;
+      --yellow: #ffe066;
+      --pink: #ffb3c5;
+      --tape: rgba(255, 224, 102, 0.58);
+      --shadow: rgba(43, 35, 22, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Comic Sans MS", "Bradley Hand", "Kaiti SC", "STKaiti", cursive;
+      background:
+        linear-gradient(90deg, rgba(47,128,184,0.08) 1px, transparent 1px),
+        linear-gradient(180deg, transparent 0 31px, rgba(214,87,69,0.22) 32px, transparent 33px),
+        #f1eadc;
+      background-size: 34px 34px, 100% 34px, auto;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1060px, calc(100% - 24px));
+      margin: 22px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 28px 80px var(--shadow);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 74px;
+      width: 2px;
+      background: rgba(214,87,69,0.25);
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(255,255,255,0.7), transparent 16%),
+        radial-gradient(circle at 74% 2%, rgba(255,224,102,0.18), transparent 16%);
+      opacity: 0.72;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: clamp(26px, 5vw, 58px) clamp(20px, 5vw, 64px) 56px 104px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .top a {
+      color: var(--blue);
+      text-decoration-style: wavy;
+      text-underline-offset: 4px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(38px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .marker {
+      display: inline;
+      background: linear-gradient(transparent 52%, var(--yellow) 52%);
+      padding: 0 4px;
+    }
+
+    .lead {
+      max-width: 820px;
+      margin: 18px 0 0;
+      font-size: clamp(20px, 2.8vw, 31px);
+      line-height: 1.38;
+    }
+
+    .note-keynotes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 16px;
+      margin-top: 24px;
+      max-width: 900px;
+    }
+
+    .note-keynote {
+      padding: 8px 10px;
+      background: linear-gradient(transparent 46%, rgba(255, 224, 102, 0.72) 46%);
+      border-bottom: 2px solid rgba(35,33,29,0.16);
+      font-size: 20px;
+      line-height: 1.3;
+      transform: rotate(var(--r));
+    }
+
+    .note-keynote b {
+      color: var(--red);
+      margin-right: 6px;
+    }
+
+    .scribble {
+      display: inline-block;
+      border: 3px solid var(--red);
+      border-radius: 48% 52% 46% 54%;
+      padding: 2px 10px;
+      transform: rotate(-2deg);
+      color: var(--red);
+    }
+
+    section {
+      margin-top: 48px;
+      position: relative;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(28px, 4.8vw, 50px);
+      line-height: 1.05;
+    }
+
+    .note-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      border: 2px solid var(--ink);
+      border-radius: 18px 14px 20px 13px;
+      padding: 20px;
+      background: rgba(255,255,255,0.45);
+      box-shadow: 7px 7px 0 rgba(35,33,29,0.08);
+      transform: rotate(var(--r));
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 27px;
+      line-height: 1.1;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .sticky {
+      background: #fff2a8;
+      border: 0;
+      border-radius: 3px;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    .sticky::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 34%;
+      width: 86px;
+      height: 24px;
+      background: var(--tape);
+      transform: rotate(-3deg);
+    }
+
+    .big {
+      font-size: clamp(44px, 8vw, 96px);
+      line-height: 0.9;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 18px;
+      margin-top: 8px;
+    }
+
+    .arrow {
+      display: inline-block;
+      color: var(--red);
+      font-size: 44px;
+      transform: rotate(8deg);
+      margin: 0 8px;
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 130px 1fr 62px;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+    }
+
+    .name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track {
+      height: 24px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .fill {
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: repeating-linear-gradient(
+        -45deg,
+        currentColor 0 7px,
+        rgba(255,255,255,0.18) 7px 12px
+      );
+      opacity: 0.72;
+    }
+
+    .pct {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .doodle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .bubble {
+      border: 3px solid currentColor;
+      border-radius: 34px 28px 38px 30px;
+      padding: 20px;
+      min-height: 210px;
+      background: rgba(255,255,255,0.34);
+      position: relative;
+    }
+
+    .bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 38px;
+      width: 34px;
+      height: 24px;
+      border-left: 3px solid currentColor;
+      border-bottom: 3px solid currentColor;
+      border-radius: 0 0 0 20px;
+      transform: skew(-18deg);
+      background: var(--paper);
+    }
+
+    .bubble h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    .bubble ul {
+      margin: 0;
+      padding-left: 23px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .bubble li { margin: 7px 0; }
+
+    .checklist {
+      display: grid;
+      gap: 13px;
+      font-size: 22px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .box {
+      width: 25px;
+      height: 25px;
+      border: 3px solid var(--ink);
+      border-radius: 5px;
+      position: relative;
+      margin-top: 4px;
+    }
+
+    .box::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 8px;
+      border-left: 4px solid var(--green);
+      border-bottom: 4px solid var(--green);
+      transform: rotate(-45deg);
+      left: 3px;
+      top: 1px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .neq {
+      color: var(--red);
+      font-size: clamp(42px, 8vw, 86px);
+      font-weight: 900;
+      transform: rotate(-7deg);
+    }
+
+    .final {
+      border: 4px solid var(--green);
+      border-radius: 22px 18px 26px 20px;
+      padding: 24px;
+      background: linear-gradient(transparent 58%, rgba(116, 208, 155, 0.22) 58%);
+      transform: rotate(-0.8deg);
+    }
+
+    .final p {
+      margin: 0;
+      font-size: clamp(24px, 3.6vw, 40px);
+      line-height: 1.26;
+    }
+
+    .sources {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 2px dashed var(--line);
+      color: var(--muted);
+      font-size: 15px;
+      font-family: "Kaiti SC", "STKaiti", serif;
+    }
+
+    .sources a {
+      color: var(--blue);
+      text-underline-offset: 4px;
+    }
+
+    @media (max-width: 820px) {
+      .page { width: calc(100% - 10px); margin: 5px auto; border-radius: 0; }
+      .page::before { left: 42px; }
+      .content { padding: 22px 16px 44px 58px; }
+      .note-row, .doodle-grid, .split, .note-keynotes { grid-template-columns: 1fr; }
+      .bar { grid-template-columns: 90px 1fr 56px; font-size: 15px; }
+      .neq { justify-self: center; }
+      .bubble::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="content">
+      <div class="top">
+        <span>BRK 2026Q1 13F / 手绘笔记版</span>
+        <span><a href="./">报告版</a> · <a href="./blackboard.html">板书版</a></span>
+      </div>
+
+      <header>
+        <h1><span class="marker">BRK 调仓</span>到底在说什么？</h1>
+        <p class="lead">一句话：不是全面进攻，而是 <span class="scribble">净卖出</span>，同时把组合压得更集中，再把 Alphabet 拉上来。</p>
+        <div class="note-keynotes" aria-label="本页重点">
+          <div class="note-keynote" style="--r:-0.8deg"><b>01</b>净卖出：买 159 亿，卖 241 亿。</div>
+          <div class="note-keynote" style="--r:0.6deg"><b>02</b>更集中：42 仓压到 29 仓。</div>
+          <div class="note-keynote" style="--r:-0.4deg"><b>03</b>主信号：Alphabet 进前十大。</div>
+          <div class="note-keynote" style="--r:0.9deg"><b>04</b>底座：Apple 仍约 22%。</div>
+          <div class="note-keynote" style="--r:-0.7deg"><b>05</b>能源：减 CVX，不等于撤退。</div>
+          <div class="note-keynote" style="--r:0.5deg"><b>06</b>航空：Delta 是机会仓。</div>
+          <div class="note-keynote" style="--r:-0.3deg"><b>07</b>支付：Visa/MA 是机会成本。</div>
+          <div class="note-keynote" style="--r:0.7deg"><b>08</b>抄作业：抄框架，不抄名单。</div>
+        </div>
+      </header>
+
+      <section>
+        <h2>01 先把大方向写下来</h2>
+        <div class="note-row">
+          <article class="card sticky" style="--r: -1.4deg">
+            <h3>持仓数量</h3>
+            <div class="big">42 <span class="arrow">→</span> 29</div>
+            <div class="mini">少了 13 个仓位：这叫组合压缩。</div>
+          </article>
+
+          <article class="card" style="--r: 1deg">
+            <h3>前十集中度</h3>
+            <div class="big">91.1%</div>
+            <div class="mini">Q4 同口径 88.3%。核心仓更像“底座”。</div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>02 直接看变化：谁增加，谁减少</h2>
+        <div class="note-row">
+          <article class="card" style="--r: -0.7deg">
+            <h3 class="marker">权重上升</h3>
+            <div class="bars" aria-label="前十持仓权重上升">
+              <div class="bar" style="color: var(--green)"><div class="name">Alphabet</div><div class="track"><div class="fill" style="--w: 100%"></div></div><div class="pct">+4.28</div></div>
+              <div class="bar" style="color: var(--green)"><div class="name">Occidental</div><div class="track"><div class="fill" style="--w: 60%"></div></div><div class="pct">+2.57</div></div>
+              <div class="bar" style="color: var(--green)"><div class="name">Coca-Cola</div><div class="track"><div class="fill" style="--w: 32%"></div></div><div class="pct">+1.36</div></div>
+              <div class="bar" style="color: var(--green)"><div class="name">Chubb</div><div class="track"><div class="fill" style="--w: 8%"></div></div><div class="pct">+0.34</div></div>
+            </div>
+            <p class="mini">单位：权重百分点。最关键不是新增 Delta，而是 Alphabet 直接进入前十大。</p>
+          </article>
+
+          <article class="card" style="--r: 0.8deg">
+            <h3 class="marker">权重下降</h3>
+            <div class="bars" aria-label="前十持仓权重下降">
+              <div class="bar" style="color: var(--red)"><div class="name">AXP</div><div class="track"><div class="fill" style="--w: 100%"></div></div><div class="pct">-3.03</div></div>
+              <div class="bar" style="color: var(--red)"><div class="name">BAC</div><div class="track"><div class="fill" style="--w: 28%"></div></div><div class="pct">-0.86</div></div>
+              <div class="bar" style="color: var(--red)"><div class="name">Apple</div><div class="track"><div class="fill" style="--w: 20%"></div></div><div class="pct">-0.61</div></div>
+              <div class="bar" style="color: var(--red)"><div class="name">Chevron</div><div class="track"><div class="fill" style="--w: 20%"></div></div><div class="pct">-0.60</div></div>
+            </div>
+            <p class="mini">AXP 股数没动，权重下降主要是市值变化；Chevron 是实打实减仓。</p>
+          </article>
+        </div>
+
+        <div class="note-row" style="margin-top: 18px;">
+          <article class="card sticky" style="--r: 1deg">
+            <h3>重点新增</h3>
+            <p>Delta Air Lines：新仓约 1.0% 权重。GOOG：配合 GOOGL 增配。Macy's：仓位很小，信号强度低。</p>
+          </article>
+
+          <article class="card" style="--r: -0.9deg">
+            <h3>重点减少/清仓</h3>
+            <p>清仓 Visa、Mastercard、UnitedHealth、Amazon；大减 Constellation；减 Chevron、Nucor。</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>03 三个圈注：加什么、卖什么、别误读什么</h2>
+        <div class="doodle-grid">
+          <article class="bubble green">
+            <h3>加仓重点</h3>
+            <ul>
+              <li>Alphabet 权重 +4.28pct</li>
+              <li>进入前十大</li>
+              <li>高质量现金流 + AI 选项</li>
+            </ul>
+          </article>
+
+          <article class="bubble red">
+            <h3>清掉杂仓</h3>
+            <ul>
+              <li>Visa / Mastercard</li>
+              <li>UnitedHealth</li>
+              <li>Amazon / Aon / Pool</li>
+            </ul>
+          </article>
+
+          <article class="bubble blue">
+            <h3>别误读</h3>
+            <ul>
+              <li>清仓不等于看空</li>
+              <li>新增不等于重仓</li>
+              <li>航空不能整板块抄</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>04 航空股作业：只能抄方法</h2>
+        <div class="split">
+          <article class="card" style="--r: -1deg">
+            <h3>BRK 买 Delta</h3>
+            <p>买的是行业强者：客群、现金流、成本缓冲、运力纪律。</p>
+          </article>
+          <div class="neq">≠</div>
+          <article class="card" style="--r: 1.2deg">
+            <h3>闭眼买航空</h3>
+            <p>不能只看“BRK 买了”。每家公司都要重新看油价转嫁和资产负债表。</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>05 Visa / Mastercard：为什么卖得通？</h2>
+        <div class="checklist">
+          <div class="check"><span class="box"></span><span>支付网络仍是好生意，清仓不是说它们变烂。</span></div>
+          <div class="check"><span class="box"></span><span>BRK 原本仓位不算核心，清掉对组合解释更干净。</span></div>
+          <div class="check"><span class="box"></span><span>相对 Alphabet、现金和短债，估值/机会成本可能不够划算。</span></div>
+          <div class="check"><span class="box"></span><span>所以这是“相对吸引力”问题，不是“支付逻辑失效”。</span></div>
+        </div>
+      </section>
+
+      <section class="final">
+        <p>最后落笔：BRK 的动作是“防守底色 + 局部进攻”。最该研究的是 Alphabet；Delta 只拆方法；Visa/Mastercard 清仓看机会成本。</p>
+      </section>
+
+      <section class="sources">
+        数据来源：
+        <a href="https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/0001193125-26-226661-index.htm">SEC 13F 2026Q1</a>；
+        <a href="https://www.berkshirehathaway.com/qtrly/1stqtr26.pdf">Berkshire Hathaway 2026Q1 10-Q</a>。
+      </section>
+    </div>
+  </main>
+</body>
+</html>

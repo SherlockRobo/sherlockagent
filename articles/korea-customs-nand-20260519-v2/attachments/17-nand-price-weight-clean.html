@@ -1,0 +1,34 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><style>
+  body{margin:0;background:#FAF8F5;color:#111111;font-family:"Noto Serif SC","Songti SC","STSong",serif}
+  .canvas{width:1200px;height:760px;background:#FFFEFB;box-sizing:border-box;padding:46px 54px;border:1px solid #D8D1C4}
+  .eyebrow{font:800 15px/1.3 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.14em;text-transform:uppercase}
+  h1{font-size:42px;line-height:1.18;margin:14px 0 10px;letter-spacing:0}
+  .sub{font-size:20px;line-height:1.55;color:#7A7770;margin:0 0 24px}
+  .note{font-size:14px;line-height:1.65;color:#7A7770;margin-top:14px}
+  .k{font:800 13px/1 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.12em;text-transform:uppercase}
+  </style></head><body><main class="canvas"><div class="eyebrow">NAND ASP · HOW TO READ PRICE AND WEIGHT</div><h1>NAND 4 月：货少了，价格没掉</h1>
+  <style>
+    .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:22px 0}
+    .card{border:1px solid #D8D1C4;background:white;padding:22px}
+    .label{font:800 13px/1 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .num{font-size:38px;font-weight:900;line-height:1.1}
+    .sub2{font-size:17px;color:#7A7770;line-height:1.55;margin-top:10px}
+    .signal{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    .big{border:1px solid #D8D1C4;background:#F3EFE6;padding:26px 28px}
+    .big .tag{font:800 13px/1 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .big b{display:block;font-size:34px;color:#111;line-height:1.25}
+    .big span{display:block;font-size:18px;line-height:1.55;color:#7A7770;margin-top:10px}
+    .conclusion{background:#111111;color:white;padding:28px 30px;margin-top:22px;font-size:29px;line-height:1.45;font-weight:900}
+  </style>
+  <p class="sub">读法不是看一个同比大数，而是把 ASP 环比和净重环比放在一起：价稳、量降，说明低价货没有冲出来。</p>
+  <section class="grid">
+    <div class="card"><div class="label">Step 1 · Price</div><div class="num">+0.2%</div><div class="sub2">NAND ASP 环比<br>价格基本没被打下来</div></div>
+    <div class="card"><div class="label">Step 2 · Weight</div><div class="num">-34.3%</div><div class="sub2">净重环比<br>数量代理明显回落</div></div>
+    <div class="card"><div class="label">Step 3 · Read</div><div class="num">挑单</div><div class="sub2">货少时先供高价订单<br>低价/普通订单往后排</div></div>
+  </section>
+  <section class="signal">
+    <div class="big"><div class="tag">Not This</div><b>不是需求爆发</b><span>如果是量价齐升，通常会看到价格涨、数量也放大。</span></div>
+    <div class="big"><div class="tag">More Likely</div><b>更像供给偏紧</b><span>净重回落但 ASP 没跌，说明卖方没有被迫降价出货。</span></div>
+  </section>
+  <section class="conclusion">HOW：价稳 + 量降。WHY：供给偏紧/挑单，而不是单纯需求爆发。</section>
+  <div class="note">口径：MoneyRecipe 标注 TRASS 来源的 HS10 二级 JSON；净重只作数量代理。</div></main></body></html>

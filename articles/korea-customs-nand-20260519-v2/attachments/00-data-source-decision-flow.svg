@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" font-family="'Source Han Serif SC','Noto Serif SC','Songti SC',Georgia,serif">
+  <!-- Background -->
+  <rect width="880" height="620" fill="#F4F1EA"/>
+
+  <!-- Title -->
+  <text x="440" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0F3B4C" letter-spacing="0.5">如何观测中国 NAND？——一个散户能跑通的决策路径</text>
+  <line x1="120" y1="52" x2="760" y2="52" stroke="#0F3B4C" stroke-width="1"/>
+
+  <!-- Root question -->
+  <g>
+    <rect x="320" y="72" width="240" height="56" rx="2" fill="#0F3B4C"/>
+    <text x="440" y="98" text-anchor="middle" font-size="14" font-weight="600" fill="#F4F1EA">起点：怎么观测中国 NAND？</text>
+    <text x="440" y="116" text-anchor="middle" font-size="11" fill="#B5CFD8" font-style="italic">月度、可持续、散户可得</text>
+  </g>
+
+  <!-- Branch 1: 国内数据 -->
+  <line x1="440" y1="128" x2="220" y2="170" stroke="#0F3B4C" stroke-width="1.2"/>
+  <g>
+    <rect x="100" y="170" width="240" height="42" fill="#FFFFFF" stroke="#0F3B4C" stroke-width="1"/>
+    <text x="220" y="195" text-anchor="middle" font-size="13" font-weight="600" fill="#0F3B4C">路径 A：找国内数据</text>
+  </g>
+
+  <!-- Branch 2: 韩国数据 -->
+  <line x1="440" y1="128" x2="660" y2="170" stroke="#0F3B4C" stroke-width="1.2"/>
+  <g>
+    <rect x="540" y="170" width="240" height="42" fill="#FFFFFF" stroke="#0F3B4C" stroke-width="1"/>
+    <text x="660" y="195" text-anchor="middle" font-size="13" font-weight="600" fill="#0F3B4C">路径 B：绕到韩国</text>
+  </g>
+
+  <!-- Path A children -->
+  <line x1="220" y1="212" x2="220" y2="240" stroke="#0F3B4C" stroke-width="1"/>
+  <g>
+    <rect x="60" y="240" width="320" height="180" fill="#FFFFFF" stroke="#A5A09A" stroke-width="0.6"/>
+    <text x="76" y="262" font-size="12" font-weight="600" fill="#0F3B4C">逐项核查</text>
+
+    <text x="76" y="286" font-size="11.5" fill="#444">中国海关 HS6（854232）</text>
+    <text x="364" y="286" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">混合口径</text>
+
+    <text x="76" y="306" font-size="11.5" fill="#444">中国海关 HS8 月度</text>
+    <text x="364" y="306" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">年费 5-30 万</text>
+
+    <text x="76" y="326" font-size="11.5" fill="#444">工信部 / 统计局</text>
+    <text x="364" y="326" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">只到大类</text>
+
+    <text x="76" y="346" font-size="11.5" fill="#444">长江 / YMTC 披露</text>
+    <text x="364" y="346" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">未上市，无数据</text>
+
+    <text x="76" y="366" font-size="11.5" fill="#444">A 股相关公司季报</text>
+    <text x="364" y="366" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">不拆 ASP / 季频</text>
+
+    <text x="76" y="386" font-size="11.5" fill="#444">CFM / TrendForce 中文</text>
+    <text x="364" y="386" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">免费版滞后</text>
+
+    <text x="76" y="406" font-size="11.5" fill="#444">终端 SSD 零售价</text>
+    <text x="364" y="406" text-anchor="end" font-size="11.5" font-weight="700" fill="#A8001F">≠ 颗粒价</text>
+  </g>
+
+  <!-- Path A conclusion -->
+  <line x1="220" y1="420" x2="220" y2="450" stroke="#A8001F" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <polygon points="216,448 224,448 220,456" fill="#A8001F"/>
+  <g>
+    <rect x="60" y="460" width="320" height="46" fill="#FBEDEF" stroke="#A8001F" stroke-width="1"/>
+    <text x="220" y="481" text-anchor="middle" font-size="12.5" font-weight="700" fill="#A8001F">散户能跑通的，只有混合口径 HS6</text>
+    <text x="220" y="498" text-anchor="middle" font-size="11" fill="#A8001F" font-style="italic">和韩国 HS6 一样残缺，没拿到独立 NAND</text>
+  </g>
+
+  <!-- Path B children -->
+  <line x1="660" y1="212" x2="660" y2="240" stroke="#0F3B4C" stroke-width="1"/>
+  <g>
+    <rect x="500" y="240" width="320" height="180" fill="#FFFFFF" stroke="#A5A09A" stroke-width="0.6"/>
+    <text x="516" y="262" font-size="12" font-weight="600" fill="#0F3B4C">关键优势</text>
+
+    <text x="516" y="286" font-size="11.5" fill="#444">Samsung + SK 全球收入</text>
+    <text x="804" y="286" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">≈ 49% 供给端</text>
+
+    <text x="516" y="306" font-size="11.5" fill="#444">TRASS 英文站 HS6</text>
+    <text x="804" y="306" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">免 key 可拉</text>
+
+    <text x="516" y="326" font-size="11.5" fill="#444">月度滞后</text>
+    <text x="804" y="326" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">0.5 个月</text>
+
+    <text x="516" y="346" font-size="11.5" fill="#444">HS10 间接源</text>
+    <text x="804" y="346" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">MoneyRecipe 可补</text>
+
+    <text x="516" y="366" font-size="11.5" fill="#444">DRAM/MCP 子目可拆</text>
+    <text x="804" y="366" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">支持减法</text>
+
+    <text x="516" y="386" font-size="11.5" fill="#444">目的地拆分</text>
+    <text x="804" y="386" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">中国方向价差可看</text>
+
+    <text x="516" y="406" font-size="11.5" fill="#444">数据连续性</text>
+    <text x="804" y="406" text-anchor="end" font-size="11.5" font-weight="700" fill="#1F6E4A">2023.01 至今</text>
+  </g>
+
+  <!-- Path B conclusion -->
+  <line x1="660" y1="420" x2="660" y2="450" stroke="#1F6E4A" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <polygon points="656,448 664,448 660,456" fill="#1F6E4A"/>
+  <g>
+    <rect x="500" y="460" width="320" height="46" fill="#EAF3EE" stroke="#1F6E4A" stroke-width="1"/>
+    <text x="660" y="481" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1F6E4A">用 HS6 减法挖出 NAND 代理</text>
+    <text x="660" y="498" text-anchor="middle" font-size="11" fill="#1F6E4A" font-style="italic">覆盖全球供给端，跑得通、跟得上、能复用</text>
+  </g>
+
+  <!-- Final convergence -->
+  <line x1="220" y1="506" x2="440" y2="540" stroke="#0F3B4C" stroke-width="1.2"/>
+  <line x1="660" y1="506" x2="440" y2="540" stroke="#0F3B4C" stroke-width="1.2"/>
+  <g>
+    <rect x="280" y="540" width="320" height="50" rx="2" fill="#0F3B4C"/>
+    <text x="440" y="563" text-anchor="middle" font-size="13" font-weight="700" fill="#F4F1EA">结论：穿透中国 NAND 反而要绕道韩国</text>
+    <text x="440" y="580" text-anchor="middle" font-size="11" fill="#B5CFD8" font-style="italic">起点是问题，答案是外部代理</text>
+  </g>
+
+  <!-- Footer caption -->
+  <text x="120" y="610" font-size="10" fill="#7A736B" font-style="italic">图 0｜数据源选择路径（作者整理 · 2026-05-20）</text>
+</svg>

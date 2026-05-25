@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strava Heatmap XHS Posters</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #d8dee8;
+      color: #0f172a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .stage { display: grid; gap: 32px; padding: 32px; justify-content: center; }
+    body.single .stage { padding: 0; gap: 0; }
+    body.single .poster { box-shadow: none; }
+    .poster {
+      width: 1080px;
+      height: 1440px;
+      position: relative;
+      overflow: hidden;
+      background: #f8fafc;
+      border-radius: 0;
+      box-shadow: 0 28px 80px rgba(15, 23, 42, .18);
+    }
+    .poster.dark {
+      color: #f8fafc;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(59, 130, 246, .35), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(249, 115, 22, .28), transparent 30%),
+        linear-gradient(145deg, #0b1020, #111827 54%, #07111f);
+    }
+    .pad { position: absolute; inset: 68px; }
+    .eyebrow {
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #2563eb;
+      font-weight: 1000;
+      font-size: 25px;
+    }
+    .dark .eyebrow { color: #93c5fd; }
+    h1 {
+      margin: 22px 0 18px;
+      font-size: 82px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      max-width: 850px;
+    }
+    .lead {
+      margin: 0;
+      color: #475569;
+      font-size: 31px;
+      line-height: 1.48;
+      max-width: 870px;
+      font-weight: 750;
+    }
+    .dark .lead { color: #cbd5e1; max-width: 610px; }
+    .big-number {
+      display: block;
+      font-size: 98px;
+      line-height: .95;
+      font-weight: 1000;
+      letter-spacing: 0;
+    }
+    .unit { font-size: 34px; color: #64748b; font-weight: 900; }
+    .dark .unit { color: #93c5fd; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+    .stat {
+      border: 2px solid rgba(15, 23, 42, .12);
+      background: rgba(255, 255, 255, .78);
+      border-radius: 26px;
+      padding: 24px 24px 22px;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, .08);
+    }
+    .dark .stat {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .16);
+    }
+    .stat b { display: block; font-size: 45px; line-height: 1; }
+    .stat span { display: block; margin-top: 10px; color: #64748b; font-size: 21px; font-weight: 850; }
+    .dark .stat span { color: #a8b5c8; }
+    .map-board {
+      position: absolute;
+      left: 58px;
+      right: 58px;
+      bottom: 58px;
+      height: 650px;
+      background:
+        linear-gradient(90deg, rgba(148, 163, 184, .11) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(148, 163, 184, .11) 1px, transparent 1px),
+        linear-gradient(135deg, #f8fafc, #e2e8f0);
+      background-size: 34px 34px, 34px 34px, auto;
+      border: 2px solid rgba(15, 23, 42, .22);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .72);
+    }
+    .map-board svg { width: 100%; height: 100%; display: block; }
+    .map-title {
+      position: absolute;
+      left: 28px;
+      top: 24px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, .84);
+      border: 1px solid rgba(15, 23, 42, .16);
+      font-weight: 1000;
+      font-size: 23px;
+    }
+    .tagline {
+      position: absolute;
+      left: 68px;
+      bottom: 46px;
+      font-size: 22px;
+      color: #64748b;
+      font-weight: 850;
+    }
+    .poster.dark .tagline { color: #94a3b8; }
+    .region-grid {
+      position: absolute;
+      left: 58px;
+      right: 58px;
+      bottom: 62px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .region-card {
+      min-height: 330px;
+      border-radius: 30px;
+      padding: 28px;
+      background: rgba(255, 255, 255, .86);
+      border: 2px solid rgba(15, 23, 42, .1);
+      box-shadow: 0 22px 52px rgba(15, 23, 42, .11);
+      position: relative;
+      overflow: hidden;
+    }
+    .region-card:after {
+      content: "";
+      position: absolute;
+      right: -50px;
+      bottom: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(249, 115, 22, .32), transparent 62%);
+    }
+    .region-card h2 { margin: 0; font-size: 52px; }
+    .region-card p { margin: 8px 0 26px; color: #64748b; font-size: 24px; font-weight: 850; }
+    .mini-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .mini-stats b { display: block; font-size: 40px; line-height: 1; }
+    .mini-stats span { color: #64748b; font-size: 19px; font-weight: 850; }
+    .rank-list {
+      margin-top: 38px;
+      display: grid;
+      gap: 16px;
+    }
+    .rank-row {
+      display: grid;
+      grid-template-columns: 70px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .86);
+      border: 2px solid rgba(15, 23, 42, .08);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, .07);
+    }
+    .rank {
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #111827;
+      color: white;
+      font-size: 25px;
+      font-weight: 1000;
+    }
+    .rank-row h3 { margin: 0; font-size: 34px; line-height: 1.16; }
+    .rank-row p { margin: 7px 0 0; color: #64748b; font-size: 23px; font-weight: 800; }
+    .rank-row strong { font-size: 34px; color: #2563eb; }
+    .detail-layout {
+      position: absolute;
+      inset: 300px 58px 58px;
+      display: grid;
+      grid-template-rows: 420px 1fr;
+      gap: 24px;
+    }
+    .route-panel {
+      background: #fff;
+      border: 2px solid rgba(15, 23, 42, .2);
+      position: relative;
+      overflow: hidden;
+    }
+    .route-panel svg { width: 100%; height: 100%; display: block; }
+    .route-wall-grid { stroke: #d8d8d8; stroke-width: 1.4; }
+    .route-wall-base { fill: none; stroke: #68727e; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: .7; }
+    .route-wall-shadow { fill: none; stroke: #064e3b; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; opacity: .22; }
+    .route-wall-top { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .route-wall-fence { stroke: #94a3b8; stroke-width: 1.3; opacity: .5; }
+    .route-wall-label { font-size: 20px; fill: #111827; font-weight: 1000; }
+    .route-wall-marker { stroke: white; stroke-width: 3; }
+    .route-wall-legend text { font-size: 16px; fill: #111827; font-weight: 1000; }
+    .profile-panel {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 24px;
+    }
+    .profile-card, .side-card {
+      background: rgba(255, 255, 255, .88);
+      border: 2px solid rgba(15, 23, 42, .1);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 44px rgba(15, 23, 42, .09);
+    }
+    .profile-card svg { width: 100%; height: 245px; display: block; }
+    .side-card h2, .profile-card h2 { margin: 0 0 16px; font-size: 34px; }
+    .side-card p { margin: 0 0 16px; color: #475569; line-height: 1.45; font-size: 24px; font-weight: 750; }
+    .metric-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      border-top: 1px solid #cbd5e1;
+      padding: 13px 0;
+      font-size: 24px;
+      font-weight: 900;
+    }
+    .style-grid {
+      position: absolute;
+      inset: 610px 58px 170px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .style-card {
+      border-radius: 30px;
+      padding: 30px;
+      background: rgba(255, 255, 255, .08);
+      border: 2px solid rgba(255, 255, 255, .14);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, .18);
+    }
+    .style-card h2 {
+      margin: 0 0 14px;
+      color: #bfdbfe;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 22px;
+    }
+    .style-card b { display: block; font-size: 48px; line-height: 1.06; }
+    .style-card p { margin: 14px 0 0; color: #cbd5e1; font-size: 24px; line-height: 1.38; font-weight: 760; }
+    .hero-type {
+      margin-top: 58px;
+      font-size: 66px;
+      line-height: .98;
+      font-weight: 1000;
+      max-width: 620px;
+    }
+    .route-squiggle {
+      position: absolute;
+      right: 54px;
+      top: 170px;
+      width: 260px;
+      height: 160px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, .08);
+      border: 2px solid rgba(255, 255, 255, .14);
+      padding: 20px;
+    }
+    .route-squiggle svg { width: 100%; height: 100%; }
+    .footer-pill {
+      position: absolute;
+      left: 58px;
+      bottom: 58px;
+      right: 58px;
+      height: 82px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      color: #dbeafe;
+      background: rgba(15, 23, 42, .65);
+      border: 1px solid rgba(255, 255, 255, .16);
+      font-size: 24px;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="poster" id="poster-home">
+      <div class="pad">
+        <div class="eyebrow">STRAVA × AMAP × CODEX</div>
+        <h1>我做了一张自己的骑行热力图</h1>
+        <p class="lead">把每一次骑行叠在一起，地图开始露出真正属于自己的路线、城市和山。</p>
+        <div class="stat-grid">
+          <div class="stat"><b id="home-rides">-</b><span>户外骑行</span></div>
+          <div class="stat"><b id="home-km">-</b><span>累计公里</span></div>
+          <div class="stat"><b id="home-elev">-</b><span>累计爬升 m</span></div>
+        </div>
+      </div>
+      <div class="map-board">
+        <div class="map-title">只显示真实骑过的路线</div>
+        <svg id="home-map" viewBox="0 0 960 650"></svg>
+      </div>
+      <div class="tagline">545 次骑行，不是一张截图，是骑出来的地图。</div>
+    </section>
+
+    <section class="poster" id="poster-region">
+      <div class="pad">
+        <div class="eyebrow">REGION ATLAS</div>
+        <h1>我的骑行版图，被分成了几个核心区域</h1>
+        <p class="lead">北京、香港、云南、武汉。每个区域都有自己的路线密度、爬升和常骑赛段。</p>
+      </div>
+      <div class="region-grid" id="region-grid"></div>
+    </section>
+
+    <section class="poster" id="poster-detail">
+      <div class="pad">
+        <div class="eyebrow">SEGMENT DETAILS</div>
+        <h1 id="detail-title">赛段详情页</h1>
+        <p class="lead" id="detail-lead">路线、海拔、PR、KOM/QOM 和体感成本放到一张卡里。</p>
+      </div>
+      <div class="detail-layout">
+        <div class="route-panel"><svg id="detail-route" viewBox="0 0 960 420"></svg></div>
+        <div class="profile-panel">
+          <div class="profile-card">
+            <h2>Elevation Profile</h2>
+            <svg id="detail-profile" viewBox="0 0 440 245"></svg>
+          </div>
+          <div class="side-card" id="detail-side"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster dark" id="poster-style">
+      <div class="pad">
+        <div class="eyebrow">PERSONAL RIDE WRAPPED</div>
+        <h1>我的骑行风格总结</h1>
+        <p class="lead">从路线、距离、坡度和组骑比例里，读出一个更接近真实习惯的自己。</p>
+        <div class="hero-type" id="style-type">Endurance Explorer</div>
+      </div>
+      <div class="route-squiggle"><svg id="style-route" viewBox="0 0 260 150"></svg></div>
+      <div class="style-grid" id="style-grid"></div>
+      <div class="footer-pill"><span>不是运动 App 的总结页，是自己的骑行产品页</span><span id="style-year">ALL RIDES</span></div>
+    </section>
+  </main>
+  <script>
+    const colors = ['#fff7cc', '#fee58f', '#fbbf57', '#f97316', '#c2410c'];
+    const fmt = n => Number(n || 0).toLocaleString('zh-CN');
+    const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function normalizeCell(cell, bounds, w, h) {
+      const sw = bounds[0], ne = bounds[1];
+      const b = cell.bounds;
+      const x1 = (b[0][1] - sw[1]) / (ne[1] - sw[1]) * w;
+      const x2 = (b[1][1] - sw[1]) / (ne[1] - sw[1]) * w;
+      const y1 = h - (b[1][0] - sw[0]) / (ne[0] - sw[0]) * h;
+      const y2 = h - (b[0][0] - sw[0]) / (ne[0] - sw[0]) * h;
+      return [x1, y1, Math.max(5, x2 - x1), Math.max(5, y2 - y1)];
+    }
+
+    function drawCells(svg, region, w, h) {
+      svg.innerHTML = '';
+      const cells = region.cells || [];
+      for (const cell of cells) {
+        const [x, y, cw, ch] = normalizeCell(cell, region.bounds, w, h);
+        const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        r.setAttribute('x', x.toFixed(1));
+        r.setAttribute('y', y.toFixed(1));
+        r.setAttribute('width', cw.toFixed(1));
+        r.setAttribute('height', ch.toFixed(1));
+        r.setAttribute('fill', colors[cell.cls || 0]);
+        r.setAttribute('opacity', '.9');
+        r.setAttribute('stroke', 'rgba(255,255,255,.75)');
+        r.setAttribute('stroke-width', '1.2');
+        svg.appendChild(r);
+      }
+      for (let i = 0; i < 7; i++) {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', i * w / 6);
+        line.setAttribute('x2', i * w / 6);
+        line.setAttribute('y1', 0);
+        line.setAttribute('y2', h);
+        line.setAttribute('stroke', 'rgba(15,23,42,.08)');
+        svg.prepend(line);
+      }
+    }
+
+    function profileSvg(svg, vals) {
+      vals = (vals && vals.length ? vals : [0, 1, 0]).map(Number);
+      const w = 440, h = 245, p = 26;
+      const min = Math.min(...vals), max = Math.max(...vals), span = max - min || 1;
+      const pts = vals.map((v, i) => [p + i / Math.max(1, vals.length - 1) * (w - 2 * p), h - p - (v - min) / span * (h - 2 * p)]);
+      const line = pts.map(p => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
+      const area = `${p},${h - p} ${line} ${w - p},${h - p}`;
+      svg.innerHTML = `<polyline points="${area}" fill="rgba(34,197,94,.18)"></polyline><polyline points="${line}" fill="none" stroke="#16a34a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline><line x1="${p}" y1="${h-p}" x2="${w-p}" y2="${h-p}" stroke="#cbd5e1" stroke-width="3"></line><text x="${p}" y="28" font-size="22" font-weight="900" fill="#475569">${Math.round(max)}m</text><text x="${p}" y="${h-8}" font-size="22" font-weight="900" fill="#475569">${Math.round(min)}m</text>`;
+    }
+
+    function routePolyline(points, w, h, pad) {
+      if (!points || points.length < 2) return '';
+      const lats = points.map(p => p[0]), lngs = points.map(p => p[1]);
+      const minLat = Math.min(...lats), maxLat = Math.max(...lats), minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
+      return points.map(p => {
+        const x = pad + (p[1] - minLng) / ((maxLng - minLng) || 1) * (w - 2 * pad);
+        const y = h - pad - (p[0] - minLat) / ((maxLat - minLat) || 1) * (h - 2 * pad);
+        return `${x.toFixed(1)},${y.toFixed(1)}`;
+      }).join(' ');
+    }
+
+    function samplePoints(points, max = 420) {
+      if (!points || points.length <= max) return points || [];
+      return Array.from({ length: max }, (_, i) => points[Math.round(i * (points.length - 1) / (max - 1))]);
+    }
+
+    function resample(vals, n) {
+      if (!vals || !vals.length) return Array.from({ length: n }, () => 0);
+      if (n <= 1) return [vals[0]];
+      return Array.from({ length: n }, (_, i) => {
+        const pos = i * (vals.length - 1) / (n - 1);
+        const a = Math.floor(pos);
+        const b = Math.min(vals.length - 1, a + 1);
+        const t = pos - a;
+        return vals[a] * (1 - t) + vals[b] * t;
+      });
+    }
+
+    function gradeColor(g) {
+      if (g < -8) return '#2563eb';
+      if (g < -3) return '#22d3ee';
+      if (g < 3) return '#22c55e';
+      if (g < 8) return '#facc15';
+      if (g < 14) return '#f97316';
+      return '#dc2626';
+    }
+
+    function drawRouteWall(svg, segment) {
+      const points = samplePoints(segment.points || [], 360);
+      if (points.length < 2) {
+        svg.innerHTML = '<text x="42" y="80" font-size="28" font-weight="900">没有可用路线点</text>';
+        return;
+      }
+      const elev = resample((segment.elevation_profile || []).map(Number), points.length);
+      const minLat = Math.min(...points.map(p => p[0])), maxLat = Math.max(...points.map(p => p[0]));
+      const minLng = Math.min(...points.map(p => p[1])), maxLng = Math.max(...points.map(p => p[1]));
+      const minE = Math.min(...elev), maxE = Math.max(...elev), spanE = maxE - minE || 1;
+      const raw = points.map((p, i) => {
+        const x = ((p[1] - minLng) / ((maxLng - minLng) || 1) - .5) * 1.9;
+        const y = ((p[0] - minLat) / ((maxLat - minLat) || 1) - .5) * 1.35;
+        const baseX = 480 + x * 330 + y * 210;
+        const baseY = 258 + y * 152 - x * 78;
+        const z = (elev[i] - minE) / spanE * 150;
+        return { baseX, baseY, topX: baseX, topY: baseY - z, e: elev[i] };
+      });
+      const minX = Math.min(...raw.map(p => p.topX), ...raw.map(p => p.baseX));
+      const maxX = Math.max(...raw.map(p => p.topX), ...raw.map(p => p.baseX));
+      const minY = Math.min(...raw.map(p => p.topY), ...raw.map(p => p.baseY));
+      const maxY = Math.max(...raw.map(p => p.topY), ...raw.map(p => p.baseY));
+      const scale = Math.min(870 / ((maxX - minX) || 1), 320 / ((maxY - minY) || 1), 1.18);
+      const pts = raw.map(p => ({
+        baseX: 54 + (p.baseX - minX) * scale,
+        baseY: 62 + (p.baseY - minY) * scale,
+        topX: 54 + (p.topX - minX) * scale,
+        topY: 62 + (p.topY - minY) * scale,
+        e: p.e
+      }));
+      const grid = [0, 1, 2, 3, 4].map(i => `<line class="route-wall-grid" x1="${90 + i * 176}" y1="38" x2="${220 + i * 176}" y2="392"/><line class="route-wall-grid" x1="72" y1="${88 + i * 72}" x2="890" y2="${48 + i * 72}"/>`).join('');
+      let walls = '', top = '', fences = '';
+      for (let i = 0; i < pts.length - 1; i++) {
+        const a = pts[i], b = pts[i + 1];
+        const grade = (b.e - a.e) / (Math.max(.03, (Number(segment.distance_km) || 1) / (pts.length - 1) * 1000)) * 100;
+        const c = gradeColor(grade);
+        if (i % 5 === 0) fences += `<line class="route-wall-fence" x1="${a.topX.toFixed(1)}" y1="${a.topY.toFixed(1)}" x2="${a.baseX.toFixed(1)}" y2="${a.baseY.toFixed(1)}"/>`;
+        walls += `<polygon points="${a.topX.toFixed(1)},${a.topY.toFixed(1)} ${b.topX.toFixed(1)},${b.topY.toFixed(1)} ${b.baseX.toFixed(1)},${b.baseY.toFixed(1)} ${a.baseX.toFixed(1)},${a.baseY.toFixed(1)}" fill="${c}" opacity=".18"/>`;
+        top += `<line class="route-wall-top" x1="${a.topX.toFixed(1)}" y1="${a.topY.toFixed(1)}" x2="${b.topX.toFixed(1)}" y2="${b.topY.toFixed(1)}" stroke="${c}" stroke-width="12"/>`;
+      }
+      const baseLine = pts.map(p => `${p.baseX.toFixed(1)},${p.baseY.toFixed(1)}`).join(' ');
+      const topLine = pts.map(p => `${p.topX.toFixed(1)},${p.topY.toFixed(1)}`).join(' ');
+      const labels = [.22, .45, .68, .88].map(fr => {
+        const idx = Math.min(pts.length - 2, Math.max(1, Math.round(fr * (pts.length - 1))));
+        const p = pts[idx], prev = pts[idx - 1];
+        const grade = (p.e - prev.e) / (Math.max(.03, (Number(segment.distance_km) || 1) / (pts.length - 1) * 1000)) * 100;
+        const y = Math.max(30, p.topY - 64);
+        return `<line x1="${p.topX.toFixed(1)}" y1="${(p.topY - 8).toFixed(1)}" x2="${p.topX.toFixed(1)}" y2="${Math.max(28, p.topY - 54).toFixed(1)}" stroke="#d1d5db"/><text class="route-wall-label" x="${(p.topX - 28).toFixed(1)}" y="${y.toFixed(1)}">${grade.toFixed(1)}%</text><text class="route-wall-label" x="${(p.topX - 28).toFixed(1)}" y="${(y + 24).toFixed(1)}">${Math.round(p.e)}m</text>`;
+      }).join('');
+      const first = pts[0], last = pts[pts.length - 1];
+      svg.innerHTML = `<text x="740" y="36" font-size="22" text-anchor="end" fill="#111827">${segment.distance_km} km at ${segment.avg_grade}%</text>${grid}${walls}${fences}<polyline class="route-wall-base" points="${baseLine}"/><polyline class="route-wall-shadow" points="${topLine}"/>${top}<circle class="route-wall-marker" cx="${first.topX.toFixed(1)}" cy="${first.topY.toFixed(1)}" r="8" fill="#2563eb"/><rect class="route-wall-marker" x="${(last.topX - 7).toFixed(1)}" y="${(last.topY - 7).toFixed(1)}" width="14" height="14" fill="#ef4444"/>${labels}<g class="route-wall-legend" transform="translate(842,246)"><text x="0" y="-12">坡度</text><rect x="0" y="0" width="24" height="26" fill="#dc2626"/><rect x="0" y="26" width="24" height="26" fill="#f97316"/><rect x="0" y="52" width="24" height="26" fill="#facc15"/><rect x="0" y="78" width="24" height="26" fill="#22c55e"/><rect x="0" y="104" width="24" height="26" fill="#22d3ee"/><text x="32" y="18">14%+</text><text x="32" y="72">3%</text><text x="32" y="98">0%</text><text x="32" y="124">down</text></g>`;
+    }
+
+    function drawSmallRoute(svg, points) {
+      const line = routePolyline(points, 260, 150, 14);
+      svg.innerHTML = `<polyline points="${line}" fill="none" stroke="#020617" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".85"></polyline><polyline points="${line}" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>`;
+    }
+
+    function line(label, value) {
+      return `<div class="metric-line"><span>${esc(label)}</span><b>${esc(value)}</b></div>`;
+    }
+
+    async function boot() {
+      const posterParam = new URLSearchParams(location.search).get('poster');
+      if (posterParam) {
+        document.body.classList.add('single');
+        document.querySelectorAll('.poster').forEach(el => {
+          el.style.display = el.id === `poster-${posterParam}` ? 'block' : 'none';
+        });
+      }
+      const academic = await fetch('academic_data.json').then(r => r.json());
+      const full = await fetch('heatmap_data.json').then(r => r.json());
+      const wrapped = full.wrapped.modes.outdoor.years.overall;
+      const summary = academic.summary;
+
+      document.getElementById('home-rides').textContent = fmt(summary.rides);
+      document.getElementById('home-km').textContent = fmt(summary.km);
+      document.getElementById('home-elev').textContent = fmt(summary.elevation);
+      drawCells(document.getElementById('home-map'), academic.regions.all, 960, 650);
+
+      const regionOrder = ['beijing', 'hongkong', 'yunnan', 'wuhan'];
+      document.getElementById('region-grid').innerHTML = regionOrder.map(id => {
+        const r = academic.regions[id];
+        return `<article class="region-card"><h2>${r.name}</h2><p>${r.subtitle}</p><div class="mini-stats"><div><b>${fmt(r.stats.rides)}</b><span>rides</span></div><div><b>${fmt(r.stats.km)}</b><span>km</span></div><div><b>${fmt(r.stats.elevation)}</b><span>爬升 m</span></div><div><b>${fmt(r.stats.segment_count)}</b><span>segments</span></div></div></article>`;
+      }).join('');
+
+      const detail = full.segments.find(s => String(s.id) === '40438840') || full.segments.find(s => s.distance_km > 50) || full.segments[0];
+      document.getElementById('detail-title').textContent = `“${detail.name}” Route Details`;
+      document.getElementById('detail-lead').textContent = `${detail.distance_km} km · Gain ${detail.elev_gain_m} m · ${detail.avg_grade}% avg · 我的 PR ${detail.my_pr || detail.pr_time || '-'}`;
+      drawRouteWall(document.getElementById('detail-route'), detail);
+      profileSvg(document.getElementById('detail-profile'), detail.elevation_profile);
+      document.getElementById('detail-side').innerHTML = `<h2>核心信息</h2><p>这张详情页把赛段路线、海拔剖面、个人成绩和参考榜单合到一起，适合从热力图继续点进具体路线。</p>${line('我的 PR', detail.my_pr || detail.pr_time || '-')}${line('经过次数', `${detail.count || 0} 次`)}${line('距离', `${detail.distance_km} km`)}${line('爬升', `${detail.elev_gain_m} m`)}${line('KOM / QOM', `${detail.kom_time || '-'} / ${detail.qom_time || '-'}`)}`;
+
+      document.getElementById('style-type').textContent = wrapped.personality.headline;
+      const longest = wrapped.top_rides.longest || {};
+      drawSmallRoute(document.getElementById('style-route'), longest.points || detail.points || []);
+      document.getElementById('style-grid').innerHTML = [
+        ['喜欢的距离', `${wrapped.avg_km} km / ride`, '整体更像稳定高频，而不是偶发长距离。'],
+        ['最佳发挥坡度', `${wrapped.best_grade.grade}% avg`, `${wrapped.best_grade.segment} · ${wrapped.best_grade.power || '-'}W`],
+        ['最常骑区域', wrapped.favorite_region.name, `${wrapped.favorite_region.rides} 次 · ${wrapped.favorite_region.km} km`],
+        ['社交风格', wrapped.personality.social, `${Math.round(wrapped.group_ratio * 100)}% group index，很多路不是一个人刷出来的。`],
+      ].map(([h, b, p]) => `<article class="style-card"><h2>${h}</h2><b>${b}</b><p>${p}</p></article>`).join('');
+
+      window.__XHS_READY = true;
+    }
+    boot().catch(error => {
+      document.body.insertAdjacentHTML('afterbegin', `<pre>${esc(error.stack || error.message)}</pre>`);
+      window.__XHS_READY = true;
+    });
+  </script>
+</body>
+</html>

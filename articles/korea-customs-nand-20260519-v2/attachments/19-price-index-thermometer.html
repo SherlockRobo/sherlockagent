@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  body{margin:0;background:#FAF8F5;color:#111;font-family:"Noto Serif SC","Songti SC","STSong",serif}
+  .canvas{width:1200px;height:860px;background:#FFFEFB;box-sizing:border-box;padding:46px 54px;border:1px solid #D8D1C4}
+  .eyebrow{font:800 15px/1.3 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.14em;text-transform:uppercase}
+  h1{font-size:42px;line-height:1.18;margin:14px 0 10px;letter-spacing:0}
+  .sub{font-size:20px;line-height:1.55;color:#7A7770;margin:0 0 22px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{border:1px solid #D8D1C4;background:white;padding:22px 22px 20px;min-height:455px}
+  .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+  .k{font:800 15px/1 Menlo,Consolas,monospace;color:#E30613;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+  .big{font-size:50px;line-height:1;font-weight:900}
+  .unit{font-size:12px;color:#7A7770;margin-top:8px;font-family:Menlo,Consolas,monospace}
+  .pill{font:800 11px/1 Menlo,Consolas,monospace;border:1px solid currentColor;padding:6px 8px;margin-top:2px}
+  .thermo{position:relative;height:182px;margin:22px 0 18px;display:flex;align-items:center;justify-content:center}
+  .tube{width:42px;height:142px;border:2px solid #111;border-radius:22px 22px 8px 8px;position:relative;overflow:hidden;background:#F3EFE6}
+  .tube i{position:absolute;left:0;right:0;bottom:0;display:block}
+  .bulb{position:absolute;bottom:7px;width:74px;height:74px;border-radius:50%;border:2px solid #111}
+  .scale{position:absolute;left:218px;top:18px;height:136px;display:flex;flex-direction:column;justify-content:space-between;font:700 12px/1 Menlo,Consolas,monospace;color:#7A7770}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .facts div{background:#F3EFE6;border:1px solid #D8D1C4;padding:14px 12px}
+  .facts b{display:block;font-size:25px;line-height:1.1}
+  .facts span{font-size:13px;color:#7A7770;line-height:1.4}
+  .take{margin-top:14px;border-left:5px solid #E30613;padding:2px 0 2px 12px}
+  .take b{display:block;font-size:22px;line-height:1.35}
+  .take span{display:block;font-size:16px;line-height:1.55;color:#7A7770;margin-top:4px}
+  .final{background:#111;color:#fff;padding:24px 26px;margin-top:24px;font-size:28px;line-height:1.45;font-weight:900}
+</style>
+</head>
+<body>
+<main class="canvas">
+  <div class="eyebrow">MEMORY PRICE INDEX · THERMOMETER</div>
+  <h1>三条价格指数温度计</h1>
+  <p class="sub">指数用 2025.01=100，看“升温幅度”；卡片同时放 2026.04 ASP，避免把绝对高价的 MCP/HBM 读低。</p>
+  <section class="grid">
+    
+    <section class="card">
+      <div class="top">
+        <div>
+          <div class="k">DRAM</div>
+          <div class="big">453</div>
+          <div class="unit">PRICE INDEX · 2025.01=100</div>
+        </div>
+        <div class="pill" style="color:#111111;border-color:#111111">HOT</div>
+      </div>
+      <div class="thermo">
+        <div class="tube"><i style="height:88.13138189244386%;background:#111111"></i></div>
+        <div class="bulb" style="background:#111111"></div>
+        <div class="scale"><span>500</span><span>300</span><span>100</span></div>
+      </div>
+      <div class="facts">
+        <div><b>66,476</b><span>2026.04 ASP</span></div>
+        <div><b>+20.6%</b><span>4 月环比</span></div>
+      </div>
+      <div class="take" style="border-left-color:#111111">
+        <b>AI 主发动机</b>
+        <span>指数最热，4 月仍在加速。</span>
+      </div>
+    </section>
+  
+    
+    <section class="card">
+      <div class="top">
+        <div>
+          <div class="k">NAND</div>
+          <div class="big">422</div>
+          <div class="unit">PRICE INDEX · 2025.01=100</div>
+        </div>
+        <div class="pill" style="color:#E30613;border-color:#E30613">HOT</div>
+      </div>
+      <div class="thermo">
+        <div class="tube"><i style="height:80.546875%;background:#E30613"></i></div>
+        <div class="bulb" style="background:#E30613"></div>
+        <div class="scale"><span>500</span><span>300</span><span>100</span></div>
+      </div>
+      <div class="facts">
+        <div><b>45,934</b><span>2026.04 ASP</span></div>
+        <div><b>+0.2%</b><span>4 月环比</span></div>
+      </div>
+      <div class="take" style="border-left-color:#E30613">
+        <b>后排跟涨</b>
+        <span>升温明显，但 4 月环比走平。</span>
+      </div>
+    </section>
+  
+    
+    <section class="card">
+      <div class="top">
+        <div>
+          <div class="k">MCP/HBM</div>
+          <div class="big">187</div>
+          <div class="unit">PRICE INDEX · 2025.01=100</div>
+        </div>
+        <div class="pill" style="color:#B08A2E;border-color:#B08A2E">HIGH BASE</div>
+      </div>
+      <div class="thermo">
+        <div class="tube"><i style="height:21.828872459362685%;background:#B08A2E"></i></div>
+        <div class="bulb" style="background:#B08A2E"></div>
+        <div class="scale"><span>500</span><span>300</span><span>100</span></div>
+      </div>
+      <div class="facts">
+        <div><b>72,714</b><span>2026.04 ASP</span></div>
+        <div><b>+14.1%</b><span>4 月环比</span></div>
+      </div>
+      <div class="take" style="border-left-color:#B08A2E">
+        <b>绝对高价</b>
+        <span>起点已高，指数升幅反而小。</span>
+      </div>
+    </section>
+  
+  </section>
+  <section class="final">读法：DRAM 最热，NAND 跟涨接近；MCP/HBM 绝对价格最高，但 2025 起点已经很高。</section>
+</main>
+</body>
+</html>
