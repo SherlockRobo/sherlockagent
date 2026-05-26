@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>双 AI 评审：两篇文章核心观点</title>
+  <style>
+    :root {
+      --ink: #151515;
+      --muted: #676767;
+      --line: #d8d2c8;
+      --paper: #fbfaf6;
+      --panel: #ffffff;
+      --red: #9d1f2e;
+      --blue: #245c73;
+      --green: #3e6b4f;
+      --gold: #9a6a18;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    section {
+      margin-top: 30px;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    h2::before {
+      content: "";
+      width: 8px;
+      height: 24px;
+      background: var(--red);
+      display: inline-block;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(42, 35, 26, 0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.28;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag.red { background: var(--red); }
+    .tag.blue { background: var(--blue); }
+    .tag.green { background: var(--green); }
+    .tag.gold { background: var(--gold); }
+
+    .lead {
+      margin: 10px 0 0;
+      font-size: 18px;
+      font-weight: 750;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 13px 14px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 15px;
+    }
+
+    th {
+      background: #efe9de;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .quote {
+      border-left: 4px solid var(--red);
+      background: #fff7f4;
+      padding: 14px 16px;
+      margin: 14px 0 0;
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    @media (max-width: 820px) {
+      main {
+        width: min(100% - 24px, 1120px);
+        padding-top: 28px;
+      }
+
+      .grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      th,
+      td {
+        padding: 11px 10px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Codex × Claude Opus 4.7 · 双 AI 评审</p>
+      <h1>两篇文章的核心观点</h1>
+      <p class="subtitle">Codex 负责策略、结构、发布顺序；Claude 4.7 负责传播、读者动机、平台表达。结论：先发 SpaceX，双 AI 协作篇作为方法论承接。</p>
+    </header>
+
+    <section>
+      <h2>核心结论</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="tag red">先发</span>
+          <h3>SpaceX Ep1</h3>
+          <p class="lead">SpaceX IPO 不是给火箭融资，而是被 AI 业务接管后给 AI 数据中心融资。</p>
+          <ul>
+            <li>钩子强：65 亿美元、85.1% 投票权、76% AI capex 三个数字有记忆点。</li>
+            <li>结构强：融资线、烧钱线、现金流线能支撑公众号长文。</li>
+            <li>时效强：S-1 和 IPO 时间窗适合先打流量。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <span class="tag blue">第二篇</span>
+          <h3>如何用好你的两个顶级员工</h3>
+          <p class="lead">Claude 想清楚，Codex 干出来，人验收，用 Obsidian 做共同工作台。</p>
+          <ul>
+            <li>场景清楚：不是模型评测，而是普通人如何组织 AI 协作。</li>
+            <li>方法可复现：目录、入口文档、项目文档、交接规则都能照抄。</li>
+            <li>承接自然：可以解释 SpaceX 长文就是这套工作流跑出来的。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>双 AI 判断</h2>
+      <div class="split">
+        <div class="card">
+          <span class="tag green">Codex 观点</span>
+          <div class="quote">SpaceX 负责拉新，双 AI 协作篇负责沉淀信任。</div>
+          <ul>
+            <li>SpaceX 是事件驱动内容，数据密度高，适合抢时间窗。</li>
+            <li>双 AI 是栏目资产，晚几天不损失热度，反而适合做承接。</li>
+            <li>发 SpaceX 前必须校验 SEC S-1 数字，尤其是 65 亿、85.1%、76%、FCF、capex、R&D。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag gold">Claude 4.7 观点</span>
+          <div class="quote">A 篇优先发，B 篇做长尾沉淀和私域转化。</div>
+          <ul>
+            <li>SpaceX 的传播钩子是“这不是航天 IPO，是 AI IPO”。</li>
+            <li>双 AI 的传播钩子是“我把 Claude 和 Codex 当员工管”。</li>
+            <li>B 篇结尾可以埋一句：这篇 SpaceX 拆解就是 Claude + Codex + Obsidian 跑出来的。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>平台拆法</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>文章</th>
+            <th>公众号</th>
+            <th>小红书</th>
+            <th>B站</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SpaceX Ep1</strong></td>
+            <td>S-1 三线拆解：融资、烧钱、现金流。</td>
+            <td>三张数据卡：65 亿、85.1%、76%。</td>
+            <td>15 到 20 分钟讲解：这不是航天 IPO，是 AI IPO。</td>
+          </tr>
+          <tr>
+            <td><strong>双 AI 协作</strong></td>
+            <td>完整 SOP：目录、入口文档、项目文档、交付规则。</td>
+            <td>9 图工作流：分工卡、目录树、文档握手。</td>
+            <td>10 分钟录屏：Claude 拆任务，Codex 执行，人验收。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>最大风险</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>文章</th>
+            <th>风险</th>
+            <th>处理方式</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SpaceX Ep1</strong></td>
+            <td>容易被理解成唱空 Musk 或阴谋论。</td>
+            <td>所有关键数字挂 SEC S-1 原文口径，结论写成“资金用途和现金流压力”，避免荐股表达。</td>
+          </tr>
+          <tr>
+            <td><strong>双 AI 协作</strong></td>
+            <td>受众比 SpaceX 窄，容易变成工具党内容。</td>
+            <td>少讲模型强弱，多讲真实项目怎么交接、怎么验收、怎么沉淀成资产。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>发布顺序</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>顺序</th>
+            <th>内容</th>
+            <th>目的</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>SpaceX Ep1 公众号长文</td>
+            <td>用硬核反认知和 IPO 时间窗拉新。</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>SpaceX 三数字小红书图卡</td>
+            <td>把长文钩子切成可转发素材。</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>双 AI 协作公众号文</td>
+            <td>解释你的生产方法，把新读者导入长期栏目。</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>双 AI 协作 B 站录屏</td>
+            <td>用真实屏幕证明方法，不做空泛教程。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <p class="source">
+      输入文档：SpaceX Ep1-v2 正文；《如何用好你的两个顶级员工》提纲。评审来源：Codex 本轮策略判断 + Claude Opus 4.7 传播侧评审。
+    </p>
+  </main>
+</body>
+</html>
