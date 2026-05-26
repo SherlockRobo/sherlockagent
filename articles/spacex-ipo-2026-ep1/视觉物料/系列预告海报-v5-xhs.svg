@@ -1,0 +1,72 @@
+<svg width="100%" viewBox="0 0 680 850" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>SpaceX 系列预告海报 v5（xhs 4:5 竖版）五篇收敛口语化定稿版</title>
+<desc>v5 海报最终版：5 篇收敛、chip 文案口语化、米黄+墨绿+橙+紫四色。Ep5 砍掉，番外接替压轴位。</desc>
+
+<rect x="0" y="0" width="680" height="850" fill="#F5EFE0"/>
+
+<g transform="translate(40,40)">
+<rect x="0" y="0" width="600" height="225" rx="20" fill="#FFFCF5" stroke="#1B4332" stroke-width="2"/>
+
+<rect x="30" y="28" width="14" height="14" rx="3" fill="#E07A2C"/>
+<text x="52" y="40" fill="#1B4332" font-family="ui-monospace, monospace" font-size="11" font-weight="500" letter-spacing="2">SPACEX IPO LAB</text>
+<text x="540" y="40" fill="#888888" font-family="ui-monospace, monospace" font-size="10" text-anchor="end" letter-spacing="1">谷德禄氪</text>
+
+<text x="30" y="100" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="40" font-weight="700">SpaceX 招股书</text>
+<text x="30" y="146" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="40" font-weight="700">深度系列</text>
+
+<line x1="30" y1="164" x2="180" y2="164" stroke="#E07A2C" stroke-width="2"/>
+<text x="30" y="190" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="13">怎么花钱 · 怎么赚钱 · Musk 全家桶 · 该不该买</text>
+
+<rect x="30" y="200" width="120" height="28" rx="14" fill="#E07A2C"/>
+<text x="90" y="218" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="500" text-anchor="middle">5 期连载</text>
+
+<rect x="160" y="200" width="140" height="28" rx="14" fill="none" stroke="#6B4E9C" stroke-width="1.5"/>
+<text x="230" y="218" fill="#6B4E9C" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="500" text-anchor="middle">含 2 个互动工具</text>
+</g>
+
+<g transform="translate(40,295)">
+<rect x="0" y="0" width="600" height="98" rx="12" fill="#E07A2C"/>
+<rect x="478" y="14" width="108" height="22" rx="11" fill="#FFFCF5"/>
+<text x="532" y="29" fill="#E07A2C" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">首发</text>
+<text x="18" y="28" fill="#FFFCF5" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP1 · 5/25</text>
+<text x="18" y="56" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="19" font-weight="700">100 亿做完火箭，下一步全砸 AI</text>
+<text x="18" y="80" fill="#FFEAD2" font-family="ui-sans-serif, system-ui" font-size="13">2026 Q1：76% 资本开支已流向 GPU</text>
+</g>
+
+<g transform="translate(40,410)">
+<rect x="0" y="0" width="600" height="98" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="14" width="108" height="22" rx="11" fill="#1B4332"/>
+<text x="532" y="29" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">看懂赚钱</text>
+<text x="18" y="28" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP2 · 5/29</text>
+<text x="18" y="56" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="19" font-weight="700">Musk 在卖三样东西，下一个赌 AI</text>
+<text x="18" y="80" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="13">5 条收入线全拆 + 谁可能是下一个 Anthropic</text>
+</g>
+
+<g transform="translate(40,525)">
+<rect x="0" y="0" width="600" height="98" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="14" width="108" height="22" rx="11" fill="#6B4E9C"/>
+<text x="532" y="29" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">可玩</text>
+<text x="18" y="28" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP3 · 6/02</text>
+<text x="18" y="56" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="19" font-weight="700">把 1 公斤送上天，要多少钱？</text>
+<text x="18" y="80" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="13">F9 到 Starship，自己滑滑块算</text>
+</g>
+
+<g transform="translate(40,640)">
+<rect x="0" y="0" width="600" height="98" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="14" width="108" height="22" rx="11" fill="#E07A2C"/>
+<text x="532" y="29" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">大胆推演</text>
+<text x="18" y="28" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP4 · 6/06</text>
+<text x="18" y="56" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="19" font-weight="700">Musk 全家桶 + 下一步合并 Tesla？</text>
+<text x="18" y="80" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="13">SpaceX 已经比 Tesla 值钱了</text>
+</g>
+
+<g transform="translate(40,755)">
+<rect x="0" y="0" width="600" height="80" rx="12" fill="#6B4E9C"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#FFFCF5"/>
+<text x="532" y="27" fill="#6B4E9C" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">该不该买</text>
+<text x="18" y="26" fill="#E8DAF5" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">番外 · 6/12 · IPO 后</text>
+<text x="18" y="52" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="19" font-weight="700">想买 SpaceX 又怕踩坑？</text>
+<text x="18" y="72" fill="#D9C5EE" font-family="ui-sans-serif, system-ui" font-size="13">美股 IPO 长期跑输大盘，SpaceX 是例外吗</text>
+</g>
+
+</svg>

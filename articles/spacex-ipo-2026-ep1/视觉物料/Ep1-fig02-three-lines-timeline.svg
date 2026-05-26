@@ -1,0 +1,118 @@
+<svg width="100%" viewBox="0 0 680 940" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SpaceX 24 年三线时间轴 白底版</title>
+<desc>融资线 / 烧钱线 / 现金流线在 24 年并行——白底版</desc>
+
+<rect x="0" y="0" width="680" height="940" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 02</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">THREE PARALLEL LINES · 24 YEARS</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">24 年三条线并行跑一遍</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">融资线 · 烧钱线（资本开支物理形态）· 现金流线</text>
+
+<rect x="40" y="180" width="120" height="46" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="100" y="200" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#8a8784" letter-spacing="1.5px" text-anchor="middle">PHASE I · 2002-2008</text>
+<text x="100" y="218" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111" text-anchor="middle">测试火箭</text>
+<rect x="170" y="180" width="160" height="46" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="250" y="200" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#8a8784" letter-spacing="1.5px" text-anchor="middle">PHASE II · 2009-2018</text>
+<text x="250" y="218" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111" text-anchor="middle">Falcon 9 量产 + 复用</text>
+<rect x="340" y="180" width="160" height="46" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="420" y="200" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#8a8784" letter-spacing="1.5px" text-anchor="middle">PHASE III · 2019-2024</text>
+<text x="420" y="218" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111" text-anchor="middle">火箭 + Starlink 双线</text>
+<rect x="510" y="180" width="130" height="46" fill="#fdecec" stroke="#E30613" stroke-width="1"/>
+<text x="575" y="200" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#E30613" letter-spacing="1.5px" text-anchor="middle">PHASE IV · 2025-2026</text>
+<text x="575" y="218" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111" text-anchor="middle">AI 接管</text>
+
+<line x1="40" y1="252" x2="640" y2="252" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<text x="40" y="288" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">LINE 01 · FUNDING</text>
+<text x="40" y="312" font-family="'Noto Serif SC','Songti SC',serif" font-size="18" font-weight="500" fill="#111111">融资线</text>
+<text x="640" y="312" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555" text-anchor="end">14 轮 + xAI 装入</text>
+
+<line x1="40" y1="370" x2="640" y2="370" stroke="#888" stroke-width="0.5"/>
+<circle cx="80" cy="370" r="4" fill="#111111"/>
+<line x1="80" y1="370" x2="80" y2="356" stroke="#111111" stroke-width="0.5"/>
+<text x="80" y="350" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2002</text>
+<text x="80" y="392" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" fill="#111111" text-anchor="middle">Musk $1 亿</text>
+<circle cx="148" cy="370" r="4" fill="#111111"/>
+<line x1="148" y1="370" x2="148" y2="356" stroke="#111111" stroke-width="0.5"/>
+<text x="148" y="350" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2008</text>
+<text x="148" y="392" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" fill="#111111" text-anchor="middle">Founders Fund</text>
+<text x="148" y="408" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#555555" text-anchor="middle">$5 亿估值</text>
+<circle cx="262" cy="370" r="4" fill="#111111"/>
+<line x1="262" y1="370" x2="262" y2="356" stroke="#111111" stroke-width="0.5"/>
+<text x="262" y="350" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2015</text>
+<text x="262" y="392" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" fill="#111111" text-anchor="middle">Google 轮</text>
+<text x="262" y="408" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#555555" text-anchor="middle">$120 亿估值</text>
+<circle cx="370" cy="370" r="4" fill="#111111"/>
+<line x1="370" y1="370" x2="370" y2="356" stroke="#111111" stroke-width="0.5"/>
+<text x="370" y="350" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2021</text>
+<text x="370" y="392" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" fill="#111111" text-anchor="middle">千亿估值</text>
+<circle cx="540" cy="370" r="6" fill="#E30613"/>
+<line x1="540" y1="370" x2="540" y2="350" stroke="#E30613" stroke-width="0.5"/>
+<text x="540" y="344" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#E30613" text-anchor="middle">2026-02</text>
+<text x="540" y="392" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" font-weight="500" fill="#E30613" text-anchor="middle">xAI 装入</text>
+<text x="540" y="408" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#555555" text-anchor="middle">$317 亿 / 0 现金</text>
+<circle cx="624" cy="370" r="6" fill="none" stroke="#E30613" stroke-width="1.5"/>
+<line x1="624" y1="370" x2="624" y2="350" stroke="#E30613" stroke-width="0.5"/>
+<text x="624" y="344" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#E30613" text-anchor="middle">2026-06</text>
+<text x="624" y="392" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" font-weight="500" fill="#E30613" text-anchor="middle">IPO</text>
+
+<text x="40" y="450" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">LINE 02 · CAPEX BURN</text>
+<text x="40" y="474" font-family="'Noto Serif SC','Songti SC',serif" font-size="18" font-weight="500" fill="#111111">烧钱线（资本开支主战场迁移）</text>
+
+<rect x="40" y="500" width="120" height="38" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="100" y="516" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">McGregor</text>
+<text x="100" y="532" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#555555" text-anchor="middle">测试火箭</text>
+
+<rect x="170" y="500" width="160" height="38" fill="#FFFEFB" stroke="#aaa" stroke-width="0.5"/>
+<text x="250" y="516" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">Hawthorne</text>
+<text x="250" y="532" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#555555" text-anchor="middle">Falcon 9 量产 + 复用</text>
+
+<rect x="340" y="500" width="160" height="38" fill="#FFFEFB" stroke="#888" stroke-width="0.5"/>
+<text x="420" y="516" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">Redmond</text>
+<text x="420" y="532" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#555555" text-anchor="middle">Starlink 卫星上天</text>
+
+<rect x="510" y="500" width="130" height="38" fill="#fdecec" stroke="#E30613" stroke-width="1"/>
+<text x="575" y="516" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">Memphis</text>
+<text x="575" y="532" font-family="'Noto Serif SC','Songti SC',serif" font-size="10" fill="#E30613" text-anchor="middle">Colossus 数据中心</text>
+
+<text x="40" y="572" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#555555">总 Capex：</text>
+<text x="120" y="572" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="500" fill="#111111">$44 亿 → $112 亿 → $207 亿 → $101 亿（单季）</text>
+<text x="40" y="592" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#555555">AI 占比：</text>
+<text x="120" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="500" fill="#111111">10%</text>
+<text x="160" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#888">→</text>
+<text x="186" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="500" fill="#111111">50%</text>
+<text x="226" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#888">→</text>
+<text x="252" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="500" fill="#111111">61%</text>
+<text x="292" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#888">→</text>
+<text x="318" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="700" fill="#E30613">76%</text>
+
+<text x="40" y="650" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">LINE 03 · FREE CASH FLOW</text>
+<text x="40" y="674" font-family="'Noto Serif SC','Songti SC',serif" font-size="18" font-weight="500" fill="#111111">现金流线</text>
+
+<line x1="40" y1="730" x2="640" y2="730" stroke="#888" stroke-width="0.5"/>
+<text x="40" y="700" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555">FCF $M</text>
+
+<rect x="148" y="724" width="22" height="6" fill="#22aa55"/>
+<text x="159" y="717" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#22aa55" text-anchor="middle">+$0.1B</text>
+<text x="159" y="752" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2023</text>
+
+<rect x="262" y="730" width="22" height="22" fill="#aa3322"/>
+<text x="273" y="772" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#aa3322" text-anchor="middle">−$5.4B</text>
+<text x="273" y="788" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2024</text>
+
+<rect x="370" y="730" width="22" height="58" fill="#cc3322"/>
+<text x="381" y="808" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#cc3322" text-anchor="middle">−$14.0B</text>
+<text x="381" y="824" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2025</text>
+
+<rect x="540" y="730" width="22" height="38" fill="#E30613"/>
+<text x="551" y="784" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#E30613" text-anchor="middle">−$9.1B</text>
+<text x="551" y="800" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2026 Q1</text>
+<text x="551" y="814" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="9" fill="#888" text-anchor="middle">（单季）</text>
+
+<line x1="40" y1="860" x2="640" y2="860" stroke="#E30613" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="40" y="884" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#111111">三条线不同步——融资慢，烧钱主战场迁移，FCF 2024 已转负。</text>
+<text x="40" y="908" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#E30613">2025 是撕裂点：补贴链断了，必须找外部钱。</text>
+<text x="640" y="930" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" letter-spacing="1.5px" text-anchor="end">SOURCE: S-1 L2884 / L23983 / L25238</text>
+</svg>

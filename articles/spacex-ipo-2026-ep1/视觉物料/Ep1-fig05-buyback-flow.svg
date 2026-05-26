@@ -1,0 +1,48 @@
+<svg width="100%" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SpaceX 反向回购吞掉一半新融资</title>
+<desc>2024-2026Q1 27 个月：融资 $100 亿，回购员工股 $65 亿，净融资 $35 亿</desc>
+
+<defs>
+<marker id="fa_down" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M0,0 L5,9 L10,0 Z" fill="#22aa55"/>
+</marker>
+<marker id="fa_up" viewBox="0 0 10 10" refX="5" refY="1" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M0,10 L5,1 L10,10 Z" fill="#aa3322"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="680" height="560" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 05</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">REVERSE BUYBACK · 2024-2026Q1</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">反向回购吞掉一半新融资</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">27 个月融钱 $100 亿，同时回购员工股 $65 亿——净融资只有 $35 亿</text>
+
+<rect x="80" y="190" width="160" height="80" fill="#e8f6ee" stroke="#22aa55" stroke-width="1"/>
+<text x="160" y="218" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#117a3a" letter-spacing="2px" text-anchor="middle">INFLOW</text>
+<text x="160" y="246" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="28" font-weight="700" fill="#111111" text-anchor="middle">+$100 亿</text>
+<text x="160" y="262" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" fill="#555555" text-anchor="middle">新增股权融资</text>
+
+<line x1="160" y1="270" x2="160" y2="320" stroke="#22aa55" stroke-width="2" marker-end="url(#fa_down)"/>
+
+<rect x="440" y="190" width="160" height="80" fill="#fdecec" stroke="#aa3322" stroke-width="1"/>
+<text x="520" y="218" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#aa3322" letter-spacing="2px" text-anchor="middle">OUTFLOW</text>
+<text x="520" y="246" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="28" font-weight="700" fill="#aa3322" text-anchor="middle">−$65 亿</text>
+<text x="520" y="262" font-family="'Noto Serif SC','Songti SC',serif" font-size="11" fill="#555555" text-anchor="middle">回购员工股</text>
+
+<line x1="520" y1="270" x2="520" y2="320" stroke="#aa3322" stroke-width="2" marker-end="url(#fa_up)"/>
+
+<rect x="240" y="340" width="200" height="100" fill="#fdecec" stroke="#E30613" stroke-width="1.5"/>
+<text x="340" y="370" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px" text-anchor="middle">NET FUNDING</text>
+<text x="340" y="408" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="36" font-weight="700" fill="#E30613" text-anchor="middle">+$35 亿</text>
+<text x="340" y="428" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#555555" text-anchor="middle">实际净融资</text>
+
+<line x1="160" y1="320" x2="240" y2="380" stroke="#888" stroke-width="0.5"/>
+<line x1="520" y1="320" x2="440" y2="380" stroke="#888" stroke-width="0.5"/>
+
+<line x1="40" y1="478" x2="640" y2="478" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="506" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#111111">回购峰值 2026 Q1 单季 $43 亿——和 xAI 合并直接相关</text>
+<text x="40" y="528" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#E30613">这是「替代 IPO 给员工流动性」的私募版方案</text>
+<text x="640" y="550" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" text-anchor="end" letter-spacing="1.5px">SOURCE: S-1 L22828 / L27255</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg width="100%" viewBox="0 0 680 640" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>老业务 FCF vs AI 烧钱 4 期镜像柱</title>
+<desc>老业务（火箭+Starlink）2023-2024 自我平衡，2025 转负；AI 4 年烧钱指数级膨胀</desc>
+
+<rect x="0" y="0" width="680" height="640" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 09</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">OLD BUSINESS FCF · AI BURN · MIRROR</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">老业务 FCF vs AI 烧钱</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">上半：老业务（Space + Starlink）FCF · 下半：AI 净烧钱</text>
+
+<rect x="510" y="170" width="14" height="10" fill="#88c4a0"/>
+<text x="528" y="179" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#555555">老业务 FCF</text>
+<rect x="510" y="186" width="14" height="10" fill="#E30613"/>
+<text x="528" y="195" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#555555">AI 烧钱</text>
+
+<line x1="40" y1="350" x2="640" y2="350" stroke="#888" stroke-width="1"/>
+<text x="640" y="346" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="end">0</text>
+
+<text x="100" y="540" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">2023</text>
+<text x="260" y="540" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">2024</text>
+<text x="420" y="540" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#111111" text-anchor="middle">2025</text>
+<text x="580" y="540" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#E30613" text-anchor="middle">2026 Q1</text>
+
+<rect x="85" y="346" width="30" height="4" fill="#88c4a0"/>
+<text x="100" y="338" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#117a3a" text-anchor="middle">+$5亿</text>
+<rect x="115" y="350" width="30" height="4" fill="#E30613"/>
+<text x="130" y="370" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="700" fill="#E30613" text-anchor="middle">-$5亿</text>
+
+<rect x="245" y="347" width="30" height="3" fill="#88c4a0"/>
+<text x="260" y="339" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#117a3a" text-anchor="middle">+$3亿</text>
+<rect x="275" y="350" width="30" height="50" fill="#E30613"/>
+<text x="290" y="416" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="700" fill="#E30613" text-anchor="middle">-$56亿</text>
+
+<rect x="405" y="338" width="30" height="12" fill="#aa3322"/>
+<text x="420" y="330" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#aa3322" text-anchor="middle">-$12亿</text>
+<rect x="435" y="350" width="30" height="115" fill="#E30613"/>
+<text x="450" y="480" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="700" fill="#E30613" text-anchor="middle">-$127亿</text>
+
+<rect x="565" y="336" width="30" height="14" fill="#aa3322"/>
+<text x="580" y="328" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#aa3322" text-anchor="middle">-$14亿</text>
+<rect x="595" y="350" width="30" height="70" fill="#E30613"/>
+<text x="610" y="436" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="700" fill="#E30613" text-anchor="middle">-$77亿（单季）</text>
+
+<line x1="40" y1="560" x2="640" y2="560" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="586" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#111111">老业务 2023-2024 自我平衡，2025 才转负 -$12 亿</text>
+<text x="40" y="608" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#E30613">AI 4 年从 -$5 亿烧到单季 -$77 亿——这才是把集团拖进融资依赖的真正原因</text>
+<text x="640" y="630" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" text-anchor="end" letter-spacing="1.5px">SOURCE: S-1 L2884-2895 + L23949-23969</text>
+</svg>

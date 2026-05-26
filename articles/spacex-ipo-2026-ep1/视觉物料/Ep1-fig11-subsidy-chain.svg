@@ -1,0 +1,65 @@
+<svg width="100%" viewBox="0 0 680 940" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SpaceX 集团补贴链全景 白底版</title>
+<desc>Starlink → Space → AI 三段补贴链——白底</desc>
+
+<defs>
+<marker id="sc_arrow_redL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#E30613"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="680" height="940" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 11</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">INTERNAL SUBSIDY CHAIN · 2025</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">集团补贴链全景</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">Starlink → Space（养 Starship）→ AI（养 xAI）</text>
+
+<line x1="40" y1="176" x2="640" y2="176" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<rect x="40" y="200" width="600" height="120" fill="#e8f6ee" stroke="#22aa55" stroke-width="1"/>
+<text x="60" y="226" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#117a3a" letter-spacing="2px">STEP 01 · CASH GENERATOR</text>
+<text x="60" y="262" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="500" fill="#111111">Starlink 造血</text>
+<text x="60" y="290" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">2025 全年 Adj. EBITDA</text>
+<text x="60" y="312" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#555555">烧/收比 42% · 唯一健康赛道</text>
+<text x="620" y="262" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="44" font-weight="700" fill="#117a3a" text-anchor="end">+$7.2B</text>
+<text x="620" y="290" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" text-anchor="end" letter-spacing="1px">S-1 L2943</text>
+
+<line x1="340" y1="320" x2="340" y2="360" stroke="#E30613" stroke-width="1.5" marker-end="url(#sc_arrow_redL)"/>
+<text x="350" y="345" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#E30613">补贴</text>
+
+<rect x="40" y="376" width="600" height="120" fill="#fdf3e6" stroke="#aa7733" stroke-width="1"/>
+<text x="60" y="402" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#aa7733" letter-spacing="2px">STEP 02 · SPACE SEGMENT</text>
+<text x="60" y="438" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="500" fill="#111111">Falcon 9 纯利喂 Starship</text>
+<text x="60" y="466" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">2025 Space 段经营利润</text>
+<text x="60" y="488" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#555555">Falcon 9 早回本 · Starship 烧 R&D $3B + Capex $3.8B</text>
+<text x="620" y="438" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="44" font-weight="700" fill="#aa7733" text-anchor="end">−$657M</text>
+<text x="620" y="466" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" text-anchor="end" letter-spacing="1px">2024 +$21M → 2025 转负</text>
+
+<line x1="340" y1="496" x2="340" y2="536" stroke="#E30613" stroke-width="1.5" marker-end="url(#sc_arrow_redL)"/>
+<text x="350" y="521" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#E30613">老业务合计 $7.8B 补贴 →</text>
+
+<rect x="40" y="552" width="600" height="120" fill="#fdecec" stroke="#E30613" stroke-width="1.5"/>
+<text x="60" y="578" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">STEP 03 · AI BLACK HOLE</text>
+<text x="60" y="614" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="500" fill="#111111">xAI 训练 + Colossus 集群</text>
+<text x="60" y="642" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#111111">2025 AI 段总烧钱（R&D + Capex）</text>
+<text x="60" y="664" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#555555">烧/收比 556% · 一个分部吃集团 60% R&D + 61% Capex</text>
+<text x="620" y="614" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="44" font-weight="700" fill="#E30613" text-anchor="end">−$17.8B</text>
+<text x="620" y="642" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" text-anchor="end" letter-spacing="1px">R&D $5.1B + Capex $12.7B</text>
+
+<line x1="340" y1="672" x2="340" y2="712" stroke="#E30613" stroke-width="2" marker-end="url(#sc_arrow_redL)"/>
+<text x="350" y="697" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#E30613">补贴链不够烧</text>
+
+<rect x="40" y="728" width="600" height="100" fill="#fdecec" stroke="#E30613" stroke-width="0.5" stroke-dasharray="4,3"/>
+<text x="60" y="754" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">STEP 04 · GROUP-LEVEL OUTCOME</text>
+<text x="60" y="790" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">集团 FCF 2025 / 2026 Q1</text>
+<text x="60" y="816" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="400" fill="#555555">OCF 只能盖 23%（2025）/ 8%（2026 Q1）</text>
+<text x="620" y="780" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="22" font-weight="700" fill="#E30613" text-anchor="end">−$14.0B  /  −$9.1B（单季）</text>
+<text x="620" y="816" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" text-anchor="end" letter-spacing="1px">FCF · 年化 −$36B</text>
+
+<line x1="40" y1="858" x2="640" y2="858" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="888" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="500" fill="#111111">补贴链 2025 断了——必须找外部钱。</text>
+<text x="40" y="912" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#E30613">现金从 $25B 跌到 $16.6B，按当前速度撑不到 2 个季度——IPO 是物理必然。</text>
+<text x="640" y="932" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" letter-spacing="1.5px" text-anchor="end">SOURCE: S-1 L2930-2954</text>
+</svg>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falcon 9 早就回本了，SpaceX 为什么还要 IPO？ · SpaceX IPO 系列 Ep1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Serif+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAF8F5;color:#111111;font-family:'Noto Serif SC','Songti SC','STSong','Source Han Serif SC',serif;line-height:1.85;font-size:17px;}
+article{max-width:680px;margin:0 auto;padding:32px 22px 64px;background:#FFFEFB;}
+h1{font-size:31px;line-height:1.35;font-weight:700;margin:0 0 8px;color:#111111;letter-spacing:-0.5px;}
+h2{margin:0;font-size:22px;font-weight:600;color:#111111;letter-spacing:-0.3px;}
+h3{font-size:18px;font-weight:600;color:#111111;margin:30px 0 14px;letter-spacing:-0.2px;}
+p{margin:0 0 18px;text-align:justify;}
+strong{font-weight:700;color:#111111;}
+table{width:100%;border-collapse:collapse;font-family:'Noto Serif SC','Songti SC',serif;margin:18px 0 24px;}
+th{padding:10px 12px;border-bottom:2px solid #111111;text-align:left;font-weight:600;background:#f3efe6;font-size:14px;}
+td{padding:10px 12px;border-bottom:1px solid #ece8e0;font-size:14px;}
+.kicker{font-family:'Inter',sans-serif;font-style:normal;font-size:11px;letter-spacing:3px;color:#E30613;text-transform:uppercase;margin-bottom:6px;font-weight:500;}
+.section-head{display:flex;align-items:baseline;gap:14px;margin:44px 0 18px;border-bottom:1px solid #d8d4cc;padding-bottom:8px;}
+.section-num{font-family:'Playfair Display',Georgia,serif;font-size:48px;font-weight:700;color:#E30613;line-height:1;}
+.dropcap{float:left;font-family:'Playfair Display',Georgia,serif;font-size:58px;line-height:0.9;color:#E30613;padding:6px 8px 0 0;font-weight:700;}
+.callout{margin:22px 0 32px;padding:18px 22px;background:#fdecec;border-left:4px solid #E30613;color:#111111;font-weight:600;font-size:17px;line-height:1.75;}
+.know-block{margin:22px 0 28px;padding:18px 22px;background:#FFFEFB;border:1px solid #d8d4cc;}
+.know-block-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;color:#E30613;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.know-block ol{margin:0;padding-left:22px;}
+.know-block ol li{margin-bottom:8px;font-size:15px;line-height:1.75;}
+.chain-block{margin:22px 0 32px;padding:20px;background:#111111;color:#FFFEFB;font-family:'JetBrains Mono','IBM Plex Mono',monospace;font-size:13px;line-height:1.75;white-space:pre-wrap;}
+.chain-block-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;color:#E30613;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.fig-wrap{margin:28px 0 30px;padding:0;background:transparent;}
+.fig-wrap img,.fig-wrap object,.fig-wrap svg{display:block;width:100%;height:auto;border:1px solid #d8d4cc;}
+.fig-cap{font-size:12px;color:#8a8784;font-style:italic;margin-top:8px;text-align:center;}
+.hero-triptych{margin:28px 0 30px;background:#FAF8F5;border:1px solid #d8d4cc;}
+.hero-kicker{padding:14px 18px 10px;border-bottom:0.5px solid #d8d4cc;font-family:'Inter','Helvetica Neue',sans-serif;font-size:10px;font-weight:500;color:#E30613;letter-spacing:3.5px;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.hero-cell{position:relative;aspect-ratio:1/1.3;overflow:hidden;}
+.hero-cell img{width:100%;height:100%;object-fit:cover;display:block;border:none;}
+.hero-cell-label{position:absolute;bottom:0;left:0;right:0;background:rgba(11,11,11,0.85);padding:8px 12px 12px;color:#FFFFFF;}
+.hero-cell-num{font-family:'Inter','Helvetica Neue',sans-serif;font-size:9px;font-weight:500;color:#E30613;letter-spacing:2px;margin-bottom:4px;}
+.hero-cell-name{font-family:'Noto Serif SC','Songti SC',serif;font-size:14px;font-weight:500;}
+.hero-footer{padding:16px 18px;border-top:0.5px solid #d8d4cc;}
+.hero-footer-h{font-family:'Noto Serif SC','Songti SC',serif;font-size:16px;font-weight:500;color:#111111;margin:0 0 8px;}
+.hero-footer-s{font-family:'Noto Serif SC','Songti SC',serif;font-size:14px;color:#555555;margin:0;}
+@media (max-width:540px){.hero-cell-name{font-size:12px;}.hero-cell-num{font-size:8px;}.hero-cell-label{padding:6px 8px 8px;}}
+blockquote{margin:14px 0 22px;padding:14px 18px;background:#FFFEFB;border-left:4px solid #111111;font-size:14px;color:#444;font-style:italic;}
+.cite{color:#E30613;font-weight:600;}
+.takeaway{margin:34px 0 24px;padding:22px;background:#fdecec;border:1px solid #E30613;}
+.takeaway-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;color:#E30613;text-transform:uppercase;font-weight:500;margin-bottom:12px;}
+.takeaway ol{margin:0;padding-left:22px;}
+.takeaway ol li{margin-bottom:10px;font-size:15px;line-height:1.75;}
+.signal{margin:24px 0;padding:18px;background:#FFFEFB;border:1px solid #d8d4cc;}
+.signal-label{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;color:#E30613;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.footer{margin-top:48px;padding-top:24px;border-top:1px solid #d8d4cc;color:#8a8784;font-size:12px;font-style:italic;}
+@media (max-width:720px){article{padding:20px 14px 40px;}h1{font-size:24px;}h2{font-size:18px;}.section-num{font-size:36px;}p{font-size:16px;}th,td{font-size:13px;padding:8px 10px;}}
+</style>
+</head>
+<body>
+<article>
+
+<section style="border-top:3px solid #111111;padding-top:18px;margin-bottom:8px;">
+<div class="kicker">SPACEX IPO 2026 · EP 1 · INDEPENDENT RESEARCH</div>
+<h1>Falcon 9 早就回本了<br>SpaceX 为什么还要 IPO？</h1>
+<div style="font-size:14px;color:#7a7770;font-style:italic;margin-bottom:18px;">副标：三条时间线读 SpaceX 招股书——融资、烧钱、现金流</div>
+<div style="height:1px;background:#d8d4cc;margin-bottom:24px;"></div>
+<div style="font-size:12px;color:#8a8784;margin-bottom:8px;font-style:italic;">谷德禄氪 · 独立研究笔记 · 2026.05.25</div>
+</section>
+
+<div class="hero-triptych">
+<div class="hero-kicker">SPACEX IPO 2026 · EP 1 · THREE PARALLEL LINES</div>
+<div class="hero-grid">
+<div class="hero-cell">
+<img src="视觉物料/s1-images/a18_starshiplandingimage.jpg" alt="Starship 着陆">
+<div class="hero-cell-label"><div class="hero-cell-num">01 · SPACE</div><div class="hero-cell-name">火箭 / Starship</div></div>
+</div>
+<div class="hero-cell">
+<img src="视觉物料/s1-images/a22_starlinkv3overview.jpg" alt="Starlink V3">
+<div class="hero-cell-label"><div class="hero-cell-num">02 · CONNECTIVITY</div><div class="hero-cell-name">Starlink / 卫星网络</div></div>
+</div>
+<div class="hero-cell">
+<img src="视觉物料/s1-images/xai_sitexscoutxx19a.jpg" alt="xAI Memphis 选址">
+<div class="hero-cell-label"><div class="hero-cell-num">03 · AI COMPUTE</div><div class="hero-cell-name">xAI / Colossus 数据中心</div></div>
+</div>
+</div>
+<div class="hero-footer">
+<p class="hero-footer-h">三条业务并行跑了 24 年——</p>
+<p class="hero-footer-s">从「造火箭公司」到「AI 接管」，这一篇拆三条平行时间线</p>
+</div>
+</div>
+
+<section>
+<div class="section-head"><span class="section-num">00</span><h2>钩子</h2></div>
+
+<p><span class="dropcap">打</span>开 600 多页的 SpaceX 招股书，<strong>三个数字</strong>会让你愣住。</p>
+
+<p><strong>第一个</strong>：SpaceX 这家公司（不含 xAI），过去 20 年累计股权融资清算优先权——<strong>只有 65 亿美元</strong>。OpenAI 一轮就超过这个数。</p>
+
+<p><strong>第二个</strong>：从 2002 年 Musk 个人出资 1 亿创立到 2026 年 IPO 前夜，他的持股从 100% 稀释到 12.3%，<strong>但投票权反而走出一条 U 型反弹，保住了 85.1%</strong>。</p>
+
+<p><strong>第三个</strong>：2026 年第一季度，SpaceX 把 <strong>76% 的资本开支</strong>砸在了 AI 数据中心上。火箭那一栏，只剩 10%。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig01-three-numbers.svg" alt="三个反认知数字：$6.5B / 85.1% / 76%">
+<div class="fig-cap">FIG 01 · 三个让人愣住的数字</div>
+</div>
+
+<p>三个数字之间是矛盾的。</p>
+
+<p>一家估值 1.75-2 万亿美元的公司，过去 20 年股权融资只够买半架商业航司的飞机；股权一路被稀释，投票权反而越投越多；火箭还在 Boca Chica 发射，钱却全去了 Memphis 的 GPU 机房。</p>
+
+<p>更刺眼的是另一组数字——</p>
+
+<div class="callout"><strong>Falcon 9 这家公司最赚钱的产品，2017 年就把项目级研发钱赚回来了</strong>。单架一级助推器（booster）在工程上最多飞过 34 次，财务上按 25 次折旧。意味着每一根新造的 booster 第一次飞行就能覆盖造价，<strong>后面 29 次基本是纯利</strong>。</div>
+
+<p>2025 年，Falcon 9 平均每 <strong>2.2 天发射一次</strong>，全年 165 发。Starlink 在 2025 年一条业务线产生了 <strong>72 亿美元 EBITDA</strong>，比整个航天业务一年的资本开支还多。</p>
+
+<p><strong>这家公司有最便宜的火箭工厂，最赚钱的卫星互联网，最忠诚的政府客户。</strong></p>
+
+<p><strong>那为什么 2026 年第一季度，自由现金流是 -90 亿美元？为什么账上 167 亿现金，按当前速度撑不到 2 个季度？为什么 2026 年 6 月必须 IPO？</strong></p>
+
+<p>答案不在 SpaceX 的航天故事里。</p>
+
+<p>这一篇用三条时间线读这 24 年——<strong>融资线、烧钱线（R&D + 资本开支）、现金流线</strong>。三条线沿着同一段 24 年并行跑下来，会暴露主流叙事完全不讲的一件事：</p>
+
+<div class="callout"><strong>SpaceX 不是航天公司想找钱搞 AI，是一家已经被 AI 业务接管的公司，正在用最后一笔 IPO 给 GPU 数据中心续命。</strong></div>
+</section>
+
+<section>
+<div class="section-head"><span class="section-num">01</span><h2>三条线总览：24 年并行跑一遍</h2></div>
+
+<p>先建一个心智模型。把 SpaceX 24 年画成一张时间轴，三条线并排：</p>
+
+<p><strong>上轨——融资线</strong>：2002 Musk 自掏 1 亿创立 → 2008 Founders Fund 救命轮（估值 5 亿）→ 2015 Google + Fidelity 把估值推到 120 亿 → 2021 跨越千亿 → 2025 数千亿 → <strong>2026 年 2 月，0 现金对价把 xAI 整个装了进来（带入 317 亿优先股清算优先权）</strong>。14 轮股权融资 + 1 次合并装入。</p>
+
+<p><strong>中轨——烧钱线（R&D + 资本开支）</strong>：主战场迁移过 4 次。</p>
+<ul>
+<li><strong>2002-2008</strong>：测试火箭——Falcon 1 连炸 3 次才有第 4 次成功</li>
+<li><strong>2009-2018</strong>：Falcon 9 量产 + 复用——Hawthorne 工厂从手工车间变成航天 Foxconn，2015 首次海上着陆，2017 例行复用</li>
+<li><strong>2019-2024</strong>：Starlink 编队卫星上天——Redmond 卫星厂一年造几千颗，2023 EBITDA 转正</li>
+<li><strong>2025-2026</strong>：建数据中心——Memphis 的 Colossus 集群、xAI 合并、22 万张 GPU</li>
+</ul>
+
+<p><strong>下轨——现金流线</strong>：长期负，2023 年因 Starlink EBITDA 转正集团 FCF 短暂拉正（+1 亿美元），然后 2024 急速恶化——2024 全年 FCF -54 亿，2025 -140 亿，<strong>2026 Q1 一个季度就烧掉 91 亿</strong>。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig02-three-lines-timeline.svg" alt="24 年三线时间轴大图">
+<div class="fig-cap">FIG 02 · 24 年三线时间轴（融资 / 烧钱 / 现金流）</div>
+</div>
+
+<p>三条线最关键的一点，<strong>不是同步走的</strong>：</p>
+
+<table>
+<thead><tr><th>时间段</th><th>三条线状态</th></tr></thead>
+<tbody>
+<tr><td>2002-2008</td><td>融资线刚启动，烧钱主战场是火箭研发，FCF 深度负——靠救命融资</td></tr>
+<tr><td>2009-2018</td><td>融资节奏不快，烧钱进入量产期，FCF 仍负但 Falcon 9 项目 2017-2018 完成回本</td></tr>
+<tr><td>2019-2024</td><td>融资估值跨千亿，烧钱开始烧 Starship + Starlink + 初代 AI，FCF 2023 拉正一年后又转负</td></tr>
+<tr><td><strong>2025-2026</strong></td><td><strong>融资靠 xAI 装入 + 借新还旧，烧钱主战场转 AI，FCF 单季 -91 亿——三条线开始撕裂</strong></td></tr>
+</tbody>
+</table>
+
+<p>撕裂点就是 2025 年。<strong>这之前 SpaceX 是「火箭公司搞副业」，这之后是「AI 公司持有火箭业务」</strong>——会计层面已经悄悄改写。</p>
+
+<p>接下来三节按这个时间顺序，把三条线分别拆开看。</p>
+
+<div class="know-block">
+<div class="know-block-label">全篇读完，你会知道</div>
+<ol>
+<li><strong>SpaceX 24 年只融了 $65 亿是真的——但还有 4 个隐形 VC 在补血</strong>，最大的 VC 是美国政府</li>
+<li><strong>R&D 的"灵魂" 4 年完全换了赛道</strong>——2023 年 73% 给 Space，2026 Q1 已经 68% 给 AI</li>
+<li><strong>Falcon 9 早回本，但 Space 段 2025 又亏 $6.6 亿</strong>——Falcon 9 的纯利全部喂给了 Starship</li>
+<li><strong>集团补贴链 2025 断了</strong>：Starlink → Space → AI，OCF 只能盖 8% 烧钱</li>
+<li><strong>IPO 不是想不想——是不上市撑不到 2026 年底</strong>，账上现金按当前速度只够 1.8 个季度</li>
+</ol>
+</div>
+</section>
+
+<section>
+<div class="section-head"><span class="section-num">02</span><h2>融资线：14 轮 65 亿，但还有 4 个隐形 VC</h2></div>
+
+<div class="know-block">
+<div class="know-block-label">这条线读完，你会知道</div>
+<ol>
+<li>SpaceX 24 年只融了 $65 亿是真的——但还有 4 个隐形 VC 补血</li>
+<li>美国政府是 SpaceX 最大的 VC（$121 亿 &gt; $65 亿）</li>
+<li>Musk 在 24 年里把股权稀释到 12.3%，投票权反弹回 85.1%——靠的不是回购，是 dual-class</li>
+</ol>
+<table style="margin-top:14px;">
+<thead><tr><th>资金来源</th><th>24 年累计</th><th>是否稀释</th></tr></thead>
+<tbody>
+<tr><td>14 轮股权融资清算优先权</td><td><strong>$65 亿</strong></td><td>是</td></tr>
+<tr><td>隐形 VC ① 政府预收款</td><td><strong>$121 亿</strong></td><td>否</td></tr>
+<tr><td>隐形 VC ② 反向回购员工股</td><td><strong>−$66 亿</strong></td><td>净融资减半</td></tr>
+<tr><td>隐形 VC ③ 债务 + GPU 租赁</td><td><strong>+$136 亿</strong></td><td>否</td></tr>
+<tr><td>隐形 VC ④ xAI 0 现金装入</td><td><strong>$317 亿</strong></td><td>老股东摊薄</td></tr>
+</tbody>
+</table>
+<p style="margin:14px 0 0;font-weight:600;">股权融资只是最小的一路。</p>
+</div>
+
+<h3>2.1 14 轮股权融资，清算优先权只有 65 亿</h3>
+
+<p>S-1 Note 13 把 SpaceX 主体（不含 xAI）历轮优先股一字排开——从 Series A 到 Series N，<strong>14 轮</strong>。每一轮的发行价、流通股数、清算优先权都在表里。把这 14 行加起来：</p>
+
+<table>
+<thead><tr><th>项</th><th>数字</th><th>出处</th></tr></thead>
+<tbody>
+<tr><td>SpaceX 主体流通优先股（14 轮）</td><td>134.8M 股</td><td>S-1 L25238</td></tr>
+<tr><td><strong>累计清算优先权</strong></td><td><strong>$6,527M</strong></td><td>L25238</td></tr>
+<tr><td>估值 2026 IPO 前</td><td>$1.75-2 万亿</td><td>preliminary</td></tr>
+</tbody>
+</table>
+
+<p><strong>$65 亿换 $1.75 万亿估值</strong>——268 倍。这不是稀有，是反认知到不可思议。</p>
+
+<p>把每一轮的估值跃迁画出来：</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig03-funding-rounds.svg" alt="14 轮股权融资 + 估值跃迁">
+<div class="fig-cap">FIG 03 · 14 轮股权融资 + 估值跃迁</div>
+</div>
+
+<p>最后一行是反认知的——Musk 持股从 100% 跌到 <strong>12.3%</strong>，投票权却从 100% 走了一个 U 型反弹回 <strong>85.1%</strong>。这个剪刀差怎么造出来的？</p>
+
+<p>答案在 S-1 L162-164 + L19980 三行字里：Class A 每股 1 票；<strong>Class B 每股 10 票</strong>；Class B 持有人<strong>单独投票就能选出 51% 的董事</strong>。</p>
+
+<p>Musk 持有 5.57B 股 Class B + 0.85B 股 Class A，加上 60 天内可行使的 350M 期权——折成投票权口径<strong>就是 85.1%</strong>。IPO 后 SpaceX 仍是「controlled company」，能豁免 Nasdaq 部分独立董事比例要求。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig06-musk-equity-voting-scissors.svg" alt="Musk 股权 vs 投票权 U 型剪刀差">
+<div class="fig-cap">FIG 06 · Musk 股权 vs 投票权 U 型剪刀差</div>
+</div>
+
+<p>这是 § 0 第二个反认知数字「85% 投票权」的答案——<strong>Musk 24 年没在任何融资环节出让控制权</strong>。后面写到 IPO 部分会发现这个事实跟另一件事撞在了一起。</p>
+
+<h3>2.2 100 亿股权融资只是表面——4 个隐形 VC</h3>
+
+<p>SpaceX 24 年「少融钱」是表面。S-1 拆开看，<strong>真正的资金来源是 5 路并发，股权融资是其中最小的一路</strong>。四个隐形 VC，逐一拆开来看——</p>
+
+<p><strong>隐形 VC ① 政府预收款 $121 亿</strong></p>
+
+<blockquote>"All of our launch contracts with U.S. government agencies are <strong>firm fixed-price contracts with milestone-based payments</strong>." <span class="cite">— S-1 L17988</span></blockquote>
+
+<p>翻译——<strong>所有政府发射合同都是「固定价 + 里程碑预付」</strong>。意思是 NASA、DoW 不是「先发射后付款的客户」，而是「按里程碑预付的资助方」。SpaceX 在合同签下来那一刻就开始收钱，研发和资本开支的现金压力，被会计准则搬到了客户的应付款表上。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig04-65-vs-121-bars.svg" alt="65 亿 vs 121 亿双柱对比">
+<div class="fig-cap">FIG 04 · 政府预收款 $121 亿 = SpaceX 主体累计股权融资 $65 亿 × 1.86</div>
+</div>
+
+<p><strong>美国政府是 SpaceX 最大的 VC</strong>。一句话写得直白——比所有 VC 和主权基金加起来的清算优先权还要多 86%。</p>
+
+<p><strong>隐形 VC ② 反向回购 −$66.6 亿</strong></p>
+
+<p>2024-2026 Q1 这 27 个月里，SpaceX 一边融钱、一边用现金从员工和老股东手里<strong>回购股票</strong>：</p>
+
+<table>
+<thead><tr><th>期间</th><th>回购金额</th><th>出处</th></tr></thead>
+<tbody>
+<tr><td>2024</td><td>$1,021M</td><td>L22828</td></tr>
+<tr><td>2025</td><td>$1,125M</td><td>L22828</td></tr>
+<tr><td><strong>2026 Q1</strong></td><td><strong>$4,346M（峰值）</strong></td><td>L27255</td></tr>
+<tr><td><strong>累计</strong></td><td><strong>$6,492M</strong></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p>其中 2026 Q1 单季 43 亿——和 xAI 合并直接相关（一次性给被并入的 xAI 员工现金兑付）。这意味着 SpaceX 表面上 27 个月融了 $100 亿，<strong>净融资其实只有 $35 亿</strong>。剩下 $65 亿全部当成了"私募版 IPO"——用公司现金给员工和老股东兑现流动性。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig05-buyback-flow.svg" alt="融资 vs 回购 净融资箭头">
+<div class="fig-cap">FIG 05 · 融 $100 亿 / 回购 $65 亿 / 净融资 $35 亿</div>
+</div>
+
+<p><strong>隐形 VC ③ 债务 $92 亿 + GPU 融资租赁</strong></p>
+
+<p>2025 一年，SpaceX 借了 161 亿、还了 69 亿、<strong>净增 92 亿</strong>；2026 Q1 一个季度借了 227 亿、还了 183 亿、<strong>净增 44 亿</strong>：</p>
+
+<table>
+<thead><tr><th>期间</th><th>Proceeds from debt</th><th>Repayments</th><th>Net</th></tr></thead>
+<tbody>
+<tr><td>2025</td><td>$16,055M</td><td>$(6,858)M</td><td><strong>+$9,197M</strong></td></tr>
+<tr><td>2026 Q1</td><td>$22,694M</td><td>$(18,295)M</td><td><strong>+$4,399M</strong></td></tr>
+</tbody>
+</table>
+
+<p>2026 Q1 单季新借 227 亿——"借新还旧"的滚动规模惊人。利息支出 2026 Q1 单季 $990M ≈ 2025 全年的 67%，债务负担在急剧放大。GPU 融资租赁是大头——AI 行业惯例。这条线 Musk 选择上杠杆而不是稀释，理由很清楚：<strong>不想让出投票权</strong>。</p>
+
+<p><strong>隐形 VC ④ xAI 0 现金装入 $317 亿</strong></p>
+
+<p>2026 年 2 月，IPO 路演前 4 个月，SpaceX 干了一笔账面魔术：</p>
+
+<table>
+<thead><tr><th>项</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>交易日期</td><td>2026-02</td></tr>
+<tr><td>现金对价</td><td>$0</td></tr>
+<tr><td>对价方式</td><td>All-stock（SpaceX 增发）</td></tr>
+<tr><td>会计处理</td><td>Common control 追溯重述</td></tr>
+<tr><td>装入资产</td><td>xAI 全部（Colossus / Grok / GPU）</td></tr>
+<tr><td><strong>装入清算优先权</strong></td><td><strong>$317 亿</strong></td></tr>
+<tr><td>估值故事变化</td><td>航天 + 通信 → AI compute</td></tr>
+</tbody>
+</table>
+
+<p>按 common control 会计原则，xAI 的所有 GPU 投资、所有 Colossus 集群的折旧、所有训练 Grok 烧掉的电费——<strong>追溯重述进 SpaceX 报表，从 2023 年开始</strong>。一笔操作之后，xAI $317 亿优先股清算优先权直接进了 SpaceX 报表，估值故事从「航天 + 通信」升级成「AI compute」。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/s1-images/a02_elonquotexxaia.jpg" alt="Musk 关于 xAI 引言">
+<div class="fig-cap">S-1 · Musk 关于 xAI 的官方引言</div>
+</div>
+
+<p>合并完成的那一刻，<strong>「SpaceX 是火箭公司」这个心智在会计层面被悄悄改写</strong>。</p>
+
+<h3>2.3 融资线一句话</h3>
+
+<div class="callout">表面上 SpaceX 24 年只融了 100 亿——但拆开看，<strong>真正撑起来这家公司的是 4 个隐形 VC</strong>：美国政府预付的 121 亿、员工股反向回购吞掉的 65 亿、债务和 GPU 租赁净增的 136 亿、xAI 0 现金装入的 317 亿。</div>
+
+<p>"100 亿够用"不是因为 SpaceX 节俭，是因为有 4 个看不见的口袋在补。<strong>这些钱花到哪去了？</strong></p>
+</section>
+
+<section>
+<div class="section-head"><span class="section-num">03</span><h2>烧钱线：4 代火箭 + 3 业务的物理形态迁移</h2></div>
+
+<div class="know-block">
+<div class="know-block-label">这条线读完，你会知道</div>
+<ol>
+<li><strong>R&D 4 年完全颠倒</strong>：2023 年 73% 在 Space（造火箭公司），2026 Q1 已经 68% 在 AI（AI 公司）</li>
+<li><strong>Capex 76% 砸 AI 不是「转型」</strong>——是 AI 增长太快稀释老业务占比，火箭还在烧（绝对值仍在涨）</li>
+<li><strong>Falcon 9 单架 booster 飞 3 次就回本，后 27 次纯利</strong>——但 Space 段 2025 又亏 $6.6 亿，因为 <strong>Falcon 9 在补贴 Starship</strong></li>
+</ol>
+<table style="margin-top:14px;">
+<thead><tr><th>年份</th><th>R&D 大头</th><th>Capex 大头</th></tr></thead>
+<tbody>
+<tr><td><strong>2023</strong></td><td><strong>Space 73%</strong></td><td>Connectivity 56%</td></tr>
+<tr><td>2024</td><td>Space 53%</td><td>AI 51%</td></tr>
+<tr><td>2025</td><td>AI 59%</td><td>AI 61%</td></tr>
+<tr><td><strong>2026 Q1</strong></td><td><strong>AI 68%</strong></td><td><strong>AI 76%</strong></td></tr>
+</tbody>
+</table>
+<p style="margin:14px 0 0;font-weight:600;"><strong>SpaceX 的"灵魂" 4 年完全换了一个赛道</strong>——从造火箭公司变成 AI 公司，这是会计层面已经完成的事。</p>
+</div>
+
+<h3>3.1 资本开支占比 4 年颠倒——但这是表面</h3>
+
+<p>把 SpaceX 2023-2026 Q1 的资本开支按业务线拆开，会看到一张让人愣住的表：</p>
+
+<table>
+<thead><tr><th>年份</th><th>Space（火箭）</th><th>Connectivity（Starlink）</th><th>AI</th><th>总 Capex</th></tr></thead>
+<tbody>
+<tr><td>2023</td><td>$1,497M（33.9%）</td><td>$2,455M（55.6%）</td><td>$463M（10.5%）</td><td><strong>$4,415M</strong></td></tr>
+<tr><td>2024</td><td>$2,032M（18.2%）</td><td>$3,498M（31.3%）</td><td>$5,633M（50.5%）</td><td><strong>$11,163M</strong></td></tr>
+<tr><td>2025</td><td>$3,832M（18.5%）</td><td>$4,178M（20.1%）</td><td><strong>$12,727M（61.4%）</strong></td><td><strong>$20,737M</strong></td></tr>
+<tr><td><strong>2026 Q1</strong></td><td><strong>$1,052M（10.4%）</strong></td><td><strong>$1,332M（13.2%）</strong></td><td><strong>$7,723M（76.4%）</strong></td><td><strong>$10,107M</strong></td></tr>
+</tbody>
+</table>
+
+<p>火箭占比从 34% 跌到 10%，AI 从 10% 涨到 76%。<strong>这就是 § 0 第三个反认知数字「76% GPU」的答案</strong>——不是 SpaceX 转型不做火箭了，是 AI 这条线的烧钱速度太快，把其他两条占比稀释了。</p>
+
+<p>火箭 capex 的绝对值还在涨（2023 的 $15 亿 → 2025 的 $38 亿，翻了 2.5 倍），只是被 AI 这条新业务的爆炸式增长盖住了。但 capex 只是一半。<strong>真正告诉你 SpaceX 在烧什么的是 R&D</strong>。</p>
+
+<h3>3.2 R&D 占比 4 年完全颠倒——这是 SpaceX 灵魂换赛道</h3>
+
+<p>S-1 Note 19 分部表把 R&D 按业务线一字摆开：</p>
+
+<table>
+<thead><tr><th>期间</th><th>Space R&D</th><th>Connectivity R&D</th><th>AI R&D</th><th>集团合计</th></tr></thead>
+<tbody>
+<tr><td>2023</td><td>$1,538</td><td>$381</td><td>$186</td><td><strong>$2,105</strong></td></tr>
+<tr><td>2024</td><td>$1,835</td><td>$453</td><td>$1,176</td><td><strong>$3,464</strong></td></tr>
+<tr><td><strong>2025</strong></td><td><strong>$3,004</strong></td><td><strong>$575</strong></td><td><strong>$5,064</strong></td><td><strong>$8,643</strong></td></tr>
+<tr><td>2026 Q1</td><td>$930</td><td>$205</td><td><strong>$2,379</strong></td><td><strong>$3,514</strong></td></tr>
+</tbody>
+</table>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig08-rd-capex-share-flip.svg" alt="R&D 与 Capex 占比 4 年颠倒">
+<div class="fig-cap">FIG 08 · R&D + Capex 占比 4 年颠倒</div>
+</div>
+
+<p><strong>4 年时间，R&D 的"灵魂"完全换了一个赛道</strong>——2023 年 73% 的 R&D 砸在 Space（这是「造火箭公司」的财务证据），2025 年 59% 的 R&D 砸在 AI（这是「AI 公司」的财务证据）。</p>
+
+<p>要理解这个 73% Space R&D，需要看 S-1 一条会计政策（L9143）：</p>
+
+<blockquote>"Space segment's research and development ("R&D") expenses <strong>mainly relate to the development, build, and testing of Starship</strong>."</blockquote>
+
+<p>→ <strong>Space R&D ≈ Starship R&D</strong>——招股书自己背书的。</p>
+
+<p>意思是 2025 年 Starship 一个产品烧了 <strong>$30 亿研发</strong>，并且按会计准则是<strong>全部费用化</strong>（不进资产负债表）。这条规则有个隐含含义——<strong>Starship 一旦在 2026 H2 商业化，Space R&D 会断崖式下降</strong>（按 S-1 L9165-9167 规则，商业化后转为资本化，按交付载荷分摊）。</p>
+
+<h3>3.3 4 代火箭的生命周期：研发变短，现金流尾巴变长</h3>
+
+<p>SpaceX 这 24 年火箭一共做了 4 代产品：Falcon 1、Falcon 9、Falcon Heavy、Starship。每一代都有一条研发起点 → 首飞 → 首次商业 → 复用突破 → 退役的轨迹。把 4 条轨迹画到同一张时间轴上，能看到一条规律：</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig07-rocket-lifecycle-gantt.svg" alt="4 代火箭生命周期甘特图">
+<div class="fig-cap">FIG 07 · 4 代火箭生命周期 × 烧钱/收入</div>
+</div>
+
+<p>挑两个反认知点出来：</p>
+
+<p><strong>研发周期不一定变短</strong>——Falcon 1 用 4 年，Falcon 9 用 5 年，Falcon Heavy 用 7 年，Starship 首飞 4 年（首飞最快但商业化最慢）。</p>
+
+<p><strong>但现金流周期在大幅变长</strong>——Falcon 1 &lt; 1 年（失败退役），Falcon 9 <strong>运营 16 年仍在赚</strong>，Falcon Heavy 8 年仍在飞。<strong>Starship 还有 0 美元收入</strong>。</p>
+
+<p>2025 年 Falcon 9 + Heavy 全年发射 <strong>165 次</strong>——平均 <strong>2.2 天一发</strong>。43 次商业客户 + <strong>122 次自用</strong>（给 Starlink 部署）。</p>
+
+<h3>3.4 复用三口径打架——Falcon 9 经济模型的真正秘密</h3>
+
+<p>S-1 披露的一个细节，要花点篇幅讲清楚——<strong>Falcon 9 一根 booster 到底能飞几次？</strong></p>
+
+<p>三个权威方给出三个完全不同的答案：</p>
+
+<table>
+<thead><tr><th>口径</th><th>数字</th><th>谁定的</th></tr></thead>
+<tbody>
+<tr><td><strong>工程上限</strong></td><td><strong>34 次</strong></td><td>SpaceX 工程团队（已实证）</td></tr>
+<tr><td><strong>财务折旧上限</strong></td><td><strong>25 次</strong></td><td>SpaceX 会计（保守政策）</td></tr>
+<tr><td><strong>政府合同上限</strong></td><td><strong>≤ 5 次</strong></td><td>NASA / DoW（招标规则）</td></tr>
+</tbody>
+</table>
+
+<div class="fig-wrap">
+<img src="视觉物料/s1-images/a05_boosterreusabilitychart.jpg" alt="S-1 booster 复用次数曲线">
+<div class="fig-cap">S-1 · Falcon 9 booster 复用次数曲线</div>
+</div>
+
+<p>对投资人来说，这三个数字本质是一回事——<strong>单根 booster 全生命周期大约能飞 30 次</strong>。但这三个数字撞一起，造出了 SpaceX 的客户分层经济：</p>
+
+<table>
+<thead><tr><th>Booster 已飞次数</th><th>折旧状态</th><th>唯一适配客户</th><th>单次收入（行业估）</th></tr></thead>
+<tbody>
+<tr><td><strong>1-5 次</strong></td><td>折 4-20%</td><td><strong>政府高价合同</strong>（NASA / DoW）</td><td>$1-2 亿</td></tr>
+<tr><td>6-25 次</td><td>折 24-100%</td><td>商业卫星客户（SES / 铱星）</td><td>$6-7 千万</td></tr>
+<tr><td><strong>26-34 次</strong></td><td><strong>账面已归零</strong></td><td><strong>Starlink 自用</strong></td><td><strong>接近零成本</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>SpaceX 这家公司，把一根 booster 的一生拆成了 3 段</strong>——头 5 次给政府赚高价钱，中间 20 次给商业卫星赚正常钱，最后 9 次给 Starlink 自用基本免费。</p>
+
+<p>这解释了 2024/2025 Launch Services 收入持平在 $25.8 亿一件诡异的事——不是 SpaceX 火箭飞少了，<strong>是更多 booster 进入了"折旧已归零"阶段，单价跟着降</strong>。但同一根火箭多飞一次的边际成本接近零，<strong>等于把这部分价值偷偷转给了 Starlink 部署成本下降</strong>。</p>
+
+<h3>3.5 单架 booster 回本（粗框架，细节留 Ep3）</h3>
+
+<p>这一段只给框架性结论，所有具体参数留给下一篇 Ep3 火箭经济计算器：</p>
+
+<table>
+<thead><tr><th>项</th><th>估值</th><th>数据性质</th></tr></thead>
+<tbody>
+<tr><td>Booster 单架造价</td><td>$35M</td><td>行业共识，S-1 未披露</td></tr>
+<tr><td>项目早期分摊（R&D + 工厂 + 发射台）</td><td>≈ $8.5B / 40-50 架 = 每架 $200M</td><td>推算</td></tr>
+<tr><td>单架真实成本（含分摊）</td><td><strong>≈ $225M</strong></td><td>估算</td></tr>
+<tr><td>全生命周期飞行次数</td><td><strong>约 30 次</strong></td><td>S-1 工程口径</td></tr>
+<tr><td><strong>回本所需飞行次数</strong></td><td><strong>约 3 次政府发射</strong></td><td>简化模型</td></tr>
+<tr><td>后续纯利次数</td><td><strong>27 次</strong></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p>→ Falcon 9 单架 booster 飞 3 次回本，后 27 次基本是纯利。<strong>项目层面，Falcon 9 在 2017-2018 完成回本</strong>（复用例行化时点）。</p>
+
+<h3>3.6 但 Space 段 2025 又转回亏损——Falcon 9 在补贴 Starship</h3>
+
+<p>讲到这里有一个看起来矛盾的事实需要回应——<strong>Falcon 9 既然这么赚钱，为什么 Space 段 2025 年又亏了 $6.6 亿？</strong></p>
+
+<table>
+<thead><tr><th>年份</th><th>Space OI</th></tr></thead>
+<tbody>
+<tr><td>2023</td><td>$(1)M</td></tr>
+<tr><td>2024</td><td><strong>+$21M（刚转正）</strong></td></tr>
+<tr><td><strong>2025</strong></td><td><strong>−$657M（被 Starship 拖回亏损）</strong></td></tr>
+</tbody>
+</table>
+
+<p>答案在 § 3.2——<strong>Space R&D ≈ Starship R&D</strong>。Falcon 9 早就回本了，但 Space 段把 Falcon 9 的纯利全部喂给了 Starship 的烧钱黑洞：2025 Space R&D <strong>$30 亿</strong>（基本上全部是 Starship 烧的），Space Capex <strong>$38 亿</strong>（一部分给 Starship 基建），合计烧钱 <strong>$68 亿</strong>。而 Falcon 9 + Heavy 那条赚钱的腿——Launch Services 收入只有 $25.8 亿。</p>
+
+<div class="callout"><strong>Falcon 9 的纯利第一站，是补贴 Starship。</strong>这是「内部补贴链」的第一段。补贴链延伸到下一站会变得更刺眼——所有这些火箭+Starlink+AI 的烧钱，最终都要落到 § 4 现金流线上。</div>
+
+<h3>3.7 接下篇 Ep3 火箭经济计算器</h3>
+
+<ul>
+<li>Falcon 9 单 booster 飞过 34 次，财务上只按 25 次折旧——多飞的 9 次是「纯利润」</li>
+<li>Falcon Heavy 平均每个 booster 飞了 6 次，单次 $/kg 跌到 $1,400</li>
+<li><strong>Starship 还没飞起来，但目标是把 $/kg 再砍 90%——这个数字一旦实现，整个 SpaceX 的资本开支模型会被改写</strong></li>
+</ul>
+
+<p>下一篇 <strong>Ep3：火箭经济计算器</strong>——输入复用次数、Starship 量产年产量、单次燃料成本，输出单 kg 入轨成本、单次毛利、Starlink 部署速度、轨道数据中心可行性。</p>
+</section>
+
+<section>
+<div class="section-head"><span class="section-num">04</span><h2>现金流线：补贴链全景，2025 撕裂</h2></div>
+
+<div class="know-block">
+<div class="know-block-label">这条线读完，你会知道</div>
+<ol>
+<li><strong>2024 集团 FCF 已经转负</strong>（−$54 亿）——比 xAI 合并早 2 年</li>
+<li><strong>只有 Starlink 是健康赛道</strong>（烧/收比 42%），Space 是 167%，AI 是 556%</li>
+<li><strong>集团补贴链 2025 断了</strong>——OCF 只能盖 8% 烧钱，剩下 92% 靠融资 + 债务补</li>
+<li><strong>账上 $167 亿，按 2026 Q1 速度撑不到 2 个季度</strong>——IPO 是物理必然</li>
+</ol>
+</div>
+
+<div class="chain-block">
+<div class="chain-block-label">SUBSIDY CHAIN</div>Starlink (一年产 EBITDA $7.2B)
+    ↓
+补贴 Space（养 Starship $30 亿 R&D）
+    ↓
+Space + Starlink 合计 EBITDA $7.8B
+    ↓
+补贴 AI（一年烧 $179 亿）
+    ↓
+2025 集团 FCF -$140 亿 / 2026 Q1 单季 -$91 亿
+    ↓
+现金 $25B → $16.6B（一季度蒸发 $8.5B）
+    ↓
+IPO 必须发生
+</div>
+
+<h3>4.1 集团 FCF 4 年画像</h3>
+
+<p>把 SpaceX 的经营现金流（OCF）− 资本开支（Capex）= 自由现金流（FCF）逐年算出来：</p>
+
+<table>
+<thead><tr><th>年份</th><th>OCF</th><th>Capex</th><th>FCF</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>2023</td><td>$4,520M</td><td>$4,415M</td><td><strong>+$105M</strong></td><td>几近持平</td></tr>
+<tr><td>2024</td><td>$5,776M</td><td>$11,163M</td><td><strong>−$5,387M</strong></td><td>已转负</td></tr>
+<tr><td>2025</td><td>$6,785M</td><td>$20,737M</td><td><strong>−$13,952M</strong></td><td>急剧扩大</td></tr>
+<tr><td><strong>2026 Q1</strong></td><td>$1,047M</td><td>$10,107M</td><td><strong>−$9,060M（单季）</strong></td><td>年化 −$36B</td></tr>
+</tbody>
+</table>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig09-oldbiz-vs-ai-mirror.svg" alt="老业务 FCF vs AI 烧钱 镜像柱">
+<div class="fig-cap">FIG 09 · 老业务 FCF vs AI 烧钱 4 期镜像柱</div>
+</div>
+
+<p>2024 已经是拐点——一切发生在合并 xAI 之前。<strong>2024 集团 FCF -$54 亿，2025 -$140 亿，2026 Q1 一个季度就 -$91 亿</strong>。</p>
+
+<h3>4.2 烧钱效率矩阵——SpaceX 在被自己甩开</h3>
+
+<p>把 R&D 和 Capex 加起来作为「真实总烧钱」，对照收入和 OCF：</p>
+
+<table>
+<thead><tr><th>期间</th><th>R&D + Capex</th><th>Revenue</th><th>烧/收比</th><th>OCF/烧</th></tr></thead>
+<tbody>
+<tr><td>2023</td><td>$6,520M</td><td>$10,387M</td><td><strong>63%</strong></td><td><strong>69%</strong></td></tr>
+<tr><td>2024</td><td>$14,627M</td><td>$14,015M</td><td><strong>104%</strong></td><td><strong>39%</strong></td></tr>
+<tr><td>2025</td><td>$29,380M</td><td>$18,674M</td><td><strong>157%</strong></td><td><strong>23%</strong></td></tr>
+<tr><td><strong>2026 Q1</strong></td><td><strong>$13,621M</strong></td><td><strong>$4,694M</strong></td><td><strong>290%</strong></td><td><strong>8%</strong></td></tr>
+</tbody>
+</table>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig10-burn-efficiency.svg" alt="烧钱效率 4 期对比">
+<div class="fig-cap">FIG 10 · 烧钱效率 4 期对比 · OCF 只能盖 8%</div>
+</div>
+
+<p>三个反认知数字：</p>
+<ul>
+<li><strong>2024 年开始，SpaceX 烧的钱已经超过收入</strong>（104%）</li>
+<li><strong>2025 年烧钱是收入的 1.57 倍</strong></li>
+<li><strong>2026 Q1 烧钱是收入的 2.9 倍</strong>——经营现金流只能盖 8% 烧钱，92% 靠融资和债务补</li>
+</ul>
+
+<p>这就是「不上市撑不下去」的真实尺度。</p>
+
+<h3>4.3 分部口径——只有 Starlink 健康</h3>
+
+<p>把 R&D + Capex / Revenue 这个比率按分部拆开（2025 年）：</p>
+
+<table>
+<thead><tr><th>维度</th><th>Space</th><th>Connectivity（Starlink）</th><th>AI</th></tr></thead>
+<tbody>
+<tr><td>Revenue</td><td>$4,086M</td><td>$11,387M</td><td>$3,201M</td></tr>
+<tr><td>R&D + Capex</td><td>$6,836M</td><td>$4,753M</td><td>$17,791M</td></tr>
+<tr><td><strong>烧/收比</strong></td><td><strong>167%</strong></td><td><strong>42%</strong></td><td><strong>556%</strong></td></tr>
+<tr><td>Adj. EBITDA</td><td>$653M</td><td><strong>$7,168M</strong></td><td>$(1,237)M</td></tr>
+</tbody>
+</table>
+
+<ul>
+<li><strong>Connectivity（Starlink）是唯一健康的赛道</strong>——烧钱只占收入 42%，一年产 EBITDA <strong>72 亿</strong></li>
+<li>Space（火箭）烧钱是收入 1.67 倍——Starship 在吃钱</li>
+<li><strong>AI 烧钱是收入 5.56 倍</strong>——典型早期烧钱赛道</li>
+<li>AI 一个分部吃了集团 60% 的 R&D + 61% 的 Capex</li>
+</ul>
+
+<h3>4.4 集团补贴链：Starlink → Space → AI</h3>
+
+<p>把 2025 年 Adj. EBITDA 按分部排开，看每一条业务是给钱的还是吃钱的：</p>
+
+<table>
+<thead><tr><th>分部</th><th>2023</th><th>2024</th><th>2025</th><th>角色</th></tr></thead>
+<tbody>
+<tr><td>Space（火箭+Starship）</td><td>$997M</td><td>$1,154M</td><td><strong>$653M</strong></td><td>小额贡献，被 Starship 拖累</td></tr>
+<tr><td>Connectivity（Starlink）</td><td>$1,602M</td><td>$3,849M</td><td><strong>$7,168M</strong></td><td><strong>造血主力</strong></td></tr>
+<tr><td>AI（xAI + X）</td><td>$1,222M</td><td>$347M</td><td><strong>$(1,237)M</strong></td><td><strong>吞噬黑洞</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>剔除 AI 看老业务</strong>：Space + Connectivity 2025 年合计经营利润 $3.77B（4,423 − 657）。<strong>老业务实际在补贴 AI 的烧钱</strong>。</p>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig11-subsidy-chain.svg" alt="集团补贴链全景">
+<div class="fig-cap">FIG 11 · 集团补贴链 Starlink → Space → AI</div>
+</div>
+
+<h3>4.5 现金倒计时：不到 2 个季度</h3>
+
+<p>最后看现金画像——这是 IPO 的物理理由：</p>
+
+<table>
+<thead><tr><th>时点</th><th>现金（含受限）</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>2025-12-31</td><td><strong>$25,124M</strong></td><td>募资 + xAI 装入推高</td></tr>
+<tr><td><strong>2026-03-31</strong></td><td><strong>$16,608M</strong></td><td>一个季度净流失 $8.5B</td></tr>
+</tbody>
+</table>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig12-runway-countdown.svg" alt="1.8 季度倒计时">
+<div class="fig-cap">FIG 12 · 现金 $16.6B / 单季烧 $9.1B = 1.8 季度</div>
+</div>
+
+<div class="callout"><strong>这就是 IPO 排在 2026 年 6 月的真实原因</strong>。不是「想不想上市」——是不上市撑不到 2026 年底。</div>
+</section>
+
+<section>
+<div class="section-head"><span class="section-num">05</span><h2>收口：三个数字的真正答案 + IPO 的真名</h2></div>
+
+<h3>5.1 三个数字的答案（呼应 § 0）</h3>
+
+<p>回到第一段那三个让人愣住的数字：</p>
+
+<table>
+<thead><tr><th>反认知数字</th><th>答案</th><th>在哪一节</th></tr></thead>
+<tbody>
+<tr><td><strong>20 年只融了 $65 亿</strong></td><td>因为有 4 个隐形 VC——政府预付 $121 亿 + 反向回购吞掉 $66 亿 + 债务 $136 亿 + xAI 装入 $317 亿</td><td>§ 2</td></tr>
+<tr><td><strong>Musk 投票权 85.1%</strong></td><td>dual-class Class B 10:1 + Musk 24 年没在任何融资环节出让控制权</td><td>§ 2.1</td></tr>
+<tr><td><strong>2026 Q1 capex 76% 砸 AI</strong></td><td>AI 这条线增长太快淹没了老业务占比，<strong>不是转型，是 AI 业务接管了 SpaceX</strong></td><td>§ 3</td></tr>
+</tbody>
+</table>
+
+<p>但 § 0 真正问的不是这三个数字，是后面那三个矛盾：</p>
+
+<table>
+<thead><tr><th>矛盾</th><th>答案</th></tr></thead>
+<tbody>
+<tr><td>最便宜火箭工厂、最赚钱卫星互联网、最忠诚政府客户——为什么 2026 Q1 FCF -$90 亿？</td><td>集团补贴链：Starlink → Space（养 Starship）→ AI（烧 $179 亿）</td></tr>
+<tr><td>账上 $167 亿，为什么撑不到 2 个季度？</td><td>单季 FCF -$91 亿，年化 -$364 亿</td></tr>
+<tr><td><strong>为什么 2026 年 6 月必须 IPO？</strong></td><td><strong>内部补贴链 2025 年断了——OCF 只能盖 8% 烧钱</strong></td></tr>
+</tbody>
+</table>
+
+<div class="fig-wrap">
+<img src="视觉物料/Ep1-fig13-three-answers-card.svg" alt="三数字三答案对照卡">
+<div class="fig-cap">FIG 13 · 三个数字 三个答案</div>
+</div>
+
+<h3>5.2 IPO 的真名 = 给 AI 数据中心找钱</h3>
+
+<p>把 § 0 那句话兑现：</p>
+
+<div class="callout">SpaceX 不是航天公司想找钱搞 AI，是一家已经被 AI 业务接管的公司，正在用最后一笔 IPO 给 GPU 数据中心续命。</div>
+
+<p>AI 在 2025 年烧了 R&D <strong>$50.6 亿</strong> + Capex <strong>$127.3 亿</strong> = 合计 <strong>$177.9 亿</strong>。年化 2026 Q1 速度跑到 <strong>$300 亿+</strong>——<strong>已经超过 Musk 24 年所有股权融资 + 4 个隐形 VC 的总和</strong>。</p>
+
+<p>私募市场撑不住这个量级。所以 2026 年 6 月这场 IPO——<strong>本质上是给 AI 数据中心找钱</strong>。</p>
+
+<p>S-1 第 6942 行原文给出了官方排序：</p>
+
+<blockquote>"We intend to use the net proceeds from this offering to fund our growth strategy, including:<br>
+<strong>(1) the expansion of our AI compute infrastructure,</strong><br>
+(2) enhancements to our launch infrastructure and launch vehicles,<br>
+(3) increases in the scale and capacity of our satellite constellations,<br>
+and (4) any remaining amounts for general corporate purposes."</blockquote>
+
+<p><strong>AI 排第 1。火箭排第 2。Starlink 排第 3。</strong></p>
+
+<div class="fig-wrap">
+<img src="视觉物料/s1-images/a06_missionstatementa.jpg" alt="S-1 使命陈述">
+<div class="fig-cap">S-1 · 使命陈述</div>
+</div>
+
+<h3>5.3 跟踪信号</h3>
+
+<div class="signal">
+<div class="signal-label">FOUR FALSIFIABLE SIGNALS</div>
+<table style="margin:0;">
+<thead><tr><th>#</th><th>信号</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>IPO 后第 1 年 SpaceX 再融资节奏</td><td>看 AI 烧钱是否超出 IPO 募资覆盖</td></tr>
+<tr><td>2</td><td>Term Loan 偿还进度（S-1 L10998 强制条款）</td><td>强制还债占募资的比例</td></tr>
+<tr><td>3</td><td>xAI / Anthropic 续约信号</td><td>AI 收入线能否撑住估值</td></tr>
+<tr><td>4</td><td><strong>Starship 商业化时点（预计 2026 H2）</strong></td><td>一旦商业化，Space R&D 会断崖式下降，集团 FCF 会有显著改善</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>5.4 留给读者的悬念 → 下篇预告</h3>
+
+<p>这一篇拆「钱怎么撑下来的」——融资线、烧钱线、现金流线三条平行轨道。</p>
+
+<p>但读到这里你可能有个直觉的疑问：</p>
+
+<blockquote>Falcon 9 单架 booster 飞 3 次就回本，后 27 次纯利。2025 年发射 165 次，平均 2.2 天 1 发。这台赚钱机器只会越转越快——<strong>那为什么 Space 段反而 2025 又亏了 $6.6 亿？SpaceX 未来的利润，到底会变好还是变坏？</strong></blockquote>
+
+<p>答案不在「火箭多便宜」，在「<strong>Musk 把火箭赚的钱拿去做什么了</strong>」。</p>
+
+<p>下一篇 <strong>Ep2：拆完 SpaceX 收入——Musk 在卖三样东西，下一个赌的是 AI 算力</strong>。5 条收入线分部模型（发射服务 / Starlink C 端 / Starlink 企业级 / X 广告 / xAI 算力租赁）+ AI 算力卖铲人推演——同时回答「钱怎么挣回来」+「未来利润趋势」两个问题。</p>
+</section>
+
+<div class="takeaway">
+<div class="takeaway-label">这一篇的三个核心反认知</div>
+<ol>
+<li><strong>20 年只融 $65 亿不是「省钱」</strong>——是有 4 个隐形 VC 在补血，最大的 VC 是美国政府。</li>
+<li><strong>76% capex 砸 AI 不是「转型」</strong>——是 AI 一条线的爆炸式增长稀释了老业务占比，火箭还在烧（只是被盖住了）。</li>
+<li><strong>IPO 不是「想不想」</strong>——是内部补贴链 2025 年断了。Falcon 9 补 Starship、Starlink 补 AI，但 AI 这条线一年烧 $300 亿，超过 24 年所有融资+隐形 VC 的总和。</li>
+</ol>
+</div>
+
+<div style="margin:32px 0 0;padding:18px;background:#FFFEFB;border-left:4px solid #E30613;">
+<p style="margin:0 0 8px;font-weight:600;font-size:16px;">系列下一篇（Ep2）：拆完 SpaceX 收入——Musk 在卖三样东西，下一个赌的是 AI 算力</p>
+<p style="margin:0;font-size:13px;color:#8a8784;">5/29 见</p>
+</div>
+
+<div class="footer">
+独立研究笔记 · 不构成投资建议<br>
+数据基于 SpaceX S-1（2026-05-20）及公开 M7 财报<br>
+单架 booster 经济模型部分为行业估算，详见 Ep3 火箭经济计算器
+</div>
+
+</article>
+</body>
+</html>

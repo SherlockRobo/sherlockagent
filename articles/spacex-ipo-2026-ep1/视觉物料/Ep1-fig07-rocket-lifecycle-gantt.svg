@@ -1,0 +1,125 @@
+<svg width="100%" viewBox="0 0 680 920" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SpaceX 4 代火箭生命周期甘特图 白底版</title>
+<desc>白底版——4 代火箭在 24 年时间轴上的研发期 / 商业期 / 复用期；右侧补充每代烧多少钱、收入多少、回本状态</desc>
+
+<rect x="0" y="0" width="680" height="920" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 07</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">FOUR GENERATIONS · LIFECYCLE × ECONOMICS</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">4 代火箭生命周期 × 烧钱/收入</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">研发→首飞→商业化→复用 + 每代烧多少 / 赚多少</text>
+
+<rect x="510" y="170" width="14" height="10" fill="#d8b8b8"/>
+<text x="528" y="179" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#555555">研发期</text>
+<rect x="510" y="186" width="14" height="10" fill="#9ab4d8"/>
+<text x="528" y="195" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#555555">商业运营</text>
+<rect x="510" y="202" width="14" height="10" fill="#88c4a0"/>
+<text x="528" y="211" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#555555">复用成熟期</text>
+<rect x="616" y="170" width="14" height="10" fill="#E30613"/>
+<text x="634" y="179" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#555555" text-anchor="end">未商业化烧钱</text>
+
+<text x="156" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2002</text>
+<text x="216" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2006</text>
+<text x="276" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2010</text>
+<text x="336" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2014</text>
+<text x="396" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2018</text>
+<text x="456" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2022</text>
+<text x="516" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#555555" text-anchor="middle">2024</text>
+<text x="576" y="248" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" fill="#E30613" text-anchor="middle">2026</text>
+
+<line x1="150" y1="258" x2="640" y2="258" stroke="#d8d4cc" stroke-width="0.5"/>
+<line x1="156" y1="258" x2="156" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="216" y1="258" x2="216" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="276" y1="258" x2="276" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="336" y1="258" x2="336" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="396" y1="258" x2="396" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="456" y1="258" x2="456" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="516" y1="258" x2="516" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+<line x1="576" y1="258" x2="576" y2="850" stroke="#ece8e0" stroke-width="0.5"/>
+
+<text x="40" y="298" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#111111">Falcon 1</text>
+<text x="40" y="316" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="9" fill="#8a8784">2002—2009</text>
+
+<rect x="156" y="305" width="60" height="22" fill="#d8b8b8"/>
+<rect x="216" y="305" width="60" height="22" fill="#9ab4d8"/>
+<line x1="276" y1="305" x2="290" y2="295" stroke="#aa4444" stroke-width="0.5" stroke-dasharray="2,2"/>
+<text x="292" y="293" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#aa4444">2009 退役</text>
+<text x="246" y="320" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="9" fill="#111111" text-anchor="middle">2008 首成 · 5 次发射</text>
+
+<text x="478" y="316" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#aa4444" letter-spacing="1.5px">烧</text>
+<text x="492" y="316" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#aa4444">$~1 亿</text>
+<text x="540" y="316" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">收</text>
+<text x="554" y="316" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#aa4444">$0（失败品）</text>
+
+<line x1="40" y1="340" x2="640" y2="340" stroke="#ece8e0" stroke-width="0.5"/>
+
+<text x="40" y="378" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#111111">Falcon 9</text>
+<text x="40" y="396" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="9" fill="#8a8784">2005—2026+</text>
+
+<rect x="216" y="385" width="60" height="22" fill="#d8b8b8"/>
+<rect x="276" y="385" width="60" height="22" fill="#9ab4d8"/>
+<rect x="336" y="385" width="60" height="22" fill="#9ab4d8"/>
+<rect x="396" y="385" width="244" height="22" fill="#88c4a0"/>
+<line x1="336" y1="385" x2="336" y2="375" stroke="#22aa55" stroke-width="0.5"/>
+<text x="336" y="372" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#22aa55" text-anchor="middle">2017 例行复用</text>
+<text x="518" y="400" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="500" fill="#111111" text-anchor="middle">2.2 天 1 发 · 2025 全年 165 次</text>
+
+<text x="40" y="420" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#aa4444" letter-spacing="1.5px">研发烧</text>
+<text x="80" y="420" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#aa4444">$~50 亿</text>
+<text x="155" y="420" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">累计收入</text>
+<text x="206" y="420" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#22aa55">$250-300 亿+</text>
+<text x="320" y="420" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">回本</text>
+<text x="352" y="420" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#22aa55">2017-2018</text>
+<text x="430" y="420" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">单 booster 飞 1 次回本，34 次寿命</text>
+
+<line x1="40" y1="440" x2="640" y2="440" stroke="#ece8e0" stroke-width="0.5"/>
+
+<text x="40" y="478" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#111111">Falcon Heavy</text>
+<text x="40" y="496" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="9" fill="#8a8784">2011—2026+</text>
+
+<rect x="291" y="485" width="105" height="22" fill="#d8b8b8"/>
+<rect x="396" y="485" width="244" height="22" fill="#88c4a0"/>
+<text x="396" y="479" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#22aa55" text-anchor="middle">2018-02 首飞</text>
+<text x="518" y="500" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="500" fill="#111111" text-anchor="middle">11 次 100% 成功 · 平均每 booster 飞 6 次</text>
+
+<text x="40" y="520" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#aa4444" letter-spacing="1.5px">研发烧</text>
+<text x="80" y="520" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="500" fill="#aa4444">$~5-7 亿</text>
+<text x="155" y="520" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">累计收入</text>
+<text x="206" y="520" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#22aa55">$~15 亿（11 次 × $1-1.5 亿）</text>
+<text x="430" y="520" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">复用基础设施跟 F9 共享 · 边际成本低</text>
+
+<line x1="40" y1="540" x2="640" y2="540" stroke="#ece8e0" stroke-width="0.5"/>
+
+<text x="40" y="578" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#E30613">Starship</text>
+<text x="40" y="596" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="9" fill="#8a8784">2019—未商业化</text>
+
+<rect x="411" y="585" width="180" height="22" fill="#d8b8b8"/>
+<rect x="591" y="585" width="49" height="22" fill="#E30613"/>
+<text x="456" y="579" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#111111" text-anchor="middle">2023 首飞</text>
+<text x="591" y="579" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#E30613" text-anchor="middle">2026 H2 商业化预期</text>
+<text x="500" y="600" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="10" font-weight="500" fill="#111111" text-anchor="middle">11 次飞测 · 入轨 0 次</text>
+
+<text x="40" y="620" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#aa4444" letter-spacing="1.5px">累计烧</text>
+<text x="80" y="620" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#E30613">$80-100 亿（R&D + Capex 估）</text>
+<text x="290" y="620" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">累计收入</text>
+<text x="340" y="620" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="11" font-weight="700" fill="#E30613">$0（all internal）</text>
+<text x="470" y="620" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#7a7a80" letter-spacing="1.5px">商业化后转资本化</text>
+
+<line x1="40" y1="650" x2="640" y2="650" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<rect x="40" y="676" width="600" height="120" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="60" y="700" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="2px">PATTERN · 两条规律</text>
+
+<text x="60" y="724" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="400" fill="#111111">① 研发周期没变短 ——</text>
+<text x="220" y="724" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="500" fill="#111111">F1 4 年 / F9 5 年 / FH 7 年 / Starship 4 年首飞</text>
+
+<text x="60" y="748" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="400" fill="#111111">② 现金流尾巴变长 ——</text>
+<text x="220" y="748" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="13" font-weight="500" fill="#111111">F9 飞 16 年仍在赚，单 booster 最多飞 34 次</text>
+
+<text x="60" y="780" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#E30613">Starship 还没飞起来 —— 但目标 $/kg 再砍 90%，整个资本开支模型会被改写</text>
+
+<line x1="40" y1="820" x2="640" y2="820" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="844" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" letter-spacing="1.5px">研发烧钱为行业估算（S-1 未拆分产品级数据）</text>
+<text x="640" y="844" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" letter-spacing="1.5px" text-anchor="end">SOURCE: S-1 L1531 / L1583 / L8178 + 行业共识</text>
+</svg>

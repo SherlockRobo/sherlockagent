@@ -1,0 +1,40 @@
+<svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SpaceX 现金倒计时 1.8 季度</title>
+<desc>2026-03-31 现金 $16.6B，单季 FCF -$9.06B，可撑 1.8 季度</desc>
+
+<rect x="0" y="0" width="680" height="620" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 12</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">CASH RUNWAY · COUNTDOWN</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">现金倒计时</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">不是 8 个季度——按当前烧钱速度，是 1.8 个季度</text>
+
+<rect x="40" y="186" width="600" height="100" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="60" y="212" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#8a8784" letter-spacing="2px">CASH BALANCE</text>
+<text x="60" y="252" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#555555">2025-12-31</text>
+<text x="220" y="252" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="20" font-weight="500" fill="#111111">$25.1B</text>
+<text x="380" y="252" font-family="'Noto Serif SC','Songti SC',serif" font-size="12" fill="#aa3322">→ 单季蒸发 $8.5B →</text>
+<text x="60" y="274" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#E30613">2026-03-31</text>
+<text x="220" y="274" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="20" font-weight="700" fill="#E30613">$16.6B</text>
+<text x="620" y="274" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" text-anchor="end" letter-spacing="1px">S-1 L22834</text>
+
+<rect x="40" y="310" width="290" height="220" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="60" y="338" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#8a8784" letter-spacing="2px">BURN RATE</text>
+<text x="60" y="372" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#555555">2026 Q1 单季 FCF</text>
+<text x="60" y="416" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="44" font-weight="700" fill="#E30613">−$9.1B</text>
+<text x="60" y="446" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#555555">年化烧钱速度</text>
+<text x="60" y="476" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="22" font-weight="500" fill="#aa3322">−$36B / 年</text>
+<text x="60" y="508" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" letter-spacing="1px">OCF 只能盖 8% 烧钱</text>
+
+<rect x="350" y="310" width="290" height="220" fill="#fdecec" stroke="#E30613" stroke-width="1.5"/>
+<text x="370" y="338" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="2px">RUNWAY</text>
+<text x="495" y="412" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="84" font-weight="700" fill="#E30613" text-anchor="middle">1.8</text>
+<text x="495" y="442" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111" text-anchor="middle">个季度</text>
+<text x="495" y="478" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#aa3322" text-anchor="middle">折合 5.4 个月</text>
+<text x="495" y="510" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" text-anchor="middle" letter-spacing="1px">$16.6B ÷ $9.1B/季</text>
+
+<line x1="40" y1="554" x2="640" y2="554" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="584" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#E30613">这就是 IPO 排在 2026 年 6 月的真实原因——不上市撑不到 2026 年底</text>
+<text x="640" y="608" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" text-anchor="end" letter-spacing="1.5px">SOURCE: S-1 L2909 / L22834</text>
+</svg>

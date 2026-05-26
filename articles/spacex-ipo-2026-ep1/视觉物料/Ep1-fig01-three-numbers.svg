@@ -1,0 +1,42 @@
+<svg width="100%" viewBox="0 0 680 1100" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SpaceX 三个反认知数字 白底版</title>
+<desc>三个标志性数字白底版——$6.5B / 85.1% / 76%</desc>
+
+<rect x="0" y="0" width="680" height="1100" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · PROSPECTUS BREAKDOWN</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">THREE NUMBERS THAT DON'T ADD UP</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">三个让人愣住的数字——</text>
+
+<rect x="40" y="170" width="3" height="190" fill="#E30613"/>
+<text x="62" y="200" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">FACT 01</text>
+<text x="640" y="200" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#8a8784" letter-spacing="1.5px" text-anchor="end">S-1 / L25238</text>
+<text x="62" y="298" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="104" font-weight="700" fill="#111111" letter-spacing="-3px">$6.5B</text>
+<text x="62" y="334" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="500" fill="#111111">SpaceX 主体 20 年股权融资清算优先权</text>
+<text x="62" y="360" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="400" fill="#555555">OpenAI 一轮就超过这个数</text>
+<line x1="40" y1="400" x2="640" y2="400" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<rect x="40" y="430" width="3" height="190" fill="#E30613"/>
+<text x="62" y="460" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">FACT 02</text>
+<text x="640" y="460" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#8a8784" letter-spacing="1.5px" text-anchor="end">S-1 / L19857</text>
+<text x="62" y="558" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="104" font-weight="700" fill="#111111" letter-spacing="-3px">85.1%</text>
+<text x="62" y="594" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="500" fill="#111111">Musk IPO 前投票权</text>
+<text x="62" y="620" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="400" fill="#555555">持股稀释到 12.3%，投票权反弹回 85.1%</text>
+<line x1="40" y1="660" x2="640" y2="660" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<rect x="40" y="690" width="3" height="190" fill="#E30613"/>
+<text x="62" y="720" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#E30613" letter-spacing="2px">FACT 03</text>
+<text x="640" y="720" font-family="'Inter','Helvetica Neue',sans-serif" font-size="11" font-weight="500" fill="#8a8784" letter-spacing="1.5px" text-anchor="end">S-1 / L2884</text>
+<text x="62" y="818" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="104" font-weight="700" fill="#111111" letter-spacing="-3px">76%</text>
+<text x="62" y="854" font-family="'Noto Serif SC','Songti SC',serif" font-size="22" font-weight="500" fill="#111111">2026 Q1 资本开支砸向 AI 数据中心</text>
+<text x="62" y="880" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="400" fill="#555555">火箭 10% · 卫星 13% · AI 76%</text>
+<line x1="40" y1="920" x2="640" y2="920" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<text x="40" y="970" font-family="'Noto Serif SC','Songti SC',serif" font-size="24" font-weight="500" fill="#111111">三个数字之间是矛盾的——</text>
+<text x="40" y="1006" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="400" fill="#555555">最便宜火箭工厂、最赚钱卫星互联网、最忠诚政府客户</text>
+<text x="40" y="1034" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="500" fill="#E30613">为什么 2026 Q1 自由现金流 −$91 亿，现金撑不到 2 个季度？</text>
+
+<line x1="40" y1="1064" x2="640" y2="1064" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="1086" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="400" fill="#888888" letter-spacing="1.5px">SOURCE: SPACEX S-1 (2026-05-20) · 谷德禄氪</text>
+</svg>

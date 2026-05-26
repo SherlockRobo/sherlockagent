@@ -1,0 +1,45 @@
+<svg width="100%" viewBox="0 0 680 720" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>三数字三答案对照卡</title>
+<desc>$6.5B / 85.1% / 76% 三个反认知数字的最终答案</desc>
+
+<rect x="0" y="0" width="680" height="720" fill="#FAF8F5"/>
+
+<text x="40" y="44" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · FIG 13</text>
+<line x1="40" y1="58" x2="640" y2="58" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="92" font-family="'Inter','Helvetica Neue',sans-serif" font-size="12" font-weight="400" fill="#8a8784" letter-spacing="1px">THREE NUMBERS · ANSWERED</text>
+<text x="40" y="120" font-family="'Noto Serif SC','Songti SC',serif" font-size="20" font-weight="500" fill="#111111">三个数字 三个答案</text>
+<text x="40" y="146" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">回到开头那三个让人愣住的数字，正文的答案</text>
+
+<rect x="40" y="180" width="600" height="150" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<rect x="40" y="180" width="3" height="150" fill="#E30613"/>
+<text x="62" y="210" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="2px">FACT 01</text>
+<text x="62" y="252" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="36" font-weight="700" fill="#111111">$6.5B</text>
+<text x="62" y="276" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#555555">SpaceX 主体 20 年股权融资</text>
+<text x="240" y="252" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111">答案：4 个隐形 VC 在补血</text>
+<text x="240" y="276" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="12" fill="#555555">政府预付 $121B + 反向回购 $66B + 债务 $136B + xAI $317B</text>
+<text x="240" y="306" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" letter-spacing="1px">→ § 2 融资线</text>
+
+<rect x="40" y="350" width="600" height="150" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<rect x="40" y="350" width="3" height="150" fill="#E30613"/>
+<text x="62" y="380" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="2px">FACT 02</text>
+<text x="62" y="422" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="36" font-weight="700" fill="#111111">85.1%</text>
+<text x="62" y="446" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#555555">Musk IPO 前投票权</text>
+<text x="240" y="422" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111">答案：dual-class 魔术</text>
+<text x="240" y="446" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="12" fill="#555555">Class B 每股 10 票 + 期权可行使</text>
+<text x="240" y="466" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="12" fill="#555555">Musk 24 年没在任何融资环节出让控制权</text>
+<text x="240" y="490" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" letter-spacing="1px">→ § 2.6 dual-class + § 5 controlled company</text>
+
+<rect x="40" y="520" width="600" height="150" fill="#FFFEFB" stroke="#d8d4cc" stroke-width="0.5"/>
+<rect x="40" y="520" width="3" height="150" fill="#E30613"/>
+<text x="62" y="550" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="2px">FACT 03</text>
+<text x="62" y="592" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="36" font-weight="700" fill="#111111">76%</text>
+<text x="62" y="616" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" fill="#555555">2026 Q1 Capex 砸 AI</text>
+<text x="240" y="592" font-family="'Noto Serif SC','Songti SC',serif" font-size="13" font-weight="500" fill="#111111">答案：不是「转型」是「接管」</text>
+<text x="240" y="616" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="12" fill="#555555">AI 增长太快淹没老业务占比</text>
+<text x="240" y="636" font-family="'JetBrains Mono','IBM Plex Mono',monospace" font-size="12" fill="#555555">火箭还在烧（绝对值在涨），只是被盖住了</text>
+<text x="240" y="660" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" fill="#8a8784" letter-spacing="1px">→ § 3 烧钱线 R&D + Capex 双轨</text>
+
+<line x1="40" y1="690" x2="640" y2="690" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="710" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" letter-spacing="1.5px">SOURCE: SPACEX S-1 (2026-05-20)</text>
+<text x="640" y="710" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" text-anchor="end" letter-spacing="1.5px">IPO 真名 = 给 AI 数据中心找钱</text>
+</svg>

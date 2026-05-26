@@ -1,0 +1,39 @@
+<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+<title>SpaceX 三条业务线头图</title>
+<desc>火箭 + Starlink + AI 数据中心三宫格头图——对应 Ep1 三条时间线主轴</desc>
+
+<defs>
+<clipPath id="clipL"><rect x="0" y="60" width="220" height="300"/></clipPath>
+<clipPath id="clipM"><rect x="230" y="60" width="220" height="300"/></clipPath>
+<clipPath id="clipR"><rect x="460" y="60" width="220" height="300"/></clipPath>
+</defs>
+
+<rect x="0" y="0" width="680" height="480" fill="#FAF8F5"/>
+
+<text x="40" y="34" font-family="'Inter','Helvetica Neue',sans-serif" font-size="10" font-weight="500" fill="#E30613" letter-spacing="3.5px">SPACEX IPO 2026 · EP 1 · THREE PARALLEL LINES</text>
+<line x1="40" y1="48" x2="640" y2="48" stroke="#d8d4cc" stroke-width="0.5"/>
+
+<image x="-40" y="60" width="300" height="300" preserveAspectRatio="xMidYMid slice" clip-path="url(#clipL)" xlink:href="s1-images/a18_starshiplandingimage.jpg"/>
+<rect x="0" y="60" width="220" height="300" fill="none" stroke="#d8d4cc" stroke-width="0.5"/>
+<rect x="0" y="320" width="220" height="40" fill="rgba(11,11,11,0.85)"/>
+<text x="14" y="338" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#E30613" letter-spacing="2px">01 · SPACE</text>
+<text x="14" y="354" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#FFFFFF">火箭 / Starship</text>
+
+<image x="230" y="60" width="220" height="300" preserveAspectRatio="xMidYMid slice" clip-path="url(#clipM)" xlink:href="s1-images/a22_starlinkv3overview.jpg"/>
+<rect x="230" y="60" width="220" height="300" fill="none" stroke="#d8d4cc" stroke-width="0.5"/>
+<rect x="230" y="320" width="220" height="40" fill="rgba(11,11,11,0.85)"/>
+<text x="244" y="338" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#E30613" letter-spacing="2px">02 · CONNECTIVITY</text>
+<text x="244" y="354" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#FFFFFF">Starlink / 卫星网络</text>
+
+<image x="460" y="60" width="220" height="300" preserveAspectRatio="xMidYMid slice" clip-path="url(#clipR)" xlink:href="s1-images/xai_sitexscoutxx19a.jpg"/>
+<rect x="460" y="60" width="220" height="300" fill="none" stroke="#d8d4cc" stroke-width="0.5"/>
+<rect x="460" y="320" width="220" height="40" fill="rgba(11,11,11,0.85)"/>
+<text x="474" y="338" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" font-weight="500" fill="#E30613" letter-spacing="2px">03 · AI COMPUTE</text>
+<text x="474" y="354" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="500" fill="#FFFFFF">xAI / Colossus 数据中心</text>
+
+<line x1="40" y1="392" x2="640" y2="392" stroke="#d8d4cc" stroke-width="0.5"/>
+<text x="40" y="420" font-family="'Noto Serif SC','Songti SC',serif" font-size="16" font-weight="500" fill="#111111">三条业务并行跑了 24 年——</text>
+<text x="40" y="446" font-family="'Noto Serif SC','Songti SC',serif" font-size="14" font-weight="400" fill="#555555">从「造火箭公司」到「AI 接管」，这一篇拆三条平行时间线</text>
+
+<text x="640" y="470" font-family="'Inter','Helvetica Neue',sans-serif" font-size="9" fill="#888" letter-spacing="1.5px" text-anchor="end">IMAGES · SPACEX S-1 (2026-05-20)</text>
+</svg>

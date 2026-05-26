@@ -1,0 +1,86 @@
+<svg width="100%" viewBox="0 0 680 900" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>SpaceX 系列预告海报 v4（xhs 4:5 竖版）六篇定稿版</title>
+<desc>SpaceX IPO 系列预告海报 v4 定稿。米黄底墨绿主色，6 篇全列，含首发橙、压轴紫、4 种 chip 类型。</desc>
+
+<rect x="0" y="0" width="680" height="900" fill="#F5EFE0"/>
+
+<g transform="translate(40,40)">
+<rect x="0" y="0" width="600" height="210" rx="20" fill="#FFFCF5" stroke="#1B4332" stroke-width="2"/>
+
+<rect x="30" y="28" width="14" height="14" rx="3" fill="#E07A2C"/>
+<text x="52" y="40" fill="#1B4332" font-family="ui-monospace, monospace" font-size="11" font-weight="500" letter-spacing="2">SPACEX IPO LAB</text>
+<text x="540" y="40" fill="#888888" font-family="ui-monospace, monospace" font-size="10" text-anchor="end" letter-spacing="1">谷德禄氪</text>
+
+<text x="30" y="100" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="40" font-weight="700">SpaceX 招股书</text>
+<text x="30" y="146" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="40" font-weight="700">深度系列</text>
+
+<rect x="30" y="165" width="120" height="30" rx="15" fill="#E07A2C"/>
+<text x="90" y="184" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="500" text-anchor="middle">6 期连载</text>
+
+<rect x="160" y="165" width="130" height="30" rx="15" fill="none" stroke="#6B4E9C" stroke-width="1.5"/>
+<text x="225" y="184" fill="#6B4E9C" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="500" text-anchor="middle">含 2 个互动工具</text>
+
+<rect x="300" y="165" width="140" height="30" rx="15" fill="none" stroke="#1B4332" stroke-width="1"/>
+<text x="370" y="184" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="500" text-anchor="middle">600 页 S-1 拆透</text>
+</g>
+
+<g transform="translate(40,275)">
+<text x="0" y="18" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="16" font-weight="700">这个系列写什么</text>
+<text x="0" y="38" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="11">现金流 + 盈利模式 + Musk 帝国 + IPO 决策 + 招股书可视化</text>
+</g>
+
+<g transform="translate(40,330)">
+<rect x="0" y="0" width="600" height="82" rx="12" fill="#E07A2C"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#FFFCF5"/>
+<text x="532" y="27" fill="#E07A2C" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">首发</text>
+<text x="18" y="26" fill="#FFFCF5" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP1 · 5/25</text>
+<text x="18" y="52" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">融资 100 亿做完火箭，下一步砸 AI</text>
+<text x="18" y="72" fill="#FFEAD2" font-family="ui-sans-serif, system-ui" font-size="12">2026 Q1：76% 资本开支已流向 GPU</text>
+</g>
+
+<g transform="translate(40,425)">
+<rect x="0" y="0" width="600" height="82" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#1B4332"/>
+<text x="532" y="27" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">分部建模</text>
+<text x="18" y="26" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP2 · 5/29</text>
+<text x="18" y="52" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">SpaceX 三本账：谁在赚谁在烧</text>
+<text x="18" y="72" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="12">Starlink 一年 EBITDA 72 亿补贴整个集团</text>
+</g>
+
+<g transform="translate(40,520)">
+<rect x="0" y="0" width="600" height="82" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#6B4E9C"/>
+<text x="532" y="27" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">互动工具</text>
+<text x="18" y="26" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP3 · 6/02</text>
+<text x="18" y="52" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">火箭单 kg 入轨成本，互动计算器</text>
+<text x="18" y="72" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="12">F9 到 Starship，复用次数滑块自己调</text>
+</g>
+
+<g transform="translate(40,615)">
+<rect x="0" y="0" width="600" height="82" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#E07A2C"/>
+<text x="532" y="27" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">独家推演</text>
+<text x="18" y="26" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP4 · 6/06</text>
+<text x="18" y="52" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">Musk 帝国拆解 + 反向合并 Tesla 推演</text>
+<text x="18" y="72" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="12">SpaceX 估值反超 Tesla，下一步合股？</text>
+</g>
+
+<g transform="translate(40,710)">
+<rect x="0" y="0" width="600" height="82" rx="12" fill="#FFFCF5" stroke="#1B4332" stroke-width="1.5"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#1B4332"/>
+<text x="532" y="27" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">投资决策</text>
+<text x="18" y="26" fill="#1B4332" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">番外 · 6/12</text>
+<text x="18" y="52" fill="#1B4332" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">想买 SpaceX 又怕 IPO 坑？看这一篇</text>
+<text x="18" y="72" fill="#555555" font-family="ui-sans-serif, system-ui" font-size="12">美股 IPO 5 年中位回报跑输 QQQ 3.4%/年</text>
+</g>
+
+<g transform="translate(40,805)">
+<rect x="0" y="0" width="600" height="82" rx="12" fill="#6B4E9C"/>
+<rect x="478" y="12" width="108" height="22" rx="11" fill="#FFFCF5"/>
+<text x="532" y="27" fill="#6B4E9C" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="700" text-anchor="middle">压轴</text>
+<text x="18" y="26" fill="#E8DAF5" font-family="ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="2">EP5 · 6/20+</text>
+<text x="18" y="52" fill="#FFFCF5" font-family="ui-sans-serif, system-ui" font-size="18" font-weight="700">600 页招股书，AI 拆成一张图</text>
+<text x="18" y="72" fill="#D9C5EE" font-family="ui-sans-serif, system-ui" font-size="12">压轴可视化 Deck，可点开看</text>
+</g>
+
+</svg>
