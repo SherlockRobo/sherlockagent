@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>如何用好你的两个顶级员工</title>
+</head>
+<body style="margin:0; padding:0; background:#FAF7F2;">
+  <article style="max-width:720px; margin:0 auto; padding:28px 18px 42px; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; color:#1C1B19; line-height:1.85; font-size:16px; background:#FAF7F2;">
+
+    <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 10px 5px 8px; border:1px solid #1C1B19; border-radius:2px; font-size:11px; font-weight:600; letter-spacing:0.06em; background:#FFFFFF; margin-bottom:20px;">
+      <span style="width:6px; height:6px; background:#D6261E; border-radius:999px; display:inline-block;"></span>
+      谷徳禄氪 · AI 工作流 · #01
+    </div>
+
+    <div style="font-size:10.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#D6261E; margin-bottom:18px;">
+      AI COLLABORATION · PERSONAL WORKFLOW
+    </div>
+
+    <h1 style="margin:0 0 18px; line-height:1.22; letter-spacing:-0.018em; color:#1C1B19;">
+      <span style="display:block; font-size:20px; font-weight:600; color:#56544F; margin-bottom:4px;">别人还在争谁强，</span>
+      <span style="display:block; font-size:34px; font-weight:800;">我已经开始让两个顶级 AI 合作了</span>
+    </h1>
+
+    <p style="margin:0 0 18px; color:#56544F; font-size:15px; line-height:1.8;">
+      这篇不是模型测评，也不是插件教程。它讲一个更普通、更实用的问题：如果你同时在用 Claude 和 Codex，怎么把它们变成一套能交接、能执行、能验收的工作流。
+    </p>
+
+    <section style="margin:26px 0; padding:18px 18px 16px; background:#2A2520; color:#FAF7F2; border-radius:4px;">
+      <p style="margin:0 0 10px; font-size:14px; color:#D8D0C3;">先说结论：</p>
+      <p style="margin:0; font-size:18px; line-height:1.75; font-weight:600;">
+        让两个顶级 AI 合作，没你们想的那么难。难点不是比较 Claude 和 Codex 谁更强，而是先给它们分工，再给它们一个共同能读、能交接、能验收的地方。
+      </p>
+    </section>
+
+    <section style="margin:24px 0 32px; padding:18px; background:#111111; color:#F7F3EC; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.12);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; color:#AFA7A0; letter-spacing:0.12em;">WORKFLOW CLIENT</div>
+        <div style="display:flex; gap:6px;">
+          <span style="width:8px; height:8px; border-radius:99px; background:#D6261E; display:inline-block;"></span>
+          <span style="width:8px; height:8px; border-radius:99px; background:#D9A441; display:inline-block;"></span>
+          <span style="width:8px; height:8px; border-radius:99px; background:#5E8C61; display:inline-block;"></span>
+        </div>
+      </div>
+      <div style="font-size:28px; line-height:1.18; font-weight:850; letter-spacing:-0.02em; margin-bottom:8px;">如何用好你的两个顶级 AI 员工</div>
+      <div style="font-size:14px; color:#C9C2B5; margin-bottom:20px;">别人还在争谁强，我已经开始让他们合作了</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:stretch;">
+        <div style="flex:1 1 180px; padding:14px; background:#F7F3EC; color:#1C1B19; border-radius:6px;">
+          <div style="width:38px; height:38px; border-radius:99px; border:2px solid #C77753; display:flex; align-items:center; justify-content:center; font-weight:900; color:#C77753; margin-bottom:10px;">C</div>
+          <div style="font-size:20px; font-weight:850;">Claude</div>
+          <div style="font-size:12px; color:#6F6A61; line-height:1.6;">策略顾问：拆问题、定标准、看传播</div>
+        </div>
+        <div style="flex:0 0 42px; display:flex; align-items:center; justify-content:center; color:#D8D0C3; font-weight:900; font-size:22px;">+</div>
+        <div style="flex:1 1 180px; padding:14px; background:#F7F3EC; color:#1C1B19; border-radius:6px;">
+          <div style="width:38px; height:38px; border-radius:99px; border:2px solid #4D6F91; display:flex; align-items:center; justify-content:center; font-weight:900; color:#4D6F91; margin-bottom:10px;">C</div>
+          <div style="font-size:20px; font-weight:850;">Codex</div>
+          <div style="font-size:12px; color:#6F6A61; line-height:1.6;">执行工程师：读文件、跑命令、生成资产</div>
+        </div>
+      </div>
+      <div style="margin-top:14px; padding:12px 14px; border:1px solid #4A4640; border-radius:6px; color:#D8D0C3; font-size:13px; line-height:1.7;">
+        我负责目标、权限、最终验收。两个 AI 负责把可能性变成可交付结果。
+      </div>
+    </section>
+
+    <p style="margin:0 0 18px;">最近很多人在讨论 Claude Code 和 Codex 谁更强。</p>
+    <p style="margin:0 0 18px;">我一开始也会看这些比较。但真正用了一段时间以后，我发现这个问题问错了。</p>
+    <p style="margin:0 0 18px;">如果你只是把它们当两个聊天窗口，当然会纠结谁回答得更好。但如果你把它们当两个员工，问题就变成了：</p>
+
+    <div style="margin:22px 0; padding:18px; background:#FFFFFF; border-left:4px solid #D6261E; border-radius:2px; box-shadow:0 1px 0 rgba(28,27,25,0.06);">
+      <p style="margin:0 0 8px;">谁负责想清楚？</p>
+      <p style="margin:0 0 8px;">谁负责做出来？</p>
+      <p style="margin:0 0 8px;">它们在哪里交接？</p>
+      <p style="margin:0;">最后由谁验收？</p>
+    </div>
+
+    <p style="margin:0 0 18px;">这时候，模型强弱反而不是第一问题。真正重要的是管理方法。</p>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 01 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 分工</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">Claude 负责想清楚，Codex 负责做出来</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">我的用法很简单。</p>
+    <p style="margin:0 0 18px;"><strong style="color:#D6261E; font-weight:600;">Claude 更适合做大脑。</strong>它负责理解需求、拆解问题、制定标准、判断方向。</p>
+    <p style="margin:0 0 18px;"><strong style="color:#D6261E; font-weight:600;">Codex 更适合做双手。</strong>它负责读文件、跑命令、整理内容、生成最终资产。</p>
+    <p style="margin:0 0 18px;">我不需要它们互相替代。我需要它们像一个小团队一样协作。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">角色</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">负责什么</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">我</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">定方向、给权限、验收结果</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Claude</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">想清楚、拆任务、定标准</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Codex</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">读文件、跑命令、生成资产</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Obsidian</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">初级图书馆和交接现场</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section style="margin:26px 0 34px; padding:16px; border:1px solid #D8D0C3; background:#FFFDF8; border-radius:6px;">
+      <div style="text-align:center; font-size:18px; font-weight:800; color:#1C1B19; margin-bottom:14px;">我的双 AI 配合方式</div>
+      <div style="padding:10px 12px; margin:0 auto 14px; max-width:430px; border:1px solid #1C1B19; background:#FFFFFF; border-radius:6px; text-align:center;">
+        <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.12em; color:#8A877F; font-weight:700;">HUMAN</div>
+        <div style="font-size:17px; font-weight:800; margin-top:2px;">我：目标、权限、最终验收</div>
+        <div style="font-size:12px; color:#6F6A61; margin-top:2px;">一句自然语言指令 + 最后一票裁决</div>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:stretch; justify-content:center; flex-wrap:wrap;">
+        <div style="flex:1 1 230px; min-width:220px; padding:16px 14px; border:2px solid #4D6F91; background:#F8FBFF; border-radius:8px;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.12em; color:#4D6F91; font-weight:800;">EXECUTOR · MAIN LOOP</div>
+          <div style="font-size:26px; line-height:1.1; font-weight:900; color:#1C1B19; margin:10px 0 4px;">Codex</div>
+          <div style="font-size:13px; color:#56544F; line-height:1.65;">每一轮都在现场：读文件、改文件、跑命令、生成资产。</div>
+        </div>
+
+        <div style="flex:1 1 230px; min-width:220px; padding:16px 14px; border:2px dashed #C77753; background:#FFF2EA; border-radius:8px;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.12em; color:#B35F3D; font-weight:800;">ADVISOR · ON DEMAND</div>
+          <div style="font-size:26px; line-height:1.1; font-weight:900; color:#1C1B19; margin:10px 0 4px;">Claude</div>
+          <div style="font-size:13px; color:#56544F; line-height:1.65;">关键时刻介入：拆问题、定标准、看传播、挑盲区。</div>
+        </div>
+      </div>
+
+      <div style="margin:14px auto 0; max-width:520px; padding:13px 14px; border:1px solid #9C8A75; background:#EFE8DD; border-radius:8px; text-align:center;">
+        <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.12em; color:#7A6A57; font-weight:800;">SHARED CONTEXT</div>
+        <div style="font-size:18px; font-weight:850; margin-top:4px;">Obsidian / project.md / topic_scoring_rules.md</div>
+        <div style="font-size:12px; color:#6F6A61; margin-top:2px;">Codex 读写，Claude 复核，两边都看同一份上下文</div>
+      </div>
+
+      <div style="margin-top:14px; padding-top:12px; border-top:1px solid #E3DED4; color:#6F6A61; font-size:12px; line-height:1.7;">
+        这张图对应 Claude 官方的 Advisor Strategy：不是谁替代谁，而是让执行者跑主循环，让顾问只在关键判断时出现。真正省钱的不是少用强模型，而是让强模型只出现在值得它出现的地方。
+      </div>
+    </section>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 02 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 不要一把梭</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">为什么不要让一个 AI 从头干到尾</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">我之前看到一个代码场景里的 Cross-Model 工作流：一个模型写代码，另一个模型审查。</p>
+    <p style="margin:0 0 18px;">这个思路对写作、选题、知识库整理也成立。</p>
+    <p style="margin:0 0 18px;">如果让同一个 AI 自己定选题、自己写稿、自己判断能不能发，它很容易沿着自己的思路一路合理化。</p>
+    <p style="margin:0 0 18px;">换一个模型进来，不是为了证明谁更强，而是为了换一双眼睛：一个负责搭结构，一个负责挑漏洞，一个负责把结果落成文件。</p>
+
+    <div style="margin:22px 0; padding:18px; background:#FFFFFF; border:1px solid #E3DED4; border-radius:4px;">
+      <p style="margin:0 0 8px; color:#D6261E; font-weight:700;">重要任务至少拆成三步：</p>
+      <p style="margin:0 0 8px;">1. 一个 AI 出方案；</p>
+      <p style="margin:0 0 8px;">2. 另一个 AI 从不同角度审；</p>
+      <p style="margin:0;">3. 人做最终裁决，并把结论写回项目文档。</p>
+    </div>
+
+    <p style="margin:0 0 18px;">这也是我后来不再追求“单个 AI 一把梭”的原因。真正稳定的工作流，不是一个 AI 从头干到尾，而是不同 AI 在同一份文档上交叉补盲。</p>
+
+    <section style="margin:24px 0 32px; padding:18px; border:1px solid #D8D0C3; background:#FFFDF8; border-radius:8px;">
+      <div style="font-size:18px; font-weight:850; text-align:center; margin-bottom:16px;">不要让 AI 自己审自己</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="flex:1 1 240px; padding:14px; background:#FFFFFF; border:1px solid #E3DED4; border-radius:6px;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; color:#8A877F; letter-spacing:0.12em; font-weight:800; margin-bottom:10px;">SINGLE MODEL LOOP</div>
+          <div style="padding:10px; border:1px solid #D8D0C3; border-radius:4px; text-align:center; font-weight:800;">同一个 AI</div>
+          <div style="margin:10px 0; text-align:center; color:#8A877F; font-weight:900;">↓</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; font-size:12px; text-align:center;">
+            <div style="padding:8px 4px; background:#F1ECE4; border-radius:4px;">定题</div>
+            <div style="padding:8px 4px; background:#F1ECE4; border-radius:4px;">写稿</div>
+            <div style="padding:8px 4px; background:#F1ECE4; border-radius:4px;">自审</div>
+          </div>
+          <div style="margin-top:10px; color:#6F6A61; font-size:12px; line-height:1.6;">问题：容易沿着同一套逻辑一路合理化。</div>
+        </div>
+        <div style="flex:1 1 240px; padding:14px; background:#FFFFFF; border:1px solid #E3DED4; border-radius:6px;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; color:#D6261E; letter-spacing:0.12em; font-weight:800; margin-bottom:10px;">CROSS MODEL REVIEW</div>
+          <div style="display:grid; grid-template-columns:1fr; gap:8px;">
+            <div style="padding:10px; border:1px solid #C77753; border-radius:4px; background:#FFF2EA;"><strong>Claude</strong>：拆问题、挑传播盲区</div>
+            <div style="padding:10px; border:1px solid #4D6F91; border-radius:4px; background:#F8FBFF;"><strong>Codex</strong>：查文件、跑数据、落资产</div>
+            <div style="padding:10px; border:1px solid #1C1B19; border-radius:4px; background:#FAF7F2;"><strong>我</strong>：裁决、排产、验收</div>
+          </div>
+          <div style="margin-top:10px; color:#6F6A61; font-size:12px; line-height:1.6;">价值：不是堆算力，而是换视角。</div>
+        </div>
+      </div>
+    </section>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 03 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 初级图书馆</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">第一步不是提示词，是先搭一个共同图书馆</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">两个员工要合作，第一步不是装更多插件，也不是写更复杂的提示词。</p>
+    <p style="margin:0 0 18px;">第一步是先有一个它们都能读的地方。</p>
+    <p style="margin:0 0 18px;">我把 Obsidian 当成一个初级图书馆。它不用一开始就很高级，也不用马上变成所谓第二大脑。</p>
+    <p style="margin:0 0 18px;">它最重要的作用只有一个：让资料、任务、项目、产物都有固定位置。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">目录</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">作用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,monospace;">todo/</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">新想法、新任务入口</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,monospace;">projects/</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Claude 和 Codex 的协作现场</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,monospace;">writing/</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">最终发布资产仓库</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,monospace;">templates/</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">模板、SOP、格式规则</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,monospace;">knowledge/</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">长期知识、资料、经验沉淀</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin:22px 0; padding:16px; background:#1C1B19; color:#FAF7F2; border-radius:4px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px; line-height:1.8;">
+      todo 是入口，projects 是协作现场，writing 是交付仓库。
+    </div>
+
+    <section style="margin:24px 0 32px; padding:16px; background:#1E1E1E; color:#F7F3EC; border-radius:8px;">
+      <div style="display:flex; gap:14px; align-items:stretch;">
+        <div style="width:36%; min-width:150px; padding:12px; background:#2A2A2A; border-radius:6px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12px; line-height:1.9;">
+          <div style="color:#8A877F; font-size:10px; letter-spacing:0.12em; margin-bottom:8px;">OBSIDIAN</div>
+          <div style="color:#F7F3EC;">▸ todo/</div>
+          <div style="color:#F7F3EC;">▸ projects/</div>
+          <div style="color:#F7F3EC;">▸ writing/</div>
+          <div style="color:#F7F3EC;">▸ templates/</div>
+          <div style="color:#F7F3EC;">▸ knowledge/</div>
+        </div>
+        <div style="flex:1; padding:14px; background:#F7F3EC; color:#1C1B19; border-radius:6px;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; color:#D6261E; font-weight:800; margin-bottom:8px;">/_AI-README.md</div>
+          <div style="font-size:20px; font-weight:850; margin-bottom:10px;">先给两个 AI 一个共同图书馆</div>
+          <div style="font-size:13px; line-height:1.7; color:#56544F;">
+            todo 是入口<br>
+            projects 是协作现场<br>
+            writing 是交付仓库
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 04 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 踩坑</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">有了图书馆还不够，我还在当图书管理员</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">我一开始以为，把资料都放进 Obsidian，AI 就能自己用了。</p>
+    <p style="margin:0 0 18px;">后来发现不是。</p>
+    <p style="margin:0 0 18px;">Obsidian 只是图书馆。如果没有目录，Claude 和 Codex 进来以后也会迷路。</p>
+    <p style="margin:0 0 18px;">于是我每次都在重复解释：这个想法在 todo，这个项目在 projects，发布稿要放 writing，模板在 templates。</p>
+    <p style="margin:0 0 18px;">这时候我才意识到，我不是在用 AI 干活，我是在给 AI 当图书管理员。</p>
+
+    <section style="margin:24px 0 32px; padding:18px; background:#FFFDF8; border:1px solid #D8D0C3; border-radius:8px;">
+      <div style="font-size:18px; font-weight:850; margin-bottom:14px; text-align:center;">我不是在用 AI 干活，我是在给 AI 当图书管理员</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="flex:1 1 230px; padding:14px; background:#FFFFFF; border:1px solid #E3DED4; border-radius:6px;">
+          <div style="font-size:13px; color:#D6261E; font-weight:800; margin-bottom:10px;">每次重复解释</div>
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12px; line-height:1.9; color:#56544F;">
+            这个想法在 todo<br>
+            当前项目在 projects<br>
+            发布稿放 writing<br>
+            模板在 templates
+          </div>
+        </div>
+        <div style="flex:1 1 230px; padding:14px; background:#1C1B19; color:#FAF7F2; border-radius:6px;">
+          <div style="font-size:13px; color:#D8D0C3; font-weight:800; margin-bottom:10px;">目录卡解决什么</div>
+          <div style="font-size:13px; line-height:1.9;">
+            先读入口文档<br>
+            项目有索引<br>
+            交付有固定位置<br>
+            结果写回文档
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; padding:10px 12px; background:#EFE8DD; border-radius:6px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12px; color:#56544F;">
+        文件已更新：_AI-README.md / project.md
+      </div>
+    </section>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 05 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 目录卡</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">给 AI 建目录卡，它才真的能交接</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">后来我做了一个很小的改动：给 AI 写目录卡。</p>
+    <p style="margin:0 0 18px;">不是写长篇说明，而是固定告诉它：从哪里开始读，当前项目在哪里，哪些文件是关键资料，产物最后应该放到哪里。</p>
+    <p style="margin:0 0 18px;">初级图书馆至少需要四样东西。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">组件</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">作用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">入口文档</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">告诉 AI 从哪里开始</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">项目索引</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">告诉 AI 当前项目有哪些文件</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">交接文档</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">告诉另一个 AI 前一个 AI 做了什么</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">交付规则</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">告诉 AI 产物应该放哪里</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin:0 0 14px;">我现在会尽量固定两个入口：</p>
+    <div style="margin:18px 0; padding:14px 16px; background:#1C1B19; color:#FAF7F2; border-radius:4px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px; line-height:1.8;">
+      /_AI-README.md<br>
+      projects/&lt;project-name&gt;/project.md
+    </div>
+
+    <p style="margin:0 0 18px;">这一步做好以后，Claude 和 Codex 才真的能通过文档交接。</p>
+
+    <section style="margin:24px 0 32px; padding:18px; background:#FFFDF8; border:1px solid #D8D0C3; border-radius:8px;">
+      <div style="font-size:18px; font-weight:850; text-align:center; margin-bottom:16px;">文档握手：两个 AI 不靠我反复传话</div>
+      <div style="display:grid; grid-template-columns:1fr; gap:9px;">
+        <div style="padding:11px 12px; background:#FFFFFF; border-left:4px solid #1C1B19; border-radius:4px;"><strong>1. _AI-README.md</strong>：告诉 AI 从哪里开始</div>
+        <div style="padding:11px 12px; background:#FFFFFF; border-left:4px solid #C77753; border-radius:4px;"><strong>2. Claude</strong>：写判断标准和任务拆解</div>
+        <div style="padding:11px 12px; background:#FFFFFF; border-left:4px solid #4D6F91; border-radius:4px;"><strong>3. Codex</strong>：按标准读写文件、生成资产</div>
+        <div style="padding:11px 12px; background:#FFFFFF; border-left:4px solid #5E8C61; border-radius:4px;"><strong>4. writing/</strong>：交付稿、配图、HTML 都回到发布库</div>
+      </div>
+      <div style="margin-top:12px; padding:10px 12px; background:#1C1B19; color:#FAF7F2; border-radius:6px; font-size:13px;">
+        输入框：请先读 project.md，再继续执行。
+      </div>
+    </section>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 06 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 三种模式</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">不是所有事情都要全自动</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">现在我大概按三种方式使用它们。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">模式</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">适合场景</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">不适合场景</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">我来传递</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">新任务、方向不清、需要判断</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">高频重复任务</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">文档握手</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">项目制、内容生产、知识库、长期任务</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">临时一次性小事</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">直接行动</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">低风险、规则明确、可回滚任务</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">金钱、隐私、对外承诺</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin:0 0 18px;">第一种，我来传话。适合刚开始、方向不清、需要我判断的任务。</p>
+    <p style="margin:0 0 18px;">第二种，文档握手。适合长期项目、内容生产、知识库整理。</p>
+    <p style="margin:0 0 18px;">第三种，直接行动。适合规则明确、低风险、可回滚的任务。</p>
+    <p style="margin:0 0 18px;">能自动化，不代表应该全自动。尤其是涉及金钱、隐私、对外承诺的事情，人一定要在最后一步。</p>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 07 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 一个真实案例</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">我是怎么把一次 AI 对话变成自媒体选题 Skill 的</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">这里我讲一个真实案例，不是想象中的流程。</p>
+    <p style="margin:0 0 18px;">那天我遇到的问题很具体：我已经发过不少小红书内容，也有几篇公众号，但下一阶段到底应该主打什么？AI 工作流、投研工具、半导体、数码装备、消费 howto，好像都能写。</p>
+    <p style="margin:0 0 18px;">如果只凭感觉，我很容易被当天看到的热点带着走。于是我把自己过去的小红书内容整理成资产库，让 Codex 和 Claude 分别评审：下一阶段到底该写什么，不该写什么。</p>
+    <p style="margin:0 0 18px;">这次任务的目标不是“让 AI 给我几个选题”。目标是做出一套以后能反复用的选题规则。</p>
+
+    <div style="margin:22px 0; padding:18px; background:#FFFFFF; border:1px solid #E3DED4; border-radius:4px;">
+      <p style="margin:0 0 10px; color:#D6261E; font-weight:700;">真实任务输入：</p>
+      <p style="margin:0 0 8px;">1. 我过去的小红书历史内容和栏目表现；</p>
+      <p style="margin:0 0 8px;">2. 外部热门内容代理数据，用来判断平台趋势；</p>
+      <p style="margin:0 0 8px;">3. 我自己的内容定位：AI 使用能力、投研工具化、内容工作流；</p>
+      <p style="margin:0;">4. 一个现实问题：下一批内容到底应该优先写什么。</p>
+    </div>
+
+    <p style="margin:0 0 18px;">这次对话没有停留在聊天窗口里。我把过程保存成了几份 md 文件：<span style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px;">codex-claude-topic-review-20260526.md</span>、<span style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px;">dialogue-log-20260526-claude-benchmark-round2.md</span>、<span style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px;">topic_scoring_rules.md</span>。</p>
+    <p style="margin:0 0 18px;">也就是说，这不是“我和 AI 聊得很开心”。这是一次真正的工作交接。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">AI</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">它看什么</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">这次结论</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Codex</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">历史数据、栏目归类、平台适配、资产复用</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">AI 工作流 / Creator OS 90 分，AI 半导体 / 投研工具 88 分</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Claude</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">标题张力、读者动机、情绪价值、公众号迁移</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">AI 工作流 / Creator OS 综合 91，白皮书转 SOP / Skill / Agent 综合 88</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">我</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">是否符合长期定位，是否值得排产</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">把“AI 工作流”和“内容工作流”定为公众号资产线</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin:0 0 18px;">第一轮，Codex 先从策略和数据角度做判断。它把内容分成几个主题簇：AI 工作流 / Creator OS、AI 半导体 / 投研工具、白皮书转资产、账号拆解实验室、AI 工具购买避坑、数码生活 howto、每日热点扫描、泛活动稿。</p>
+    <p style="margin:0 0 18px;">它给出的判断很直接：AI 工作流 / Creator OS 最像长期主线，AI 半导体 / 投研工具有差异化和壁垒；泛活动稿、普通消费种草、每日热点大杂烩要降权。</p>
+    <p style="margin:0 0 18px;">第二轮，我把这个判断交给 Claude 复评。Claude 没有简单同意，而是从传播和读者感受出发，提醒我：小红书是短图文和情绪钩子，公众号是中长文和方法论沉淀，不能把小红书原文直接拉长。</p>
+    <p style="margin:0 0 18px;">这句话对我很有用。因为它把平台分工说清楚了：小红书负责测试钩子，公众号负责沉淀系统。</p>
+
+    <p style="margin:0 0 18px;">更关键的是，它们并不是每个地方都一致。</p>
+    <p style="margin:0 0 18px;">以前我会觉得 AI 分歧很麻烦，好像还要我多判断一次。后来我发现，分歧反而是最有价值的地方：它说明这个选题同时存在两个真问题，一个是“值不值得做”，另一个是“别人为什么要看”。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">选题方向</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">Codex 判断</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">Claude 提醒</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">我的决策</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">AI 工作流</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">长期主线，资产复用强</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">容易写成工具党教程</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">保留主线，必须绑定真实案例</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">数码装备</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">热度和互动入口强</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">容易稀释定位</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">只做 AI 场景里的装备效率</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">投研工具</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">壁垒高，收藏和信任强</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">传播门槛高，大众不一定点</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">做成场景化工具，不追泛流量</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">AI 热点</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">适合 48h 拉新</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">容易变成大杂烩</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">只做“AI 破风手”视角</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin:0 0 18px;">这种时候，不是让它们继续争赢。</p>
+    <p style="margin:0 0 18px;"><strong style="color:#D6261E; font-weight:700;">这种时候我来决策。</strong></p>
+    <p style="margin:0 0 18px;">因为账号不是它们的，风险不是它们承担，长期定位也不是它们负责。AI 可以扩大可能性，但哪个可能性变成我的内容资产，必须由我拍板。</p>
+
+    <section style="margin:24px 0 32px; padding:18px; background:#111111; color:#F7F3EC; border-radius:8px;">
+      <div style="font-size:18px; font-weight:850; text-align:center; margin-bottom:16px;">选题分歧不是噪音，是决策输入</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:stretch;">
+        <div style="flex:1 1 180px; padding:14px; background:#F8FBFF; color:#1C1B19; border-radius:6px; border-top:4px solid #4D6F91;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.12em; color:#4D6F91; font-weight:800;">CODEX</div>
+          <div style="font-size:18px; font-weight:850; margin:8px 0;">值不值得做</div>
+          <div style="font-size:12px; color:#56544F; line-height:1.7;">历史数据、栏目验证、平台扩展、资产复用</div>
+        </div>
+        <div style="flex:1 1 180px; padding:14px; background:#FFF2EA; color:#1C1B19; border-radius:6px; border-top:4px solid #C77753;">
+          <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; letter-spacing:0.12em; color:#B35F3D; font-weight:800;">CLAUDE</div>
+          <div style="font-size:18px; font-weight:850; margin:8px 0;">别人为什么看</div>
+          <div style="font-size:12px; color:#56544F; line-height:1.7;">标题张力、读者动机、情绪价值、传播门槛</div>
+        </div>
+      </div>
+      <div style="margin:14px 0; text-align:center; color:#D8D0C3; font-weight:900; letter-spacing:0.2em;">↓</div>
+      <div style="padding:15px; background:#F7F3EC; color:#1C1B19; border-radius:6px; text-align:center;">
+        <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:10px; color:#D6261E; letter-spacing:0.12em; font-weight:800;">HUMAN DECISION</div>
+        <div style="font-size:22px; font-weight:900; margin-top:6px;">我来裁决：排产 / 降权 / 暂缓 / 放弃</div>
+      </div>
+    </section>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">文件</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">沉淀了什么</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12px;">codex-claude-topic-review-20260526.md</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Codex 第一轮策略判断 + Claude 第一轮传播评审</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12px;">dialogue-log-20260526-claude-benchmark-round2.md</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">第二轮对话：自有历史数据 + 外部热门数据 + Claude 复评</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12px;">topic_scoring_rules.md</td>
+          <td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">最终选题评分公式、栏目加权、双 Agent 分歧规则</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin:0 0 18px;">Codex 更像策略和数据角色。它会关注历史内容、栏目归类、平台适配、复用价值。</p>
+    <p style="margin:0 0 18px;">Claude 更像传播和叙事角色。它会关注标题张力、读者动机、情绪价值，以及这件事能不能写成公众号长文。</p>
+    <p style="margin:0 0 18px;">我不是在中间当传话筒。我做的是主编判断：哪些进入排产，哪些降权，哪些先不要写，哪些虽然数据一般但值得长期做。</p>
+
+    <div style="margin:22px 0; padding:16px; background:#FFFFFF; border:1px solid #E3DED4; border-radius:4px;">
+      <p style="margin:0 0 10px; color:#D6261E; font-weight:700;">这次对话最有价值的地方，不是它们给了几个选题。</p>
+      <p style="margin:0;">而是我发现：如果不把这次对话沉淀成规则，下次还是要重新解释一遍。</p>
+    </div>
+
+    <p style="margin:0 0 18px;">所以我把它整理成了选题评分规则：定位契合、热度、历史验证、读者价值、平台扩展、资产复用。</p>
+    <p style="margin:0 0 18px;">最后落下来的不是一句“AI 工作流值得写”，而是一套可以继续跑的规则：新选题先过历史资产库，再由 Codex 做策略初筛，重要选题再让 Claude 做传播复评，最后由我裁决是否排产。</p>
+    <p style="margin:0 0 18px;">到这一步，它才从一次 AI 对话，变成了一个可以复用的自媒体选题 Skill。</p>
+
+    <table style="width:100%; border-collapse:collapse; margin:22px 0; background:#FFFFFF; font-size:14px;">
+      <thead>
+        <tr>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">模块</th>
+          <th style="padding:10px 8px; border-top:1.5px solid #1C1B19; border-bottom:1.5px solid #1C1B19; text-align:left; font-weight:700;">规则</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">输入</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">想法、历史内容、平台、目标读者、制作成本</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Codex 负责</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">定位、历史验证、平台扩展、资产复用</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">Claude 负责</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">标题、情绪价值、学习价值、读者动机</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">人负责</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">处理分歧，决定是否排产</td></tr>
+        <tr><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">输出</td><td style="padding:10px 8px; border-bottom:1px solid #D8D0C3;">S/A/B/C/D 评级、是否写、发哪个平台、沉淀什么资产</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin:22px 0; padding:16px; background:#1C1B19; color:#FAF7F2; border-radius:4px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px; line-height:1.8;">
+      总分 = 主题/定位契合 25<br>
+      + 热度 20<br>
+      + 栏目/历史验证 20<br>
+      + 读者价值 15<br>
+      + 平台扩展 15<br>
+      + 资产复用 5
+    </div>
+
+    <section style="margin:24px 0 32px; padding:18px; background:#FFFDF8; border:1px solid #D8D0C3; border-radius:8px;">
+      <div style="font-size:18px; font-weight:850; text-align:center; margin-bottom:16px;">一次对话，怎么变成可复用的 Skill</div>
+      <div style="display:grid; grid-template-columns:1fr; gap:8px;">
+        <div style="padding:11px 12px; background:#FFFFFF; border-radius:6px; border:1px solid #E3DED4;">
+          <strong>历史内容资产库</strong><br>
+          <span style="color:#6F6A61; font-size:13px;">过去发过什么、表现如何、哪些能复用</span>
+        </div>
+        <div style="text-align:center; color:#8A877F; font-weight:900;">↓</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div style="flex:1 1 170px; padding:11px 12px; background:#F8FBFF; border:1px solid #4D6F91; border-radius:6px;"><strong>Codex 初筛</strong><br><span style="color:#56544F; font-size:13px;">策略 / 数据 / 平台</span></div>
+          <div style="flex:1 1 170px; padding:11px 12px; background:#FFF2EA; border:1px solid #C77753; border-radius:6px;"><strong>Claude 复评</strong><br><span style="color:#56544F; font-size:13px;">传播 / 叙事 / 读者</span></div>
+        </div>
+        <div style="text-align:center; color:#8A877F; font-weight:900;">↓</div>
+        <div style="padding:11px 12px; background:#1C1B19; color:#FAF7F2; border-radius:6px;">
+          <strong>我裁决分歧</strong><br>
+          <span style="color:#D8D0C3; font-size:13px;">决定什么写、什么不写、发哪个平台</span>
+        </div>
+        <div style="text-align:center; color:#8A877F; font-weight:900;">↓</div>
+        <div style="padding:11px 12px; background:#EFE8DD; border:1px solid #9C8A75; border-radius:6px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px;">
+          topic_scoring_rules.md → 自媒体选题 Skill
+        </div>
+      </div>
+    </section>
+
+    <header style="margin:46px 0 18px; padding-top:22px; border-top:1px solid #EDE8DF;">
+      <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; color:#D6261E; margin-bottom:8px;">
+        § 08 <span style="color:#8A877F; margin-left:10px; font-weight:500;">· 最低门槛</span>
+      </div>
+      <h2 style="margin:0; font-size:22px; font-weight:700; line-height:1.32; letter-spacing:-0.015em; color:#1C1B19;">普通人先从手动传话开始</h2>
+    </header>
+
+    <p style="margin:0 0 18px;">如果你刚开始，不用一上来就追求全自动。</p>
+    <p style="margin:0 0 18px;">先从最简单的方式开始：让 Claude 帮你想清楚，你复制给 Codex，让 Codex 在本地做出来。</p>
+    <p style="margin:0 0 18px;">等这个流程跑通一次，再去做 Obsidian 文档握手。再往后，才是小范围自动化。</p>
+
+    <section style="margin:24px 0 32px; padding:18px; background:#1E1E1E; color:#F7F3EC; border-radius:8px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+        <div style="font-size:18px; font-weight:850;">自媒体选题 Skill 实操面板</div>
+        <div style="font-family:'SF Mono',Menlo,Consolas,monospace; font-size:11px; color:#AFA7A0;">RUNNING</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr; gap:8px;">
+        <div style="padding:10px 12px; background:#2A2A2A; border-radius:6px; border-left:4px solid #5E8C61;">todo 已读取：下一批内容优先写什么</div>
+        <div style="padding:10px 12px; background:#2A2A2A; border-radius:6px; border-left:4px solid #C77753;">Claude 已输出：传播评审标准</div>
+        <div style="padding:10px 12px; background:#2A2A2A; border-radius:6px; border-left:4px solid #4D6F91;">Codex 已生成：评分规则和模板</div>
+        <div style="padding:10px 12px; background:#2A2A2A; border-radius:6px; border-left:4px solid #D9A441;">project.md 已更新：分歧与裁决记录</div>
+        <div style="padding:10px 12px; background:#F7F3EC; color:#1C1B19; border-radius:6px; border-left:4px solid #D6261E;">writing 待交付：公众号 HTML、配图、发布文案</div>
+      </div>
+    </section>
+
+    <section style="margin:30px 0 8px; padding:20px 18px; background:#2A2520; color:#FAF7F2; border-radius:4px;">
+      <p style="margin:0 0 14px; color:#D8D0C3; font-size:14px;">最后总结一下：</p>
+      <p style="margin:0 0 12px; font-size:17px; line-height:1.8; font-weight:600;">让两个顶级 AI 合作，没你们想的那么难。</p>
+      <p style="margin:0 0 12px; font-size:17px; line-height:1.8; font-weight:600;">难的是先给它们分工，再给它们一个能交接的地方。</p>
+      <p style="margin:0; font-size:17px; line-height:1.8; font-weight:600;">别急着追求全自动。先让它们像两个靠谱员工一样，把同一件事做清楚。</p>
+    </section>
+
+    <p style="margin:26px 0 0; color:#56544F; font-size:14px; line-height:1.8;">
+      我后面会继续把这套流程拆开：Obsidian 初级图书馆怎么搭、project.md 怎么写、Claude 和 Codex 怎么通过文档交接、以及这个自媒体选题 Skill 怎么真正跑起来。
+      <span style="display:inline-block; width:8px; height:8px; background:#D6261E; margin-left:5px;"></span>
+    </p>
+
+  </article>
+</body>
+</html>
